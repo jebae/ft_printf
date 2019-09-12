@@ -1,0 +1,9 @@
+.*.swp
+*.swp
+*.s*
+*.o
+dumbmain.c
+*.a
+*.out
+*.dSYM
+test
