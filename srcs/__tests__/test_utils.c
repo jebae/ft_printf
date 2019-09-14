@@ -3,5 +3,8 @@
 void		test(int res, const char *msg)
 {
 	if (!res)
-		printf(KRED "%s\n" KNRM, msg);
+	{
+		printf(KRED "[FAILED] " KNRM);
+		printf("%s\n", msg);
+	}
 }

@@ -39,11 +39,15 @@ LIBS = -L ./$(LIBFT_PATH) -lft
 # srcs
 SRC_FT_PRINTF = ft_printf.c\
 
-SRC_HANDLE_TAGS = flag.c\
+SRC_TAGS = init_tags.c\
+	flag.c\
+	width.c\
+	precision.c\
+	length.c\
 
 # objs
 #OBJS = $(addprefix $(OBJDIR)/, $(SRC_FT_PRINTF:.c=.o))
-OBJS = $(addprefix $(OBJDIR)/, $(SRC_HANDLE_TAGS:.c=.o))
+OBJS = $(addprefix $(OBJDIR)/, $(SRC_TAGS:.c=.o))
 
 # compile objs
 HEADERS = $(INCDIR)/ft_printf.h\
@@ -52,7 +56,7 @@ HEADERS = $(INCDIR)/ft_printf.h\
 $(OBJDIR)/%.o : $(SRCDIR)/%.c $(HEADERS)
 	@$(call compile_obj,$<,$@)
 
-$(OBJDIR)/%.o : $(SRCDIR)/handle_tags/%.c $(HEADERS)
+$(OBJDIR)/%.o : $(SRCDIR)/parse_tags/%.c $(HEADERS)
 	@$(call compile_obj,$<,$@)
 
 # build

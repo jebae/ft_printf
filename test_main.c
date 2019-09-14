@@ -1,25 +1,28 @@
-#include <stdio.h>
+#include "ft_printf.test.h"
 
 int		main(void)
 {
-	/*
-	// handle_tags
-	test_handle_flag_case1();
-	test_handle_flag_case2();
-	test_handle_flag_case3();
-	test_handle_flag_case4();
-	test_handle_flag_case5();
-	*/
+	// tags
+	test_init_tags_case1();
 
-	int		res;
+	test_parse_flag_case1();
+	test_parse_flag_case2();
+	test_parse_flag_case3();
+	test_parse_flag_case4();
+	test_parse_flag_case5();
 
-	res = printf("%-+10d$\n", 123);
-	printf("res : %d\n", res);
-	res = printf("%+-10d$\n", 123);
-	printf("res : %d\n", res);
-	res = printf("%--10d$\n", 123);
-	printf("res : %d\n", res);
-	res = printf("% 10d$\n", -123);
-	printf("res : %d\n", res);
+	test_parse_width_case1();
+	test_parse_width_case2();
+
+	test_parse_precision_case1();
+	test_parse_precision_case2();
+	test_parse_precision_case3();
+
+	test_parse_length_case1();
+	test_parse_length_case2();
+	test_parse_length_case3();
+	test_parse_length_case4();
+	test_parse_length_case5();
+	test_parse_length_case6();
 	return (0);
 }
