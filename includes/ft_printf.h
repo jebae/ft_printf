@@ -21,6 +21,11 @@
 */
 # define FP_BUFFER_SIZE				64
 
+/*
+** math macros
+*/
+# define ABS_SMALLER_THEN(X, Y) (((X) > -(Y)) && ((X) < (Y)))
+
 typedef struct	s_fp_buffer
 {
 	char	mem[FP_BUFFER_SIZE];
@@ -36,17 +41,17 @@ typedef struct	s_fp_tags
 
 typedef union	u_fp_arg_data
 {
-	long long	i;
-	double		f;
-	long double	lf;
-	void		*ptr;
+	long long		i;
+	double			f;
+	long double		lf;
+	void			*ptr;
 }				t_fp_arg_data;
 
 typedef struct	s_fp_arg
 {
 	t_fp_arg_data	data;
-	size_t			(*get_length)(t_fp_arg_data *data);
-	size_t			(*write_content)(t_fp_arg_data *data, t_fp_buffer *buf);
+	size_t			(*length)(t_fp_arg_data *data, t_fp_tags *tags);
+	void			(*write)(t_fp_arg_data *data, t_fp_buffer *buf);
 }				t_fp_arg;
 
 /*
@@ -57,5 +62,26 @@ size_t			fp_parse_flag(const char *format, t_fp_tags *tags);
 size_t			fp_parse_width(const char *format, t_fp_tags *tags);
 size_t			fp_parse_precision(const char *format, t_fp_tags *tags);
 size_t			fp_parse_length(const char *format, t_fp_tags *tags);
+
+/*
+** arg_length
+*/
+size_t			fp_int_length(long long num);
+size_t			fp_uint_length(unsigned long long num);
+size_t			fp_double_int_part_length(double num);
+
+size_t			fp_arg_d_length(t_fp_arg_data *data, t_fp_tags *tags);
+size_t			fp_arg_hd_length(t_fp_arg_data *data, t_fp_tags *tags);
+size_t			fp_arg_hhd_length(t_fp_arg_data *data, t_fp_tags *tags);
+size_t			fp_arg_ld_length(t_fp_arg_data *data, t_fp_tags *tags);
+size_t			fp_arg_lld_length(t_fp_arg_data *data, t_fp_tags *tags);
+
+size_t			fp_arg_u_length(t_fp_arg_data *data, t_fp_tags *tags);
+size_t			fp_arg_hu_length(t_fp_arg_data *data, t_fp_tags *tags);
+size_t			fp_arg_hhu_length(t_fp_arg_data *data, t_fp_tags *tags);
+size_t			fp_arg_lu_length(t_fp_arg_data *data, t_fp_tags *tags);
+size_t			fp_arg_llu_length(t_fp_arg_data *data, t_fp_tags *tags);
+
+size_t			fp_arg_f_length(t_fp_arg_data *data, t_fp_tags *tags);
 
 #endif

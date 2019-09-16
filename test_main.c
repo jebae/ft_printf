@@ -24,5 +24,87 @@ int		main(void)
 	test_parse_length_case4();
 	test_parse_length_case5();
 	test_parse_length_case6();
+
+	// arg_length
+	test_int_length_case1();
+	test_int_length_case2();
+	test_int_length_case3();
+	test_int_length_case4();
+	test_int_length_case5();
+	test_int_length_case6();
+	test_int_length_case7();
+	test_int_length_case8();
+
+	test_uint_length_case1();
+	test_uint_length_case2();
+	test_uint_length_case3();
+	test_uint_length_case4();
+	test_uint_length_case5();
+	test_uint_length_case6();
+	test_uint_length_case7();
+	test_uint_length_case8();
+
+	test_double_int_part_length_case1();
+	test_double_int_part_length_case2();
+	test_double_int_part_length_case3();
+	test_double_int_part_length_case4();
+	test_double_int_part_length_case5();
+	test_double_int_part_length_case6();
+
+	test_arg_d_length_case1();
+	test_arg_d_length_case2();
+	test_arg_d_length_case3();
+	test_arg_d_length_case4();
+
+	test_arg_hd_length_case1();
+	test_arg_hd_length_case2();
+	test_arg_hd_length_case3();
+	test_arg_hd_length_case4();
+
+	test_arg_hhd_length_case1();
+	test_arg_hhd_length_case2();
+	test_arg_hhd_length_case3();
+	test_arg_hhd_length_case4();
+
+	test_arg_ld_length_case1();
+	test_arg_ld_length_case2();
+	test_arg_ld_length_case3();
+	test_arg_ld_length_case4();
+
+	test_arg_lld_length_case1();
+	test_arg_lld_length_case2();
+	test_arg_lld_length_case3();
+	test_arg_lld_length_case4();
+
+	test_arg_u_length_case1();
+	test_arg_u_length_case2();
+	test_arg_u_length_case3();
+	test_arg_u_length_case4();
+
+	test_arg_hu_length_case1();
+	test_arg_hu_length_case2();
+	test_arg_hu_length_case3();
+	test_arg_hu_length_case4();
+
+	test_arg_hhu_length_case1();
+	test_arg_hhu_length_case2();
+	test_arg_hhu_length_case3();
+	test_arg_hhu_length_case4();
+
+	test_arg_lu_length_case1();
+	test_arg_lu_length_case2();
+	test_arg_lu_length_case3();
+	test_arg_lu_length_case4();
+
+	test_arg_llu_length_case1();
+	test_arg_llu_length_case2();
+	test_arg_llu_length_case3();
+	test_arg_llu_length_case4();
+
+	test_arg_f_length_case1();
+	test_arg_f_length_case2();
+	test_arg_f_length_case3();
+	test_arg_f_length_case4();
+	test_arg_f_length_case5();
 	return (0);
 }

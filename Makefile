@@ -45,9 +45,15 @@ SRC_TAGS = init_tags.c\
 	precision.c\
 	length.c\
 
+SRC_ARG_LENGTH = num_length.c\
+	arg_d_length.c\
+	arg_u_length.c\
+	arg_f_length.c\
+
 # objs
 #OBJS = $(addprefix $(OBJDIR)/, $(SRC_FT_PRINTF:.c=.o))
 OBJS = $(addprefix $(OBJDIR)/, $(SRC_TAGS:.c=.o))
+OBJS += $(addprefix $(OBJDIR)/, $(SRC_ARG_LENGTH:.c=.o))
 
 # compile objs
 HEADERS = $(INCDIR)/ft_printf.h\
@@ -57,6 +63,9 @@ $(OBJDIR)/%.o : $(SRCDIR)/%.c $(HEADERS)
 	@$(call compile_obj,$<,$@)
 
 $(OBJDIR)/%.o : $(SRCDIR)/parse_tags/%.c $(HEADERS)
+	@$(call compile_obj,$<,$@)
+
+$(OBJDIR)/%.o : $(SRCDIR)/arg_length/%.c $(HEADERS)
 	@$(call compile_obj,$<,$@)
 
 # build
@@ -84,7 +93,7 @@ test : all
 
 clean :
 	@$(MAKE) -C $(LIBFT_PATH) clean
-	@rm -f $(OBJS)
+	@rm -f $(OBJDIR)/$(OBJS)
 
 fclean :
 	@rm -f $(NAME)
