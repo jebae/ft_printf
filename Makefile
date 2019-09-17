@@ -55,11 +55,18 @@ SRC_ARG_SIGN = num_sign.c\
 	arg_f_sign.c\
 	arg_no_sign.c\
 
+SRC_BUFFER = buffer.c\
+
+SRC_ARG_WRITE = num_write.c\
+	arg_d_write.c\
+
 # objs
 #OBJS = $(addprefix $(OBJDIR)/, $(SRC_FT_PRINTF:.c=.o))
 OBJS = $(addprefix $(OBJDIR)/, $(SRC_TAGS:.c=.o))
 OBJS += $(addprefix $(OBJDIR)/, $(SRC_ARG_LENGTH:.c=.o))
 OBJS += $(addprefix $(OBJDIR)/, $(SRC_ARG_SIGN:.c=.o))
+OBJS += $(addprefix $(OBJDIR)/, $(SRC_BUFFER:.c=.o))
+OBJS += $(addprefix $(OBJDIR)/, $(SRC_ARG_WRITE:.c=.o))
 
 # compile objs
 HEADERS = $(INCDIR)/ft_printf.h\
@@ -75,6 +82,12 @@ $(OBJDIR)/%.o : $(SRCDIR)/arg_length/%.c $(HEADERS)
 	@$(call compile_obj,$<,$@)
 
 $(OBJDIR)/%.o : $(SRCDIR)/arg_sign/%.c $(HEADERS)
+	@$(call compile_obj,$<,$@)
+
+$(OBJDIR)/%.o : $(SRCDIR)/buffer/%.c $(HEADERS)
+	@$(call compile_obj,$<,$@)
+
+$(OBJDIR)/%.o : $(SRCDIR)/arg_write/%.c $(HEADERS)
 	@$(call compile_obj,$<,$@)
 
 # build

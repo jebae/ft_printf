@@ -27,5 +27,5 @@ size_t		fp_arg_ld_length(t_fp_arg_data *data, t_fp_tags *tags)
 size_t		fp_arg_lld_length(t_fp_arg_data *data, t_fp_tags *tags)
 {
 	(void)(tags);
-	return (fp_int_length((long long)(data->i)));
+	return (fp_int_length(data->i));
 }

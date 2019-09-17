@@ -165,4 +165,39 @@ void		test_arg_lf_sign_case6(void);
 void		test_arg_lf_sign_case7(void);
 void		test_arg_lf_sign_case8(void);
 
+/*
+** buffer test
+*/
+void		test_init_buffer_case1(void);
+void		test_write_buffer_case1(void);
+void		test_write_buffer_case2(void);
+void		test_flush_buffer_case1(void);
+
+/*
+** arg_write test
+*/
+void		test_int_write_case1(void);
+void		test_int_write_case2(void);
+void		test_int_write_case3(void);
+void		test_int_write_case4(void);
+void		test_int_write_case5(void);
+
+void		test_uint_write_case1(void);
+void		test_uint_write_case2(void);
+void		test_uint_write_case3(void);
+void		test_uint_write_case4(void);
+
+void		test_arg_d_write_case1(void);
+void		test_arg_d_write_case2(void);
+void		test_arg_d_write_case3(void);
+void		test_arg_d_write_case4(void);
+
+void		test_arg_hd_write_case1(void);
+
+void		test_arg_hhd_write_case1(void);
+
+void		test_arg_ld_write_case1(void);
+
+void		test_arg_lld_write_case1(void);
+
 #endif

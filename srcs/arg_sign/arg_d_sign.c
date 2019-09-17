@@ -22,5 +22,5 @@ char	fp_arg_ld_sign(t_fp_arg_data *data, t_fp_tags *tags)
 
 char	fp_arg_lld_sign(t_fp_arg_data *data, t_fp_tags *tags)
 {
-	return (fp_num_sign((long long)(data->i) >= 0, tags));
+	return (fp_num_sign(data->i >= 0, tags));
 }

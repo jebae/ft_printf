@@ -165,5 +165,33 @@ int		main(void)
 	test_arg_lf_sign_case7();
 	test_arg_lf_sign_case8();
 
+	// buffer
+	test_init_buffer_case1();
+	test_write_buffer_case1();
+	test_write_buffer_case2();
+	test_flush_buffer_case1();
+
+	// write
+	test_int_write_case1();
+	test_int_write_case2();
+	test_int_write_case3();
+	test_int_write_case4();
+	test_int_write_case5();
+
+	test_uint_write_case1();
+	test_uint_write_case2();
+	test_uint_write_case3();
+	test_uint_write_case4();
+
+	test_arg_d_write_case1();
+	test_arg_d_write_case2();
+	test_arg_d_write_case3();
+	test_arg_d_write_case4();
+
+	test_arg_hd_write_case1();
+	test_arg_hhd_write_case1();
+	test_arg_ld_write_case1();
+	test_arg_lld_write_case1();
+
 	return (0);
 }

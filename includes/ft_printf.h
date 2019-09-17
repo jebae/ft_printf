@@ -20,6 +20,7 @@
 ** buffer macros
 */
 # define FP_BUFFER_SIZE				64
+# define FP_OUTPUT					1
 
 /*
 ** math macros
@@ -28,8 +29,8 @@
 
 typedef struct	s_fp_buffer
 {
-	char	mem[FP_BUFFER_SIZE];
-	size_t	i;
+	char	data[FP_BUFFER_SIZE];
+	int		i;
 }				t_fp_buffer;
 
 typedef struct	s_fp_tags
@@ -52,7 +53,12 @@ typedef struct	s_fp_arg
 	t_fp_arg_data	data;
 	size_t			(*length)(t_fp_arg_data *data, t_fp_tags *tags);
 	char			(*sign)(t_fp_arg_data *data, t_fp_tags *tags);
-	void			(*write)(t_fp_arg_data *data, t_fp_buffer *buf);
+	void			(*write)(
+		t_fp_arg_data *data,
+		t_fp_tags *tags,
+		size_t length,
+		t_fp_buffer *buf
+	);
 }				t_fp_arg;
 
 /*
@@ -102,5 +108,62 @@ char			fp_arg_f_sign(t_fp_arg_data *data, t_fp_tags *tags);
 char			fp_arg_lf_sign(t_fp_arg_data *data, t_fp_tags *tags);
 
 char			fp_arg_no_sign(t_fp_arg_data *data, t_fp_tags *tags);
+
+/*
+** buffer
+*/
+void			fp_init_buffer(t_fp_buffer *buf);
+void			fp_write_buffer(t_fp_buffer *buf, char value);
+void			fp_flush_buffer(t_fp_buffer *buf);
+
+/*
+** arg_write
+*/
+void			fp_int_write(
+	long long num,
+	size_t e,
+	t_fp_buffer *buf
+);
+
+void		fp_uint_write(
+	unsigned long long num,
+	size_t e,
+	t_fp_buffer *buf
+);
+
+void		fp_arg_d_write(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	size_t length,
+	t_fp_buffer *buf
+);
+
+void		fp_arg_hd_write(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	size_t length,
+	t_fp_buffer *buf
+);
+
+void		fp_arg_hhd_write(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	size_t length,
+	t_fp_buffer *buf
+);
+
+void		fp_arg_ld_write(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	size_t length,
+	t_fp_buffer *buf
+);
+
+void		fp_arg_lld_write(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	size_t length,
+	t_fp_buffer *buf
+);
 
 #endif
