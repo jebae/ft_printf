@@ -50,10 +50,16 @@ SRC_ARG_LENGTH = num_length.c\
 	arg_u_length.c\
 	arg_f_length.c\
 
+SRC_ARG_SIGN = num_sign.c\
+	arg_d_sign.c\
+	arg_f_sign.c\
+	arg_no_sign.c\
+
 # objs
 #OBJS = $(addprefix $(OBJDIR)/, $(SRC_FT_PRINTF:.c=.o))
 OBJS = $(addprefix $(OBJDIR)/, $(SRC_TAGS:.c=.o))
 OBJS += $(addprefix $(OBJDIR)/, $(SRC_ARG_LENGTH:.c=.o))
+OBJS += $(addprefix $(OBJDIR)/, $(SRC_ARG_SIGN:.c=.o))
 
 # compile objs
 HEADERS = $(INCDIR)/ft_printf.h\
@@ -66,6 +72,9 @@ $(OBJDIR)/%.o : $(SRCDIR)/parse_tags/%.c $(HEADERS)
 	@$(call compile_obj,$<,$@)
 
 $(OBJDIR)/%.o : $(SRCDIR)/arg_length/%.c $(HEADERS)
+	@$(call compile_obj,$<,$@)
+
+$(OBJDIR)/%.o : $(SRCDIR)/arg_sign/%.c $(HEADERS)
 	@$(call compile_obj,$<,$@)
 
 # build

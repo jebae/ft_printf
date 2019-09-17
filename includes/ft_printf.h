@@ -51,6 +51,7 @@ typedef struct	s_fp_arg
 {
 	t_fp_arg_data	data;
 	size_t			(*length)(t_fp_arg_data *data, t_fp_tags *tags);
+	char			(*sign)(t_fp_arg_data *data, t_fp_tags *tags);
 	void			(*write)(t_fp_arg_data *data, t_fp_buffer *buf);
 }				t_fp_arg;
 
@@ -69,6 +70,7 @@ size_t			fp_parse_length(const char *format, t_fp_tags *tags);
 size_t			fp_int_length(long long num);
 size_t			fp_uint_length(unsigned long long num);
 size_t			fp_double_int_part_length(double num);
+size_t			fp_long_double_int_part_length(long double num);
 
 size_t			fp_arg_d_length(t_fp_arg_data *data, t_fp_tags *tags);
 size_t			fp_arg_hd_length(t_fp_arg_data *data, t_fp_tags *tags);
@@ -83,5 +85,22 @@ size_t			fp_arg_lu_length(t_fp_arg_data *data, t_fp_tags *tags);
 size_t			fp_arg_llu_length(t_fp_arg_data *data, t_fp_tags *tags);
 
 size_t			fp_arg_f_length(t_fp_arg_data *data, t_fp_tags *tags);
+size_t			fp_arg_lf_length(t_fp_arg_data *data, t_fp_tags *tags);
+
+/*
+** arg_sign
+*/
+char			fp_num_sign(int positive, t_fp_tags *tags);
+
+char			fp_arg_d_sign(t_fp_arg_data *data, t_fp_tags *tags);
+char			fp_arg_hd_sign(t_fp_arg_data *data, t_fp_tags *tags);
+char			fp_arg_hhd_sign(t_fp_arg_data *data, t_fp_tags *tags);
+char			fp_arg_ld_sign(t_fp_arg_data *data, t_fp_tags *tags);
+char			fp_arg_lld_sign(t_fp_arg_data *data, t_fp_tags *tags);
+
+char			fp_arg_f_sign(t_fp_arg_data *data, t_fp_tags *tags);
+char			fp_arg_lf_sign(t_fp_arg_data *data, t_fp_tags *tags);
+
+char			fp_arg_no_sign(t_fp_arg_data *data, t_fp_tags *tags);
 
 #endif

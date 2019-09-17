@@ -44,3 +44,18 @@ size_t			fp_double_int_part_length(double num)
 	}
 	return (len);
 }
+
+size_t			fp_long_double_int_part_length(long double num)
+{
+	size_t		len;
+
+	if (ABS_SMALLER_THEN(num, 1))
+		return (1);
+	len = 0;
+	while (!ABS_SMALLER_THEN(num, 1))
+	{
+		num /= 10.0f;
+		len++;
+	}
+	return (len);
+}

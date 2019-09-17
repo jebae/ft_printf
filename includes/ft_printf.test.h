@@ -100,11 +100,69 @@ void		test_double_int_part_length_case3(void);
 void		test_double_int_part_length_case4(void);
 void		test_double_int_part_length_case5(void);
 void		test_double_int_part_length_case6(void);
+void		test_long_double_int_part_length_case1(void);
+void		test_long_double_int_part_length_case2(void);
+void		test_long_double_int_part_length_case3(void);
+void		test_long_double_int_part_length_case4(void);
+void		test_long_double_int_part_length_case5(void);
+void		test_long_double_int_part_length_case6(void);
 
 void		test_arg_f_length_case1(void);
 void		test_arg_f_length_case2(void);
 void		test_arg_f_length_case3(void);
 void		test_arg_f_length_case4(void);
 void		test_arg_f_length_case5(void);
+
+void		test_arg_lf_length_case1(void);
+void		test_arg_lf_length_case2(void);
+void		test_arg_lf_length_case3(void);
+void		test_arg_lf_length_case4(void);
+void		test_arg_lf_length_case5(void);
+
+/*
+** arg_sign test
+*/
+void		test_num_sign_case1(void);
+void		test_num_sign_case2(void);
+void		test_num_sign_case3(void);
+void		test_num_sign_case4(void);
+void		test_num_sign_case5(void);
+
+void		test_arg_d_sign_case1(void);
+void		test_arg_d_sign_case2(void);
+void		test_arg_d_sign_case3(void);
+void		test_arg_d_sign_case4(void);
+void		test_arg_d_sign_case5(void);
+void		test_arg_d_sign_case6(void);
+void		test_arg_d_sign_case7(void);
+void		test_arg_d_sign_case8(void);
+void		test_arg_d_sign_case9(void);
+void		test_arg_d_sign_case10(void);
+void		test_arg_hd_sign_case1(void);
+void		test_arg_hhd_sign_case1(void);
+void		test_arg_ld_sign_case1(void);
+void		test_arg_lld_sign_case1(void);
+
+void		test_arg_no_sign_case1(void);
+void		test_arg_no_sign_case2(void);
+void		test_arg_no_sign_case3(void);
+
+void		test_arg_f_sign_case1(void);
+void		test_arg_f_sign_case2(void);
+void		test_arg_f_sign_case3(void);
+void		test_arg_f_sign_case4(void);
+void		test_arg_f_sign_case5(void);
+void		test_arg_f_sign_case6(void);
+void		test_arg_f_sign_case7(void);
+void		test_arg_f_sign_case8(void);
+
+void		test_arg_lf_sign_case1(void);
+void		test_arg_lf_sign_case2(void);
+void		test_arg_lf_sign_case3(void);
+void		test_arg_lf_sign_case4(void);
+void		test_arg_lf_sign_case5(void);
+void		test_arg_lf_sign_case6(void);
+void		test_arg_lf_sign_case7(void);
+void		test_arg_lf_sign_case8(void);
 
 #endif
