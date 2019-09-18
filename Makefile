@@ -34,7 +34,8 @@ CFLAGS = -Wall -Werror -Wextra
 INCLUDES = -I ./$(INCDIR)\
 	-I ./$(LIBFT_PATH)/includes\
 
-LIBS = -L ./$(LIBFT_PATH) -lft
+LIBS = -L . -lftprintf\
+	-L ./$(LIBFT_PATH) -lft
 
 # srcs
 SRC_FT_PRINTF = ft_printf.c\
@@ -111,7 +112,7 @@ $(OBJDIR) :
 
 # commands
 test : all
-	@$(CC) $(CFLAGS) $(INCLUDES) $(LIBS) $(SRCDIR)/__tests__/*.c $(SRCDIR)/__tests__/*/*.c test_main.c $(OBJS) -o test
+	@$(CC) $(CFLAGS) $(INCLUDES) $(LIBS) $(SRCDIR)/__tests__/*.c $(SRCDIR)/__tests__/*/*.c test_main.c -o test
 
 clean :
 	@$(MAKE) -C $(LIBFT_PATH) clean
