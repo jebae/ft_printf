@@ -177,6 +177,7 @@ int		main(void)
 	test_int_write_case3();
 	test_int_write_case4();
 	test_int_write_case5();
+	test_int_write_case6();
 
 	test_uint_write_case1();
 	test_uint_write_case2();
@@ -193,5 +194,28 @@ int		main(void)
 	test_arg_ld_write_case1();
 	test_arg_lld_write_case1();
 
-	return (0);
+	test_arg_u_write_case1();
+	test_arg_u_write_case2();
+	test_arg_u_write_case3();
+	test_arg_u_write_case4();
+
+	test_arg_hu_write_case1();
+	test_arg_hu_write_case2();
+	test_arg_hu_write_case3();
+	test_arg_hu_write_case4();
+
+	test_arg_hhu_write_case1();
+	test_arg_hhu_write_case2();
+	test_arg_hhu_write_case3();
+	test_arg_hhu_write_case4();
+
+	test_arg_lu_write_case1();
+	test_arg_lu_write_case2();
+	test_arg_lu_write_case3();
+	test_arg_lu_write_case4();
+
+	test_arg_llu_write_case1();
+	test_arg_llu_write_case2();
+	test_arg_llu_write_case3();
+	test_arg_llu_write_case4();
 }

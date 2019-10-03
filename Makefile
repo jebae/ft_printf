@@ -60,6 +60,7 @@ SRC_BUFFER = buffer.c\
 
 SRC_ARG_WRITE = num_write.c\
 	arg_d_write.c\
+	arg_u_write.c\
 
 # objs
 #OBJS = $(addprefix $(OBJDIR)/, $(SRC_FT_PRINTF:.c=.o))

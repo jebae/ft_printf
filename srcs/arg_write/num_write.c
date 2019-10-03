@@ -2,7 +2,7 @@
 
 void		fp_int_write(
 	long long num,
-	size_t e,
+	size_t length,
 	t_fp_buffer *buf
 )
 {
@@ -13,7 +13,7 @@ void		fp_int_write(
 		fp_write_buffer(buf, '0');
 		return ;
 	}
-	divider = ft_powd(10, e);
+	divider = ft_powd(10, length - 1);
 	while (divider != 0)
 	{
 		fp_write_buffer(buf, '0' + ABS(num / divider % 10));
@@ -23,7 +23,7 @@ void		fp_int_write(
 
 void		fp_uint_write(
 	unsigned long long num,
-	size_t e,
+	size_t length,
 	t_fp_buffer *buf
 )
 {
@@ -34,7 +34,7 @@ void		fp_uint_write(
 		fp_write_buffer(buf, '0');
 		return ;
 	}
-	divider = ft_powud(10, e);
+	divider = ft_powd(10, length - 1);
 	while (divider != 0)
 	{
 		fp_write_buffer(buf, '0' + num / divider % 10);

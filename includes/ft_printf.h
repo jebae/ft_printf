@@ -121,13 +121,13 @@ void			fp_flush_buffer(t_fp_buffer *buf);
 */
 void			fp_int_write(
 	long long num,
-	size_t e,
+	size_t length,
 	t_fp_buffer *buf
 );
 
 void		fp_uint_write(
 	unsigned long long num,
-	size_t e,
+	size_t length,
 	t_fp_buffer *buf
 );
 
@@ -160,6 +160,41 @@ void		fp_arg_ld_write(
 );
 
 void		fp_arg_lld_write(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	size_t length,
+	t_fp_buffer *buf
+);
+
+void		fp_arg_u_write(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	size_t length,
+	t_fp_buffer *buf
+);
+
+void		fp_arg_hu_write(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	size_t length,
+	t_fp_buffer *buf
+);
+
+void		fp_arg_hhu_write(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	size_t length,
+	t_fp_buffer *buf
+);
+
+void		fp_arg_lu_write(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	size_t length,
+	t_fp_buffer *buf
+);
+
+void		fp_arg_llu_write(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
 	size_t length,

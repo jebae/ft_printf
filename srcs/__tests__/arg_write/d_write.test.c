@@ -8,7 +8,7 @@ void		test_arg_d_write_case1(void)
 
 	fp_init_buffer(&buf);
 	data.i = 123;
-	fp_arg_d_write(&data, NULL, 3, &buf);
+	fp_arg_d_write(&data, NULL, fp_arg_d_length(&data, NULL), &buf);
 	printf("result : %s\n", buf.data);
 	printf("expect : %d\n", (int)data.i);
 }
@@ -21,7 +21,7 @@ void		test_arg_d_write_case2(void)
 
 	fp_init_buffer(&buf);
 	data.i = -123;
-	fp_arg_d_write(&data, NULL, 3, &buf);
+	fp_arg_d_write(&data, NULL, fp_arg_d_length(&data, NULL), &buf);
 	printf("result : %s (no need sign)\n", buf.data);
 	printf("expect : %d\n", (int)data.i);
 }
@@ -34,7 +34,7 @@ void		test_arg_d_write_case3(void)
 
 	fp_init_buffer(&buf);
 	data.i = 2147483647;
-	fp_arg_d_write(&data, NULL, 10, &buf);
+	fp_arg_d_write(&data, NULL, fp_arg_d_length(&data, NULL), &buf);
 	printf("result : %s\n", buf.data);
 	printf("expect : %d\n", (int)data.i);
 }
@@ -47,7 +47,7 @@ void		test_arg_d_write_case4(void)
 
 	fp_init_buffer(&buf);
 	data.i = 0;
-	fp_arg_d_write(&data, NULL, 1, &buf);
+	fp_arg_d_write(&data, NULL, fp_arg_d_length(&data, NULL), &buf);
 	printf("result : %s\n", buf.data);
 	printf("expect : %d\n", (int)data.i);
 }
@@ -60,7 +60,7 @@ void		test_arg_hd_write_case1(void)
 
 	fp_init_buffer(&buf);
 	data.i = -32769;
-	fp_arg_hd_write(&data, NULL, 5, &buf);
+	fp_arg_hd_write(&data, NULL, fp_arg_hd_length(&data, NULL), &buf);
 	printf("result : %s\n", buf.data);
 	printf("expect : %hd\n", (short)data.i);
 }
@@ -73,7 +73,7 @@ void		test_arg_hhd_write_case1(void)
 
 	fp_init_buffer(&buf);
 	data.i = -257;
-	fp_arg_hhd_write(&data, NULL, 1, &buf);
+	fp_arg_hhd_write(&data, NULL, fp_arg_hhd_length(&data, NULL), &buf);
 	printf("result : %s (no need sign)\n", buf.data);
 	printf("expect : %hhd\n", (char)data.i);
 }
@@ -86,7 +86,7 @@ void		test_arg_ld_write_case1(void)
 
 	fp_init_buffer(&buf);
 	data.i = 9223372036854775807;
-	fp_arg_ld_write(&data, NULL, 19, &buf);
+	fp_arg_ld_write(&data, NULL, fp_arg_ld_length(&data, NULL), &buf);
 	printf("result : %s\n", buf.data);
 	printf("expect : %ld\n", (long)data.i);
 }
@@ -99,7 +99,7 @@ void		test_arg_lld_write_case1(void)
 
 	fp_init_buffer(&buf);
 	data.i = 9223372036854775807;
-	fp_arg_lld_write(&data, NULL, 19, &buf);
+	fp_arg_lld_write(&data, NULL, fp_arg_lld_length(&data, NULL), &buf);
 	printf("result : %s\n", buf.data);
 	printf("expect : %lld\n", data.i);
 }

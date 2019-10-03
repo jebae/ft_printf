@@ -54,7 +54,7 @@ size_t			fp_long_double_int_part_length(long double num)
 	len = 0;
 	while (!ABS_SMALLER_THEN(num, 1))
 	{
-		num /= 10.0f;
+		num /= 10.0;
 		len++;
 	}
 	return (len);

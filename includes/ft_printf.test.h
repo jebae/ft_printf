@@ -181,6 +181,7 @@ void		test_int_write_case2(void);
 void		test_int_write_case3(void);
 void		test_int_write_case4(void);
 void		test_int_write_case5(void);
+void		test_int_write_case6(void);
 
 void		test_uint_write_case1(void);
 void		test_uint_write_case2(void);
@@ -199,5 +200,30 @@ void		test_arg_hhd_write_case1(void);
 void		test_arg_ld_write_case1(void);
 
 void		test_arg_lld_write_case1(void);
+
+void		test_arg_u_write_case1(void);
+void		test_arg_u_write_case2(void);
+void		test_arg_u_write_case3(void);
+void		test_arg_u_write_case4(void);
+
+void		test_arg_hu_write_case1(void);
+void		test_arg_hu_write_case2(void);
+void		test_arg_hu_write_case3(void);
+void		test_arg_hu_write_case4(void);
+
+void		test_arg_hhu_write_case1(void);
+void		test_arg_hhu_write_case2(void);
+void		test_arg_hhu_write_case3(void);
+void		test_arg_hhu_write_case4(void);
+
+void		test_arg_lu_write_case1(void);
+void		test_arg_lu_write_case2(void);
+void		test_arg_lu_write_case3(void);
+void		test_arg_lu_write_case4(void);
+
+void		test_arg_llu_write_case1(void);
+void		test_arg_llu_write_case2(void);
+void		test_arg_llu_write_case3(void);
+void		test_arg_llu_write_case4(void);
 
 #endif
