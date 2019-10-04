@@ -12,7 +12,7 @@ void		test_arg_no_sign_case1(void)
 	data.i = 123;
 
 	test(
-		fp_arg_no_sign(&data, &tags) == -1,
+		fp_arg_no_sign(&data, &tags) == FP_NO_SIGN,
 		"arg_no_sign (PLUS, SPACE) : return value"
 	);
 }
@@ -28,7 +28,7 @@ void		test_arg_no_sign_case2(void)
 	data.i = 123;
 
 	test(
-		fp_arg_no_sign(&data, &tags) == -1,
+		fp_arg_no_sign(&data, &tags) == FP_NO_SIGN,
 		"arg_no_sign (SPACE) : return value"
 	);
 }
@@ -44,7 +44,7 @@ void		test_arg_no_sign_case3(void)
 	data.i = 123;
 
 	test(
-		fp_arg_no_sign(&data, &tags) == -1,
+		fp_arg_no_sign(&data, &tags) == FP_NO_SIGN,
 		"arg_no_sign (PLUS) : return value"
 	);
 }

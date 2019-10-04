@@ -40,7 +40,7 @@ LIBS = -L . -lftprintf\
 # srcs
 SRC_FT_PRINTF = ft_printf.c\
 
-SRC_TAGS = init_tags.c\
+SRC_PARSE_TAGS = init_tags.c\
 	flag.c\
 	width.c\
 	precision.c\
@@ -62,13 +62,16 @@ SRC_ARG_WRITE = num_write.c\
 	arg_d_write.c\
 	arg_u_write.c\
 
+SRC_PARSE_PERCENT = write_percent_format.c\
+
 # objs
 #OBJS = $(addprefix $(OBJDIR)/, $(SRC_FT_PRINTF:.c=.o))
-OBJS = $(addprefix $(OBJDIR)/, $(SRC_TAGS:.c=.o))
+OBJS = $(addprefix $(OBJDIR)/, $(SRC_PARSE_TAGS:.c=.o))
 OBJS += $(addprefix $(OBJDIR)/, $(SRC_ARG_LENGTH:.c=.o))
 OBJS += $(addprefix $(OBJDIR)/, $(SRC_ARG_SIGN:.c=.o))
 OBJS += $(addprefix $(OBJDIR)/, $(SRC_BUFFER:.c=.o))
 OBJS += $(addprefix $(OBJDIR)/, $(SRC_ARG_WRITE:.c=.o))
+OBJS += $(addprefix $(OBJDIR)/, $(SRC_PARSE_PERCENT:.c=.o))
 
 # compile objs
 HEADERS = $(INCDIR)/ft_printf.h\
@@ -90,6 +93,9 @@ $(OBJDIR)/%.o : $(SRCDIR)/buffer/%.c $(HEADERS)
 	@$(call compile_obj,$<,$@)
 
 $(OBJDIR)/%.o : $(SRCDIR)/arg_write/%.c $(HEADERS)
+	@$(call compile_obj,$<,$@)
+
+$(OBJDIR)/%.o : $(SRCDIR)/parse_percent/%.c $(HEADERS)
 	@$(call compile_obj,$<,$@)
 
 # build

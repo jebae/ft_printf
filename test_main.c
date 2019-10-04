@@ -218,4 +218,39 @@ int		main(void)
 	test_arg_llu_write_case2();
 	test_arg_llu_write_case3();
 	test_arg_llu_write_case4();
+
+	// parse percent
+	test_write_sign_case1();
+	test_write_sign_case2();
+
+	test_write_padding_case1();
+	test_write_padding_case2();
+	test_write_padding_case3();
+	test_write_padding_case4();
+
+	test_write_percent_format_case1();
+	test_write_percent_format_case2();
+	test_write_percent_format_case3();
+	test_write_percent_format_case4();
+	test_write_percent_format_case5();
+	test_write_percent_format_case6();
+	test_write_percent_format_case7();
+	test_write_percent_format_case8();
+	test_write_percent_format_case9();
+	test_write_percent_format_case10();
+	test_write_percent_format_case11();
+	test_write_percent_format_case12();
+	test_write_percent_format_case13();
+	test_write_percent_format_case14();
+	test_write_percent_format_case15();
+	test_write_percent_format_case16();
+	test_write_percent_format_case17();
+	test_write_percent_format_case18();
+	test_write_percent_format_case19();
+	test_write_percent_format_case20();
+	test_write_percent_format_case21();
+	test_write_percent_format_case22();
+	test_write_percent_format_case23();
+	test_write_percent_format_case24();
+	test_write_percent_format_case25();
 }

@@ -23,6 +23,11 @@
 # define FP_OUTPUT					1
 
 /*
+** parse macros
+*/
+# define FP_NO_SIGN					-1
+
+/*
 ** math macros
 */
 # define ABS_SMALLER_THEN(X, Y) (((X) > -(Y)) && ((X) < (Y)))
@@ -62,7 +67,7 @@ typedef struct	s_fp_arg
 }				t_fp_arg;
 
 /*
-** tags
+** parse_tags
 */
 void			fp_init_tags(t_fp_tags *tags);
 size_t			fp_parse_flag(const char *format, t_fp_tags *tags);
@@ -198,6 +203,24 @@ void		fp_arg_llu_write(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
 	size_t length,
+	t_fp_buffer *buf
+);
+
+/*
+** parse_percent
+*/
+void		fp_write_sign(char sign, t_fp_buffer *buf);
+
+void		fp_write_padding(
+	t_fp_tags *tags,
+	size_t content_length,
+	char pad,
+	t_fp_buffer *buf
+);
+
+void		fp_write_percent_format(
+	t_fp_arg *arg,
+	t_fp_tags *tags,
 	t_fp_buffer *buf
 );
 
