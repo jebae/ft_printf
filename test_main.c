@@ -253,4 +253,6 @@ int		main(void)
 	test_write_percent_format_case23();
 	test_write_percent_format_case24();
 	test_write_percent_format_case25();
+
+	test_parse_d_case1();
 }

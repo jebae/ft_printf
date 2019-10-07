@@ -2,6 +2,7 @@
 # define FT_PRINTF_H
 
 # include "libft.h"
+# include <stdarg.h>
 
 /*
 ** bit_flags macros
@@ -223,5 +224,7 @@ void		fp_write_percent_format(
 	t_fp_tags *tags,
 	t_fp_buffer *buf
 );
+
+void		fp_parse_d(va_list ap, t_fp_tags *tags, t_fp_arg *arg);
 
 #endif
