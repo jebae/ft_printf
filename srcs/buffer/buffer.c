@@ -3,6 +3,7 @@
 void		fp_init_buffer(t_fp_buffer *buf)
 {
 	buf->i = -1;
+	buf->written = 0;
 	ft_bzero(buf->data, FP_BUFFER_SIZE);
 }
 
@@ -18,6 +19,7 @@ void		fp_flush_buffer(t_fp_buffer *buf)
 	if (buf->i < 0)
 		return ;
 	write(FP_OUTPUT, buf->data, buf->i + 1);
+	buf->written += buf->i + 1;
 	ft_bzero(buf->data, buf->i + 1);
 	buf->i = -1;
 }

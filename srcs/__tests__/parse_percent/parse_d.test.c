@@ -25,26 +25,155 @@ void		test_parse_d_case1(void)
 
 	test(
 		arg.data.i == 12345,
-		"fp_parse_d (12345) : arg.data.i"
+		"fp_parse_d (d) : arg.data.i"
 	);
 
 	test(
 		arg.length == &fp_arg_d_length,
-		"fp_parse_d (12345) : arg.length"
+		"fp_parse_d (d) : arg.length"
 	);
 
 	test(
 		arg.sign == &fp_arg_d_sign,
-		"fp_parse_d (12345) : arg.sign"
+		"fp_parse_d (d) : arg.sign"
 	);
 
 	test(
 		arg.write == &fp_arg_d_write,
-		"fp_parse_d (12345) : arg.write"
+		"fp_parse_d (d) : arg.write"
 	);
 }
 
-// parse hd
-// parse hhd
-// parse ld
-// parse lld
+// hd
+void		test_parse_d_case2(void)
+{
+	printf(KYEL "test_parse_d_case2\n" KNRM);
+	t_fp_arg	arg;
+	t_fp_tags	tags;
+
+	fp_init_tags(&tags);
+	tags.mask |= FP_MASK_LENGTH_H;
+	tags.mask |= FP_MASK_LENGTH_HH;
+	parse(&tags, &arg, 12345);
+
+	test(
+		arg.data.i == 12345,
+		"fp_parse_d (hd) : arg.data.i"
+	);
+
+	test(
+		arg.length == &fp_arg_hd_length,
+		"fp_parse_d (hd) : arg.length"
+	);
+
+	test(
+		arg.sign == &fp_arg_hd_sign,
+		"fp_parse_d (hd) : arg.sign"
+	);
+
+	test(
+		arg.write == &fp_arg_hd_write,
+		"fp_parse_d (hd) : arg.write"
+	);
+}
+
+// hhd
+void		test_parse_d_case3(void)
+{
+	printf(KYEL "test_parse_d_case3\n" KNRM);
+	t_fp_arg	arg;
+	t_fp_tags	tags;
+
+	fp_init_tags(&tags);
+	tags.mask |= FP_MASK_LENGTH_HH;
+	parse(&tags, &arg, 12345);
+
+	test(
+		arg.data.i == 12345,
+		"fp_parse_d (hhd) : arg.data.i"
+	);
+
+	test(
+		arg.length == &fp_arg_hhd_length,
+		"fp_parse_d (hhd) : arg.length"
+	);
+
+	test(
+		arg.sign == &fp_arg_hhd_sign,
+		"fp_parse_d (hhd) : arg.sign"
+	);
+
+	test(
+		arg.write == &fp_arg_hhd_write,
+		"fp_parse_d (hhd) : arg.write"
+	);
+}
+
+// ld
+void		test_parse_d_case4(void)
+{
+	printf(KYEL "test_parse_d_case4\n" KNRM);
+	t_fp_arg	arg;
+	t_fp_tags	tags;
+
+	fp_init_tags(&tags);
+	tags.mask |= FP_MASK_LENGTH_H;
+	tags.mask |= FP_MASK_LENGTH_HH;
+	tags.mask |= FP_MASK_LENGTH_L;
+	parse(&tags, &arg, 12345);
+
+	test(
+		arg.data.i == 12345,
+		"fp_parse_d (ld) : arg.data.i"
+	);
+
+	test(
+		arg.length == &fp_arg_ld_length,
+		"fp_parse_d (ld) : arg.length"
+	);
+
+	test(
+		arg.sign == &fp_arg_ld_sign,
+		"fp_parse_d (ld) : arg.sign"
+	);
+
+	test(
+		arg.write == &fp_arg_ld_write,
+		"fp_parse_d (ld) : arg.write"
+	);
+}
+
+// lld
+void		test_parse_d_case5(void)
+{
+	printf(KYEL "test_parse_d_case5\n" KNRM);
+	t_fp_arg	arg;
+	t_fp_tags	tags;
+
+	fp_init_tags(&tags);
+	tags.mask |= FP_MASK_LENGTH_H;
+	tags.mask |= FP_MASK_LENGTH_HH;
+	tags.mask |= FP_MASK_LENGTH_L;
+	tags.mask |= FP_MASK_LENGTH_LL;
+	parse(&tags, &arg, 12345);
+
+	test(
+		arg.data.i == 12345,
+		"fp_parse_d (lld) : arg.data.i"
+	);
+
+	test(
+		arg.length == &fp_arg_lld_length,
+		"fp_parse_d (lld) : arg.length"
+	);
+
+	test(
+		arg.sign == &fp_arg_lld_sign,
+		"fp_parse_d (lld) : arg.sign"
+	);
+
+	test(
+		arg.write == &fp_arg_lld_write,
+		"fp_parse_d (lld) : arg.write"
+	);
+}

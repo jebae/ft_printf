@@ -170,6 +170,7 @@ int		main(void)
 	test_write_buffer_case1();
 	test_write_buffer_case2();
 	test_flush_buffer_case1();
+	test_flush_buffer_case2();
 
 	// write
 	test_int_write_case1();
@@ -253,6 +254,35 @@ int		main(void)
 	test_write_percent_format_case23();
 	test_write_percent_format_case24();
 	test_write_percent_format_case25();
+	test_write_percent_format_case26();
+	test_write_percent_format_case27();
+	test_write_percent_format_case28();
+	test_write_percent_format_case29();
+	test_write_percent_format_case30();
+	test_write_percent_format_case31();
+	test_write_percent_format_case32();
 
 	test_parse_d_case1();
+	test_parse_d_case2();
+	test_parse_d_case3();
+	test_parse_d_case4();
+	test_parse_d_case5();
+
+	test_parse_u_case1();
+	test_parse_u_case2();
+	test_parse_u_case3();
+	test_parse_u_case4();
+	test_parse_u_case5();
+
+	test_parse_specifier_case1();
+	test_parse_specifier_case2();
+	test_parse_specifier_case3();
+
+	test_parse_percent_case1();
+	test_parse_percent_case2();
+	test_parse_percent_case3();
+	test_parse_percent_case4();
+	test_parse_percent_case5();
+	test_parse_percent_case6();
+	test_parse_percent_case7();
 }

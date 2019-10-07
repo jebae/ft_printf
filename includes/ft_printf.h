@@ -3,6 +3,7 @@
 
 # include "libft.h"
 # include <stdarg.h>
+# include <stdio.h> // remove later
 
 /*
 ** bit_flags macros
@@ -37,6 +38,7 @@ typedef struct	s_fp_buffer
 {
 	char	data[FP_BUFFER_SIZE];
 	int		i;
+	int		written;
 }				t_fp_buffer;
 
 typedef struct	s_fp_tags
@@ -226,5 +228,20 @@ void		fp_write_percent_format(
 );
 
 void		fp_parse_d(va_list ap, t_fp_tags *tags, t_fp_arg *arg);
+
+void		fp_parse_u(va_list ap, t_fp_tags *tags, t_fp_arg *arg);
+
+size_t		fp_parse_specifier(
+	const char *format,
+	va_list valist,
+	t_fp_tags *tags,
+	t_fp_arg *arg
+);
+
+size_t			fp_parse_percent(
+	const char *format,
+	va_list ap,
+	t_fp_buffer *buf
+);
 
 #endif

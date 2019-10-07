@@ -1,18 +1,34 @@
 #include "ft_printf.test.h"
 
-/*
+static void	parse(
+	const char *format,
+	t_fp_tags *tags,
+	t_fp_arg *arg,
+	...
+)
+{
+	va_list		ap;
+
+	va_start(ap, arg);
+	fp_parse_specifier(format, ap, tags, arg);
+	va_end(ap);
+}
+
 // d
-void		test_parse_specifier_case1(void *dumb_ptr, ...)
+void		test_parse_specifier_case1(void)
 {
 	printf(KYEL "test_parse_specifier_case1\n" KNRM);
-	const char	*str = "d";
+	const char	*format = "d";
 	t_fp_arg	arg;
 	t_fp_tags	tags;
-	va_list		valist;
 
-	va_start(valist, dumb_ptr);
 	fp_init_tags(&tags);
-	fp_parse_specifier(str, valist, &tags, &arg);
+	parse(format, &tags, &arg, 12345);
+
+	test(
+		arg.data.i== 12345,
+		"fp_parse_specifier (d) : arg.data.i"
+	);
 
 	test(
 		arg.length == &fp_arg_d_length,
@@ -28,33 +44,68 @@ void		test_parse_specifier_case1(void *dumb_ptr, ...)
 		arg.write == &fp_arg_d_write,
 		"fp_parse_specifier (d) : arg.write"
 	);
-
-	va_end(valist);
 }
 
-// hd
+// u
 void		test_parse_specifier_case2(void)
 {
 	printf(KYEL "test_parse_specifier_case2\n" KNRM);
-	const char	*str = "d";
+	const char	*format = "u";
 	t_fp_arg	arg;
 	t_fp_tags	tags;
 
-	fp_parse_specifier(str, &tags, &arg);
+	fp_init_tags(&tags);
+	parse(format, &tags, &arg, 12345);
+
+	test(
+		arg.data.i== 12345,
+		"fp_parse_specifier (u) : arg.data.i"
+	);
+
+	test(
+		arg.length == &fp_arg_u_length,
+		"fp_parse_specifier (u) : arg.length"
+	);
+
+	test(
+		arg.sign == &fp_arg_no_sign,
+		"fp_parse_specifier (u) : arg.sign"
+	);
+
+	test(
+		arg.write == &fp_arg_u_write,
+		"fp_parse_specifier (u) : arg.write"
+	);
+}
+
+// i
+void		test_parse_specifier_case3(void)
+{
+	printf(KYEL "test_parse_specifier_case3\n" KNRM);
+	const char	*format = "i";
+	t_fp_arg	arg;
+	t_fp_tags	tags;
+
+	fp_init_tags(&tags);
+	parse(format, &tags, &arg, 12345);
+
+	test(
+		arg.data.i== 12345,
+		"fp_parse_specifier (i) : arg.data.i"
+	);
 
 	test(
 		arg.length == &fp_arg_d_length,
-		"fp_parse_specifier (hd) : arg.length"
+		"fp_parse_specifier (i) : arg.length"
 	);
 
 	test(
 		arg.sign == &fp_arg_d_sign,
-		"fp_parse_specifier (hd) : arg.sign"
+		"fp_parse_specifier (i) : arg.sign"
 	);
 
 	test(
 		arg.write == &fp_arg_d_write,
-		"fp_parse_specifier (hd) : arg.write"
+		"fp_parse_specifier (i) : arg.write"
 	);
 }
-*/

@@ -721,3 +721,202 @@ void		test_write_percent_format_case25(void)
 		"write_percent_format (%-+10d, -12345) : strcmp"
 	);
 }
+
+// %u
+void		test_write_percent_format_case26(void)
+{
+	printf(KYEL "test_write_percent_format_case26\n" KNRM);
+	t_fp_tags		tags;
+	t_fp_arg		arg;
+	t_fp_buffer		buf;
+
+	fp_init_buffer(&buf);
+	fp_init_tags(&tags);
+	arg.data.i = 12345;
+	arg.length = &fp_arg_u_length;
+	arg.sign = &fp_arg_no_sign;
+	arg.write = &fp_arg_u_write;
+	fp_write_percent_format(&arg, &tags, &buf);
+
+	test(
+		buf.i == 4,
+		"write_percent_format (%u, 12345) : buf.i"
+	);
+
+	test(
+		ft_strcmp(buf.data, "12345") == 0,
+		"write_percent_format (%u, 12345) : strcmp"
+	);
+}
+
+// % u -> has to ignore space
+void		test_write_percent_format_case27(void)
+{
+	printf(KYEL "test_write_percent_format_case27\n" KNRM);
+	t_fp_tags		tags;
+	t_fp_arg		arg;
+	t_fp_buffer		buf;
+
+	fp_init_buffer(&buf);
+	fp_init_tags(&tags);
+	arg.data.i = 12345;
+	arg.length = &fp_arg_u_length;
+	arg.sign = &fp_arg_no_sign;
+	arg.write = &fp_arg_u_write;
+	tags.mask |= FP_MASK_FLAG_SPACE;
+	fp_write_percent_format(&arg, &tags, &buf);
+
+	test(
+		buf.i == 4,
+		"write_percent_format (% u, 12345) : buf.i"
+	);
+
+	test(
+		ft_strcmp(buf.data, "12345") == 0,
+		"write_percent_format (% u, 12345) : strcmp"
+	);
+}
+
+// %+u -> has to ignore plus
+void		test_write_percent_format_case28(void)
+{
+	printf(KYEL "test_write_percent_format_case28\n" KNRM);
+	t_fp_tags		tags;
+	t_fp_arg		arg;
+	t_fp_buffer		buf;
+
+	fp_init_buffer(&buf);
+	fp_init_tags(&tags);
+	arg.data.i = 12345;
+	arg.length = &fp_arg_u_length;
+	arg.sign = &fp_arg_no_sign;
+	arg.write = &fp_arg_u_write;
+	tags.mask |= FP_MASK_FLAG_PLUS;
+	fp_write_percent_format(&arg, &tags, &buf);
+
+	test(
+		buf.i == 4,
+		"write_percent_format (%+u, 12345) : buf.i"
+	);
+
+	test(
+		ft_strcmp(buf.data, "12345") == 0,
+		"write_percent_format (%+u, 12345) : strcmp"
+	);
+}
+
+// %10u
+void		test_write_percent_format_case29(void)
+{
+	printf(KYEL "test_write_percent_format_case29\n" KNRM);
+	t_fp_tags		tags;
+	t_fp_arg		arg;
+	t_fp_buffer		buf;
+
+	fp_init_buffer(&buf);
+	fp_init_tags(&tags);
+	arg.data.i = 12345;
+	arg.length = &fp_arg_u_length;
+	arg.sign = &fp_arg_no_sign;
+	arg.write = &fp_arg_u_write;
+	tags.width = 10;
+	fp_write_percent_format(&arg, &tags, &buf);
+
+	test(
+		buf.i == 9,
+		"write_percent_format (%10u, 12345) : buf.i"
+	);
+
+	test(
+		ft_strcmp(buf.data, "     12345") == 0,
+		"write_percent_format (%10u, 12345) : strcmp"
+	);
+}
+
+// %010u
+void		test_write_percent_format_case30(void)
+{
+	printf(KYEL "test_write_percent_format_case30\n" KNRM);
+	t_fp_tags		tags;
+	t_fp_arg		arg;
+	t_fp_buffer		buf;
+
+	fp_init_buffer(&buf);
+	fp_init_tags(&tags);
+	arg.data.i = 12345;
+	arg.length = &fp_arg_u_length;
+	arg.sign = &fp_arg_no_sign;
+	arg.write = &fp_arg_u_write;
+	tags.mask |= FP_MASK_FLAG_ZERO;
+	tags.width = 10;
+	fp_write_percent_format(&arg, &tags, &buf);
+
+	test(
+		buf.i == 9,
+		"write_percent_format (%010u, 12345) : buf.i"
+	);
+
+	test(
+		ft_strcmp(buf.data, "0000012345") == 0,
+		"write_percent_format (%010u, 12345) : strcmp"
+	);
+}
+
+// %-10u
+void		test_write_percent_format_case31(void)
+{
+	printf(KYEL "test_write_percent_format_case31\n" KNRM);
+	t_fp_tags		tags;
+	t_fp_arg		arg;
+	t_fp_buffer		buf;
+
+	fp_init_buffer(&buf);
+	fp_init_tags(&tags);
+	arg.data.i = 12345;
+	arg.length = &fp_arg_u_length;
+	arg.sign = &fp_arg_no_sign;
+	arg.write = &fp_arg_u_write;
+	tags.mask |= FP_MASK_FLAG_MINUS;
+	tags.width = 10;
+	fp_write_percent_format(&arg, &tags, &buf);
+
+	test(
+		buf.i == 9,
+		"write_percent_format (%-10u, 12345) : buf.i"
+	);
+
+	test(
+		ft_strcmp(buf.data, "12345     ") == 0,
+		"write_percent_format (%-10u, 12345) : strcmp"
+	);
+}
+
+// %-010u
+void		test_write_percent_format_case32(void)
+{
+	printf(KYEL "test_write_percent_format_case32\n" KNRM);
+	t_fp_tags		tags;
+	t_fp_arg		arg;
+	t_fp_buffer		buf;
+
+	fp_init_buffer(&buf);
+	fp_init_tags(&tags);
+	arg.data.i = 12345;
+	arg.length = &fp_arg_u_length;
+	arg.sign = &fp_arg_no_sign;
+	arg.write = &fp_arg_u_write;
+	tags.mask |= FP_MASK_FLAG_MINUS;
+	tags.mask |= FP_MASK_FLAG_ZERO;
+	tags.width = 10;
+	fp_write_percent_format(&arg, &tags, &buf);
+
+	test(
+		buf.i == 9,
+		"write_percent_format (%-010u, 12345) : buf.i"
+	);
+
+	test(
+		ft_strcmp(buf.data, "12345     ") == 0,
+		"write_percent_format (%-010u, 12345) : strcmp"
+	);
+}
