@@ -2,6 +2,8 @@
 # define FT_PRINTF_H
 
 # include "libft.h"
+# include "bigint.h"
+# include "fixedpoint.h"
 # include <stdarg.h>
 # include <stdio.h> // remove later
 
@@ -33,6 +35,12 @@
 ** math macros
 */
 # define ABS_SMALLER_THEN(X, Y) (((X) > -(Y)) && ((X) < (Y)))
+
+/*
+** constant macros
+*/
+# define FP_SUCCESS					0
+# define FP_FAIL					1
 
 typedef struct	s_fp_buffer
 {
@@ -133,105 +141,117 @@ void			fp_int_write(
 	t_fp_buffer *buf
 );
 
-void		fp_uint_write(
+void			fp_uint_write(
 	unsigned long long num,
 	size_t length,
 	t_fp_buffer *buf
 );
 
-void		fp_arg_d_write(
+void			fp_arg_d_write(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
 	size_t length,
 	t_fp_buffer *buf
 );
 
-void		fp_arg_hd_write(
+void			fp_arg_hd_write(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
 	size_t length,
 	t_fp_buffer *buf
 );
 
-void		fp_arg_hhd_write(
+void			fp_arg_hhd_write(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
 	size_t length,
 	t_fp_buffer *buf
 );
 
-void		fp_arg_ld_write(
+void			fp_arg_ld_write(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
 	size_t length,
 	t_fp_buffer *buf
 );
 
-void		fp_arg_lld_write(
+void			fp_arg_lld_write(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
 	size_t length,
 	t_fp_buffer *buf
 );
 
-void		fp_arg_u_write(
+void			fp_arg_u_write(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
 	size_t length,
 	t_fp_buffer *buf
 );
 
-void		fp_arg_hu_write(
+void			fp_arg_hu_write(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
 	size_t length,
 	t_fp_buffer *buf
 );
 
-void		fp_arg_hhu_write(
+void			fp_arg_hhu_write(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
 	size_t length,
 	t_fp_buffer *buf
 );
 
-void		fp_arg_lu_write(
+void			fp_arg_lu_write(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
 	size_t length,
 	t_fp_buffer *buf
 );
 
-void		fp_arg_llu_write(
+void			fp_arg_llu_write(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
 	size_t length,
 	t_fp_buffer *buf
+);
+
+int				fp_double_integer_part(
+	short exponent,
+	unsigned long long mantissa,
+	t_fixedpoint *int_part
+);
+
+int				fp_double_fraction_part(
+	short exponent,
+	unsigned long long mantissa,
+	t_fixedpoint *fraction_part
 );
 
 /*
 ** parse_percent
 */
-void		fp_write_sign(char sign, t_fp_buffer *buf);
+void			fp_write_sign(char sign, t_fp_buffer *buf);
 
-void		fp_write_padding(
+void			fp_write_padding(
 	t_fp_tags *tags,
 	size_t content_length,
 	char pad,
 	t_fp_buffer *buf
 );
 
-void		fp_write_percent_format(
+void			fp_write_percent_format(
 	t_fp_arg *arg,
 	t_fp_tags *tags,
 	t_fp_buffer *buf
 );
 
-void		fp_parse_d(va_list ap, t_fp_tags *tags, t_fp_arg *arg);
+void			fp_parse_d(va_list ap, t_fp_tags *tags, t_fp_arg *arg);
 
-void		fp_parse_u(va_list ap, t_fp_tags *tags, t_fp_arg *arg);
+void			fp_parse_u(va_list ap, t_fp_tags *tags, t_fp_arg *arg);
 
-size_t		fp_parse_specifier(
+size_t			fp_parse_specifier(
 	const char *format,
 	va_list valist,
 	t_fp_tags *tags,

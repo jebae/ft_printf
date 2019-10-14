@@ -28,14 +28,22 @@ OBJDIR = objs
 
 LIBFT_PATH = $(LIBDIR)/libft
 
+LIBBIGINT_PATH = $(LIBDIR)/libbigint
+
+LIBFIXEDPOINT_PATH = $(LIBDIR)/libfixedpoint
+
 # compiler options
 CFLAGS = -Wall -Werror -Wextra
 
 INCLUDES = -I ./$(INCDIR)\
 	-I ./$(LIBFT_PATH)/includes\
+	-I ./$(LIBBIGINT_PATH)/includes\
+	-I ./$(LIBFIXEDPOINT_PATH)/includes\
 
 LIBS = -L . -lftprintf\
-	-L ./$(LIBFT_PATH) -lft
+	-L ./$(LIBFT_PATH) -lft\
+	-L ./$(LIBBIGINT_PATH) -lbigint\
+	-L ./$(LIBFIXEDPOINT_PATH) -lfixedpoint\
 
 # srcs
 SRC_FT_PRINTF = ft_printf.c\
@@ -59,6 +67,7 @@ SRC_ARG_SIGN = num_sign.c\
 SRC_BUFFER = buffer.c\
 
 SRC_ARG_WRITE = num_write.c\
+	num_write_utils.c\
 	arg_d_write.c\
 	arg_u_write.c\
 
@@ -80,6 +89,8 @@ OBJS += $(addprefix $(OBJDIR)/, $(SRC_PARSE_PERCENT:.c=.o))
 # compile objs
 HEADERS = $(INCDIR)/ft_printf.h\
 	$(LIBFT_PATH)/includes/libft.h\
+	$(LIBBIGINT_PATH)/includes/bigint.h\
+	$(LIBFIXEDPOINT_PATH)/includes/fixedpoint.h\
 
 $(OBJDIR)/%.o : $(SRCDIR)/%.c $(HEADERS)
 	@$(call compile_obj,$<,$@)
@@ -111,6 +122,8 @@ $(NAME) : deps pre_build $(OBJDIR) $(OBJS) post_build
 
 deps :
 	@$(MAKE) -C $(LIBFT_PATH) all
+	@$(MAKE) -C $(LIBBIGINT_PATH) all
+	@$(MAKE) -C $(LIBFIXEDPOINT_PATH) all
 
 pre_build :
 	@printf "$(KGRN)[ft_printf] $(KYEL)build $(NAME)\n$(KNRM)"
@@ -127,9 +140,14 @@ test : all
 
 clean :
 	@$(MAKE) -C $(LIBFT_PATH) clean
+	@$(MAKE) -C $(LIBBIGINT_PATH) clean
+	@$(MAKE) -C $(LIBFIXEDPOINT_PATH) clean
 	@rm -f $(OBJDIR)/$(OBJS)
 
-fclean :
+fclean : clean
+	@$(MAKE) -C $(LIBFT_PATH) fclean
+	@$(MAKE) -C $(LIBBIGINT_PATH) fclean
+	@$(MAKE) -C $(LIBFIXEDPOINT_PATH) fclean
 	@rm -f $(NAME)
 
 re : fclean all

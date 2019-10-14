@@ -2,7 +2,6 @@
 # define FT_PRINTF_TEST_H
 
 # include <stdio.h>
-# include "libft.h"
 # include "ft_printf.h"
 
 /*
@@ -227,6 +226,25 @@ void		test_arg_llu_write_case2(void);
 void		test_arg_llu_write_case3(void);
 void		test_arg_llu_write_case4(void);
 
+void		test_float_write_case1(void);
+void		test_float_write_case2(void);
+void		test_float_write_case3(void);
+void		test_float_write_case4(void);
+void		test_float_write_case5(void);
+void		test_float_write_case6(void);
+
+void		test_double_integer_part_case1(void);
+void		test_double_integer_part_case2(void);
+void		test_double_integer_part_case3(void);
+void		test_double_integer_part_case4(void);
+void		test_double_integer_part_case5(void);
+
+void		test_double_fraction_part_case1(void);
+void		test_double_fraction_part_case2(void);
+void		test_double_fraction_part_case3(void);
+void		test_double_fraction_part_case4(void);
+void		test_double_fraction_part_case5(void);
+
 /*
 ** parse_percent test
 */
@@ -270,7 +288,6 @@ void		test_write_percent_format_case29(void);
 void		test_write_percent_format_case30(void);
 void		test_write_percent_format_case31(void);
 void		test_write_percent_format_case32(void);
-
 
 void		test_parse_d_case1(void);
 void		test_parse_d_case2(void);

@@ -285,4 +285,18 @@ int		main(void)
 	test_parse_percent_case5();
 	test_parse_percent_case6();
 	test_parse_percent_case7();
+
+	// float write
+	test_double_integer_part_case1();
+	test_double_integer_part_case2();
+	test_double_integer_part_case3();
+	test_double_integer_part_case4();
+	test_double_integer_part_case5();
+
+	test_double_fraction_part_case1();
+	test_double_fraction_part_case2();
+	test_double_fraction_part_case3();
+	test_double_fraction_part_case4();
+	test_double_fraction_part_case5();
+	// while (1);
 }

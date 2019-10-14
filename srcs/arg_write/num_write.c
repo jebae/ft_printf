@@ -41,3 +41,21 @@ void		fp_uint_write(
 		divider /= 10;
 	}
 }
+
+// void		fp_float_write(
+// 	double num,
+// 	size_t precision,
+// 	t_fp_buffer *buf
+// )
+// {
+// 	short				exponent;
+// 	unsigned long long	*int64;
+// 	t_fixedpoint		int_part;
+// 	t_fixedpoint		fraction_part;
+	
+// 	int64 = (unsigned long long *)&num;
+// 	exponent = ((int64 >> 52) & 0x7ff) - 0x3ff;
+// 	*int64 &= 0xfffffffffffff;
+// 	*int64 |= 0x10000000000000;
+	
+// }
