@@ -32,15 +32,15 @@
 # define FP_NO_SIGN					-1
 
 /*
-** math macros
-*/
-# define ABS_SMALLER_THEN(X, Y) (((X) > -(Y)) && ((X) < (Y)))
-
-/*
 ** constant macros
 */
 # define FP_SUCCESS					0
 # define FP_FAIL					1
+
+/*
+** math macros
+*/
+# define ABS_SMALLER_THEN(X, Y) (((X) > -(Y)) && ((X) < (Y)))
 
 typedef struct	s_fp_buffer
 {
@@ -76,6 +76,12 @@ typedef struct	s_fp_arg
 		t_fp_buffer *buf
 	);
 }				t_fp_arg;
+
+typedef struct	s_fp_double_fields
+{
+	short				exponent;
+	unsigned long long	mantissa;
+}				t_fp_double_fields;
 
 /*
 ** parse_tags
@@ -227,6 +233,12 @@ int				fp_double_fraction_part(
 	short exponent,
 	unsigned long long mantissa,
 	t_fixedpoint *fraction_part
+);
+
+int				fp_double_write_integer_part(
+	t_fp_double_fields *df,
+	t_bigint *bcd,
+	t_fp_buffer *buf
 );
 
 /*

@@ -286,7 +286,7 @@ int		main(void)
 	test_parse_percent_case6();
 	test_parse_percent_case7();
 
-	// float write
+	// double write
 	test_double_integer_part_case1();
 	test_double_integer_part_case2();
 	test_double_integer_part_case3();
@@ -299,5 +299,12 @@ int		main(void)
 	test_double_fraction_part_case4();
 	test_double_fraction_part_case5();
 	test_double_fraction_part_case6();
+
+	test_double_write_integer_part_case1();
+	test_double_write_integer_part_case2();
+	test_double_write_integer_part_case3();
+	test_double_write_integer_part_case4();
+	test_double_write_integer_part_case5();
+	test_double_write_integer_part_case6();
 	// while (1);
 }

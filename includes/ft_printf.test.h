@@ -226,26 +226,6 @@ void		test_arg_llu_write_case2(void);
 void		test_arg_llu_write_case3(void);
 void		test_arg_llu_write_case4(void);
 
-void		test_float_write_case1(void);
-void		test_float_write_case2(void);
-void		test_float_write_case3(void);
-void		test_float_write_case4(void);
-void		test_float_write_case5(void);
-void		test_float_write_case6(void);
-
-void		test_double_integer_part_case1(void);
-void		test_double_integer_part_case2(void);
-void		test_double_integer_part_case3(void);
-void		test_double_integer_part_case4(void);
-void		test_double_integer_part_case5(void);
-
-void		test_double_fraction_part_case1(void);
-void		test_double_fraction_part_case2(void);
-void		test_double_fraction_part_case3(void);
-void		test_double_fraction_part_case4(void);
-void		test_double_fraction_part_case5(void);
-void		test_double_fraction_part_case6(void);
-
 /*
 ** parse_percent test
 */
@@ -313,5 +293,35 @@ void		test_parse_percent_case4(void);
 void		test_parse_percent_case5(void);
 void		test_parse_percent_case6(void);
 void		test_parse_percent_case7(void);
+
+/*
+** double write test
+*/
+void		test_double_write_case1(void);
+void		test_double_write_case2(void);
+void		test_double_write_case3(void);
+void		test_double_write_case4(void);
+void		test_double_write_case5(void);
+void		test_double_write_case6(void);
+
+void		test_double_integer_part_case1(void);
+void		test_double_integer_part_case2(void);
+void		test_double_integer_part_case3(void);
+void		test_double_integer_part_case4(void);
+void		test_double_integer_part_case5(void);
+
+void		test_double_fraction_part_case1(void);
+void		test_double_fraction_part_case2(void);
+void		test_double_fraction_part_case3(void);
+void		test_double_fraction_part_case4(void);
+void		test_double_fraction_part_case5(void);
+void		test_double_fraction_part_case6(void);
+
+void		test_double_write_integer_part_case1(void);
+void		test_double_write_integer_part_case2(void);
+void		test_double_write_integer_part_case3(void);
+void		test_double_write_integer_part_case4(void);
+void		test_double_write_integer_part_case5(void);
+void		test_double_write_integer_part_case6(void);
 
 #endif

@@ -66,8 +66,9 @@ SRC_ARG_SIGN = num_sign.c\
 
 SRC_BUFFER = buffer.c\
 
-SRC_ARG_WRITE = num_write.c\
-	num_write_utils.c\
+SRC_ARG_WRITE = int_write.c\
+	double_get_part.c\
+	double_write_integer.c\
 	arg_d_write.c\
 	arg_u_write.c\
 
@@ -108,6 +109,9 @@ $(OBJDIR)/%.o : $(SRCDIR)/buffer/%.c $(HEADERS)
 	@$(call compile_obj,$<,$@)
 
 $(OBJDIR)/%.o : $(SRCDIR)/arg_write/%.c $(HEADERS)
+	@$(call compile_obj,$<,$@)
+
+$(OBJDIR)/%.o : $(SRCDIR)/arg_write/double_utils/%.c $(HEADERS)
 	@$(call compile_obj,$<,$@)
 
 $(OBJDIR)/%.o : $(SRCDIR)/parse_percent/%.c $(HEADERS)

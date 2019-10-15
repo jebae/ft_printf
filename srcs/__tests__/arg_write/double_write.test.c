@@ -348,125 +348,380 @@ void		test_double_fraction_part_case6(void)
 	free(bcd.data);
 }
 
+// // case 3.14
+// void		test_double_write_case1(void)
+// {
+// 	printf(KYEL "test_double_write_case1\n" KNRM);
+// 	double			f;
+// 	size_t			precision;
+// 	t_fp_buffer		buf;
+
+// 	f = 3.14;
+// 	precision = 6;
+// 	fp_init_buffer(&buf);
+
+// 	fp_double_write(f, precision, &buf);
+// 	printf("result : %s\n", buf.data);
+// 	printf("expect : %f\n", f);
+// }
+
+// // case precision < 6
+// void		test_double_write_case2(void)
+// {
+// 	printf(KYEL "test_double_write_case2\n" KNRM);
+// 	double			f;
+// 	size_t			precision;
+// 	t_fp_buffer		buf;
+
+// 	f = 3.14;
+// 	precision = 2;
+// 	fp_init_buffer(&buf);
+
+// 	fp_double_write(f, precision, &buf);
+// 	printf("result : %s\n", buf.data);
+// 	printf("expect : %.2f\n", f);
+// }
+
+// // case precision > 6
+// void		test_double_write_case3(void)
+// {
+// 	printf(KYEL "test_double_write_case3\n" KNRM);
+// 	double			f;
+// 	size_t			precision;
+// 	t_fp_buffer		buf;
+
+// 	f = 3.14;
+// 	precision = 10;
+// 	fp_init_buffer(&buf);
+
+// 	fp_double_write(f, precision, &buf);
+// 	printf("result : %s\n", buf.data);
+// 	printf("expect : %.10f\n", f);
+// }
+
+// // case big integer part
+// void		test_double_write_case4(void)
+// {
+// 	printf(KYEL "test_double_write_case4\n" KNRM);
+// 	double			f;
+// 	size_t			precision;
+// 	t_fp_buffer		buf;
+
+// 	f = 123451234512345123451234512345123451234512345.0;
+// 	precision = 6;
+// 	fp_init_buffer(&buf);
+
+// 	fp_double_write(f, precision, &buf);
+// 	printf("result : %s\n", buf.data);
+// 	printf("expect : %f\n", f);
+// }
+
+// // case big integer part
+// void		test_double_write_case5(void)
+// {
+// 	printf(KYEL "test_double_write_case5\n" KNRM);
+// 	double			f;
+// 	size_t			precision;
+// 	t_fp_buffer		buf;
+
+// 	f = 123451234512345123451234512345123451234512345.12345;
+// 	precision = 6;
+// 	fp_init_buffer(&buf);
+
+// 	fp_double_write(f, precision, &buf);
+// 	printf("result : %s\n", buf.data);
+// 	printf("expect : %f\n", f);
+// }
+
+// // case big fraction part
+// void		test_double_write_case6(void)
+// {
+// 	printf(KYEL "test_double_write_case6\n" KNRM);
+// 	double			f;
+// 	size_t			precision;
+// 	t_fp_buffer		buf;
+
+// 	f = 1.12345123451234512345123451234512345123451234512345;
+// 	precision = 60;
+// 	fp_init_buffer(&buf);
+
+// 	fp_double_write(f, precision, &buf);
+// 	printf("result : %s\n", buf.data);
+// 	printf("expect : %.60f\n", f);
+// }
+
+// // case small fraction part
+// void		test_double_write_case6(void)
+// {
+// 	printf(KYEL "test_double_write_case6\n" KNRM);
+// 	double			f;
+// 	size_t			precision;
+// 	t_fp_buffer		buf;
+
+// 	f = 1.00000000000000000000000000000000000000000000012345;
+// 	precision = 60;
+// 	fp_init_buffer(&buf);
+
+// 	fp_double_write(f, precision, &buf);
+// 	printf("result : %s\n", buf.data);
+// 	printf("expect : %.60f\n", f);
+// }
+
+// // case 0
+// // case inf
 
 // case 3.14
-void		test_float_write_case1(void)
+void		test_double_write_integer_part_case1(void)
 {
-	printf(KYEL "test_float_write_case1\n" KNRM);
-	double			f;
-	size_t			precision;
-	t_fp_buffer		buf;
+	printf(KYEL "test_double_write_integer_part_case1\n" KNRM);
+	t_fp_double_fields	df;
+	t_bigint			bcd;
+	t_fp_buffer			buf;
 
-	f = 3.14;
-	precision = 6;
 	fp_init_buffer(&buf);
+	bi_new(&bcd, 1, BI_SIGN_POSITIVE);
+	df.exponent = 1;
+	df.mantissa = 0x191eb851eb851f;
 
-	fp_float_write(f, precision, &buf);
+	fp_double_write_integer_part(&df, &bcd, &buf);
 	printf("result : %s\n", buf.data);
-	printf("expect : %f\n", f);
+	printf("expect : %f\n", 3.14);
+
+	free(bcd.data);
 }
 
-// case precision < 6
-void		test_float_write_case2(void)
+// case 12345.6789
+void		test_double_write_integer_part_case2(void)
 {
-	printf(KYEL "test_float_write_case2\n" KNRM);
-	double			f;
-	size_t			precision;
-	t_fp_buffer		buf;
+	printf(KYEL "test_double_write_integer_part_case2\n" KNRM);
+	t_fp_double_fields	df;
+	t_bigint			bcd;
+	t_fp_buffer			buf;
 
-	f = 3.14;
-	precision = 2;
 	fp_init_buffer(&buf);
+	bi_new(&bcd, 1, BI_SIGN_POSITIVE);
+	df.exponent = 13;
+	df.mantissa = 0x181cd6e631f8a1;
 
-	fp_float_write(f, precision, &buf);
+	fp_double_write_integer_part(&df, &bcd, &buf);
 	printf("result : %s\n", buf.data);
-	printf("expect : %.2f\n", f);
+	printf("expect : %f\n", 12345.6789);
+
+	free(bcd.data);
 }
 
-// case precision > 6
-void		test_float_write_case3(void)
+// case compact 123000.6789
+void		test_double_write_integer_part_case3(void)
 {
-	printf(KYEL "test_float_write_case3\n" KNRM);
-	double			f;
-	size_t			precision;
-	t_fp_buffer		buf;
+	printf(KYEL "test_double_write_integer_part_case3\n" KNRM);
+	t_fp_double_fields	df;
+	t_bigint			bcd;
+	t_fp_buffer			buf;
 
-	f = 3.14;
-	precision = 10;
 	fp_init_buffer(&buf);
+	bi_new(&bcd, 1, BI_SIGN_POSITIVE);
+	df.exponent = 16;
+	df.mantissa = 0x1e078adcc63f14;
 
-	fp_float_write(f, precision, &buf);
+	fp_double_write_integer_part(&df, &bcd, &buf);
 	printf("result : %s\n", buf.data);
-	printf("expect : %.10f\n", f);
-}
+	printf("expect : %f\n", 123000.6789);
 
-// case big integer part
-void		test_float_write_case4(void)
-{
-	printf(KYEL "test_float_write_case4\n" KNRM);
-	double			f;
-	size_t			precision;
-	t_fp_buffer		buf;
-
-	f = 123451234512345123451234512345123451234512345.0;
-	precision = 6;
-	fp_init_buffer(&buf);
-
-	fp_float_write(f, precision, &buf);
-	printf("result : %s\n", buf.data);
-	printf("expect : %f\n", f);
-}
-
-// case big integer part
-void		test_float_write_case5(void)
-{
-	printf(KYEL "test_float_write_case5\n" KNRM);
-	double			f;
-	size_t			precision;
-	t_fp_buffer		buf;
-
-	f = 123451234512345123451234512345123451234512345.12345;
-	precision = 6;
-	fp_init_buffer(&buf);
-
-	fp_float_write(f, precision, &buf);
-	printf("result : %s\n", buf.data);
-	printf("expect : %f\n", f);
-}
-
-// case big fraction part
-void		test_float_write_case6(void)
-{
-	printf(KYEL "test_float_write_case6\n" KNRM);
-	double			f;
-	size_t			precision;
-	t_fp_buffer		buf;
-
-	f = 1.12345123451234512345123451234512345123451234512345;
-	precision = 60;
-	fp_init_buffer(&buf);
-
-	fp_float_write(f, precision, &buf);
-	printf("result : %s\n", buf.data);
-	printf("expect : %.60f\n", f);
-}
-
-// case small fraction part
-void		test_float_write_case6(void)
-{
-	printf(KYEL "test_float_write_case6\n" KNRM);
-	double			f;
-	size_t			precision;
-	t_fp_buffer		buf;
-
-	f = 1.00000000000000000000000000000000000000000000012345;
-	precision = 60;
-	fp_init_buffer(&buf);
-
-	fp_float_write(f, precision, &buf);
-	printf("result : %s\n", buf.data);
-	printf("expect : %.60f\n", f);
+	free(bcd.data);
 }
 
 // case 0
-// case inf
+void		test_double_write_integer_part_case4(void)
+{
+	printf(KYEL "test_double_write_integer_part_case4\n" KNRM);
+	t_fp_double_fields	df;
+	t_bigint			bcd;
+	t_fp_buffer			buf;
+
+	fp_init_buffer(&buf);
+	bi_new(&bcd, 1, BI_SIGN_POSITIVE);
+	df.exponent = -4;
+	df.mantissa = 0x1f972474538ef3;
+
+	fp_double_write_integer_part(&df, &bcd, &buf);
+	printf("result : %s\n", buf.data);
+	printf("expect : %f\n", 0.1234);
+
+	free(bcd.data);
+}
+
+// case big 1234512345123451234512345.12345
+void		test_double_write_integer_part_case5(void)
+{
+	printf(KYEL "test_double_write_integer_part_case5\n" KNRM);
+	t_fp_double_fields	df;
+	t_bigint			bcd;
+	t_fp_buffer			buf;
+
+	fp_init_buffer(&buf);
+	bi_new(&bcd, 1, BI_SIGN_POSITIVE);
+	df.exponent = 80;
+	df.mantissa = 0x1056b0c5f2b0d3;
+
+	fp_double_write_integer_part(&df, &bcd, &buf);
+	printf("result : %s\n", buf.data);
+	printf("expect : %f\n", 1234512345123451234512345.12345);
+
+	free(bcd.data);
+}
+
+// case 12345000000.123
+void		test_double_write_integer_part_case6(void)
+{
+	printf(KYEL "test_double_write_integer_part_case6\n" KNRM);
+	t_fp_double_fields	df;
+	t_bigint			bcd;
+	t_fp_buffer			buf;
+
+	fp_init_buffer(&buf);
+	bi_new(&bcd, 1, BI_SIGN_POSITIVE);
+	df.exponent = 33;
+	df.mantissa = 0x1056b0c5f2b0d3;
+	df.mantissa = 0x16fe8e0200fbe7;
+
+	fp_double_write_integer_part(&df, &bcd, &buf);
+	printf("result : %s\n", buf.data);
+	printf("expect : %f\n", 12345000000.123);
+
+	free(bcd.data);
+}
+
+// case 3.14
+void		test_double_write_fraction_part_case1(void)
+{
+	printf(KYEL "test_double_write_fraction_part_case1\n" KNRM);
+	t_fp_double_fields	df;
+	t_bigint			bcd;
+	t_fp_buffer			buf;
+	size_t				precision;
+
+	fp_init_buffer(&buf);
+	bi_new(&bcd, 1, BI_SIGN_POSITIVE);
+	df.exponent = 1;
+	df.mantissa = 0x191eb851eb851f;
+	precision = 30;
+
+	fp_double_write_fraction_part(&df, precision, &bcd, &buf);
+	printf("result : %s\n", buf.data);
+	printf("expect : %.30f\n", 3.14);
+
+	free(bcd.data);
+}
+
+// case 12345.6789
+void		test_double_write_fraction_part_case2(void)
+{
+	printf(KYEL "test_double_write_fraction_part_case2\n" KNRM);
+	t_fp_double_fields	df;
+	t_bigint			bcd;
+	t_fp_buffer			buf;
+	size_t				precision;
+
+	fp_init_buffer(&buf);
+	bi_new(&bcd, 1, BI_SIGN_POSITIVE);
+	df.exponent = 13;
+	df.mantissa = 0x181cd6e631f8a1;
+	precision = 30;
+
+	fp_double_write_fraction_part(&df, precision, &bcd, &buf);
+	printf("result : %s\n", buf.data);
+	printf("expect : %.30f\n", 12345.6789);
+
+	free(bcd.data);
+}
+
+// case 123000.6789
+void		test_double_write_fraction_part_case3(void)
+{
+	printf(KYEL "test_double_write_fraction_part_case3\n" KNRM);
+	t_fp_double_fields	df;
+	t_bigint			bcd;
+	t_fp_buffer			buf;
+	size_t				precision;
+
+	fp_init_buffer(&buf);
+	bi_new(&bcd, 1, BI_SIGN_POSITIVE);
+	df.exponent = 16;
+	df.mantissa = 0x1e078adcc63f14;
+	precision = 30;
+
+	fp_double_write_fraction_part(&df, precision, &bcd, &buf);
+	printf("result : %s\n", buf.data);
+	printf("expect : %.30f\n", 123000.6789);
+
+	free(bcd.data);
+}
+
+// case 12345.0
+void		test_double_write_fraction_part_case4(void)
+{
+	printf(KYEL "test_double_write_fraction_part_case4\n" KNRM);
+	t_fp_double_fields	df;
+	t_bigint			bcd;
+	t_fp_buffer			buf;
+	size_t				precision;
+
+	fp_init_buffer(&buf);
+	bi_new(&bcd, 1, BI_SIGN_POSITIVE);
+	df.exponent = 13;
+	df.mantissa = 0x181c8000000000;
+	precision = 30;
+
+	fp_double_write_fraction_part(&df, precision, &bcd, &buf);
+	printf("result : %s\n", buf.data);
+	printf("expect : %.30f\n", 12345.0);
+
+	free(bcd.data);
+}
+
+// case 0.123451234512345123451234512345
+void		test_double_write_fraction_part_case5(void)
+{
+	printf(KYEL "test_double_write_fraction_part_case5\n" KNRM);
+	t_fp_double_fields	df;
+	t_bigint			bcd;
+	t_fp_buffer			buf;
+	size_t				precision;
+
+	fp_init_buffer(&buf);
+	bi_new(&bcd, 1, BI_SIGN_POSITIVE);
+	df.exponent = -4;
+	df.mantissa = 0x1f9a8006e1a013;
+	precision = 30;
+
+	fp_double_write_fraction_part(&df, precision, &bcd, &buf);
+	printf("result : %s\n", buf.data);
+	printf("expect : %.30f\n", 12345.0);
+
+	free(bcd.data);
+}
+
+// case 0.00000000000000000000000000000012345
+void		test_double_write_fraction_part_case6(void)
+{
+	printf(KYEL "test_double_write_fraction_part_case6\n" KNRM);
+	t_fp_double_fields	df;
+	t_bigint			bcd;
+	t_fp_buffer			buf;
+	size_t				precision;
+
+	fp_init_buffer(&buf);
+	bi_new(&bcd, 1, BI_SIGN_POSITIVE);
+	df.exponent = -103;
+	df.mantissa = 0x1407e9919234d8;
+	precision = 60;
+
+	fp_double_write_fraction_part(&df, precision, &bcd, &buf);
+	printf("result : %s\n", buf.data);
+	printf("expect : %.60f\n", 12345.0);
+
+	free(bcd.data);
+}
+
+// case rounding on preceding zero
+// case rounding on data
