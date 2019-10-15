@@ -244,6 +244,7 @@ void		test_double_fraction_part_case2(void);
 void		test_double_fraction_part_case3(void);
 void		test_double_fraction_part_case4(void);
 void		test_double_fraction_part_case5(void);
+void		test_double_fraction_part_case6(void);
 
 /*
 ** parse_percent test

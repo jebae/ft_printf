@@ -298,5 +298,6 @@ int		main(void)
 	test_double_fraction_part_case3();
 	test_double_fraction_part_case4();
 	test_double_fraction_part_case5();
+	test_double_fraction_part_case6();
 	// while (1);
 }
