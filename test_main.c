@@ -292,6 +292,7 @@ int		main(void)
 	test_double_integer_part_case3();
 	test_double_integer_part_case4();
 	test_double_integer_part_case5();
+	test_double_integer_part_case6();
 
 	test_double_fraction_part_case1();
 	test_double_fraction_part_case2();
@@ -302,13 +303,50 @@ int		main(void)
 	test_double_fraction_part_case7();
 	test_double_fraction_part_case8();
 
-	/*
 	test_double_write_integer_part_case1();
 	test_double_write_integer_part_case2();
 	test_double_write_integer_part_case3();
 	test_double_write_integer_part_case4();
 	test_double_write_integer_part_case5();
 	test_double_write_integer_part_case6();
+	test_double_write_integer_part_case7();
+
+	test_double_write_fraction_part_case1();
+	test_double_write_fraction_part_case2();
+	test_double_write_fraction_part_case3();
+	test_double_write_fraction_part_case4();
+	test_double_write_fraction_part_case5();
+	test_double_write_fraction_part_case6();
+	test_double_write_fraction_part_case7();
+	test_double_write_fraction_part_case8();
+	test_double_write_fraction_part_case9();
+	test_double_write_fraction_part_case10();
+	test_double_write_fraction_part_case11();
+	test_double_write_fraction_part_case12();
+	test_double_write_fraction_part_case13();
+	test_double_write_fraction_part_case14();
+	test_double_write_fraction_part_case15();
+	test_double_write_fraction_part_case16();
+
+	test_double_write_case1();
+	test_double_write_case2();
+	test_double_write_case3();
+	test_double_write_case4();
+	test_double_write_case5();
+	test_double_write_case6();
+	test_double_write_case7();
+	test_double_write_case8();
+	test_double_write_case9();
+	test_double_write_case10();
+	test_double_write_case11();
+	test_double_write_case12();
+
+	/*
+	test_arg_f_write_case1();
+	test_arg_f_write_case2();
+	test_arg_f_write_case3();
+	test_arg_f_write_case4();
+	test_arg_f_write_case5();
 	*/
 	// while (1);
 }

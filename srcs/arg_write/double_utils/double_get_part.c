@@ -68,7 +68,8 @@ int				fp_double_fraction_part(
 	size_t			num_bits;
 
 	fxp_init(&recip);
-	bi_push(&(recip.num), 1);
+	if (bi_push(&recip.num, 1) == BI_FAIL)
+		return (FP_FAIL);
 	if (exponent < 52)
 		num_bits = 52 - exponent;
 	else
@@ -105,7 +106,7 @@ int				fp_double_integer_part(
 		: size / BI_UNIT_BITS;
 	if (bi_memalloc(&int_part->num, size) == FXP_FAIL)
 		return (FP_FAIL);
-	mantissa >>= 52 - MIN(exponent, 52);
+	mantissa >>= 52 - MAX(MIN(exponent, 52), -1);
 	while (mantissa)
 	{
 		bi_push(&(int_part->num), mantissa & 0xff);

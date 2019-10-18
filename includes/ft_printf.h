@@ -237,8 +237,27 @@ int				fp_double_fraction_part(
 );
 
 int				fp_double_write_integer_part(
-	t_fp_double_fields *df,
-	t_bigint *bcd,
+	t_fixedpoint *int_part,
+	int carry,
+	t_fp_buffer *buf
+);
+
+int				fp_double_write_fraction_part(
+	t_fixedpoint *fraction_part,
+	size_t precision,
+	t_fp_buffer *buf
+);
+
+void			fp_double_write(
+	double num,
+	size_t precision,
+	t_fp_buffer *buf
+);
+
+void			fp_arg_f_write(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	size_t length,
 	t_fp_buffer *buf
 );
 
