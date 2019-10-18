@@ -41,4 +41,6 @@ void			fp_parse_u(va_list ap, t_fp_tags *tags, t_fp_arg *arg)
 		arg->write = &fp_arg_u_write;
 	}
 	arg->sign = &fp_arg_no_sign;
+	if (tags->mask & FP_MASK_PRECISION)
+		arg->mask |= FP_MASK_IGNORE_ZERO_PAD;
 }

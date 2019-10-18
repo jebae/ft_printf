@@ -369,7 +369,13 @@ int		main(void)
 	test_parse_percent_case16();
 	test_parse_percent_case17();
 	test_parse_percent_case18();
+	test_parse_percent_case19();
+	test_parse_percent_case20();
 
-	// parse_f
+	test_arg_x_length_case1();
+	test_arg_x_length_case2();
+	test_arg_x_length_case3();
+	test_arg_x_length_case4();
+
 	//while (1);
 }

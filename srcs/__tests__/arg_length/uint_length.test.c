@@ -6,7 +6,7 @@ void		test_uint_length_case1(void)
 	int		d = 123;
 
 	test(
-		fp_uint_length(d) == 3,
+		fp_uint_length(d, 10) == 3,
 		"uint_length (func(123)) : return value"
 	);
 }
@@ -17,7 +17,7 @@ void		test_uint_length_case2(void)
 	int		d = -123;
 
 	test(
-		fp_uint_length(d) == 20,
+		fp_uint_length(d, 10) == 20,
 		"uint_length (func(-123)) : return value"
 	);
 }
@@ -28,7 +28,7 @@ void		test_uint_length_case3(void)
 	int		d = 0;
 
 	test(
-		fp_uint_length(d) == 1,
+		fp_uint_length(d, 10) == 1,
 		"uint_length (func(0)) : return value"
 	);
 }
@@ -39,7 +39,7 @@ void		test_uint_length_case4(void)
 	int		d = 10;
 
 	test(
-		fp_uint_length(d) == 2,
+		fp_uint_length(d, 10) == 2,
 		"uint_length (func(10)) : return value"
 	);
 }
@@ -50,7 +50,7 @@ void		test_uint_length_case5(void)
 	int		d = -10;
 
 	test(
-		fp_uint_length(d) == 20,
+		fp_uint_length(d, 10) == 20,
 		"uint_length (func(-10)) : return value"
 	);
 }
@@ -61,7 +61,7 @@ void		test_uint_length_case6(void)
 	int		d = -1;
 
 	test(
-		fp_uint_length(d) == 20,
+		fp_uint_length(d, 10) == 20,
 		"uint_length (func(-1)) : return value"
 	);
 }
@@ -72,7 +72,7 @@ void		test_uint_length_case7(void)
 	int		d = 1;
 
 	test(
-		fp_uint_length(d) == 1,
+		fp_uint_length(d, 10) == 1,
 		"uint_length (func(1)) : return value"
 	);
 }
@@ -84,7 +84,7 @@ void		test_uint_length_case8(void)
 	long		d = 2147483648;
 
 	test(
-		fp_uint_length(d) == 10,
+		fp_uint_length(d, 10) == 10,
 		"uint_length (func(2147483648)) : return value"
 	);
 }

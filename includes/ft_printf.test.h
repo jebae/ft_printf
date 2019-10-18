@@ -121,6 +121,11 @@ void		test_arg_lf_length_case3(void);
 void		test_arg_lf_length_case4(void);
 void		test_arg_lf_length_case5(void);
 
+void		test_arg_x_length_case1(void);
+void		test_arg_x_length_case2(void);
+void		test_arg_x_length_case3(void);
+void		test_arg_x_length_case4(void);
+
 /*
 ** arg_sign test
 */
@@ -322,6 +327,8 @@ void		test_parse_percent_case15(void);
 void		test_parse_percent_case16(void);
 void		test_parse_percent_case17(void);
 void		test_parse_percent_case18(void);
+void		test_parse_percent_case19(void);
+void		test_parse_percent_case20(void);
 
 /*
 ** double write test

@@ -19,6 +19,7 @@
 # define FP_MASK_LENGTH_L			(1 << 6)
 # define FP_MASK_LENGTH_LL			(1 << 7)
 # define FP_MASK_LENGTH_FL			(1 << 8)
+# define FP_MASK_PRECISION			(1 << 9)
 
 # define FP_MASK_IGNORE_ZERO_PAD	(1 << 0)
 
@@ -98,8 +99,8 @@ size_t			fp_parse_length(const char *format, t_fp_tags *tags);
 /*
 ** arg_length
 */
-size_t			fp_int_length(long long num);
-size_t			fp_uint_length(unsigned long long num);
+size_t			fp_int_length(long long num, int base);
+size_t			fp_uint_length(unsigned long long num, int base);
 size_t			fp_double_int_part_length(double num);
 size_t			fp_long_double_int_part_length(long double num);
 
@@ -117,6 +118,12 @@ size_t			fp_arg_llu_length(t_fp_arg_data *data, t_fp_tags *tags);
 
 size_t			fp_arg_f_length(t_fp_arg_data *data, t_fp_tags *tags);
 size_t			fp_arg_lf_length(t_fp_arg_data *data, t_fp_tags *tags);
+
+size_t			fp_arg_x_length(t_fp_arg_data *data, t_fp_tags *tags);
+size_t			fp_arg_hx_length(t_fp_arg_data *data, t_fp_tags *tags);
+size_t			fp_arg_hhx_length(t_fp_arg_data *data, t_fp_tags *tags);
+size_t			fp_arg_lx_length(t_fp_arg_data *data, t_fp_tags *tags);
+size_t			fp_arg_llx_length(t_fp_arg_data *data, t_fp_tags *tags);
 
 /*
 ** arg_sign

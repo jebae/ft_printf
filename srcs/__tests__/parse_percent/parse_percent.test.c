@@ -410,3 +410,42 @@ void		test_parse_percent_case18(void)
 		"fp_parse_percent (%f) : buf.data"
 	);
 }
+
+// case %020.d
+void		test_parse_percent_case19(void)
+{
+	printf(KYEL "test_parse_percent_case19\n" KNRM);
+	const char	*format = "%020.d";
+	t_fp_buffer	buf;
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, 1) == ft_strlen(format),
+		"fp_parse_percent (%020.d) : return value"
+	);
+
+	test(
+		ft_strcmp(buf.data, "                   1") == 0,
+		"fp_parse_percent (%020.d) : buf.data"
+	);
+}
+// case %020.u
+void		test_parse_percent_case20(void)
+{
+	printf(KYEL "test_parse_percent_case20\n" KNRM);
+	const char	*format = "%020.u";
+	t_fp_buffer	buf;
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, 1) == ft_strlen(format),
+		"fp_parse_percent (%020.u) : return value"
+	);
+
+	test(
+		ft_strcmp(buf.data, "                   1") == 0,
+		"fp_parse_percent (%020.u) : buf.data"
+	);
+}

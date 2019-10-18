@@ -4,7 +4,7 @@ void		test_int_write_case1(void)
 {
 	printf(KYEL "test_int_write_case1\n" KNRM);
 	int				d = 123;
-	size_t			len = fp_int_length(d);
+	size_t			len = fp_int_length(d, 10);
 	t_fp_buffer		buf;
 
 	fp_init_buffer(&buf);
@@ -17,7 +17,7 @@ void		test_int_write_case2(void)
 {
 	printf(KYEL "test_int_write_case2\n" KNRM);
 	long long		d = 9223372036854775807;
-	size_t			len = fp_int_length(d);
+	size_t			len = fp_int_length(d, 10);
 	t_fp_buffer		buf;
 
 	fp_init_buffer(&buf);
@@ -30,7 +30,7 @@ void		test_int_write_case3(void)
 {
 	printf(KYEL "test_int_write_case3\n" KNRM);
 	long long		d = -321;
-	size_t			len = fp_int_length(d);
+	size_t			len = fp_int_length(d, 10);
 	t_fp_buffer		buf;
 
 	fp_init_buffer(&buf);
@@ -43,7 +43,7 @@ void		test_int_write_case4(void)
 {
 	printf(KYEL "test_int_write_case4\n" KNRM);
 	int				d = 0;
-	size_t			len = fp_int_length(d);
+	size_t			len = fp_int_length(d, 10);
 	t_fp_buffer		buf;
 
 	fp_init_buffer(&buf);
@@ -56,7 +56,7 @@ void		test_int_write_case5(void)
 {
 	printf(KYEL "test_int_write_case5\n" KNRM);
 	int				d = 1;
-	size_t			len = fp_int_length(d);
+	size_t			len = fp_int_length(d, 10);
 	t_fp_buffer		buf;
 
 	fp_init_buffer(&buf);
@@ -70,7 +70,7 @@ void		test_int_write_case6(void)
 {
 	printf(KYEL "test_int_write_case6\n" KNRM);
 	int				d = -2147483148;
-	size_t			len = fp_int_length((short)d);
+	size_t			len = fp_int_length((short)d, 10);
 	t_fp_buffer		buf;
 
 	fp_init_buffer(&buf);
@@ -83,7 +83,7 @@ void		test_uint_write_case1(void)
 {
 	printf(KYEL "test_uint_write_case1\n" KNRM);
 	unsigned int	d = 123;
-	size_t			len = fp_uint_length(d);
+	size_t			len = fp_uint_length(d, 10);
 	t_fp_buffer		buf;
 
 	fp_init_buffer(&buf);
@@ -96,7 +96,7 @@ void		test_uint_write_case2(void)
 {
 	printf(KYEL "test_uint_write_case2\n" KNRM);
 	unsigned long long	d = 9223372036854775807;
-	size_t				len = fp_uint_length(d);
+	size_t				len = fp_uint_length(d, 10);
 	t_fp_buffer			buf;
 
 	fp_init_buffer(&buf);
@@ -109,7 +109,7 @@ void		test_uint_write_case3(void)
 {
 	printf(KYEL "test_uint_write_case3\n" KNRM);
 	unsigned long long		d = -321;
-	size_t					len = fp_uint_length(d);
+	size_t					len = fp_uint_length(d, 10);
 	t_fp_buffer				buf;
 
 	fp_init_buffer(&buf);
@@ -122,7 +122,7 @@ void		test_uint_write_case4(void)
 {
 	printf(KYEL "test_uint_write_case4\n" KNRM);
 	unsigned int			d = 0;
-	size_t					len = fp_uint_length(d);
+	size_t					len = fp_uint_length(d, 10);
 	t_fp_buffer				buf;
 
 	fp_init_buffer(&buf);

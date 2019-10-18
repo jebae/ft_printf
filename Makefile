@@ -58,6 +58,7 @@ SRC_ARG_LENGTH = num_length.c\
 	arg_d_length.c\
 	arg_u_length.c\
 	arg_f_length.c\
+	arg_x_length.c\
 
 SRC_ARG_SIGN = num_sign.c\
 	arg_d_sign.c\

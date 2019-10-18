@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-size_t			fp_int_length(long long num)
+size_t			fp_int_length(long long num, int base)
 {
 	size_t		len;
 
@@ -9,13 +9,13 @@ size_t			fp_int_length(long long num)
 	len = 0;
 	while (num != 0)
 	{
-		num /= 10;
+		num /= base;
 		len++;
 	}
 	return (len);
 }
 
-size_t			fp_uint_length(unsigned long long num)
+size_t			fp_uint_length(unsigned long long num, int base)
 {
 	size_t		len;
 
@@ -24,7 +24,7 @@ size_t			fp_uint_length(unsigned long long num)
 	len = 0;
 	while (num != 0)
 	{
-		num /= 10;
+		num /= base;
 		len++;
 	}
 	return (len);
