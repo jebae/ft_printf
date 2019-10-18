@@ -2,7 +2,7 @@
 
 static int		double_fraction_part_handle_fail(t_fixedpoint *recip)
 {
-	ft_memdel((void **)&(recip->num.data));
+	fxp_del(recip);
 	return (FP_FAIL);
 }
 
@@ -13,21 +13,20 @@ static int		get_reciprocal(t_fixedpoint *recip, size_t num_bits)
 
 	if (num_bits == 0)
 		return (FP_SUCCESS);
-	if (fxp_new(&one_half, 1, BI_SIGN_POSITIVE) == FXP_FAIL)
-		return (FP_FAIL);
-	bi_push(&(one_half.num), 5);
+	fxp_init(&one_half);
+	bi_push(&one_half.num, 5);
 	one_half.e = -1;
 	i = 0;
 	while (i < num_bits)
 	{
 		if (fxp_mul_fxp(recip, &one_half, recip) == FXP_FAIL)
 		{
-			ft_memdel((void **)&one_half.num.data);
+			fxp_del(&one_half);
 			return (FP_FAIL);
 		}
 		i++;
 	}
-	ft_memdel((void **)&one_half.num.data);
+	fxp_del(&one_half);
 	return (FP_SUCCESS);
 }
 
@@ -45,7 +44,7 @@ static void		get_sum(
 	i = 0;
 	while (i < j)
 	{
-		bi_push(&(sum->num), mantissa & 0xff);
+		bi_push(&sum->num, mantissa & 0xff);
 		mantissa >>= 8;
 		i++;
 	}
@@ -55,12 +54,12 @@ static void		get_sum(
 		bi_set_bit(&(sum->num), i * 8 + j - 1, (mantissa >> (j - 1)) & 1);
 		j--;
 	}
-	bi_update_occupied(&(sum->num));
 }
 
 int				fp_double_fraction_part(
 	short exponent,
 	unsigned long long mantissa,
+	size_t precision,
 	t_fixedpoint *fraction_part
 )
 {
@@ -68,8 +67,7 @@ int				fp_double_fraction_part(
 	size_t			size;
 	size_t			num_bits;
 
-	if (fxp_new(&recip, 1, BI_SIGN_POSITIVE) == FXP_FAIL)
-		return (FP_FAIL);
+	fxp_init(&recip);
 	bi_push(&(recip.num), 1);
 	if (exponent < 52)
 		num_bits = 52 - exponent;
@@ -78,14 +76,16 @@ int				fp_double_fraction_part(
 	size = (num_bits % BI_UNIT_BITS)
 		? num_bits / BI_UNIT_BITS + 1
 		: num_bits / BI_UNIT_BITS;
-	if (fxp_new(fraction_part, MAX(size, 1), BI_SIGN_POSITIVE) == FXP_FAIL)
+	if (bi_memalloc(&fraction_part->num, MAX(size, 1)) == FXP_FAIL)
 		return (double_fraction_part_handle_fail(&recip));
 	if (get_reciprocal(&recip, num_bits) == FP_FAIL)
 		return (double_fraction_part_handle_fail(&recip));
 	get_sum(fraction_part, mantissa, num_bits);
 	if (fxp_mul_fxp(fraction_part, &recip, fraction_part) == FXP_FAIL)
-		return (FP_FAIL);
-	ft_memdel((void **)&recip.num.data);
+		return (double_fraction_part_handle_fail(&recip));
+	if (fxp_round(fraction_part, precision, fraction_part) == FXP_FAIL)
+		return (double_fraction_part_handle_fail(&recip));
+	fxp_del(&recip);
 	return (FP_SUCCESS);
 }
 
@@ -97,15 +97,15 @@ int				fp_double_integer_part(
 {
 	size_t		size;
 
-	mantissa >>= 52 - MIN(exponent, 52);
 	size = 1;
 	if (exponent > 0)
 		size += exponent;
 	size = (size % BI_UNIT_BITS)
 		? size / BI_UNIT_BITS + 1
 		: size / BI_UNIT_BITS;
-	if (fxp_new(int_part, size, BI_SIGN_POSITIVE) == FXP_FAIL)
+	if (bi_memalloc(&int_part->num, size) == FXP_FAIL)
 		return (FP_FAIL);
+	mantissa >>= 52 - MIN(exponent, 52);
 	while (mantissa)
 	{
 		bi_push(&(int_part->num), mantissa & 0xff);

@@ -20,7 +20,6 @@ static int		preprocess(
 	return (FP_SUCCESS);
 }
 
-
 int		fp_double_write_integer_part(
 	t_fp_double_fields *df,
 	t_bigint *bcd,

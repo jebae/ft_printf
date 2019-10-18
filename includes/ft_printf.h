@@ -232,6 +232,7 @@ int				fp_double_integer_part(
 int				fp_double_fraction_part(
 	short exponent,
 	unsigned long long mantissa,
+	size_t precision,
 	t_fixedpoint *fraction_part
 );
 

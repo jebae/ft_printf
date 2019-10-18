@@ -299,12 +299,16 @@ int		main(void)
 	test_double_fraction_part_case4();
 	test_double_fraction_part_case5();
 	test_double_fraction_part_case6();
+	test_double_fraction_part_case7();
+	test_double_fraction_part_case8();
 
+	/*
 	test_double_write_integer_part_case1();
 	test_double_write_integer_part_case2();
 	test_double_write_integer_part_case3();
 	test_double_write_integer_part_case4();
 	test_double_write_integer_part_case5();
 	test_double_write_integer_part_case6();
+	*/
 	// while (1);
 }

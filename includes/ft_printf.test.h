@@ -316,6 +316,8 @@ void		test_double_fraction_part_case3(void);
 void		test_double_fraction_part_case4(void);
 void		test_double_fraction_part_case5(void);
 void		test_double_fraction_part_case6(void);
+void		test_double_fraction_part_case7(void);
+void		test_double_fraction_part_case8(void);
 
 void		test_double_write_integer_part_case1(void);
 void		test_double_write_integer_part_case2(void);
