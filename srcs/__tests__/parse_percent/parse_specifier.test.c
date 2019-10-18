@@ -109,3 +109,35 @@ void		test_parse_specifier_case3(void)
 		"fp_parse_specifier (i) : arg.write"
 	);
 }
+
+// f
+void		test_parse_specifier_case4(void)
+{
+	printf(KYEL "test_parse_specifier_case4\n" KNRM);
+	const char	*format = "f";
+	t_fp_arg	arg;
+	t_fp_tags	tags;
+
+	fp_init_tags(&tags);
+	parse(format, &tags, &arg, 3.14);
+
+	test(
+		arg.data.f== 3.14,
+		"fp_parse_specifier (f) : arg.data.f"
+	);
+
+	test(
+		arg.length == &fp_arg_f_length,
+		"fp_parse_specifier (f) : arg.length"
+	);
+
+	test(
+		arg.sign == &fp_arg_f_sign,
+		"fp_parse_specifier (f) : arg.sign"
+	);
+
+	test(
+		arg.write == &fp_arg_f_write,
+		"fp_parse_specifier (f) : arg.write"
+	);
+}

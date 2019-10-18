@@ -128,6 +128,60 @@ void		test_arg_f_sign_case8(void)
 	);
 }
 
+// case nan
+void		test_arg_f_sign_case9(void)
+{
+	printf(KYEL "test_arg_f_sign_case9\n" KNRM);
+	t_fp_arg_data	data;
+	t_fp_tags		tags;
+
+	tags.mask = 0;
+	tags.mask |= FP_MASK_FLAG_SPACE;
+	tags.mask |= FP_MASK_FLAG_PLUS;
+	data.f = NAN;
+
+	test(
+		fp_arg_f_sign(&data, &tags) == FP_NO_SIGN,
+		"arg_f_sign (NAN) : return value"
+	);
+}
+
+// case inf
+void		test_arg_f_sign_case10(void)
+{
+	printf(KYEL "test_arg_f_sign_case10\n" KNRM);
+	t_fp_arg_data	data;
+	t_fp_tags		tags;
+
+	tags.mask = 0;
+	tags.mask |= FP_MASK_FLAG_SPACE;
+	tags.mask |= FP_MASK_FLAG_PLUS;
+	data.f = INFINITY;
+
+	test(
+		fp_arg_f_sign(&data, &tags) == '+',
+		"arg_f_sign (inf, SPACE, PLUS) : return value"
+	);
+}
+
+// case -inf
+void		test_arg_f_sign_case11(void)
+{
+	printf(KYEL "test_arg_f_sign_case11\n" KNRM);
+	t_fp_arg_data	data;
+	t_fp_tags		tags;
+
+	tags.mask = 0;
+	tags.mask |= FP_MASK_FLAG_SPACE;
+	tags.mask |= FP_MASK_FLAG_PLUS;
+	data.f = -INFINITY;
+
+	test(
+		fp_arg_f_sign(&data, &tags) == '-',
+		"arg_f_sign (inf, SPACE, PLUS) : return value"
+	);
+}
+
 void		test_arg_lf_sign_case1(void)
 {
 	printf(KYEL "test_arg_lf_sign_case1\n" KNRM);

@@ -7,6 +7,29 @@ static void		handle_return(t_fixedpoint *int_part, t_fixedpoint *fraction_part)
 	ft_memdel((void **)&fraction_part->num.data);
 }
 
+static int		handle_inf_nan(double num, t_fp_buffer *buf)
+{
+	static char		*inf = "inf";
+	static char		*nan = "nan";
+	char			*word;
+	int				i;
+
+	word = NULL;
+	if (ft_is_inf(num))
+		word = inf;
+	else if (ft_is_nan(num))
+		word = nan;
+	else
+		return (0);
+	i = 0;
+	while (i < 3)
+	{
+		fp_write_buffer(buf, word[i]);
+		i++;
+	}
+	return (1);
+}
+
 static int		write_parts(
 	t_fixedpoint *int_part,
 	t_fixedpoint *fraction_part,
@@ -38,19 +61,18 @@ void			fp_double_write(
 	t_fixedpoint		int_part;
 	t_fixedpoint		fraction_part;
 
-	// handle 0, inf
-	mantissa = *((unsigned long long *)&num);
-	exponent = ((mantissa >> 52) & 0x7ff) - 0x3ff;
-	mantissa &= 0xfffffffffffff;
+	if (handle_inf_nan(num, buf))
+		return ;
+	ft_extract_double(num, &exponent, &mantissa);
 	mantissa |= 0x10000000000000;
 	fxp_init(&int_part);
 	fxp_init(&fraction_part);
-	if (exponent != -0x3ff && fp_double_fraction_part(
-		exponent, mantissa, precision, &fraction_part) == FP_FAIL)
+	if (exponent != 0x000 && fp_double_fraction_part(
+		exponent - 0x3ff, mantissa, precision, &fraction_part) == FP_FAIL)
 		return (handle_return(NULL, &fraction_part));
-	if (fp_double_integer_part(exponent, mantissa, &int_part) == FP_FAIL)
+	if (fp_double_integer_part(
+		exponent - 0x3ff, mantissa, &int_part) == FP_FAIL)
 		return (handle_return(NULL, &fraction_part));
 	write_parts(&int_part, &fraction_part, precision, buf);
-	fxp_del(&int_part);
-	fxp_del(&fraction_part);
+	return (handle_return(&int_part, &fraction_part));
 }

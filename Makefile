@@ -80,6 +80,7 @@ SRC_PARSE_PERCENT = write_percent_format.c\
 	parse_percent.c\
 	parse_d.c\
 	parse_u.c\
+	parse_f.c\
 
 # objs
 #OBJS = $(addprefix $(OBJDIR)/, $(SRC_FT_PRINTF:.c=.o))

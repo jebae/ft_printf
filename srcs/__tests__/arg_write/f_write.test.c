@@ -79,3 +79,51 @@ void		test_arg_f_write_case5(void)
 	printf("result : %s\n", buf.data);
 	printf("expect : %.50f\n", data.f);
 }
+
+// case inf
+void		test_arg_f_write_case6(void)
+{
+	printf(KYEL "test_arg_f_write_case6\n" KNRM);
+	t_fp_arg_data	data;
+	t_fp_buffer		buf;
+	t_fp_tags		tags;
+
+	fp_init_buffer(&buf);
+	tags.precision = 50;
+	data.f = INFINITY;
+	fp_arg_f_write(&data, &tags, fp_arg_f_length(&data, &tags), &buf);
+	printf("result : %s\n", buf.data);
+	printf("expect : %.50f\n", data.f);
+}
+
+// case -inf
+void		test_arg_f_write_case7(void)
+{
+	printf(KYEL "test_arg_f_write_case7\n" KNRM);
+	t_fp_arg_data	data;
+	t_fp_buffer		buf;
+	t_fp_tags		tags;
+
+	fp_init_buffer(&buf);
+	tags.precision = 50;
+	data.f = -INFINITY;
+	fp_arg_f_write(&data, &tags, fp_arg_f_length(&data, &tags), &buf);
+	printf("result : %s\n", buf.data);
+	printf("expect : %.50f\n", data.f);
+}
+
+// case nan
+void		test_arg_f_write_case8(void)
+{
+	printf(KYEL "test_arg_f_write_case8\n" KNRM);
+	t_fp_arg_data	data;
+	t_fp_buffer		buf;
+	t_fp_tags		tags;
+
+	fp_init_buffer(&buf);
+	tags.precision = 50;
+	data.f = NAN;
+	fp_arg_f_write(&data, &tags, fp_arg_f_length(&data, &tags), &buf);
+	printf("result : %s\n", buf.data);
+	printf("expect : %.50f\n", data.f);
+}

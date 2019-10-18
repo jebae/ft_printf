@@ -75,6 +75,38 @@ void		test_arg_f_length_case5(void)
 	);
 }
 
+// case inf
+void		test_arg_f_length_case6(void)
+{
+	printf(KYEL "test_arg_f_length_case6\n" KNRM);
+	t_fp_arg_data	data;
+	t_fp_tags		tags;
+
+	data.f = INFINITY;
+	tags.precision = 4;
+
+	test(
+		fp_arg_f_length(&data, &tags) == 3,
+		"arg_f_length (inf) : return value"
+	);
+}
+
+// case nan
+void		test_arg_f_length_case7(void)
+{
+	printf(KYEL "test_arg_f_length_case7\n" KNRM);
+	t_fp_arg_data	data;
+	t_fp_tags		tags;
+
+	data.f = NAN;
+	tags.precision = 4;
+
+	test(
+		fp_arg_f_length(&data, &tags) == 3,
+		"arg_f_length (nan) : return value"
+	);
+}
+
 void		test_arg_lf_length_case1(void)
 {
 	printf(KYEL "test_arg_lf_length_case1\n" KNRM);

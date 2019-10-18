@@ -6,6 +6,15 @@ static size_t	handle_percent(t_fp_buffer *buf)
 	return (2);
 }
 
+static void		init_arg(t_fp_arg *arg)
+{
+	arg->mask = 0;
+	arg->length = NULL;
+	arg->sign = NULL;
+	arg->write = NULL;
+	ft_memset(&arg->data, 0, sizeof(t_fp_arg_data));
+}
+
 size_t			fp_parse_percent(
 	const char *format,
 	va_list ap,
@@ -23,6 +32,7 @@ size_t			fp_parse_percent(
 	if (format[i] == '%')
 		return (handle_percent(buf));
 	fp_init_tags(&tags);
+	init_arg(&arg);
 	j = 1;
 	while (j != 0)
 	{

@@ -9,7 +9,7 @@ char		fp_num_sign(int positive, t_fp_tags *tags)
 		else if (tags->mask & FP_MASK_FLAG_SPACE)
 			return (' ');
 		else
-			return (-1);
+			return (FP_NO_SIGN);
 	}
 	return ('-');
 }

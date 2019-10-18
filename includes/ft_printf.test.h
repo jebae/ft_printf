@@ -2,6 +2,7 @@
 # define FT_PRINTF_TEST_H
 
 # include <stdio.h>
+# include <math.h>
 # include "ft_printf.h"
 
 /*
@@ -111,6 +112,8 @@ void		test_arg_f_length_case2(void);
 void		test_arg_f_length_case3(void);
 void		test_arg_f_length_case4(void);
 void		test_arg_f_length_case5(void);
+void		test_arg_f_length_case6(void);
+void		test_arg_f_length_case7(void);
 
 void		test_arg_lf_length_case1(void);
 void		test_arg_lf_length_case2(void);
@@ -154,6 +157,9 @@ void		test_arg_f_sign_case5(void);
 void		test_arg_f_sign_case6(void);
 void		test_arg_f_sign_case7(void);
 void		test_arg_f_sign_case8(void);
+void		test_arg_f_sign_case9(void);
+void		test_arg_f_sign_case10(void);
+void		test_arg_f_sign_case11(void);
 
 void		test_arg_lf_sign_case1(void);
 void		test_arg_lf_sign_case2(void);
@@ -231,6 +237,9 @@ void		test_arg_f_write_case2(void);
 void		test_arg_f_write_case3(void);
 void		test_arg_f_write_case4(void);
 void		test_arg_f_write_case5(void);
+void		test_arg_f_write_case6(void);
+void		test_arg_f_write_case7(void);
+void		test_arg_f_write_case8(void);
 
 /*
 ** parse_percent test
@@ -288,9 +297,12 @@ void		test_parse_u_case3(void);
 void		test_parse_u_case4(void);
 void		test_parse_u_case5(void);
 
+void		test_parse_f_case1(void);
+
 void		test_parse_specifier_case1(void);
 void		test_parse_specifier_case2(void);
 void		test_parse_specifier_case3(void);
+void		test_parse_specifier_case4(void);
 
 void		test_parse_percent_case1(void);
 void		test_parse_percent_case2(void);
@@ -299,6 +311,17 @@ void		test_parse_percent_case4(void);
 void		test_parse_percent_case5(void);
 void		test_parse_percent_case6(void);
 void		test_parse_percent_case7(void);
+void		test_parse_percent_case8(void);
+void		test_parse_percent_case9(void);
+void		test_parse_percent_case10(void);
+void		test_parse_percent_case11(void);
+void		test_parse_percent_case12(void);
+void		test_parse_percent_case13(void);
+void		test_parse_percent_case14(void);
+void		test_parse_percent_case15(void);
+void		test_parse_percent_case16(void);
+void		test_parse_percent_case17(void);
+void		test_parse_percent_case18(void);
 
 /*
 ** double write test
@@ -363,5 +386,6 @@ void		test_double_write_case9(void);
 void		test_double_write_case10(void);
 void		test_double_write_case11(void);
 void		test_double_write_case12(void);
+void		test_double_write_case13(void);
 
 #endif

@@ -20,6 +20,8 @@
 # define FP_MASK_LENGTH_LL			(1 << 7)
 # define FP_MASK_LENGTH_FL			(1 << 8)
 
+# define FP_MASK_IGNORE_ZERO_PAD	(1 << 0)
+
 /*
 ** buffer macros
 */
@@ -66,6 +68,7 @@ typedef union	u_fp_arg_data
 
 typedef struct	s_fp_arg
 {
+	int				mask;
 	t_fp_arg_data	data;
 	size_t			(*length)(t_fp_arg_data *data, t_fp_tags *tags);
 	char			(*sign)(t_fp_arg_data *data, t_fp_tags *tags);
@@ -282,6 +285,8 @@ void			fp_write_percent_format(
 void			fp_parse_d(va_list ap, t_fp_tags *tags, t_fp_arg *arg);
 
 void			fp_parse_u(va_list ap, t_fp_tags *tags, t_fp_arg *arg);
+
+void			fp_parse_f(va_list ap, t_fp_tags *tags, t_fp_arg *arg);
 
 size_t			fp_parse_specifier(
 	const char *format,
