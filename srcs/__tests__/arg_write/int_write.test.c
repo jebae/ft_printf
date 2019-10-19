@@ -87,7 +87,7 @@ void		test_uint_write_case1(void)
 	t_fp_buffer		buf;
 
 	fp_init_buffer(&buf);
-	fp_uint_write(d, len, &buf);
+	fp_uint_write(d, len, 10, &buf);
 	printf("result : %s\n", buf.data);
 	printf("expect : %u\n", d);
 }
@@ -100,7 +100,7 @@ void		test_uint_write_case2(void)
 	t_fp_buffer			buf;
 
 	fp_init_buffer(&buf);
-	fp_uint_write(d, len, &buf);
+	fp_uint_write(d, len, 10, &buf);
 	printf("result : %s\n", buf.data);
 	printf("expect : %llu\n", d);
 }
@@ -113,7 +113,7 @@ void		test_uint_write_case3(void)
 	t_fp_buffer				buf;
 
 	fp_init_buffer(&buf);
-	fp_uint_write(d, len, &buf);
+	fp_uint_write(d, len, 10, &buf);
 	printf("result : %s\n", buf.data);
 	printf("expect : %llu\n", d);
 }
@@ -126,7 +126,7 @@ void		test_uint_write_case4(void)
 	t_fp_buffer				buf;
 
 	fp_init_buffer(&buf);
-	fp_uint_write(d, len, &buf);
+	fp_uint_write(d, len, 10, &buf);
 	printf("result : %s\n", buf.data);
 	printf("expect : %u\n", d);
 }

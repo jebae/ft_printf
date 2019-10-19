@@ -141,3 +141,67 @@ void		test_parse_specifier_case4(void)
 		"fp_parse_specifier (f) : arg.write"
 	);
 }
+
+// x
+void		test_parse_specifier_case5(void)
+{
+	printf(KYEL "test_parse_specifier_case5\n" KNRM);
+	const char	*format = "x";
+	t_fp_arg	arg;
+	t_fp_tags	tags;
+
+	fp_init_tags(&tags);
+	parse(format, &tags, &arg, 0x1234);
+
+	test(
+		arg.data.i == 0x1234,
+		"fp_parse_specifier (x) : arg.data.i"
+	);
+
+	test(
+		arg.length == &fp_arg_x_length,
+		"fp_parse_specifier (x) : arg.length"
+	);
+
+	test(
+		arg.sign == &fp_arg_no_sign,
+		"fp_parse_specifier (x) : arg.sign"
+	);
+
+	test(
+		arg.write == &fp_arg_x_write,
+		"fp_parse_specifier (x) : arg.write"
+	);
+}
+
+// o
+void		test_parse_specifier_case6(void)
+{
+	printf(KYEL "test_parse_specifier_case6\n" KNRM);
+	const char	*format = "o";
+	t_fp_arg	arg;
+	t_fp_tags	tags;
+
+	fp_init_tags(&tags);
+	parse(format, &tags, &arg, 037723);
+
+	test(
+		arg.data.i == 037723,
+		"fp_parse_specifier (o) : arg.data.i"
+	);
+
+	test(
+		arg.length == &fp_arg_o_length,
+		"fp_parse_specifier (o) : arg.length"
+	);
+
+	test(
+		arg.sign == &fp_arg_no_sign,
+		"fp_parse_specifier (o) : arg.sign"
+	);
+
+	test(
+		arg.write == &fp_arg_o_write,
+		"fp_parse_specifier (o) : arg.write"
+	);
+}

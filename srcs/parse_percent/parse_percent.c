@@ -8,7 +8,6 @@ static size_t	handle_percent(t_fp_buffer *buf)
 
 static void		init_arg(t_fp_arg *arg)
 {
-	arg->mask = 0;
 	arg->length = NULL;
 	arg->sign = NULL;
 	arg->write = NULL;

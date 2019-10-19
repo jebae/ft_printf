@@ -15,6 +15,10 @@ size_t		fp_parse_specifier(
 		fp_parse_u(ap, tags, arg);
 	else if (*format == 'f')
 		fp_parse_f(ap, tags, arg);
+	else if (*format == 'x')
+		fp_parse_x(ap, tags, arg);
+	else if (*format == 'o')
+		fp_parse_o(ap, tags, arg);
 	/*
 	else
 		// handle character which is not specifier

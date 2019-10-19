@@ -337,12 +337,14 @@ int		main(void)
 	test_parse_d_case3();
 	test_parse_d_case4();
 	test_parse_d_case5();
+	test_parse_d_case6();
 
 	test_parse_u_case1();
 	test_parse_u_case2();
 	test_parse_u_case3();
 	test_parse_u_case4();
 	test_parse_u_case5();
+	test_parse_u_case6();
 
 	test_parse_f_case1();
 
@@ -377,5 +379,86 @@ int		main(void)
 	test_arg_x_length_case3();
 	test_arg_x_length_case4();
 
+	test_arg_hx_length_case1();
+	test_arg_hx_length_case2();
+	test_arg_hx_length_case3();
+
+	test_arg_hhx_length_case1();
+	test_arg_hhx_length_case2();
+
+	test_arg_lx_length_case1();
+
+	test_arg_llx_length_case1();
+
+	test_arg_x_write_case1();
+	test_arg_x_write_case2();
+
+	test_arg_hx_write_case1();
+	test_arg_hx_write_case2();
+
+	test_arg_hhx_write_case1();
+	test_arg_hhx_write_case2();
+
+	test_arg_lx_write_case1();
+	test_arg_llx_write_case1();
+
+	test_parse_x_case1();
+	test_parse_x_case2();
+	test_parse_x_case3();
+	test_parse_x_case4();
+	test_parse_x_case5();
+	test_parse_x_case6();
+
+	test_parse_specifier_case5();
+
+	test_parse_percent_case21();
+	test_parse_percent_case22();
+	test_parse_percent_case23();
+	test_parse_percent_case24();
+	test_parse_percent_case25();
+	test_parse_percent_case26();
+	test_parse_percent_case27();
+
+	test_arg_o_length_case1();
+	test_arg_o_length_case2();
+	test_arg_o_length_case3();
+	test_arg_o_length_case4();
+
+	test_arg_ho_length_case1();
+	test_arg_ho_length_case2();
+
+	test_arg_hho_length_case1();
+	test_arg_hho_length_case2();
+
+	test_arg_lo_length_case1();
+
+	test_arg_llo_length_case1();
+
+	test_arg_o_write_case1();
+	test_arg_o_write_case2();
+
+	test_arg_ho_write_case1();
+	test_arg_ho_write_case2();
+
+	test_arg_hho_write_case1();
+	test_arg_hho_write_case2();
+
+	test_arg_lo_write_case1();
+
+	test_arg_llo_write_case1();
+
+	test_parse_o_case1();
+	test_parse_o_case2();
+	test_parse_o_case3();
+	test_parse_o_case4();
+	test_parse_o_case5();
+	test_parse_o_case6();
+
+	test_parse_specifier_case6();
+
+	test_parse_percent_case28();
+	test_parse_percent_case29();
+	test_parse_percent_case30();
+	test_parse_percent_case31();
 	//while (1);
 }

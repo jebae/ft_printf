@@ -126,6 +126,32 @@ void		test_arg_x_length_case2(void);
 void		test_arg_x_length_case3(void);
 void		test_arg_x_length_case4(void);
 
+void		test_arg_hx_length_case1(void);
+void		test_arg_hx_length_case2(void);
+void		test_arg_hx_length_case3(void);
+
+void		test_arg_hhx_length_case1(void);
+void		test_arg_hhx_length_case2(void);
+
+void		test_arg_lx_length_case1(void);
+
+void		test_arg_llx_length_case1(void);
+
+void		test_arg_o_length_case1(void);
+void		test_arg_o_length_case2(void);
+void		test_arg_o_length_case3(void);
+void		test_arg_o_length_case4(void);
+
+void		test_arg_ho_length_case1(void);
+void		test_arg_ho_length_case2(void);
+
+void		test_arg_hho_length_case1(void);
+void		test_arg_hho_length_case2(void);
+
+void		test_arg_lo_length_case1(void);
+
+void		test_arg_llo_length_case1(void);
+
 /*
 ** arg_sign test
 */
@@ -246,6 +272,30 @@ void		test_arg_f_write_case6(void);
 void		test_arg_f_write_case7(void);
 void		test_arg_f_write_case8(void);
 
+void		test_arg_x_write_case1(void);
+void		test_arg_x_write_case2(void);
+
+void		test_arg_hx_write_case1(void);
+void		test_arg_hx_write_case2(void);
+
+void		test_arg_hhx_write_case1(void);
+void		test_arg_hhx_write_case2(void);
+
+void		test_arg_lx_write_case1(void);
+void		test_arg_llx_write_case1(void);
+
+void		test_arg_o_write_case1(void);
+void		test_arg_o_write_case2(void);
+
+void		test_arg_ho_write_case1(void);
+void		test_arg_ho_write_case2(void);
+
+void		test_arg_hho_write_case1(void);
+void		test_arg_hho_write_case2(void);
+
+void		test_arg_lo_write_case1(void);
+void		test_arg_llo_write_case1(void);
+
 /*
 ** parse_percent test
 */
@@ -295,12 +345,28 @@ void		test_parse_d_case2(void);
 void		test_parse_d_case3(void);
 void		test_parse_d_case4(void);
 void		test_parse_d_case5(void);
+void		test_parse_d_case6(void);
 
 void		test_parse_u_case1(void);
 void		test_parse_u_case2(void);
 void		test_parse_u_case3(void);
 void		test_parse_u_case4(void);
 void		test_parse_u_case5(void);
+void		test_parse_u_case6(void);
+
+void		test_parse_x_case1(void);
+void		test_parse_x_case2(void);
+void		test_parse_x_case3(void);
+void		test_parse_x_case4(void);
+void		test_parse_x_case5(void);
+void		test_parse_x_case6(void);
+
+void		test_parse_o_case1(void);
+void		test_parse_o_case2(void);
+void		test_parse_o_case3(void);
+void		test_parse_o_case4(void);
+void		test_parse_o_case5(void);
+void		test_parse_o_case6(void);
 
 void		test_parse_f_case1(void);
 
@@ -308,6 +374,8 @@ void		test_parse_specifier_case1(void);
 void		test_parse_specifier_case2(void);
 void		test_parse_specifier_case3(void);
 void		test_parse_specifier_case4(void);
+void		test_parse_specifier_case5(void);
+void		test_parse_specifier_case6(void);
 
 void		test_parse_percent_case1(void);
 void		test_parse_percent_case2(void);
@@ -329,6 +397,17 @@ void		test_parse_percent_case17(void);
 void		test_parse_percent_case18(void);
 void		test_parse_percent_case19(void);
 void		test_parse_percent_case20(void);
+void		test_parse_percent_case21(void);
+void		test_parse_percent_case22(void);
+void		test_parse_percent_case23(void);
+void		test_parse_percent_case24(void);
+void		test_parse_percent_case25(void);
+void		test_parse_percent_case26(void);
+void		test_parse_percent_case27(void);
+void		test_parse_percent_case28(void);
+void		test_parse_percent_case29(void);
+void		test_parse_percent_case30(void);
+void		test_parse_percent_case31(void);
 
 /*
 ** double write test

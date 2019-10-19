@@ -42,6 +42,11 @@ void		test_parse_d_case1(void)
 		arg.write == &fp_arg_d_write,
 		"fp_parse_d (d) : arg.write"
 	);
+
+	test(
+		(tags.mask & FP_MASK_IGNORE_ZERO_PAD) == 0,
+		"fp_parse_d : tags.mask & FP_MASK_IGNORE_ZERO_PAD"
+	);
 }
 
 // hd
@@ -75,6 +80,11 @@ void		test_parse_d_case2(void)
 		arg.write == &fp_arg_hd_write,
 		"fp_parse_d (hd) : arg.write"
 	);
+
+	test(
+		(tags.mask & FP_MASK_IGNORE_ZERO_PAD) == 0,
+		"fp_parse_d : tags.mask & FP_MASK_IGNORE_ZERO_PAD"
+	);
 }
 
 // hhd
@@ -106,6 +116,11 @@ void		test_parse_d_case3(void)
 	test(
 		arg.write == &fp_arg_hhd_write,
 		"fp_parse_d (hhd) : arg.write"
+	);
+
+	test(
+		(tags.mask & FP_MASK_IGNORE_ZERO_PAD) == 0,
+		"fp_parse_d : tags.mask & FP_MASK_IGNORE_ZERO_PAD"
 	);
 }
 
@@ -141,6 +156,11 @@ void		test_parse_d_case4(void)
 		arg.write == &fp_arg_ld_write,
 		"fp_parse_d (ld) : arg.write"
 	);
+
+	test(
+		(tags.mask & FP_MASK_IGNORE_ZERO_PAD) == 0,
+		"fp_parse_d : tags.mask & FP_MASK_IGNORE_ZERO_PAD"
+	);
 }
 
 // lld
@@ -175,5 +195,47 @@ void		test_parse_d_case5(void)
 	test(
 		arg.write == &fp_arg_lld_write,
 		"fp_parse_d (lld) : arg.write"
+	);
+
+	test(
+		(tags.mask & FP_MASK_IGNORE_ZERO_PAD) == 0,
+		"fp_parse_d : tags.mask & FP_MASK_IGNORE_ZERO_PAD"
+	);
+}
+
+// tags->mask & FP_MASK_PRECISION
+void		test_parse_d_case6(void)
+{
+	printf(KYEL "test_parse_d_case6\n" KNRM);
+	t_fp_arg	arg;
+	t_fp_tags	tags;
+
+	fp_init_tags(&tags);
+	tags.mask |= FP_MASK_PRECISION;
+	parse(&tags, &arg, 12345);
+
+	test(
+		arg.data.i == 12345,
+		"fp_parse_u : arg.data.i"
+	);
+
+	test(
+		arg.length == &fp_arg_d_length,
+		"fp_parse_u : arg.length"
+	);
+
+	test(
+		arg.sign == &fp_arg_d_sign,
+		"fp_parse_u : arg.sign"
+	);
+
+	test(
+		arg.write == &fp_arg_d_write,
+		"fp_parse_u : arg.write"
+	);
+
+	test(
+		(tags.mask & FP_MASK_IGNORE_ZERO_PAD) != 0,
+		"fp_parse_u : tags.mask & FP_MASK_IGNORE_ZERO_PAD"
 	);
 }

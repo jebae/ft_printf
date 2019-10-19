@@ -42,7 +42,7 @@ void		fp_write_percent_format(
 		return ;
 	}
 	if ((tags->mask & FP_MASK_FLAG_ZERO) &&
-		!(arg->mask & FP_MASK_IGNORE_ZERO_PAD))
+		!(tags->mask & FP_MASK_IGNORE_ZERO_PAD))
 	{
 		fp_write_sign(sign, buf);
 		fp_write_padding(tags, (sign == FP_NO_SIGN) ? len : len + 1, '0', buf);
