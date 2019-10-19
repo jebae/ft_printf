@@ -181,3 +181,35 @@ void		test_arg_lf_length_case5(void)
 		"arg_lf_length (-2000000000000000000000000000000000000000000000000.2342344 (precision : 4)) : return value"
 	);
 }
+
+// case inf
+void		test_arg_lf_length_case6(void)
+{
+	printf(KYEL "test_arg_lf_length_case6\n" KNRM);
+	t_fp_arg_data	data;
+	t_fp_tags		tags;
+
+	data.lf = HUGE_VALL;
+	tags.precision = 4;
+
+	test(
+		fp_arg_lf_length(&data, &tags) == 3,
+		"arg_lf_length (inf) : return value"
+	);
+}
+
+// case nan
+void		test_arg_lf_length_case7(void)
+{
+	printf(KYEL "test_arg_lf_length_case7\n" KNRM);
+	t_fp_arg_data	data;
+	t_fp_tags		tags;
+
+	data.lf = (long double)NAN;
+	tags.precision = 4;
+
+	test(
+		fp_arg_lf_length(&data, &tags) == 3,
+		"arg_lf_length (nan) : return value"
+	);
+}

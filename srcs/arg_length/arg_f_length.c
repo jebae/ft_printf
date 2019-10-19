@@ -16,8 +16,10 @@ size_t		fp_arg_lf_length(t_fp_arg_data *data, t_fp_tags *tags)
 {
 	size_t		len;
 
+	if (ft_is_nan_l(data->lf) || ft_is_inf_l(data->lf))
+		return (3);
 	len = tags->precision;
 	if (len > 0)
 		len++;
-	return (fp_long_double_int_part_length(data->lf) + len);
+	return (fp_ldouble_int_part_length(data->lf) + len);
 }

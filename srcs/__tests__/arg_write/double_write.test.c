@@ -1,6 +1,6 @@
 #include "ft_printf.test.h"
 
-// 3.14
+// case 3.14
 void		test_double_integer_part_case1(void)
 {
 	printf(KYEL "test_double_integer_part_case1\n" KNRM);
@@ -465,7 +465,6 @@ void		test_double_fraction_part_case8(void)
 	fxp_del(&fraction_part);
 	bi_del(&bcd);
 }
-
 
 // case 3.14
 void		test_double_write_integer_part_case1(void)

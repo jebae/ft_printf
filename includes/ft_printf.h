@@ -100,7 +100,7 @@ size_t			fp_parse_length(const char *format, t_fp_tags *tags);
 size_t			fp_int_length(long long num, int base);
 size_t			fp_uint_length(unsigned long long num, int base);
 size_t			fp_double_int_part_length(double num);
-size_t			fp_long_double_int_part_length(long double num);
+size_t			fp_ldouble_int_part_length(long double num);
 
 size_t			fp_arg_d_length(t_fp_arg_data *data, t_fp_tags *tags);
 size_t			fp_arg_hd_length(t_fp_arg_data *data, t_fp_tags *tags);
@@ -269,6 +269,25 @@ void			fp_double_write(
 	t_fp_buffer *buf
 );
 
+int				fp_ldouble_integer_part(
+	short exponent,
+	unsigned long long mantissa,
+	t_fixedpoint *int_part
+);
+
+int				fp_ldouble_fraction_part(
+	short exponent,
+	unsigned long long mantissa,
+	size_t precision,
+	t_fixedpoint *fraction_part
+);
+
+void			fp_ldouble_write(
+	long double num,
+	size_t precision,
+	t_fp_buffer *buf
+);
+
 void			fp_arg_f_write(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
@@ -276,70 +295,77 @@ void			fp_arg_f_write(
 	t_fp_buffer *buf
 );
 
-void		fp_arg_x_write(
+void			fp_arg_lf_write(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
 	size_t length,
 	t_fp_buffer *buf
 );
 
-void		fp_arg_hx_write(
+void			fp_arg_x_write(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
 	size_t length,
 	t_fp_buffer *buf
 );
 
-void		fp_arg_hhx_write(
+void			fp_arg_hx_write(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
 	size_t length,
 	t_fp_buffer *buf
 );
 
-void		fp_arg_lx_write(
+void			fp_arg_hhx_write(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
 	size_t length,
 	t_fp_buffer *buf
 );
 
-void		fp_arg_llx_write(
+void			fp_arg_lx_write(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
 	size_t length,
 	t_fp_buffer *buf
 );
 
-void		fp_arg_o_write(
+void			fp_arg_llx_write(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
 	size_t length,
 	t_fp_buffer *buf
 );
 
-void		fp_arg_ho_write(
+void			fp_arg_o_write(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
 	size_t length,
 	t_fp_buffer *buf
 );
 
-void		fp_arg_hho_write(
+void			fp_arg_ho_write(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
 	size_t length,
 	t_fp_buffer *buf
 );
 
-void		fp_arg_lo_write(
+void			fp_arg_hho_write(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
 	size_t length,
 	t_fp_buffer *buf
 );
 
-void		fp_arg_llo_write(
+void			fp_arg_lo_write(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	size_t length,
+	t_fp_buffer *buf
+);
+
+void			fp_arg_llo_write(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
 	size_t length,

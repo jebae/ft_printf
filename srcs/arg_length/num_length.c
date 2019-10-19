@@ -45,7 +45,7 @@ size_t			fp_double_int_part_length(double num)
 	return (len);
 }
 
-size_t			fp_long_double_int_part_length(long double num)
+size_t			fp_ldouble_int_part_length(long double num)
 {
 	size_t		len;
 

@@ -100,12 +100,12 @@ void		test_double_int_part_length_case3(void);
 void		test_double_int_part_length_case4(void);
 void		test_double_int_part_length_case5(void);
 void		test_double_int_part_length_case6(void);
-void		test_long_double_int_part_length_case1(void);
-void		test_long_double_int_part_length_case2(void);
-void		test_long_double_int_part_length_case3(void);
-void		test_long_double_int_part_length_case4(void);
-void		test_long_double_int_part_length_case5(void);
-void		test_long_double_int_part_length_case6(void);
+void		test_ldouble_int_part_length_case1(void);
+void		test_ldouble_int_part_length_case2(void);
+void		test_ldouble_int_part_length_case3(void);
+void		test_ldouble_int_part_length_case4(void);
+void		test_ldouble_int_part_length_case5(void);
+void		test_ldouble_int_part_length_case6(void);
 
 void		test_arg_f_length_case1(void);
 void		test_arg_f_length_case2(void);
@@ -120,6 +120,8 @@ void		test_arg_lf_length_case2(void);
 void		test_arg_lf_length_case3(void);
 void		test_arg_lf_length_case4(void);
 void		test_arg_lf_length_case5(void);
+void		test_arg_lf_length_case6(void);
+void		test_arg_lf_length_case7(void);
 
 void		test_arg_x_length_case1(void);
 void		test_arg_x_length_case2(void);
@@ -191,6 +193,7 @@ void		test_arg_f_sign_case8(void);
 void		test_arg_f_sign_case9(void);
 void		test_arg_f_sign_case10(void);
 void		test_arg_f_sign_case11(void);
+void		test_arg_f_sign_case12(void);
 
 void		test_arg_lf_sign_case1(void);
 void		test_arg_lf_sign_case2(void);
@@ -200,6 +203,10 @@ void		test_arg_lf_sign_case5(void);
 void		test_arg_lf_sign_case6(void);
 void		test_arg_lf_sign_case7(void);
 void		test_arg_lf_sign_case8(void);
+void		test_arg_lf_sign_case9(void);
+void		test_arg_lf_sign_case10(void);
+void		test_arg_lf_sign_case11(void);
+void		test_arg_lf_sign_case12(void);
 
 /*
 ** buffer test
@@ -271,6 +278,15 @@ void		test_arg_f_write_case5(void);
 void		test_arg_f_write_case6(void);
 void		test_arg_f_write_case7(void);
 void		test_arg_f_write_case8(void);
+
+void		test_arg_lf_write_case1(void);
+void		test_arg_lf_write_case2(void);
+void		test_arg_lf_write_case3(void);
+void		test_arg_lf_write_case4(void);
+void		test_arg_lf_write_case5(void);
+void		test_arg_lf_write_case6(void);
+void		test_arg_lf_write_case7(void);
+void		test_arg_lf_write_case8(void);
 
 void		test_arg_x_write_case1(void);
 void		test_arg_x_write_case2(void);
@@ -369,6 +385,13 @@ void		test_parse_o_case5(void);
 void		test_parse_o_case6(void);
 
 void		test_parse_f_case1(void);
+void		test_parse_f_case2(void);
+void		test_parse_f_case3(void);
+void		test_parse_f_case4(void);
+void		test_parse_f_case5(void);
+void		test_parse_f_case6(void);
+void		test_parse_f_case7(void);
+void		test_parse_f_case8(void);
 
 void		test_parse_specifier_case1(void);
 void		test_parse_specifier_case2(void);
@@ -408,6 +431,8 @@ void		test_parse_percent_case28(void);
 void		test_parse_percent_case29(void);
 void		test_parse_percent_case30(void);
 void		test_parse_percent_case31(void);
+void		test_parse_percent_case32(void);
+void		test_parse_percent_case33(void);
 
 /*
 ** double write test
@@ -473,5 +498,35 @@ void		test_double_write_case10(void);
 void		test_double_write_case11(void);
 void		test_double_write_case12(void);
 void		test_double_write_case13(void);
+
+void		test_ldouble_integer_part_case1(void);
+void		test_ldouble_integer_part_case2(void);
+void		test_ldouble_integer_part_case3(void);
+void		test_ldouble_integer_part_case4(void);
+void		test_ldouble_integer_part_case5(void);
+void		test_ldouble_integer_part_case6(void);
+
+void		test_ldouble_fraction_part_case1(void);
+void		test_ldouble_fraction_part_case2(void);
+void		test_ldouble_fraction_part_case3(void);
+void		test_ldouble_fraction_part_case4(void);
+void		test_ldouble_fraction_part_case5(void);
+void		test_ldouble_fraction_part_case6(void);
+void		test_ldouble_fraction_part_case7(void);
+void		test_ldouble_fraction_part_case8(void);
+
+void		test_ldouble_write_case1(void);
+void		test_ldouble_write_case2(void);
+void		test_ldouble_write_case3(void);
+void		test_ldouble_write_case4(void);
+void		test_ldouble_write_case5(void);
+void		test_ldouble_write_case6(void);
+void		test_ldouble_write_case7(void);
+void		test_ldouble_write_case8(void);
+void		test_ldouble_write_case9(void);
+void		test_ldouble_write_case10(void);
+void		test_ldouble_write_case11(void);
+void		test_ldouble_write_case12(void);
+void		test_ldouble_write_case13(void);
 
 #endif

@@ -73,6 +73,7 @@ SRC_ARG_WRITE = int_write.c\
 	double_write_integer.c\
 	double_write_fraction.c\
 	double_write.c\
+	ldouble_get_part.c\
 	arg_d_write.c\
 	arg_u_write.c\
 	arg_f_write.c\
@@ -122,6 +123,9 @@ $(OBJDIR)/%.o : $(SRCDIR)/arg_write/%.c $(HEADERS)
 	@$(call compile_obj,$<,$@)
 
 $(OBJDIR)/%.o : $(SRCDIR)/arg_write/double_utils/%.c $(HEADERS)
+	@$(call compile_obj,$<,$@)
+
+$(OBJDIR)/%.o : $(SRCDIR)/arg_write/ldouble_utils/%.c $(HEADERS)
 	@$(call compile_obj,$<,$@)
 
 $(OBJDIR)/%.o : $(SRCDIR)/parse_percent/%.c $(HEADERS)
