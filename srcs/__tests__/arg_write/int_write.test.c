@@ -130,3 +130,55 @@ void		test_uint_write_case4(void)
 	printf("result : %s\n", buf.data);
 	printf("expect : %u\n", d);
 }
+
+void		test_uint_write_case5(void)
+{
+	printf(KYEL "test_uint_write_case5\n" KNRM);
+	unsigned long long		d = ULLONG_MAX;
+	size_t					len = fp_uint_length(d, 16);
+	t_fp_buffer				buf;
+
+	fp_init_buffer(&buf);
+	fp_uint_write(d, len, 16, &buf);
+	printf("result : %s\n", buf.data);
+	printf("expect : %llx\n", d);
+}
+
+void		test_uint_write_case6(void)
+{
+	printf(KYEL "test_uint_write_case6\n" KNRM);
+	unsigned long long		d = ULLONG_MAX;
+	size_t					len = fp_uint_length(d, 8);
+	t_fp_buffer				buf;
+
+	fp_init_buffer(&buf);
+	fp_uint_write(d, len, 8, &buf);
+	printf("result : %s\n", buf.data);
+	printf("expect : %llo\n", d);
+}
+
+void		test_uint_upper_write_case1(void)
+{
+	printf(KYEL "test_uint_upper_write_case1\n" KNRM);
+	unsigned long long		d = ULLONG_MAX;
+	size_t					len = fp_uint_length(d, 16);
+	t_fp_buffer				buf;
+
+	fp_init_buffer(&buf);
+	fp_uint_upper_write(d, len, 16, &buf);
+	printf("result : %s\n", buf.data);
+	printf("expect : %llX\n", d);
+}
+
+void		test_uint_upper_write_case2(void)
+{
+	printf(KYEL "test_uint_upper_write_case2\n" KNRM);
+	unsigned long long		d = 0x2ab8def;
+	size_t					len = fp_uint_length(d, 16);
+	t_fp_buffer				buf;
+
+	fp_init_buffer(&buf);
+	fp_uint_upper_write(d, len, 16, &buf);
+	printf("result : %s\n", buf.data);
+	printf("expect : %llX\n", d);
+}

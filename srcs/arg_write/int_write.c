@@ -1,8 +1,15 @@
 #include "ft_printf.h"
 
-static int		get_digit(int n)
+static int		get_lower_digit(int n)
 {
 	static char		*digits = "0123456789abcdef";
+
+	return (digits[n]);
+}
+
+static int		get_upper_digit(int n)
+{
+	static char		*digits = "0123456789ABCDEF";
 
 	return (digits[n]);
 }
@@ -45,7 +52,29 @@ void			fp_uint_write(
 	divider = ft_powud(base, length - 1);
 	while (divider != 0)
 	{
-		fp_write_buffer(buf, get_digit(num / divider % base));
+		fp_write_buffer(buf, get_lower_digit(num / divider % base));
+		divider /= base;
+	}
+}
+
+void			fp_uint_upper_write(
+	unsigned long long num,
+	size_t length,
+	int base,
+	t_fp_buffer *buf
+)
+{
+	unsigned long long		divider;
+
+	if (num == 0)
+	{
+		fp_write_buffer(buf, '0');
+		return ;
+	}
+	divider = ft_powud(base, length - 1);
+	while (divider != 0)
+	{
+		fp_write_buffer(buf, get_upper_digit(num / divider % base));
 		divider /= base;
 	}
 }

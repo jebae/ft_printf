@@ -1150,3 +1150,203 @@ void		test_parse_percent_case55(void)
 		"fp_parse_percent (%s) : buf.data"
 	);
 }
+
+// case %c
+void		test_parse_percent_case56(void)
+{
+	printf(KYEL "test_parse_percent_case56\n" KNRM);
+	const char	*format = "%c";
+	t_fp_buffer	buf;
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, 'h') == ft_strlen(format),
+		"fp_parse_percent (%c) : return value"
+	);
+
+	test(
+		ft_strcmp(buf.data, "h") == 0,
+		"fp_parse_percent (%c) : buf.data"
+	);
+}
+
+// case %020.c
+void		test_parse_percent_case57(void)
+{
+	printf(KYEL "test_parse_percent_case57\n" KNRM);
+	const char	*format = "%020.c";
+	t_fp_buffer	buf;
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, 'h') == ft_strlen(format),
+		"fp_parse_percent (%c) : return value"
+	);
+
+	test(
+		ft_strcmp(buf.data, "0000000000000000000h") == 0,
+		"fp_parse_percent (%c) : buf.data"
+	);
+}
+
+// case %-20c
+void		test_parse_percent_case58(void)
+{
+	printf(KYEL "test_parse_percent_case58\n" KNRM);
+	const char	*format = "%-20c";
+	t_fp_buffer	buf;
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, 'h') == ft_strlen(format),
+		"fp_parse_percent (%c) : return value"
+	);
+
+	test(
+		ft_strcmp(buf.data, "h                   ") == 0,
+		"fp_parse_percent (%c) : buf.data"
+	);
+}
+
+// case %X
+void		test_parse_percent_case59(void)
+{
+	printf(KYEL "test_parse_percent_case59\n" KNRM);
+	const char	*format = "%X";
+	t_fp_buffer	buf;
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, 0xfedc) == ft_strlen(format),
+		"fp_parse_percent (%X) : return value"
+	);
+
+	test(
+		ft_strcmp(buf.data, "FEDC") == 0,
+		"fp_parse_percent (%X) : buf.data"
+	);
+}
+
+// case %020X
+void		test_parse_percent_case60(void)
+{
+	printf(KYEL "test_parse_percent_case60\n" KNRM);
+	const char	*format = "%020X";
+	t_fp_buffer	buf;
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, 0xfedc) == ft_strlen(format),
+		"fp_parse_percent (%020X) : return value"
+	);
+
+	test(
+		ft_strcmp(buf.data, "0000000000000000FEDC") == 0,
+		"fp_parse_percent (%020X) : buf.data"
+	);
+}
+
+// case % 20X
+void		test_parse_percent_case61(void)
+{
+	printf(KYEL "test_parse_percent_case61\n" KNRM);
+	const char	*format = "% 20X";
+	t_fp_buffer	buf;
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, 0xfedc) == ft_strlen(format),
+		"fp_parse_percent (% 20X) : return value"
+	);
+
+	test(
+		ft_strcmp(buf.data, "                FEDC") == 0,
+		"fp_parse_percent (% 20X) : buf.data"
+	);
+}
+
+// case %+X
+void		test_parse_percent_case62(void)
+{
+	printf(KYEL "test_parse_percent_case62\n" KNRM);
+	const char	*format = "%+X";
+	t_fp_buffer	buf;
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, 0xfedc) == ft_strlen(format),
+		"fp_parse_percent (%+X) : return value"
+	);
+
+	test(
+		ft_strcmp(buf.data, "FEDC") == 0,
+		"fp_parse_percent (%+X) : buf.data"
+	);
+}
+
+// case %020.X
+void		test_parse_percent_case63(void)
+{
+	printf(KYEL "test_parse_percent_case63\n" KNRM);
+	const char	*format = "%020.X";
+	t_fp_buffer	buf;
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, 0xfedc) == ft_strlen(format),
+		"fp_parse_percent (%020.X) : return value"
+	);
+
+	test(
+		ft_strcmp(buf.data, "                FEDC") == 0,
+		"fp_parse_percent (%020.X) : buf.data"
+	);
+}
+
+// case %4X (more than width)
+void		test_parse_percent_case64(void)
+{
+	printf(KYEL "test_parse_percent_case64\n" KNRM);
+	const char	*format = "%4X";
+	t_fp_buffer	buf;
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, 0xfedcab12) == ft_strlen(format),
+		"fp_parse_percent (%4X) : return value"
+	);
+
+	test(
+		ft_strcmp(buf.data, "FEDCAB12") == 0,
+		"fp_parse_percent (%4X) : buf.data"
+	);
+}
+
+// case % 04X (0)
+void		test_parse_percent_case65(void)
+{
+	printf(KYEL "test_parse_percent_case65\n" KNRM);
+	const char	*format = "% 04X";
+	t_fp_buffer	buf;
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, 0) == ft_strlen(format),
+		"fp_parse_percent (% 04X) : return value"
+	);
+
+	test(
+		ft_strcmp(buf.data, "0000") == 0,
+		"fp_parse_percent (% 04X) : buf.data"
+	);
+}

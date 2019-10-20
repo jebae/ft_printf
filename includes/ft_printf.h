@@ -172,6 +172,13 @@ void			fp_uint_write(
 	t_fp_buffer *buf
 );
 
+void			fp_uint_upper_write(
+	unsigned long long num,
+	size_t length,
+	int base,
+	t_fp_buffer *buf
+);
+
 void			fp_arg_d_write(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
@@ -341,6 +348,41 @@ void			fp_arg_llx_write(
 	t_fp_buffer *buf
 );
 
+void			fp_arg_upper_x_write(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	size_t length,
+	t_fp_buffer *buf
+);
+
+void			fp_arg_h_upper_x_write(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	size_t length,
+	t_fp_buffer *buf
+);
+
+void			fp_arg_hh_upper_x_write(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	size_t length,
+	t_fp_buffer *buf
+);
+
+void			fp_arg_l_upper_x_write(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	size_t length,
+	t_fp_buffer *buf
+);
+
+void			fp_arg_ll_upper_x_write(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	size_t length,
+	t_fp_buffer *buf
+);
+
 void			fp_arg_o_write(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
@@ -383,6 +425,13 @@ void		fp_arg_s_write(
 	t_fp_buffer *buf
 );
 
+void		fp_arg_c_write(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	size_t length,
+	t_fp_buffer *buf
+);
+
 /*
 ** parse_percent
 */
@@ -405,8 +454,10 @@ void			fp_parse_d(va_list ap, t_fp_tags *tags, t_fp_arg *arg);
 void			fp_parse_u(va_list ap, t_fp_tags *tags, t_fp_arg *arg);
 void			fp_parse_f(va_list ap, t_fp_tags *tags, t_fp_arg *arg);
 void			fp_parse_x(va_list ap, t_fp_tags *tags, t_fp_arg *arg);
+void			fp_parse_upper_x(va_list ap, t_fp_tags *tags, t_fp_arg *arg);
 void			fp_parse_o(va_list ap, t_fp_tags *tags, t_fp_arg *arg);
 void			fp_parse_s(va_list ap, t_fp_tags *tags, t_fp_arg *arg);
+void			fp_parse_c(va_list ap, t_fp_tags *tags, t_fp_arg *arg);
 
 size_t			fp_parse_specifier(
 	const char *format,
