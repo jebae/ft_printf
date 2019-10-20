@@ -528,5 +528,38 @@ int		main(void)
 	test_parse_percent_case42();
 	test_parse_percent_case43();
 	test_parse_percent_case44();
+
+	test_arg_s_length_case1();
+	test_arg_s_length_case2();
+	test_arg_s_length_case3();
+	test_arg_s_length_case4();
+	test_arg_s_length_case5();
+
+	test_arg_s_write_case1();
+	test_arg_s_write_case2();
+	test_arg_s_write_case3();
+	test_arg_s_write_case4();
+	test_arg_s_write_case5();
+	test_arg_s_write_case6();
+
+	test_parse_s_case1();
+
+	test_parse_specifier_case7();
+
+	test_parse_percent_case44();
+	test_parse_percent_case45();
+	test_parse_percent_case46();
+	test_parse_percent_case47();
+	test_parse_percent_case48();
+	test_parse_percent_case49();
+	test_parse_percent_case50();
+	test_parse_percent_case51();
+	test_parse_percent_case52();
+	test_parse_percent_case53();
+	test_parse_percent_case54();
+	test_parse_percent_case55();
+
+	test_arg_c_length_case1();
+
 	//while (1);
 }

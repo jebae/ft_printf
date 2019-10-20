@@ -60,6 +60,8 @@ SRC_ARG_LENGTH = num_length.c\
 	arg_f_length.c\
 	arg_x_length.c\
 	arg_o_length.c\
+	arg_s_length.c\
+	arg_c_length.c\
 
 SRC_ARG_SIGN = num_sign.c\
 	arg_d_sign.c\
@@ -79,6 +81,7 @@ SRC_ARG_WRITE = int_write.c\
 	arg_f_write.c\
 	arg_x_write.c\
 	arg_o_write.c\
+	arg_s_write.c\
 
 SRC_PARSE_PERCENT = write_percent_format.c\
 	parse_specifier.c\
@@ -88,6 +91,7 @@ SRC_PARSE_PERCENT = write_percent_format.c\
 	parse_f.c\
 	parse_x.c\
 	parse_o.c\
+	parse_s.c\
 
 # objs
 #OBJS = $(addprefix $(OBJDIR)/, $(SRC_FT_PRINTF:.c=.o))

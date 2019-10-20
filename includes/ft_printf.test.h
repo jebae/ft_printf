@@ -3,6 +3,7 @@
 
 # include <stdio.h>
 # include <math.h>
+# include <limits.h>
 # include "ft_printf.h"
 
 /*
@@ -153,6 +154,14 @@ void		test_arg_hho_length_case2(void);
 void		test_arg_lo_length_case1(void);
 
 void		test_arg_llo_length_case1(void);
+
+void		test_arg_s_length_case1(void);
+void		test_arg_s_length_case2(void);
+void		test_arg_s_length_case3(void);
+void		test_arg_s_length_case4(void);
+void		test_arg_s_length_case5(void);
+
+void		test_arg_c_length_case1(void);
 
 /*
 ** arg_sign test
@@ -312,6 +321,13 @@ void		test_arg_hho_write_case2(void);
 void		test_arg_lo_write_case1(void);
 void		test_arg_llo_write_case1(void);
 
+void		test_arg_s_write_case1(void);
+void		test_arg_s_write_case2(void);
+void		test_arg_s_write_case3(void);
+void		test_arg_s_write_case4(void);
+void		test_arg_s_write_case5(void);
+void		test_arg_s_write_case6(void);
+
 /*
 ** parse_percent test
 */
@@ -393,12 +409,15 @@ void		test_parse_f_case6(void);
 void		test_parse_f_case7(void);
 void		test_parse_f_case8(void);
 
+void		test_parse_s_case1(void);
+
 void		test_parse_specifier_case1(void);
 void		test_parse_specifier_case2(void);
 void		test_parse_specifier_case3(void);
 void		test_parse_specifier_case4(void);
 void		test_parse_specifier_case5(void);
 void		test_parse_specifier_case6(void);
+void		test_parse_specifier_case7(void);
 
 void		test_parse_percent_case1(void);
 void		test_parse_percent_case2(void);
@@ -444,6 +463,17 @@ void		test_parse_percent_case41(void);
 void		test_parse_percent_case42(void);
 void		test_parse_percent_case43(void);
 void		test_parse_percent_case44(void);
+void		test_parse_percent_case45(void);
+void		test_parse_percent_case46(void);
+void		test_parse_percent_case47(void);
+void		test_parse_percent_case48(void);
+void		test_parse_percent_case49(void);
+void		test_parse_percent_case50(void);
+void		test_parse_percent_case51(void);
+void		test_parse_percent_case52(void);
+void		test_parse_percent_case53(void);
+void		test_parse_percent_case54(void);
+void		test_parse_percent_case55(void);
 
 /*
 ** double write test

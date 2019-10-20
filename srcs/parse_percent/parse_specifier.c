@@ -19,9 +19,11 @@ size_t		fp_parse_specifier(
 		fp_parse_x(ap, tags, arg);
 	else if (*format == 'o')
 		fp_parse_o(ap, tags, arg);
+	else if (*format == 's')
+		fp_parse_s(ap, tags, arg);
 	/*
 	else
-		// handle character which is not specifier
+		// handle character which is not specifier -> test every ascii
 		// similar to %c
 		// but arg.data.i has to be assigned without va_list
 	*/

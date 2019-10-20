@@ -129,6 +129,10 @@ size_t			fp_arg_hho_length(t_fp_arg_data *data, t_fp_tags *tags);
 size_t			fp_arg_lo_length(t_fp_arg_data *data, t_fp_tags *tags);
 size_t			fp_arg_llo_length(t_fp_arg_data *data, t_fp_tags *tags);
 
+size_t			fp_arg_s_length(t_fp_arg_data *data, t_fp_tags *tags);
+
+size_t			fp_arg_c_length(t_fp_arg_data *data, t_fp_tags *tags);
+
 /*
 ** arg_sign
 */
@@ -372,6 +376,13 @@ void			fp_arg_llo_write(
 	t_fp_buffer *buf
 );
 
+void		fp_arg_s_write(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	size_t length,
+	t_fp_buffer *buf
+);
+
 /*
 ** parse_percent
 */
@@ -395,6 +406,7 @@ void			fp_parse_u(va_list ap, t_fp_tags *tags, t_fp_arg *arg);
 void			fp_parse_f(va_list ap, t_fp_tags *tags, t_fp_arg *arg);
 void			fp_parse_x(va_list ap, t_fp_tags *tags, t_fp_arg *arg);
 void			fp_parse_o(va_list ap, t_fp_tags *tags, t_fp_arg *arg);
+void			fp_parse_s(va_list ap, t_fp_tags *tags, t_fp_arg *arg);
 
 size_t			fp_parse_specifier(
 	const char *format,
