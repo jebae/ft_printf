@@ -433,6 +433,17 @@ void		test_parse_percent_case30(void);
 void		test_parse_percent_case31(void);
 void		test_parse_percent_case32(void);
 void		test_parse_percent_case33(void);
+void		test_parse_percent_case34(void);
+void		test_parse_percent_case35(void);
+void		test_parse_percent_case36(void);
+void		test_parse_percent_case37(void);
+void		test_parse_percent_case38(void);
+void		test_parse_percent_case39(void);
+void		test_parse_percent_case40(void);
+void		test_parse_percent_case41(void);
+void		test_parse_percent_case42(void);
+void		test_parse_percent_case43(void);
+void		test_parse_percent_case44(void);
 
 /*
 ** double write test

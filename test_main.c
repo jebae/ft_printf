@@ -367,7 +367,6 @@ int		main(void)
 	test_parse_f_case7();
 	test_parse_f_case8();
 
-	/*
 	test_parse_specifier_case1();
 	test_parse_specifier_case2();
 	test_parse_specifier_case3();
@@ -517,6 +516,17 @@ int		main(void)
 	test_arg_lf_sign_case10();
 	test_arg_lf_sign_case11();
 	test_arg_lf_sign_case12();
+
+	test_parse_percent_case34();
+	test_parse_percent_case35();
+	test_parse_percent_case36();
+	test_parse_percent_case37();
+	test_parse_percent_case38();
+	test_parse_percent_case39();
+	test_parse_percent_case40();
+	test_parse_percent_case41();
+	test_parse_percent_case42();
+	test_parse_percent_case43();
+	test_parse_percent_case44();
 	//while (1);
-	*/
 }
