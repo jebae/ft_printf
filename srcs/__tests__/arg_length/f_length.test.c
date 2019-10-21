@@ -6,6 +6,7 @@ void		test_arg_f_length_case1(void)
 	t_fp_arg_data	data;
 	t_fp_tags		tags;
 
+	fp_init_tags(&tags);
 	data.f = 3.141592;
 	tags.precision = 3;
 
@@ -21,6 +22,7 @@ void		test_arg_f_length_case2(void)
 	t_fp_arg_data	data;
 	t_fp_tags		tags;
 
+	fp_init_tags(&tags);
 	data.f = 13.141592;
 	tags.precision = 3;
 
@@ -36,6 +38,7 @@ void		test_arg_f_length_case3(void)
 	t_fp_arg_data	data;
 	t_fp_tags		tags;
 
+	fp_init_tags(&tags);
 	data.f = -13.141592;
 	tags.precision = 3;
 
@@ -51,6 +54,7 @@ void		test_arg_f_length_case4(void)
 	t_fp_arg_data	data;
 	t_fp_tags		tags;
 
+	fp_init_tags(&tags);
 	data.f = -13.141592;
 	tags.precision = 0;
 
@@ -66,6 +70,7 @@ void		test_arg_f_length_case5(void)
 	t_fp_arg_data	data;
 	t_fp_tags		tags;
 
+	fp_init_tags(&tags);
 	data.f = -2000000000000000000000000000000000000000000000000.2342344;
 	tags.precision = 4;
 
@@ -82,6 +87,7 @@ void		test_arg_f_length_case6(void)
 	t_fp_arg_data	data;
 	t_fp_tags		tags;
 
+	fp_init_tags(&tags);
 	data.f = INFINITY;
 	tags.precision = 4;
 
@@ -98,6 +104,7 @@ void		test_arg_f_length_case7(void)
 	t_fp_arg_data	data;
 	t_fp_tags		tags;
 
+	fp_init_tags(&tags);
 	data.f = NAN;
 	tags.precision = 4;
 
@@ -107,13 +114,32 @@ void		test_arg_f_length_case7(void)
 	);
 }
 
+// case #
+void		test_arg_f_length_case8(void)
+{
+	printf(KYEL "test_arg_f_length_case8\n" KNRM);
+	t_fp_arg_data	data;
+	t_fp_tags		tags;
+
+	fp_init_tags(&tags);
+	data.f = 123.14;
+	tags.precision = 0;
+	tags.mask |= FP_MASK_FLAG_SHARP;
+
+	test(
+		fp_arg_f_length(&data, &tags) == 4,
+		"arg_f_length (#) : return value"
+	);
+}
+
 void		test_arg_lf_length_case1(void)
 {
 	printf(KYEL "test_arg_lf_length_case1\n" KNRM);
 	t_fp_arg_data	data;
 	t_fp_tags		tags;
 
-	data.lf = (long double)3.141592;
+	fp_init_tags(&tags);
+   	data.lf	= (long double)3.141592;
 	tags.precision = 3;
 
 	test(
@@ -128,7 +154,8 @@ void		test_arg_lf_length_case2(void)
 	t_fp_arg_data	data;
 	t_fp_tags		tags;
 
-	data.lf = (long double)13.141592;
+	fp_init_tags(&tags);
+   	data.lf	= (long double)13.141592;
 	tags.precision = 3;
 
 	test(
@@ -143,7 +170,8 @@ void		test_arg_lf_length_case3(void)
 	t_fp_arg_data	data;
 	t_fp_tags		tags;
 
-	data.lf = (long double)-13.141592;
+	fp_init_tags(&tags);
+   	data.lf	= (long double)-13.141592;
 	tags.precision = 3;
 
 	test(
@@ -158,7 +186,8 @@ void		test_arg_lf_length_case4(void)
 	t_fp_arg_data	data;
 	t_fp_tags		tags;
 
-	data.lf = (long double)-13.141592;
+	fp_init_tags(&tags);
+   	data.lf	= (long double)-13.141592;
 	tags.precision = 0;
 
 	test(
@@ -173,7 +202,8 @@ void		test_arg_lf_length_case5(void)
 	t_fp_arg_data	data;
 	t_fp_tags		tags;
 
-	data.lf = (long double)-2000000000000000000000000000000000000000000000000.2342344;
+	fp_init_tags(&tags);
+   	data.lf	= (long double)-2000000000000000000000000000000000000000000000000.2342344;
 	tags.precision = 4;
 
 	test(
@@ -189,7 +219,8 @@ void		test_arg_lf_length_case6(void)
 	t_fp_arg_data	data;
 	t_fp_tags		tags;
 
-	data.lf = HUGE_VALL;
+	fp_init_tags(&tags);
+   	data.lf	= HUGE_VALL;
 	tags.precision = 4;
 
 	test(
@@ -205,11 +236,31 @@ void		test_arg_lf_length_case7(void)
 	t_fp_arg_data	data;
 	t_fp_tags		tags;
 
-	data.lf = (long double)NAN;
+	fp_init_tags(&tags);
+   	data.lf	= (long double)NAN;
 	tags.precision = 4;
 
 	test(
 		fp_arg_lf_length(&data, &tags) == 3,
 		"arg_lf_length (nan) : return value"
+	);
+}
+
+
+// case #
+void		test_arg_lf_length_case8(void)
+{
+	printf(KYEL "test_arg_lf_length_case8\n" KNRM);
+	t_fp_arg_data	data;
+	t_fp_tags		tags;
+
+	fp_init_tags(&tags);
+	data.lf = 123.14L;
+	tags.precision = 0;
+	tags.mask |= FP_MASK_FLAG_SHARP;
+
+	test(
+		fp_arg_lf_length(&data, &tags) == 4,
+		"arg_lf_length (#) : return value"
 	);
 }

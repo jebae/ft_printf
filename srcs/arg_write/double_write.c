@@ -7,32 +7,6 @@ static void		handle_return(t_fixedpoint *int_part, t_fixedpoint *fraction_part)
 	ft_memdel((void **)&fraction_part->num.data);
 }
 
-static int		handle_inf_nan(
-	long double num,
-	t_fp_buffer *buf
-)
-{
-	static char		*inf = "inf";
-	static char		*nan = "nan";
-	char			*word;
-	int				i;
-
-	word = NULL;
-	if (ft_is_inf_l(num))
-		word = inf;
-	else if (ft_is_nan_l(num))
-		word = nan;
-	else
-		return (0);
-	i = 0;
-	while (i < 3)
-	{
-		fp_write_buffer(buf, word[i]);
-		i++;
-	}
-	return (1);
-}
-
 static int		write_parts(
 	t_fixedpoint *int_part,
 	t_fixedpoint *fraction_part,
@@ -64,8 +38,6 @@ void			fp_double_write(
 	t_fixedpoint		int_part;
 	t_fixedpoint		fraction_part;
 
-	if (handle_inf_nan(num, buf))
-		return ;
 	ft_extract_double(num, &exponent, &mantissa);
 	fxp_init(&int_part);
 	fxp_init(&fraction_part);
@@ -94,8 +66,6 @@ void			fp_ldouble_write(
 	t_fixedpoint		int_part;
 	t_fixedpoint		fraction_part;
 
-	if (handle_inf_nan(num, buf))
-		return ;
 	ft_extract_ldouble(num, &exponent, &mantissa);
 	fxp_init(&int_part);
 	fxp_init(&fraction_part);

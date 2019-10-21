@@ -37,7 +37,8 @@ size_t			fp_double_int_part_length(double num)
 	if (ABS_SMALLER_THEN(num, 1))
 		return (1);
 	len = 0;
-	while (!ABS_SMALLER_THEN(num, 1))
+	while (!ABS_SMALLER_THEN(num, 1) &&
+		!ft_is_nan(num) && !ft_is_inf(num))
 	{
 		num /= 10.0f;
 		len++;
@@ -52,9 +53,10 @@ size_t			fp_ldouble_int_part_length(long double num)
 	if (ABS_SMALLER_THEN(num, 1))
 		return (1);
 	len = 0;
-	while (!ABS_SMALLER_THEN(num, 1))
+	while (!ABS_SMALLER_THEN(num, 1) &&
+		!ft_is_nan_l(num) && !ft_is_inf_l(num))
 	{
-		num /= 10.0;
+		num /= 10.0L;
 		len++;
 	}
 	return (len);

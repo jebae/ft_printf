@@ -1650,3 +1650,203 @@ void		test_parse_percent_case80(void)
 		"fp_parse_percent (%020p) : buf.data"
 	);
 }
+
+// case %#.f
+void		test_parse_percent_case81(void)
+{
+	printf(KYEL "test_parse_percent_case81\n" KNRM);
+	const char	*format = "%#.f";
+	t_fp_buffer	buf;
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, 3.14) == ft_strlen(format),
+		"fp_parse_percent (%#.f) : return value"
+	);
+
+	test(
+		ft_strcmp(buf.data, "3.") == 0,
+		"fp_parse_percent (%#.f) : buf.data"
+	);
+}
+
+// case %#f
+void		test_parse_percent_case82(void)
+{
+	printf(KYEL "test_parse_percent_case82\n" KNRM);
+	const char	*format = "%#f";
+	t_fp_buffer	buf;
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, 3.14) == ft_strlen(format),
+		"fp_parse_percent (%#f) : return value"
+	);
+
+	test(
+		ft_strcmp(buf.data, "3.140000") == 0,
+		"fp_parse_percent (%#f) : buf.data"
+	);
+}
+
+// case %#.f (nan)
+void		test_parse_percent_case83(void)
+{
+	printf(KYEL "test_parse_percent_case83\n" KNRM);
+	const char	*format = "%#.f";
+	t_fp_buffer	buf;
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, NAN) == ft_strlen(format),
+		"fp_parse_percent (%#.f) : return value"
+	);
+
+	test(
+		ft_strcmp(buf.data, "nan") == 0,
+		"fp_parse_percent (%#.f) : buf.data"
+	);
+}
+
+// case %#.f (inf)
+void		test_parse_percent_case84(void)
+{
+	printf(KYEL "test_parse_percent_case84\n" KNRM);
+	const char	*format = "%#.f";
+	t_fp_buffer	buf;
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, INFINITY) == ft_strlen(format),
+		"fp_parse_percent (%#.f) : return value"
+	);
+
+	test(
+		ft_strcmp(buf.data, "inf") == 0,
+		"fp_parse_percent (%#.f) : buf.data"
+	);
+}
+
+// case %#.f (-inf)
+void		test_parse_percent_case85(void)
+{
+	printf(KYEL "test_parse_percent_case85\n" KNRM);
+	const char	*format = "%#.f";
+	t_fp_buffer	buf;
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, -INFINITY) == ft_strlen(format),
+		"fp_parse_percent (%#.f) : return value"
+	);
+
+	test(
+		ft_strcmp(buf.data, "-inf") == 0,
+		"fp_parse_percent (%#.f) : buf.data"
+	);
+}
+
+// case %#.Lf
+void		test_parse_percent_case86(void)
+{
+	printf(KYEL "test_parse_percent_case86\n" KNRM);
+	const char	*format = "%#.Lf";
+	t_fp_buffer	buf;
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, 3.14L) == ft_strlen(format),
+		"fp_parse_percent (%#.Lf) : return value"
+	);
+
+	test(
+		ft_strcmp(buf.data, "3.") == 0,
+		"fp_parse_percent (%#.Lf) : buf.data"
+	);
+}
+
+// case %#Lf
+void		test_parse_percent_case87(void)
+{
+	printf(KYEL "test_parse_percent_case87\n" KNRM);
+	const char	*format = "%#Lf";
+	t_fp_buffer	buf;
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, 3.14L) == ft_strlen(format),
+		"fp_parse_percent (%#Lf) : return value"
+	);
+
+	test(
+		ft_strcmp(buf.data, "3.140000") == 0,
+		"fp_parse_percent (%#Lf) : buf.data"
+	);
+}
+
+// case %#.Lf (nan)
+void		test_parse_percent_case88(void)
+{
+	printf(KYEL "test_parse_percent_case88\n" KNRM);
+	const char	*format = "%#.Lf";
+	t_fp_buffer	buf;
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, (long double)NAN) == ft_strlen(format),
+		"fp_parse_percent (%#.Lf) : return value"
+	);
+
+	test(
+		ft_strcmp(buf.data, "nan") == 0,
+		"fp_parse_percent (%#.Lf) : buf.data"
+	);
+}
+
+// case %#.Lf (inf)
+void		test_parse_percent_case89(void)
+{
+	printf(KYEL "test_parse_percent_case89\n" KNRM);
+	const char	*format = "%#.Lf";
+	t_fp_buffer	buf;
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, HUGE_VALL) == ft_strlen(format),
+		"fp_parse_percent (%#.Lf) : return value"
+	);
+
+	test(
+		ft_strcmp(buf.data, "inf") == 0,
+		"fp_parse_percent (%#.Lf) : buf.data"
+	);
+}
+
+// case %#.Lf (-inf)
+void		test_parse_percent_case90(void)
+{
+	printf(KYEL "test_parse_percent_case90\n" KNRM);
+	const char	*format = "%#.Lf";
+	t_fp_buffer	buf;
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, -HUGE_VALL) == ft_strlen(format),
+		"fp_parse_percent (%#.Lf) : return value"
+	);
+
+	test(
+		ft_strcmp(buf.data, "-inf") == 0,
+		"fp_parse_percent (%#.Lf) : buf.data"
+	);
+}

@@ -652,37 +652,3 @@ void		test_ldouble_write_case11(void)
 	printf("result : %s\n", buf.data);
 	printf("expect : %.50Lf\n", f);
 }
-
-// case inf
-void		test_ldouble_write_case12(void)
-{
-	printf(KYEL "test_ldouble_write_case12\n" KNRM);
-	long double		f;
-	size_t			precision;
-	t_fp_buffer		buf;
-
-	f = HUGE_VALL;
-	precision = 50;
-	fp_init_buffer(&buf);
-
-	fp_ldouble_write(f, precision, &buf);
-	printf("result : %s\n", buf.data);
-	printf("expect : %.50Lf\n", f);
-}
-
-// case NaN
-void		test_ldouble_write_case13(void)
-{
-	printf(KYEL "test_ldouble_write_case13\n" KNRM);
-	long double		f;
-	size_t			precision;
-	t_fp_buffer		buf;
-
-	f = (long double)NAN;
-	precision = 50;
-	fp_init_buffer(&buf);
-
-	fp_ldouble_write(f, precision, &buf);
-	printf("result : %s\n", buf.data);
-	printf("expect : %.50Lf\n", f);
-}

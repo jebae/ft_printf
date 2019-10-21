@@ -1191,37 +1191,3 @@ void		test_double_write_case11(void)
 	printf("result : %s\n", buf.data);
 	printf("expect : %.50f\n", f);
 }
-
-// case inf
-void		test_double_write_case12(void)
-{
-	printf(KYEL "test_double_write_case12\n" KNRM);
-	double			f;
-	size_t			precision;
-	t_fp_buffer		buf;
-
-	f = INFINITY;
-	precision = 50;
-	fp_init_buffer(&buf);
-
-	fp_double_write(f, precision, &buf);
-	printf("result : %s\n", buf.data);
-	printf("expect : %.50f\n", f);
-}
-
-// case NaN
-void		test_double_write_case13(void)
-{
-	printf(KYEL "test_double_write_case13\n" KNRM);
-	double			f;
-	size_t			precision;
-	t_fp_buffer		buf;
-
-	f = NAN;
-	precision = 50;
-	fp_init_buffer(&buf);
-
-	fp_double_write(f, precision, &buf);
-	printf("result : %s\n", buf.data);
-	printf("expect : %.50f\n", f);
-}
