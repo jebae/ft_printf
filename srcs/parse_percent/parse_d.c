@@ -45,6 +45,7 @@ void			fp_parse_d(va_list ap, t_fp_tags *tags, t_fp_arg *arg)
 		arg->sign = &fp_arg_d_sign;
 		arg->write = &fp_arg_d_write;
 	}
+	arg->prefix = &fp_arg_no_prefix;
 	if (tags->mask & FP_MASK_PRECISION)
-		tags->mask |= FP_MASK_IGNORE_ZERO_PAD;
+		tags->mask &= ~FP_MASK_FLAG_ZERO;
 }

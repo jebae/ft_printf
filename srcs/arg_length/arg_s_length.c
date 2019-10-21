@@ -10,7 +10,7 @@ size_t		fp_arg_s_length(t_fp_arg_data *data, t_fp_tags *tags)
 	while (*(str++) != '\0')
 	{
 		len++;
-		if (len == 0xffffffffffffffff)
+		if (len == FP_ULLONG_MAX)
 			return (len);
 	}
 	if ((tags->mask & FP_MASK_PRECISION) && tags->precision < len)

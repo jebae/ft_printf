@@ -20,6 +20,7 @@ void		test_parse_flag_case2(void);
 void		test_parse_flag_case3(void);
 void		test_parse_flag_case4(void);
 void		test_parse_flag_case5(void);
+void		test_parse_flag_case6(void);
 void		test_parse_width_case1(void);
 void		test_parse_width_case2(void);
 void		test_parse_precision_case1(void);
@@ -350,47 +351,6 @@ void		test_arg_c_write_case1(void);
 /*
 ** parse_percent test
 */
-void		test_write_sign_case1(void);
-void		test_write_sign_case2(void);
-
-void		test_write_padding_case1(void);
-void		test_write_padding_case2(void);
-void		test_write_padding_case3(void);
-void		test_write_padding_case4(void);
-
-void		test_write_percent_format_case1(void);
-void		test_write_percent_format_case2(void);
-void		test_write_percent_format_case3(void);
-void		test_write_percent_format_case4(void);
-void		test_write_percent_format_case5(void);
-void		test_write_percent_format_case6(void);
-void		test_write_percent_format_case7(void);
-void		test_write_percent_format_case8(void);
-void		test_write_percent_format_case9(void);
-void		test_write_percent_format_case10(void);
-void		test_write_percent_format_case11(void);
-void		test_write_percent_format_case12(void);
-void		test_write_percent_format_case13(void);
-void		test_write_percent_format_case14(void);
-void		test_write_percent_format_case15(void);
-void		test_write_percent_format_case16(void);
-void		test_write_percent_format_case17(void);
-void		test_write_percent_format_case18(void);
-void		test_write_percent_format_case19(void);
-void		test_write_percent_format_case20(void);
-void		test_write_percent_format_case21(void);
-void		test_write_percent_format_case22(void);
-void		test_write_percent_format_case23(void);
-void		test_write_percent_format_case24(void);
-void		test_write_percent_format_case25(void);
-void		test_write_percent_format_case26(void);
-void		test_write_percent_format_case27(void);
-void		test_write_percent_format_case28(void);
-void		test_write_percent_format_case29(void);
-void		test_write_percent_format_case30(void);
-void		test_write_percent_format_case31(void);
-void		test_write_percent_format_case32(void);
-
 void		test_parse_d_case1(void);
 void		test_parse_d_case2(void);
 void		test_parse_d_case3(void);
@@ -439,15 +399,8 @@ void		test_parse_s_case1(void);
 
 void		test_parse_c_case1(void);
 
-void		test_parse_specifier_case1(void);
-void		test_parse_specifier_case2(void);
-void		test_parse_specifier_case3(void);
-void		test_parse_specifier_case4(void);
-void		test_parse_specifier_case5(void);
-void		test_parse_specifier_case6(void);
-void		test_parse_specifier_case7(void);
-void		test_parse_specifier_case8(void);
-void		test_parse_specifier_case9(void);
+void		test_parse_p_case1(void);
+void		test_parse_p_case2(void);
 
 void		test_parse_percent_case1(void);
 void		test_parse_percent_case2(void);
@@ -514,6 +467,21 @@ void		test_parse_percent_case62(void);
 void		test_parse_percent_case63(void);
 void		test_parse_percent_case64(void);
 void		test_parse_percent_case65(void);
+void		test_parse_percent_case66(void);
+void		test_parse_percent_case67(void);
+void		test_parse_percent_case68(void);
+void		test_parse_percent_case69(void);
+void		test_parse_percent_case70(void);
+void		test_parse_percent_case71(void);
+void		test_parse_percent_case72(void);
+void		test_parse_percent_case73(void);
+void		test_parse_percent_case74(void);
+void		test_parse_percent_case75(void);
+void		test_parse_percent_case76(void);
+void		test_parse_percent_case77(void);
+void		test_parse_percent_case78(void);
+void		test_parse_percent_case79(void);
+void		test_parse_percent_case80(void);
 
 /*
 ** double write test
@@ -609,5 +577,23 @@ void		test_ldouble_write_case10(void);
 void		test_ldouble_write_case11(void);
 void		test_ldouble_write_case12(void);
 void		test_ldouble_write_case13(void);
+
+/*
+** arg_prefix test
+*/
+void		test_arg_o_prefix_case1(void);
+void		test_arg_o_prefix_case2(void);
+void		test_arg_o_prefix_case3(void);
+
+void		test_arg_x_prefix_case1(void);
+void		test_arg_x_prefix_case2(void);
+void		test_arg_x_prefix_case3(void);
+
+void		test_arg_upper_x_prefix_case1(void);
+void		test_arg_upper_x_prefix_case2(void);
+void		test_arg_upper_x_prefix_case3(void);
+
+void		test_arg_p_prefix_case1(void);
+void		test_arg_p_prefix_case2(void);
 
 #endif

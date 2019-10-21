@@ -1350,3 +1350,303 @@ void		test_parse_percent_case65(void)
 		"fp_parse_percent (% 04X) : buf.data"
 	);
 }
+
+// case %#x
+void		test_parse_percent_case66(void)
+{
+	printf(KYEL "test_parse_percent_case66\n" KNRM);
+	const char	*format = "%#x";
+	t_fp_buffer	buf;
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, 0xabcdef) == ft_strlen(format),
+		"fp_parse_percent (%#x) : return value"
+	);
+
+	test(
+		ft_strcmp(buf.data, "0xabcdef") == 0,
+		"fp_parse_percent (%#x) : buf.data"
+	);
+}
+
+// case %#x (0)
+void		test_parse_percent_case67(void)
+{
+	printf(KYEL "test_parse_percent_case67\n" KNRM);
+	const char	*format = "%#x";
+	t_fp_buffer	buf;
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, 0) == ft_strlen(format),
+		"fp_parse_percent (%#x) : return value"
+	);
+
+	test(
+		ft_strcmp(buf.data, "0") == 0,
+		"fp_parse_percent (%#x) : buf.data"
+	);
+}
+
+// case %#020x
+void		test_parse_percent_case68(void)
+{
+	printf(KYEL "test_parse_percent_case68\n" KNRM);
+	const char	*format = "%#020x";
+	t_fp_buffer	buf;
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, 0xabcdef) == ft_strlen(format),
+		"fp_parse_percent (%#020x) : return value"
+	);
+
+	test(
+		ft_strcmp(buf.data, "0x000000000000abcdef") == 0,
+		"fp_parse_percent (%#020x) : buf.data"
+	);
+}
+
+// case %#20x
+void		test_parse_percent_case69(void)
+{
+	printf(KYEL "test_parse_percent_case69\n" KNRM);
+	const char	*format = "%#20x";
+	t_fp_buffer	buf;
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, 0xabcdef) == ft_strlen(format),
+		"fp_parse_percent (%#20x) : return value"
+	);
+
+	test(
+		ft_strcmp(buf.data, "            0xabcdef") == 0,
+		"fp_parse_percent (%#20x) : buf.data"
+	);
+}
+
+// case %#020.x
+void		test_parse_percent_case70(void)
+{
+	printf(KYEL "test_parse_percent_case70\n" KNRM);
+	const char	*format = "%#020.x";
+	t_fp_buffer	buf;
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, 0xabcdef) == ft_strlen(format),
+		"fp_parse_percent (%#020.x) : return value"
+	);
+
+	test(
+		ft_strcmp(buf.data, "            0xabcdef") == 0,
+		"fp_parse_percent (%#020.x) : buf.data"
+	);
+}
+
+// case %#X
+void		test_parse_percent_case71(void)
+{
+	printf(KYEL "test_parse_percent_case71\n" KNRM);
+	const char	*format = "%#X";
+	t_fp_buffer	buf;
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, 0xabcdef) == ft_strlen(format),
+		"fp_parse_percent (%#X) : return value"
+	);
+
+	test(
+		ft_strcmp(buf.data, "0XABCDEF") == 0,
+		"fp_parse_percent (%#X) : buf.data"
+	);
+}
+
+// case %#X (0)
+void		test_parse_percent_case72(void)
+{
+	printf(KYEL "test_parse_percent_case72\n" KNRM);
+	const char	*format = "%#X";
+	t_fp_buffer	buf;
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, 0) == ft_strlen(format),
+		"fp_parse_percent (%#X) : return value"
+	);
+
+	test(
+		ft_strcmp(buf.data, "0") == 0,
+		"fp_parse_percent (%#X) : buf.data"
+	);
+}
+
+// case %#020X
+void		test_parse_percent_case73(void)
+{
+	printf(KYEL "test_parse_percent_case73\n" KNRM);
+	const char	*format = "%#020X";
+	t_fp_buffer	buf;
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, 0xabcdef) == ft_strlen(format),
+		"fp_parse_percent (%#020X) : return value"
+	);
+
+	test(
+		ft_strcmp(buf.data, "0X000000000000ABCDEF") == 0,
+		"fp_parse_percent (%#020X) : buf.data"
+	);
+}
+
+// case %#20X
+void		test_parse_percent_case74(void)
+{
+	printf(KYEL "test_parse_percent_case74\n" KNRM);
+	const char	*format = "%#20X";
+	t_fp_buffer	buf;
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, 0xabcdef) == ft_strlen(format),
+		"fp_parse_percent (%#20X) : return value"
+	);
+
+	test(
+		ft_strcmp(buf.data, "            0XABCDEF") == 0,
+		"fp_parse_percent (%#20X) : buf.data"
+	);
+}
+
+// case %#020.X
+void		test_parse_percent_case75(void)
+{
+	printf(KYEL "test_parse_percent_case75\n" KNRM);
+	const char	*format = "%#020.X";
+	t_fp_buffer	buf;
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, 0xabcdef) == ft_strlen(format),
+		"fp_parse_percent (%#020.X) : return value"
+	);
+
+	test(
+		ft_strcmp(buf.data, "            0XABCDEF") == 0,
+		"fp_parse_percent (%#020.X) : buf.data"
+	);
+}
+
+// case %#-020X
+void		test_parse_percent_case76(void)
+{
+	printf(KYEL "test_parse_percent_case76\n" KNRM);
+	const char	*format = "%#-020X";
+	t_fp_buffer	buf;
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, 0xabcdef) == ft_strlen(format),
+		"fp_parse_percent (%#-020X) : return value"
+	);
+
+	test(
+		ft_strcmp(buf.data, "0XABCDEF            ") == 0,
+		"fp_parse_percent (%#-020X) : buf.data"
+	);
+}
+
+// case %p
+void		test_parse_percent_case77(void)
+{
+	printf(KYEL "test_parse_percent_case77\n" KNRM);
+	const char	*format = "%p";
+	t_fp_buffer	buf;
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, 0xabcdef) == ft_strlen(format),
+		"fp_parse_percent (%p) : return value"
+	);
+
+	test(
+		ft_strcmp(buf.data, "0xabcdef") == 0,
+		"fp_parse_percent (%p) : buf.data"
+	);
+}
+
+// case %020p
+void		test_parse_percent_case78(void)
+{
+	printf(KYEL "test_parse_percent_case78\n" KNRM);
+	const char	*format = "%020p";
+	t_fp_buffer	buf;
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, 0xabcdef) == ft_strlen(format),
+		"fp_parse_percent (%020p) : return value"
+	);
+
+	test(
+		ft_strcmp(buf.data, "0x000000000000abcdef") == 0,
+		"fp_parse_percent (%020p) : buf.data"
+	);
+}
+
+// case %020.p
+void		test_parse_percent_case79(void)
+{
+	printf(KYEL "test_parse_percent_case79\n" KNRM);
+	const char	*format = "%020.p";
+	t_fp_buffer	buf;
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, 0xabcdef) == ft_strlen(format),
+		"fp_parse_percent (%020.p) : return value"
+	);
+
+	test(
+		ft_strcmp(buf.data, "            0xabcdef") == 0,
+		"fp_parse_percent (%020.p) : buf.data"
+	);
+}
+
+// case %020p (0)
+void		test_parse_percent_case80(void)
+{
+	printf(KYEL "test_parse_percent_case80\n" KNRM);
+	const char	*format = "%020p";
+	t_fp_buffer	buf;
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, 0x0) == ft_strlen(format),
+		"fp_parse_percent (%020p) : return value"
+	);
+
+	test(
+		ft_strcmp(buf.data, "0x000000000000000000") == 0,
+		"fp_parse_percent (%020p) : buf.data"
+	);
+}

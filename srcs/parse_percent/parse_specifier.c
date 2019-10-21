@@ -25,6 +25,8 @@ size_t		fp_parse_specifier(
 		fp_parse_s(ap, tags, arg);
 	else if (*format == 'c')
 		fp_parse_c(ap, tags, arg);
+	else if (*format == 'p')
+		fp_parse_p(ap, tags, arg);
 	/*
 	else
 		// handle character which is not specifier -> test every ascii

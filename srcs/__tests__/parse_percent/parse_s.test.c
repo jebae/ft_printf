@@ -39,6 +39,11 @@ void		test_parse_s_case1(void)
 	);
 
 	test(
+		arg.prefix == &fp_arg_no_prefix,
+		"fp_parse_s : arg.prefix"
+	);
+
+	test(
 		arg.write == &fp_arg_s_write,
 		"fp_parse_s : arg.write"
 	);

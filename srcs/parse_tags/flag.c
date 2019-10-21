@@ -10,6 +10,8 @@ size_t	fp_parse_flag(const char *format, t_fp_tags *tags)
 		tags->mask |= FP_MASK_FLAG_SPACE;
 	else if (*format == '0')
 		tags->mask |= FP_MASK_FLAG_ZERO;
+	else if (*format == '#')
+		tags->mask |= FP_MASK_FLAG_SHARP;
 	else
 		return (0);
 	return (1);

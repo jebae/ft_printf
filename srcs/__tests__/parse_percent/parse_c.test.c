@@ -33,6 +33,11 @@ void		test_parse_c_case1(void)
 	);
 
 	test(
+		arg.prefix == &fp_arg_no_prefix,
+		"fp_parse_c : arg.prefix"
+	);
+
+	test(
 		arg.sign == &fp_arg_no_sign,
 		"fp_parse_c : arg.sign"
 	);

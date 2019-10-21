@@ -93,3 +93,22 @@ void		test_parse_flag_case5(void)
 		"flag (foo) : mask"
 	);
 }
+
+// case #
+void		test_parse_flag_case6(void)
+{
+	printf(KYEL "test_parse_flag_case6\n" KNRM);
+	const char	*format = "#foo";
+	t_fp_tags	tags;
+
+	tags.mask = 0;
+	test(
+		fp_parse_flag(format, &tags) == 1,
+		"flag (#foo) : return value"
+	);
+
+	test(
+		tags.mask == FP_MASK_FLAG_SHARP,
+		"flag (#foo) : mask"
+	);
+}

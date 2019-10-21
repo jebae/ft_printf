@@ -68,6 +68,11 @@ SRC_ARG_SIGN = num_sign.c\
 	arg_f_sign.c\
 	arg_no_sign.c\
 
+SRC_ARG_PREFIX = arg_o_prefix.c\
+	arg_x_prefix.c\
+	arg_p_prefix.c\
+	arg_no_prefix.c\
+
 SRC_BUFFER = buffer.c\
 
 SRC_ARG_WRITE = int_write.c\
@@ -96,12 +101,14 @@ SRC_PARSE_PERCENT = write_percent_format.c\
 	parse_o.c\
 	parse_s.c\
 	parse_c.c\
+	parse_p.c\
 
 # objs
 #OBJS = $(addprefix $(OBJDIR)/, $(SRC_FT_PRINTF:.c=.o))
 OBJS = $(addprefix $(OBJDIR)/, $(SRC_PARSE_TAGS:.c=.o))
 OBJS += $(addprefix $(OBJDIR)/, $(SRC_ARG_LENGTH:.c=.o))
 OBJS += $(addprefix $(OBJDIR)/, $(SRC_ARG_SIGN:.c=.o))
+OBJS += $(addprefix $(OBJDIR)/, $(SRC_ARG_PREFIX:.c=.o))
 OBJS += $(addprefix $(OBJDIR)/, $(SRC_BUFFER:.c=.o))
 OBJS += $(addprefix $(OBJDIR)/, $(SRC_ARG_WRITE:.c=.o))
 OBJS += $(addprefix $(OBJDIR)/, $(SRC_PARSE_PERCENT:.c=.o))
@@ -122,6 +129,9 @@ $(OBJDIR)/%.o : $(SRCDIR)/arg_length/%.c $(HEADERS)
 	@$(call compile_obj,$<,$@)
 
 $(OBJDIR)/%.o : $(SRCDIR)/arg_sign/%.c $(HEADERS)
+	@$(call compile_obj,$<,$@)
+
+$(OBJDIR)/%.o : $(SRCDIR)/arg_prefix/%.c $(HEADERS)
 	@$(call compile_obj,$<,$@)
 
 $(OBJDIR)/%.o : $(SRCDIR)/buffer/%.c $(HEADERS)

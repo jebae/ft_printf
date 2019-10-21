@@ -39,13 +39,13 @@ void		test_parse_u_case1(void)
 	);
 
 	test(
-		arg.write == &fp_arg_u_write,
-		"fp_parse_u (u) : arg.write"
+		arg.prefix == &fp_arg_no_prefix,
+		"fp_parse_u (u) : arg.prefix"
 	);
 
 	test(
-		(tags.mask & FP_MASK_IGNORE_ZERO_PAD) == 0,
-		"fp_parse_u : tags.mask & FP_MASK_IGNORE_ZERO_PAD"
+		arg.write == &fp_arg_u_write,
+		"fp_parse_u (u) : arg.write"
 	);
 }
 
@@ -77,13 +77,13 @@ void		test_parse_u_case2(void)
 	);
 
 	test(
-		arg.write == &fp_arg_hu_write,
-		"fp_parse_u (hu) : arg.write"
+		arg.prefix == &fp_arg_no_prefix,
+		"fp_parse_u (hu) : arg.prefix"
 	);
 
 	test(
-		(tags.mask & FP_MASK_IGNORE_ZERO_PAD) == 0,
-		"fp_parse_u : tags.mask & FP_MASK_IGNORE_ZERO_PAD"
+		arg.write == &fp_arg_hu_write,
+		"fp_parse_u (hu) : arg.write"
 	);
 }
 
@@ -114,13 +114,13 @@ void		test_parse_u_case3(void)
 	);
 
 	test(
-		arg.write == &fp_arg_hhu_write,
-		"fp_parse_u (hhu) : arg.write"
+		arg.prefix == &fp_arg_no_prefix,
+		"fp_parse_u (hhu) : arg.prefix"
 	);
 
 	test(
-		(tags.mask & FP_MASK_IGNORE_ZERO_PAD) == 0,
-		"fp_parse_u : tags.mask & FP_MASK_IGNORE_ZERO_PAD"
+		arg.write == &fp_arg_hhu_write,
+		"fp_parse_u (hhu) : arg.write"
 	);
 }
 
@@ -153,13 +153,13 @@ void		test_parse_u_case4(void)
 	);
 
 	test(
-		arg.write == &fp_arg_lu_write,
-		"fp_parse_u (lu) : arg.write"
+		arg.prefix == &fp_arg_no_prefix,
+		"fp_parse_u (lu) : arg.prefix"
 	);
 
 	test(
-		(tags.mask & FP_MASK_IGNORE_ZERO_PAD) == 0,
-		"fp_parse_u : tags.mask & FP_MASK_IGNORE_ZERO_PAD"
+		arg.write == &fp_arg_lu_write,
+		"fp_parse_u (lu) : arg.write"
 	);
 }
 
@@ -193,13 +193,13 @@ void		test_parse_u_case5(void)
 	);
 
 	test(
-		arg.write == &fp_arg_llu_write,
-		"fp_parse_u (llu) : arg.write"
+		arg.prefix == &fp_arg_no_prefix,
+		"fp_parse_u (llu) : arg.prefix"
 	);
 
 	test(
-		(tags.mask & FP_MASK_IGNORE_ZERO_PAD) == 0,
-		"fp_parse_u : tags.mask & FP_MASK_IGNORE_ZERO_PAD"
+		arg.write == &fp_arg_llu_write,
+		"fp_parse_u (llu) : arg.write"
 	);
 }
 
@@ -212,6 +212,7 @@ void		test_parse_u_case6(void)
 
 	fp_init_tags(&tags);
 	tags.mask |= FP_MASK_PRECISION;
+	tags.mask |= FP_MASK_FLAG_ZERO;
 	parse(&tags, &arg, 12345);
 
 	test(
@@ -230,12 +231,17 @@ void		test_parse_u_case6(void)
 	);
 
 	test(
+		arg.prefix == &fp_arg_no_prefix,
+		"fp_parse_u : arg.prefix"
+	);
+
+	test(
 		arg.write == &fp_arg_u_write,
 		"fp_parse_u : arg.write"
 	);
 
 	test(
-		(tags.mask & FP_MASK_IGNORE_ZERO_PAD) != 0,
-		"fp_parse_u : tags.mask & FP_MASK_IGNORE_ZERO_PAD"
+		(tags.mask & FP_MASK_FLAG_ZERO) == 0,
+		"fp_parse_u : tags.mask & FP_MASK_FLAG_ZERO"
 	);
 }

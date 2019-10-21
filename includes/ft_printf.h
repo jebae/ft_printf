@@ -14,13 +14,13 @@
 # define FP_MASK_FLAG_PLUS			(1 << 1)
 # define FP_MASK_FLAG_SPACE			(1 << 2)
 # define FP_MASK_FLAG_ZERO			(1 << 3)
-# define FP_MASK_LENGTH_HH			(1 << 4)
-# define FP_MASK_LENGTH_H			(1 << 5)
-# define FP_MASK_LENGTH_L			(1 << 6)
-# define FP_MASK_LENGTH_LL			(1 << 7)
-# define FP_MASK_LENGTH_FL			(1 << 8)
-# define FP_MASK_PRECISION			(1 << 9)
-# define FP_MASK_IGNORE_ZERO_PAD	(1 << 10)
+# define FP_MASK_FLAG_SHARP			(1 << 4)
+# define FP_MASK_LENGTH_HH			(1 << 5)
+# define FP_MASK_LENGTH_H			(1 << 6)
+# define FP_MASK_LENGTH_L			(1 << 7)
+# define FP_MASK_LENGTH_LL			(1 << 8)
+# define FP_MASK_LENGTH_FL			(1 << 9)
+# define FP_MASK_PRECISION			(1 << 10)
 
 /*
 ** buffer macros
@@ -31,13 +31,14 @@
 /*
 ** parse macros
 */
-# define FP_NO_SIGN					-1
+# define FP_NO_SIGN					0
 
 /*
 ** constant macros
 */
 # define FP_SUCCESS					0
 # define FP_FAIL					1
+# define FP_ULLONG_MAX				0xffffffffffffffff
 
 /*
 ** math macros
@@ -71,6 +72,11 @@ typedef struct	s_fp_arg
 	t_fp_arg_data	data;
 	size_t			(*length)(t_fp_arg_data *data, t_fp_tags *tags);
 	char			(*sign)(t_fp_arg_data *data, t_fp_tags *tags);
+	void			(*prefix)(
+		t_fp_arg_data *data,
+		t_fp_tags *tags,
+		char *prefix
+	);
 	void			(*write)(
 		t_fp_arg_data *data,
 		t_fp_tags *tags,
@@ -148,6 +154,39 @@ char			fp_arg_f_sign(t_fp_arg_data *data, t_fp_tags *tags);
 char			fp_arg_lf_sign(t_fp_arg_data *data, t_fp_tags *tags);
 
 char			fp_arg_no_sign(t_fp_arg_data *data, t_fp_tags *tags);
+
+/*
+** arg_prefix
+*/
+void			fp_arg_o_prefix(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	char *prefix
+);
+
+void			fp_arg_x_prefix(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	char *prefix
+);
+
+void			fp_arg_upper_x_prefix(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	char *prefix
+);
+
+void			fp_arg_p_prefix(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	char *prefix
+);
+
+void			fp_arg_no_prefix(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	char *prefix
+);
 
 /*
 ** buffer
@@ -435,15 +474,6 @@ void		fp_arg_c_write(
 /*
 ** parse_percent
 */
-void			fp_write_sign(char sign, t_fp_buffer *buf);
-
-void			fp_write_padding(
-	t_fp_tags *tags,
-	size_t content_length,
-	char pad,
-	t_fp_buffer *buf
-);
-
 void			fp_write_percent_format(
 	t_fp_arg *arg,
 	t_fp_tags *tags,
@@ -458,6 +488,7 @@ void			fp_parse_upper_x(va_list ap, t_fp_tags *tags, t_fp_arg *arg);
 void			fp_parse_o(va_list ap, t_fp_tags *tags, t_fp_arg *arg);
 void			fp_parse_s(va_list ap, t_fp_tags *tags, t_fp_arg *arg);
 void			fp_parse_c(va_list ap, t_fp_tags *tags, t_fp_arg *arg);
+void			fp_parse_p(va_list ap, t_fp_tags *tags, t_fp_arg *arg);
 
 size_t			fp_parse_specifier(
 	const char *format,
