@@ -22,6 +22,8 @@ void			fp_int_write(
 {
 	long long		divider;
 
+	if (length == 0)
+		return ;
 	if (num == 0)
 	{
 		fp_write_buffer(buf, '0');
@@ -44,6 +46,8 @@ void			fp_uint_write(
 {
 	unsigned long long		divider;
 
+	if (length == 0)
+		return ;
 	if (num == 0)
 	{
 		fp_write_buffer(buf, '0');
@@ -66,6 +70,8 @@ void			fp_uint_upper_write(
 {
 	unsigned long long		divider;
 
+	if (length == 0)
+		return ;
 	if (num == 0)
 	{
 		fp_write_buffer(buf, '0');

@@ -22,6 +22,8 @@ static int		write_parts(
 	if (precision == 0)
 		return (FP_SUCCESS);
 	fp_write_buffer(buf, '.');
+	if (carry)
+		bi_erase(&fraction_part->num);
 	if (fp_double_write_fraction_part(fraction_part, precision, buf) == FP_FAIL)
 		return (FP_FAIL);
 	return (FP_SUCCESS);

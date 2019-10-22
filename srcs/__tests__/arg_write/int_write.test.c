@@ -79,6 +79,20 @@ void		test_int_write_case6(void)
 	printf("expect : %hd\n", (short)d);
 }
 
+// case length = 0
+void		test_int_write_case7(void)
+{
+	printf(KYEL "test_int_write_case7\n" KNRM);
+	int				d = 0;
+	size_t			len = 0;
+	t_fp_buffer		buf;
+
+	fp_init_buffer(&buf);
+	fp_int_write(d, len, &buf);
+	printf("result : %s\n", buf.data);
+	printf("expect : %.d\n", d);
+}
+
 void		test_uint_write_case1(void)
 {
 	printf(KYEL "test_uint_write_case1\n" KNRM);
@@ -131,6 +145,7 @@ void		test_uint_write_case4(void)
 	printf("expect : %u\n", d);
 }
 
+// case hex
 void		test_uint_write_case5(void)
 {
 	printf(KYEL "test_uint_write_case5\n" KNRM);
@@ -144,6 +159,7 @@ void		test_uint_write_case5(void)
 	printf("expect : %llx\n", d);
 }
 
+// case octal
 void		test_uint_write_case6(void)
 {
 	printf(KYEL "test_uint_write_case6\n" KNRM);
@@ -155,6 +171,20 @@ void		test_uint_write_case6(void)
 	fp_uint_write(d, len, 8, &buf);
 	printf("result : %s\n", buf.data);
 	printf("expect : %llo\n", d);
+}
+
+// case length = 0
+void		test_uint_write_case7(void)
+{
+	printf(KYEL "test_uint_write_case7\n" KNRM);
+	unsigned int	d = 0;
+	size_t			len = 0;
+	t_fp_buffer		buf;
+
+	fp_init_buffer(&buf);
+	fp_uint_write(d, len, 10, &buf);
+	printf("result : %s\n", buf.data);
+	printf("expect : %.u\n", d);
 }
 
 void		test_uint_upper_write_case1(void)
@@ -181,4 +211,18 @@ void		test_uint_upper_write_case2(void)
 	fp_uint_upper_write(d, len, 16, &buf);
 	printf("result : %s\n", buf.data);
 	printf("expect : %llX\n", d);
+}
+
+// case length = 0
+void		test_uint_upper_write_case3(void)
+{
+	printf(KYEL "test_uint_upper_write_case3\n" KNRM);
+	unsigned int	d = 0;
+	size_t			len = 0;
+	t_fp_buffer		buf;
+
+	fp_init_buffer(&buf);
+	fp_uint_upper_write(d, len, 16, &buf);
+	printf("result : %s\n", buf.data);
+	printf("expect : %.X\n", d);
 }

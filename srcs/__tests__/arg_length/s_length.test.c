@@ -87,3 +87,37 @@ void		test_arg_s_length_case5(void)
 		"arg_s_length : return value"
 	);
 }
+
+// case null
+void		test_arg_s_length_case6(void)
+{
+	printf(KYEL "test_arg_s_length_case6\n" KNRM);
+	t_fp_arg_data	data;
+	t_fp_tags		tags;
+
+	fp_init_tags(&tags);
+	data.ptr = NULL;
+
+	test(
+		fp_arg_s_length(&data, &tags) == 6,
+		"arg_s_length : return value"
+	);
+}
+
+// case null with precision
+void		test_arg_s_length_case7(void)
+{
+	printf(KYEL "test_arg_s_length_case7\n" KNRM);
+	t_fp_arg_data	data;
+	t_fp_tags		tags;
+
+	fp_init_tags(&tags);
+	tags.mask |= FP_MASK_PRECISION;
+	tags.precision = 2;
+	data.ptr = NULL;
+
+	test(
+		fp_arg_s_length(&data, &tags) == 2,
+		"arg_s_length : return value"
+	);
+}

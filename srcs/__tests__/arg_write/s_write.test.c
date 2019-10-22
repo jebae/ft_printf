@@ -102,3 +102,37 @@ void		test_arg_s_write_case6(void)
 	printf("result : %s\n", buf.data);
 	printf("expect : %.s\n", data.ptr);
 }
+
+// case null
+void		test_arg_s_write_case7(void)
+{
+	printf(KYEL "test_arg_s_write_case7\n" KNRM);
+	t_fp_arg_data	data;
+	t_fp_buffer		buf;
+	t_fp_tags		tags;
+
+	fp_init_buffer(&buf);
+	fp_init_tags(&tags);
+	data.ptr = NULL;
+	fp_arg_s_write(&data, &tags, fp_arg_s_length(&data, &tags), &buf);
+	printf("result : %s\n", buf.data);
+	printf("expect : %s\n", data.ptr);
+}
+
+// case null
+void		test_arg_s_write_case8(void)
+{
+	printf(KYEL "test_arg_s_write_case8\n" KNRM);
+	t_fp_arg_data	data;
+	t_fp_buffer		buf;
+	t_fp_tags		tags;
+
+	fp_init_buffer(&buf);
+	fp_init_tags(&tags);
+	tags.mask |= FP_MASK_PRECISION;
+	tags.precision = 2;
+	data.ptr = NULL;
+	fp_arg_s_write(&data, &tags, fp_arg_s_length(&data, &tags), &buf);
+	printf("result : %s\n", buf.data);
+	printf("expect : %.2s\n", data.ptr);
+}

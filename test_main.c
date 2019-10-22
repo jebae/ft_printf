@@ -548,7 +548,6 @@ int		main(void)
 
 	test_arg_o_prefix_case1();
 	test_arg_o_prefix_case2();
-	test_arg_o_prefix_case3();
 
 	test_arg_x_prefix_case1();
 	test_arg_x_prefix_case2();
@@ -617,5 +616,37 @@ int		main(void)
 
 	test_arg_d_length_case5();
 	test_arg_o_length_case5();
+	test_arg_u_length_case5();
+	test_arg_x_length_case5();
+
+	test_int_write_case7();
+	test_uint_write_case7();
+	test_uint_upper_write_case3();
+
+	test_parse_percent_case95();
+	test_parse_percent_case96();
+	test_parse_percent_case97();
+	test_parse_percent_case98();
+
+	test_arg_o_leading_zero_case1();
+	test_arg_o_leading_zero_case2();
+	test_arg_o_leading_zero_case3();
+	test_arg_o_leading_zero_case4();
+
+	test_arg_s_length_case6();
+	test_arg_s_length_case7();
+
+	test_arg_s_write_case7();
+	test_arg_s_write_case8();
+
+	test_parse_percent_case99();
+	test_arg_o_prefix_case3();
+	test_arg_o_leading_zero_case5();
+	test_parse_percent_case100();
+	test_parse_percent_case101();
+	test_parse_percent_case102();
+
+	test_double_fraction_part_case9();
+	test_double_write_case12();
 	//while (1);
 }

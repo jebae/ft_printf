@@ -34,7 +34,8 @@ size_t			fp_parse_percent(
 		j += fp_parse_length(format + i + j, &tags);
 		i += j;
 	}
-	i += fp_parse_specifier(format + i, ap, &tags, &arg);
-	fp_write_percent_format(&arg, &tags, buf);
-	return (i);
+	j = fp_parse_specifier(format + i, ap, &tags, &arg);
+	if (j)
+		fp_write_percent_format(&arg, &tags, buf);
+	return (i + j);
 }

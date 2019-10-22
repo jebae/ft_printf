@@ -86,11 +86,14 @@ typedef struct	s_fp_arg
 	);
 }				t_fp_arg;
 
-typedef struct	s_fp_double_fields
+typedef struct	s_fp_percent_format_vars
 {
-	short				exponent;
-	unsigned long long	mantissa;
-}				t_fp_double_fields;
+	char		sign;
+	char		prefix[2];
+	size_t		content_len;
+	size_t		total_len;
+	size_t		leading_zero;
+}				t_fp_percent_format_vars;
 
 int				ft_printf(const char *format, ...);
 
@@ -195,6 +198,7 @@ void			fp_arg_no_prefix(
 ** arg_leading_zero
 */
 size_t			fp_arg_leading_zero(t_fp_tags *tags, size_t length);
+size_t			fp_arg_o_leading_zero(t_fp_tags *tags, size_t length);
 size_t			fp_arg_no_leading_zero(t_fp_tags *tags, size_t length);
 
 /*

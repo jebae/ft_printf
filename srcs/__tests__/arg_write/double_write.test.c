@@ -466,6 +466,40 @@ void		test_double_fraction_part_case8(void)
 	bi_del(&bcd);
 }
 
+// case 3.9999999999
+void		test_double_fraction_part_case9(void)
+{
+	printf(KYEL "test_double_fraction_part_case9\n" KNRM);
+	short				exponent;
+	unsigned long long	mantissa;
+	size_t				precision;
+	t_fixedpoint		fraction_part;
+	t_bigint			bcd;
+
+	fxp_init(&fraction_part);
+	bi_init(&bcd);
+	exponent = 1;
+	mantissa = 0x1ffffffffc9064;
+	precision = 6;
+
+	fp_double_fraction_part(exponent, mantissa, precision, &fraction_part);
+
+	printf("fraction_part.e : %lld\n", fraction_part.e);
+
+	bi_double_dabble(&(fraction_part.num), &bcd);
+	printf("result : ");
+	for (size_t i=bcd.occupied; i > 0; i--)
+	{
+		printf("%c", (bcd.data[i - 1] >> 4) + '0');
+		printf("%c", (bcd.data[i - 1] & 0x0f) + '0');
+	}
+	printf("\n");
+	printf("expect : %.6f\n", 3.9999999999);
+
+	fxp_del(&fraction_part);
+	bi_del(&bcd);
+}
+
 // case 3.14
 void		test_double_write_integer_part_case1(void)
 {
@@ -1190,4 +1224,21 @@ void		test_double_write_case11(void)
 	fp_double_write(f, precision, &buf);
 	printf("result : %s\n", buf.data);
 	printf("expect : %.50f\n", f);
+}
+
+// case 3.9999999
+void		test_double_write_case12(void)
+{
+	printf(KYEL "test_double_write_case12\n" KNRM);
+	double			f;
+	size_t			precision;
+	t_fp_buffer		buf;
+
+	f = 3.9999999;
+	precision = 4;
+	fp_init_buffer(&buf);
+
+	fp_double_write(f, precision, &buf);
+	printf("result : %s\n", buf.data);
+	printf("expect : %.4f\n", f);
 }

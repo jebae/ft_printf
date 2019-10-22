@@ -74,6 +74,7 @@ SRC_ARG_PREFIX = arg_o_prefix.c\
 	arg_no_prefix.c\
 
 SRC_ARG_LEADING_ZERO = arg_leading_zero.c\
+	arg_o_leading_zero.c\
 	arg_no_leading_zero.c\
 
 SRC_BUFFER = buffer.c\
@@ -133,6 +134,7 @@ LIBFT_OBJS = ft_bzero.o\
 	ft_pow.o\
 	ft_strcpy.o\
 	ft_strlen.o\
+	ft_strcmp.o\
 
 LIBBIGINT_OBJS = bi_del.o\
 	bi_memalloc.o\
