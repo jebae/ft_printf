@@ -1,6 +1,15 @@
 #include "ft_printf.h"
 
-size_t		fp_parse_specifier(
+static void		parse_non_specifier(t_fp_arg *arg, char ch)
+{
+	arg->data.i = ch;
+	arg->length = &fp_arg_c_length;
+	arg->sign = &fp_arg_no_sign;
+	arg->prefix = &fp_arg_no_prefix;
+	arg->write = &fp_arg_c_write;
+}
+
+size_t			fp_parse_specifier(
 	const char *format,
 	va_list ap,
 	t_fp_tags *tags,
@@ -27,11 +36,7 @@ size_t		fp_parse_specifier(
 		fp_parse_c(ap, tags, arg);
 	else if (*format == 'p')
 		fp_parse_p(ap, tags, arg);
-	/*
 	else
-		// handle character which is not specifier -> test every ascii
-		// similar to %c
-		// but arg.data.i has to be assigned without va_list
-	*/
+		parse_non_specifier(arg, *format);
 	return (1);
 }

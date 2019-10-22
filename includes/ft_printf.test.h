@@ -21,6 +21,7 @@ void		test_parse_flag_case3(void);
 void		test_parse_flag_case4(void);
 void		test_parse_flag_case5(void);
 void		test_parse_flag_case6(void);
+void		test_parse_flag_case7(void);
 void		test_parse_width_case1(void);
 void		test_parse_width_case2(void);
 void		test_parse_precision_case1(void);
@@ -500,6 +501,9 @@ void		test_parse_percent_case87(void);
 void		test_parse_percent_case88(void);
 void		test_parse_percent_case89(void);
 void		test_parse_percent_case90(void);
+void		test_parse_percent_case91(void);
+void		test_parse_percent_case92(void);
+void		test_parse_percent_case93(void);
 
 /*
 ** double write test

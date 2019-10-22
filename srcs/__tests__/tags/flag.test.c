@@ -112,3 +112,24 @@ void		test_parse_flag_case6(void)
 		"flag (#foo) : mask"
 	);
 }
+
+// case extra
+void		test_parse_flag_case7(void)
+{
+	printf(KYEL "test_parse_flag_case7\n" KNRM);
+	const char	*format = ",'*:;_";
+	t_fp_tags	tags;
+
+	tags.mask = 0;
+	for (int i=0; i < 6; i++)
+	{
+		test(
+			fp_parse_flag(format + i, &tags) == 1,
+			"flag (extra) : return value"
+		);
+		test(
+			tags.mask == 0,
+			"flag (extra) : mask"
+		);
+	}
+}
