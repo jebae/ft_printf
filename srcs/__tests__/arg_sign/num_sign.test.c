@@ -8,7 +8,7 @@ void	test_num_sign_case1(void)
 	tags.mask = 0;
 
 	test(
-		fp_num_sign(1, &tags) == -1,
+		fp_num_sign(1, &tags) == FP_NO_SIGN,
 		"num_sign (positive, NO_MASK) : return value"
 	);
 }

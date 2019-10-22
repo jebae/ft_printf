@@ -44,6 +44,11 @@ void		test_parse_s_case1(void)
 	);
 
 	test(
+		arg.leading_zero == &fp_arg_no_leading_zero,
+		"fp_parse_s : arg.leading_zero"
+	);
+
+	test(
 		arg.write == &fp_arg_s_write,
 		"fp_parse_s : arg.write"
 	);

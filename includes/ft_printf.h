@@ -72,6 +72,7 @@ typedef struct	s_fp_arg
 	t_fp_arg_data	data;
 	size_t			(*length)(t_fp_arg_data *data, t_fp_tags *tags);
 	char			(*sign)(t_fp_arg_data *data, t_fp_tags *tags);
+	size_t			(*leading_zero)(t_fp_tags *tags, size_t length);
 	void			(*prefix)(
 		t_fp_arg_data *data,
 		t_fp_tags *tags,
@@ -90,6 +91,8 @@ typedef struct	s_fp_double_fields
 	short				exponent;
 	unsigned long long	mantissa;
 }				t_fp_double_fields;
+
+int				ft_printf(const char *format, ...);
 
 /*
 ** parse_tags
@@ -187,6 +190,12 @@ void			fp_arg_no_prefix(
 	t_fp_tags *tags,
 	char *prefix
 );
+
+/*
+** arg_leading_zero
+*/
+size_t			fp_arg_leading_zero(t_fp_tags *tags, size_t length);
+size_t			fp_arg_no_leading_zero(t_fp_tags *tags, size_t length);
 
 /*
 ** buffer

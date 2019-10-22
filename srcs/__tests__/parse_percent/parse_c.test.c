@@ -38,6 +38,11 @@ void		test_parse_c_case1(void)
 	);
 
 	test(
+		arg.leading_zero == &fp_arg_no_leading_zero,
+		"fp_parse_c : arg.leading_zero"
+	);
+
+	test(
 		arg.sign == &fp_arg_no_sign,
 		"fp_parse_c : arg.sign"
 	);

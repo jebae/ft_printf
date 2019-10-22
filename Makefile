@@ -73,6 +73,9 @@ SRC_ARG_PREFIX = arg_o_prefix.c\
 	arg_p_prefix.c\
 	arg_no_prefix.c\
 
+SRC_ARG_LEADING_ZERO = arg_leading_zero.c\
+	arg_no_leading_zero.c\
+
 SRC_BUFFER = buffer.c\
 
 SRC_ARG_WRITE = int_write.c\
@@ -104,14 +107,74 @@ SRC_PARSE_PERCENT = write_percent_format.c\
 	parse_p.c\
 
 # objs
-#OBJS = $(addprefix $(OBJDIR)/, $(SRC_FT_PRINTF:.c=.o))
-OBJS = $(addprefix $(OBJDIR)/, $(SRC_PARSE_TAGS:.c=.o))
+OBJS = $(addprefix $(OBJDIR)/, $(SRC_FT_PRINTF:.c=.o))
+OBJS += $(addprefix $(OBJDIR)/, $(SRC_PARSE_TAGS:.c=.o))
 OBJS += $(addprefix $(OBJDIR)/, $(SRC_ARG_LENGTH:.c=.o))
 OBJS += $(addprefix $(OBJDIR)/, $(SRC_ARG_SIGN:.c=.o))
 OBJS += $(addprefix $(OBJDIR)/, $(SRC_ARG_PREFIX:.c=.o))
+OBJS += $(addprefix $(OBJDIR)/, $(SRC_ARG_LEADING_ZERO:.c=.o))
 OBJS += $(addprefix $(OBJDIR)/, $(SRC_BUFFER:.c=.o))
 OBJS += $(addprefix $(OBJDIR)/, $(SRC_ARG_WRITE:.c=.o))
 OBJS += $(addprefix $(OBJDIR)/, $(SRC_PARSE_PERCENT:.c=.o))
+
+LIBFT_OBJS = ft_bzero.o\
+	ft_extract_double.o\
+	ft_extract_ldouble.o\
+	ft_is_inf.o\
+	ft_is_inf_l.o\
+	ft_is_nan.o\
+	ft_is_nan_l.o\
+	ft_isdigit.o\
+	ft_memdel.o\
+	ft_memcpy.o\
+	ft_memnegate.o\
+	ft_memset.o\
+	ft_memalloc.o\
+	ft_pow.o\
+	ft_strcpy.o\
+	ft_strlen.o\
+
+LIBBIGINT_OBJS = bi_del.o\
+	bi_memalloc.o\
+	bi_init.o\
+	bi_erase.o\
+	bi_expand.o\
+	bi_expand_at_least.o\
+	bi_push.o\
+	bi_copy.o\
+	bi_abs_compare.o\
+	bi_max_bit.o\
+	bi_op_utils.o\
+	bi_add_bi.o\
+	bi_sub_bi.o\
+	bi_update_occupied.o\
+	bi_left_shift.o\
+	bi_abs.o\
+	bi_mod_n_pow_of_2_plus_1.o\
+	bi_mod_n_pow_of_2_plus_1_utils.o\
+	bi_array.o\
+	bi_mul_bi.o\
+	bi_right_shift.o\
+	bi_get_bit.o\
+	bi_set_bit.o\
+	bi_double_dabble.o\
+	bi_rev_double_dabble.o\
+	bcd_len.o\
+	bcd_get_digit.o\
+	bcd_set_digit.o\
+	bcd_rm_trailing_zero.o\
+	bcd_iter.o\
+
+LIBFIXEDPOINT_OBJS = fxp_init.o\
+	fxp_del.o\
+	fxp_compact.o\
+	fxp_mul_fxp.o\
+	fxp_round.o\
+
+OBJS += $(addprefix $(LIBFT_PATH)/objs/, $(LIBFT_OBJS))
+OBJS += $(addprefix $(LIBBIGINT_PATH)/objs/, $(LIBBIGINT_OBJS))
+OBJS += $(addprefix $(LIBFIXEDPOINT_PATH)/objs/, $(LIBFIXEDPOINT_OBJS))
+
 
 # compile objs
 HEADERS = $(INCDIR)/ft_printf.h\
@@ -132,6 +195,9 @@ $(OBJDIR)/%.o : $(SRCDIR)/arg_sign/%.c $(HEADERS)
 	@$(call compile_obj,$<,$@)
 
 $(OBJDIR)/%.o : $(SRCDIR)/arg_prefix/%.c $(HEADERS)
+	@$(call compile_obj,$<,$@)
+
+$(OBJDIR)/%.o : $(SRCDIR)/arg_leading_zero/%.c $(HEADERS)
 	@$(call compile_obj,$<,$@)
 
 $(OBJDIR)/%.o : $(SRCDIR)/buffer/%.c $(HEADERS)
@@ -163,6 +229,10 @@ deps :
 
 pre_build :
 	@printf "$(KGRN)[ft_printf] $(KYEL)build $(NAME)\n$(KNRM)"
+	@cd ./$(INCDIR)
+	@ln -f $(LIBFT_PATH)/includes/libft.h ./$(INCDIR)/
+	@ln -f $(LIBBIGINT_PATH)/includes/bigint.h ./$(INCDIR)/
+	@ln -f $(LIBFIXEDPOINT_PATH)/includes/fixedpoint.h ./$(INCDIR)/
 
 post_build :
 	@printf "$(KGRN)[ft_printf] $(KYEL)$(COUNTER) files compiled\n$(KNRM)"

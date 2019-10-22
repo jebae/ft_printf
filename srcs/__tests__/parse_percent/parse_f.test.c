@@ -44,6 +44,11 @@ void		test_parse_f_case1(void)
 	);
 
 	test(
+		arg.leading_zero == &fp_arg_no_leading_zero,
+		"fp_parse_f (f) : arg.leading_zero"
+	);
+
+	test(
 		arg.write == &fp_arg_f_write,
 		"fp_parse_f (f) : arg.write"
 	);
@@ -78,6 +83,11 @@ void		test_parse_f_case2(void)
 	test(
 		arg.prefix == &fp_arg_no_prefix,
 		"fp_parse_f (f) : arg.prefix"
+	);
+
+	test(
+		arg.leading_zero == &fp_arg_no_leading_zero,
+		"fp_parse_f (f) : arg.leading_zero"
 	);
 
 	test(
@@ -123,6 +133,11 @@ void		test_parse_f_case3(void)
 	);
 
 	test(
+		arg.leading_zero == &fp_arg_no_leading_zero,
+		"fp_parse_f (f) : arg.leading_zero"
+	);
+
+	test(
 		arg.write == &fp_arg_f_write,
 		"fp_parse_f (f) : arg.write"
 	);
@@ -162,6 +177,11 @@ void		test_parse_f_case4(void)
 	test(
 		arg.prefix == &fp_arg_no_prefix,
 		"fp_parse_f (f) : arg.prefix"
+	);
+
+	test(
+		arg.leading_zero == &fp_arg_no_leading_zero,
+		"fp_parse_f (f) : arg.leading_zero"
 	);
 
 	test(
@@ -207,6 +227,11 @@ void		test_parse_f_case5(void)
 	);
 
 	test(
+		arg.leading_zero == &fp_arg_no_leading_zero,
+		"fp_parse_f (lf) : arg.leading_zero"
+	);
+
+	test(
 		arg.write == &fp_arg_lf_write,
 		"fp_parse_f (lf) : arg.write"
 	);
@@ -242,6 +267,11 @@ void		test_parse_f_case6(void)
 	test(
 		arg.prefix == &fp_arg_no_prefix,
 		"fp_parse_f (lf) : arg.prefix"
+	);
+
+	test(
+		arg.leading_zero == &fp_arg_no_leading_zero,
+		"fp_parse_f (lf) : arg.leading_zero"
 	);
 
 	test(
@@ -288,6 +318,11 @@ void		test_parse_f_case7(void)
 	);
 
 	test(
+		arg.leading_zero == &fp_arg_no_leading_zero,
+		"fp_parse_f (lf) : arg.leading_zero"
+	);
+
+	test(
 		arg.write == &fp_arg_lf_write,
 		"fp_parse_f (lf) : arg.write"
 	);
@@ -328,6 +363,11 @@ void		test_parse_f_case8(void)
 	test(
 		arg.prefix == &fp_arg_no_prefix,
 		"fp_parse_f (lf) : arg.prefix"
+	);
+
+	test(
+		arg.leading_zero == &fp_arg_no_leading_zero,
+		"fp_parse_f (lf) : arg.leading_zero"
 	);
 
 	test(

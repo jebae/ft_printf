@@ -1910,3 +1910,23 @@ void		test_parse_percent_case93(void)
 		"fp_parse_percent (%020(c) : buf.data"
 	);
 }
+
+// case %020(c
+void		test_parse_percent_case94(void)
+{
+	printf(KYEL "test_parse_percent_case94\n" KNRM);
+	const char	*format = "%020%";
+	t_fp_buffer	buf;
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, 'h') == 5,
+		"fp_parse_percent (%020%) : return value"
+	);
+
+	test(
+		ft_strcmp(buf.data, "0000000000000000000%") == 0,
+		"fp_parse_percent (%020%) : buf.data"
+	);
+}

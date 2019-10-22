@@ -10,7 +10,7 @@ void		test_arg_f_sign_case1(void)
 	data.f = 3.14;
 
 	test(
-		fp_arg_f_sign(&data, &tags) == -1,
+		fp_arg_f_sign(&data, &tags) == FP_NO_SIGN,
 		"arg_f_sign (3.14, NO_MASK) : return value"
 	);
 }
@@ -210,7 +210,7 @@ void		test_arg_lf_sign_case1(void)
 	data.lf = 3.14L;
 
 	test(
-		fp_arg_lf_sign(&data, &tags) == -1,
+		fp_arg_lf_sign(&data, &tags) == FP_NO_SIGN,
 		"arg_lf_sign (3.14, NO_MASK) : return value"
 	);
 }

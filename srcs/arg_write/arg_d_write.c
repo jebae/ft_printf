@@ -8,7 +8,8 @@ void		fp_arg_d_write(
 )
 {
 	(void)(tags);
-	fp_int_write((int)(data->i), length, buf);
+	if (length)
+		fp_int_write((int)(data->i), length, buf);
 }
 
 void		fp_arg_hd_write(

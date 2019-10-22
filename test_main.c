@@ -609,5 +609,13 @@ int		main(void)
 	test_parse_percent_case91();
 	test_parse_percent_case92();
 	test_parse_percent_case93();
+	test_parse_percent_case94();
+
+	test_arg_leading_zero_case1();
+	test_arg_leading_zero_case2();
+	test_arg_leading_zero_case3();
+
+	test_arg_d_length_case5();
+	test_arg_o_length_case5();
 	//while (1);
 }

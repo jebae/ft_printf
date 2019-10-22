@@ -100,7 +100,7 @@ void		test_arg_d_sign_case7(void)
 	tags.mask = 0;
 	data.i = 0;
 	test(
-		fp_arg_d_sign(&data, &tags) == -1,
+		fp_arg_d_sign(&data, &tags) == FP_NO_SIGN,
 		"arg_d_sign (0, NO_MASK) : return value"
 	);
 }
@@ -145,7 +145,7 @@ void		test_arg_d_sign_case10(void)
 	tags.mask = 0;
 	data.i = 123;
 	test(
-		fp_arg_d_sign(&data, &tags) == -1,
+		fp_arg_d_sign(&data, &tags) == FP_NO_SIGN,
 		"arg_d_sign (123, NO_MASK) : return value"
 	);
 }
@@ -187,7 +187,7 @@ void		test_arg_ld_sign_case1(void)
 	tags.mask = 0;
 	data.i = 123123123123123;
 	test(
-		fp_arg_ld_sign(&data, &tags) == -1,
+		fp_arg_ld_sign(&data, &tags) == FP_NO_SIGN,
 		"arg_ld_sign (123123123123123, NO_MASK) : return value"
 	);
 }
@@ -201,7 +201,7 @@ void		test_arg_lld_sign_case1(void)
 	tags.mask = 0;
 	data.i = 123123123123123;
 	test(
-		fp_arg_lld_sign(&data, &tags) == -1,
+		fp_arg_lld_sign(&data, &tags) == FP_NO_SIGN,
 		"arg_lld_sign (123123123123123, NO_MASK) : return value"
 	);
 }

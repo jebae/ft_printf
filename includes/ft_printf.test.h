@@ -59,6 +59,7 @@ void		test_arg_d_length_case1(void);
 void		test_arg_d_length_case2(void);
 void		test_arg_d_length_case3(void);
 void		test_arg_d_length_case4(void);
+void		test_arg_d_length_case5(void);
 void		test_arg_hd_length_case1(void);
 void		test_arg_hd_length_case2(void);
 void		test_arg_hd_length_case3(void);
@@ -148,6 +149,7 @@ void		test_arg_o_length_case1(void);
 void		test_arg_o_length_case2(void);
 void		test_arg_o_length_case3(void);
 void		test_arg_o_length_case4(void);
+void		test_arg_o_length_case5(void);
 
 void		test_arg_ho_length_case1(void);
 void		test_arg_ho_length_case2(void);
@@ -504,6 +506,7 @@ void		test_parse_percent_case90(void);
 void		test_parse_percent_case91(void);
 void		test_parse_percent_case92(void);
 void		test_parse_percent_case93(void);
+void		test_parse_percent_case94(void);
 
 /*
 ** double write test
@@ -606,5 +609,12 @@ void		test_arg_upper_x_prefix_case3(void);
 
 void		test_arg_p_prefix_case1(void);
 void		test_arg_p_prefix_case2(void);
+
+/*
+** arg_leading_zero test
+*/
+void		test_arg_leading_zero_case1(void);
+void		test_arg_leading_zero_case2(void);
+void		test_arg_leading_zero_case3(void);
 
 #endif
