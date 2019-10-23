@@ -80,11 +80,13 @@ SRC_ARG_LEADING_ZERO = arg_leading_zero.c\
 SRC_BUFFER = buffer.c\
 
 SRC_ARG_WRITE = int_write.c\
-	double_get_part.c\
-	double_write_integer.c\
-	double_write_fraction.c\
+	double_get_fraction_part.c\
+	double_get_integer_part.c\
+	double_write_integer_part.c\
+	double_write_fraction_part.c\
 	double_write.c\
-	ldouble_get_part.c\
+	ldouble_get_integer_part.c\
+	ldouble_get_fraction_part.c\
 	arg_d_write.c\
 	arg_u_write.c\
 	arg_f_write.c\
@@ -166,11 +168,13 @@ LIBBIGINT_OBJS = bi_del.o\
 	bcd_set_digit.o\
 	bcd_rm_trailing_zero.o\
 	bcd_iter.o\
+	bcd_round.o\
 
 LIBFIXEDPOINT_OBJS = fxp_init.o\
 	fxp_del.o\
 	fxp_compact.o\
 	fxp_mul_fxp.o\
+	fxp_strassen_mul_fxp.o\
 	fxp_round.o\
 
 OBJS += $(addprefix $(LIBFT_PATH)/objs/, $(LIBFT_OBJS))

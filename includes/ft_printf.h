@@ -301,26 +301,35 @@ void			fp_arg_llu_write(
 	t_fp_buffer *buf
 );
 
-int				fp_double_integer_part(
+int				fp_get_reciprocal(t_fixedpoint *recip, size_t num_bits);
+
+int				fp_double_handle_carry(t_fixedpoint *int_part);
+
+int				fp_round_fraction_part(
+	t_fixedpoint *fraction_part,
+	long long precision
+);
+
+int				fp_double_get_integer_part(
 	short exponent,
 	unsigned long long mantissa,
+	int carry,
 	t_fixedpoint *int_part
 );
 
-int				fp_double_fraction_part(
+int				fp_double_get_fraction_part(
 	short exponent,
 	unsigned long long mantissa,
 	size_t precision,
 	t_fixedpoint *fraction_part
 );
 
-int				fp_double_write_integer_part(
+void			fp_double_write_integer_part(
 	t_fixedpoint *int_part,
-	int carry,
 	t_fp_buffer *buf
 );
 
-int				fp_double_write_fraction_part(
+void			fp_double_write_fraction_part(
 	t_fixedpoint *fraction_part,
 	size_t precision,
 	t_fp_buffer *buf
@@ -332,13 +341,14 @@ void			fp_double_write(
 	t_fp_buffer *buf
 );
 
-int				fp_ldouble_integer_part(
+int				fp_ldouble_get_integer_part(
 	short exponent,
 	unsigned long long mantissa,
+	int carry,
 	t_fixedpoint *int_part
 );
 
-int				fp_ldouble_fraction_part(
+int				fp_ldouble_get_fraction_part(
 	short exponent,
 	unsigned long long mantissa,
 	size_t precision,

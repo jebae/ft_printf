@@ -528,22 +528,22 @@ void		test_parse_percent_case102(void);
 /*
 ** double write test
 */
-void		test_double_integer_part_case1(void);
-void		test_double_integer_part_case2(void);
-void		test_double_integer_part_case3(void);
-void		test_double_integer_part_case4(void);
-void		test_double_integer_part_case5(void);
-void		test_double_integer_part_case6(void);
+void		test_double_get_integer_part_case1(void);
+void		test_double_get_integer_part_case2(void);
+void		test_double_get_integer_part_case3(void);
+void		test_double_get_integer_part_case4(void);
+void		test_double_get_integer_part_case5(void);
+void		test_double_get_integer_part_case6(void);
 
-void		test_double_fraction_part_case1(void);
-void		test_double_fraction_part_case2(void);
-void		test_double_fraction_part_case3(void);
-void		test_double_fraction_part_case4(void);
-void		test_double_fraction_part_case5(void);
-void		test_double_fraction_part_case6(void);
-void		test_double_fraction_part_case7(void);
-void		test_double_fraction_part_case8(void);
-void		test_double_fraction_part_case9(void);
+void		test_double_get_fraction_part_case1(void);
+void		test_double_get_fraction_part_case2(void);
+void		test_double_get_fraction_part_case3(void);
+void		test_double_get_fraction_part_case4(void);
+void		test_double_get_fraction_part_case5(void);
+void		test_double_get_fraction_part_case6(void);
+void		test_double_get_fraction_part_case7(void);
+void		test_double_get_fraction_part_case8(void);
+void		test_double_get_fraction_part_case9(void);
 
 void		test_double_write_integer_part_case1(void);
 void		test_double_write_integer_part_case2(void);
@@ -583,21 +583,21 @@ void		test_double_write_case10(void);
 void		test_double_write_case11(void);
 void		test_double_write_case12(void);
 
-void		test_ldouble_integer_part_case1(void);
-void		test_ldouble_integer_part_case2(void);
-void		test_ldouble_integer_part_case3(void);
-void		test_ldouble_integer_part_case4(void);
-void		test_ldouble_integer_part_case5(void);
-void		test_ldouble_integer_part_case6(void);
+void		test_ldouble_get_integer_part_case1(void);
+void		test_ldouble_get_integer_part_case2(void);
+void		test_ldouble_get_integer_part_case3(void);
+void		test_ldouble_get_integer_part_case4(void);
+void		test_ldouble_get_integer_part_case5(void);
+void		test_ldouble_get_integer_part_case6(void);
 
-void		test_ldouble_fraction_part_case1(void);
-void		test_ldouble_fraction_part_case2(void);
-void		test_ldouble_fraction_part_case3(void);
-void		test_ldouble_fraction_part_case4(void);
-void		test_ldouble_fraction_part_case5(void);
-void		test_ldouble_fraction_part_case6(void);
-void		test_ldouble_fraction_part_case7(void);
-void		test_ldouble_fraction_part_case8(void);
+void		test_ldouble_get_fraction_part_case1(void);
+void		test_ldouble_get_fraction_part_case2(void);
+void		test_ldouble_get_fraction_part_case3(void);
+void		test_ldouble_get_fraction_part_case4(void);
+void		test_ldouble_get_fraction_part_case5(void);
+void		test_ldouble_get_fraction_part_case6(void);
+void		test_ldouble_get_fraction_part_case7(void);
+void		test_ldouble_get_fraction_part_case8(void);
 
 void		test_ldouble_write_case1(void);
 void		test_ldouble_write_case2(void);
