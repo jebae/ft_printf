@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   int_write.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/24 16:15:08 by jebae             #+#    #+#             */
+/*   Updated: 2019/10/24 16:15:09 by jebae            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static int		get_lower_digit(int n)
@@ -21,6 +33,7 @@ void			fp_int_write(
 )
 {
 	long long		divider;
+	char			ch;
 
 	if (length == 0)
 		return ;
@@ -32,7 +45,10 @@ void			fp_int_write(
 	divider = ft_powd(10, length - 1);
 	while (divider != 0)
 	{
-		fp_write_buffer(buf, '0' + ABS(num / divider % 10));
+		ch = num / divider % 10;
+		if (ch < 0)
+			ch = -ch;
+		fp_write_buffer(buf, '0' + ch);
 		divider /= 10;
 	}
 }

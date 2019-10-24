@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ldouble_get_fraction_part.c                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/24 16:13:53 by jebae             #+#    #+#             */
+/*   Updated: 2019/10/24 16:13:53 by jebae            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static int		handle_fail(t_fixedpoint *fxp, t_bigint *bi)
@@ -17,7 +29,7 @@ static void		get_sum(
 	size_t		i;
 	size_t		j;
 
-	num_bits = MIN(num_bits, 64);
+	num_bits = (num_bits > 64) ? 64 : num_bits;
 	j = num_bits / 8;
 	i = 0;
 	while (i < j)
@@ -52,7 +64,8 @@ int				fp_ldouble_get_fraction_part(
 	size = (num_bits % BI_UNIT_BITS)
 		? num_bits / BI_UNIT_BITS + 1
 		: num_bits / BI_UNIT_BITS;
-	if (bi_memalloc(&fraction_part->num, MAX(size, 1)) == BI_FAIL ||
+	size = (size > 1) ? size : 1;
+	if (bi_memalloc(&fraction_part->num, size) == BI_FAIL ||
 		fp_get_reciprocal(&recip, num_bits) == FP_FAIL)
 		return (handle_fail(&recip, &bcd));
 	get_sum(fraction_part, mantissa, num_bits);

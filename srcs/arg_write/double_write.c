@@ -1,6 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   double_write.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/24 16:15:05 by jebae             #+#    #+#             */
+/*   Updated: 2019/10/24 16:18:54 by jebae            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-static void		handle_return(t_fixedpoint *int_part, t_fixedpoint *fraction_part)
+static void		handle_return(
+	t_fixedpoint *int_part,
+	t_fixedpoint *fraction_part
+)
 {
 	fxp_del(int_part);
 	fxp_del(fraction_part);

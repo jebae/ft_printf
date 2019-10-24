@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ldouble_get_integer_part.c                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/24 16:13:55 by jebae             #+#    #+#             */
+/*   Updated: 2019/10/24 16:13:56 by jebae            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static int		handle_fail(t_bigint *bi)
@@ -33,7 +45,7 @@ int				fp_ldouble_get_integer_part(
 	if (exponent < 0)
 		mantissa = 0;
 	else
-		mantissa >>= 63 - MAX(MIN(exponent, 63), -1);
+		mantissa >>= 63 - ft_max_int(ft_min_int(exponent, 63), -1);
 	while (mantissa)
 	{
 		bi_push(&int_part->num, mantissa & 0xff);

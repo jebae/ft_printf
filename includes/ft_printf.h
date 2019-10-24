@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/24 16:10:31 by jebae             #+#    #+#             */
+/*   Updated: 2019/10/24 16:12:15 by jebae            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
@@ -5,7 +17,6 @@
 # include "bigint.h"
 # include "fixedpoint.h"
 # include <stdarg.h>
-# include <stdio.h> // remove later
 
 /*
 ** bit_flags macros
@@ -40,11 +51,6 @@
 # define FP_FAIL					1
 # define FP_ULLONG_MAX				0xffffffffffffffff
 
-/*
-** math macros
-*/
-# define ABS_SMALLER_THEN(X, Y) (((X) > -(Y)) && ((X) < (Y)))
-
 typedef struct	s_fp_buffer
 {
 	char	data[FP_BUFFER_SIZE];
@@ -76,14 +82,12 @@ typedef struct	s_fp_arg
 	void			(*prefix)(
 		t_fp_arg_data *data,
 		t_fp_tags *tags,
-		char *prefix
-	);
+		char *prefix);
 	void			(*write)(
 		t_fp_arg_data *data,
 		t_fp_tags *tags,
 		size_t length,
-		t_fp_buffer *buf
-	);
+		t_fp_buffer *buf);
 }				t_fp_arg;
 
 typedef struct	s_fp_percent_format_vars
@@ -480,14 +484,14 @@ void			fp_arg_llo_write(
 	t_fp_buffer *buf
 );
 
-void		fp_arg_s_write(
+void			fp_arg_s_write(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
 	size_t length,
 	t_fp_buffer *buf
 );
 
-void		fp_arg_c_write(
+void			fp_arg_c_write(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
 	size_t length,

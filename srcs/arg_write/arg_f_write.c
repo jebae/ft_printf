@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   arg_f_write.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/24 16:14:38 by jebae             #+#    #+#             */
+/*   Updated: 2019/10/24 16:17:53 by jebae            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static int		handle_inf_nan(
@@ -26,7 +38,7 @@ static int		handle_inf_nan(
 	return (1);
 }
 
-void		fp_arg_f_write(
+void			fp_arg_f_write(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
 	size_t length,
@@ -41,7 +53,7 @@ void		fp_arg_f_write(
 		fp_write_buffer(buf, '.');
 }
 
-void		fp_arg_lf_write(
+void			fp_arg_lf_write(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
 	size_t length,

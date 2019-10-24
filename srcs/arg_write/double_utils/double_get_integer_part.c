@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   double_get_integer_part.c                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/24 16:13:40 by jebae             #+#    #+#             */
+/*   Updated: 2019/10/24 16:13:41 by jebae            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static int		handle_fail(t_bigint *bi)
@@ -39,7 +51,7 @@ int				fp_double_get_integer_part(
 		: size / BI_UNIT_BITS;
 	if (bi_memalloc(&int_part->num, size) == FXP_FAIL)
 		return (FP_FAIL);
-	mantissa >>= 52 - MAX(MIN(exponent, 52), -1);
+	mantissa >>= 52 - ft_max_int(ft_min_int(exponent, 52), -1);
 	while (mantissa)
 	{
 		bi_push(&int_part->num, mantissa & 0xff);
