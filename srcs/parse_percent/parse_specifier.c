@@ -35,7 +35,7 @@ size_t			fp_parse_specifier(
 		fp_parse_d(ap, tags, arg);
 	else if (*format == 'u')
 		fp_parse_u(ap, tags, arg);
-	else if (*format == 'f')
+	else if (*format == 'f' || *format == 'F')
 		fp_parse_f(ap, tags, arg);
 	else if (*format == 'x')
 		fp_parse_x(ap, tags, arg);
