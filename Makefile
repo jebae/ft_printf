@@ -137,6 +137,7 @@ LIBFT_OBJS = ft_bzero.o\
 	ft_strcpy.o\
 	ft_strlen.o\
 	ft_strcmp.o\
+	ft_memcmp.o\
 	ft_min_int.o\
 	ft_max_int.o\
 	ft_isalpha.o\

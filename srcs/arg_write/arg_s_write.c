@@ -78,7 +78,8 @@ void			fp_arg_ls_write(
 )
 {
 	char			utf8[4];
-	int				i;
+	unsigned int	i;
+	unsigned int	byte_len;
 	wchar_t			*str;
 
 	(void)length;
@@ -90,8 +91,9 @@ void			fp_arg_ls_write(
 	while (*str != 0)
 	{
 		ft_to_utf8(*str, utf8);
+		byte_len = ft_utf8_byte_len(utf8);
 		i = 0;
-		while (i < 4)
+		while (i < byte_len)
 			fp_write_buffer(buf, utf8[i++]);
 		str++;
 	}

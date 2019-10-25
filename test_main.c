@@ -662,5 +662,8 @@ int		main(void)
 	test_arg_ls_write_case4();
 
 	test_parse_s_case2();
+	test_parse_percent_case103();
+	test_parse_percent_case104();
+	test_parse_percent_case105();
 	//while (1);
 }

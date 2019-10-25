@@ -6,7 +6,7 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/24 16:15:43 by jebae             #+#    #+#             */
-/*   Updated: 2019/10/24 16:57:03 by jebae            ###   ########.fr       */
+/*   Updated: 2019/10/25 20:16:07 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ size_t			fp_parse_specifier(
 		fp_parse_d(ap, tags, arg);
 	else if (*format == 'u')
 		fp_parse_u(ap, tags, arg);
-	else if (*format == 'f' || *format == 'F')
+	else if (*format == 'f')
 		fp_parse_f(ap, tags, arg);
 	else if (*format == 'x')
 		fp_parse_x(ap, tags, arg);

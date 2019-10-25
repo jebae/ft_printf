@@ -2095,9 +2095,20 @@ void		test_parse_percent_case102(void)
 void		test_parse_percent_case103(void)
 {
 	printf(KYEL "test_parse_percent_case103\n" KNRM);
-	const char	*format = "%ls";
-	t_fp_buffer	buf;
-	char		*expected = { "가나a다💻라;;ak" };
+	const char			*format = "%ls";
+	t_fp_buffer			buf;
+	unsigned char		expected[21] = {
+		0xea, 0xb0, 0x80,
+		0xeb, 0x82, 0x98,
+		0x61,
+		0xeb, 0x8b, 0xa4,
+		0xf0, 0x9f, 0x92, 0xbb,
+		0xeb, 0x9d, 0xbc,
+		0x3b,
+		0x3b,
+		0x61,
+		0x6b
+	};
 
 	fp_init_buffer(&buf);
 
@@ -2107,7 +2118,86 @@ void		test_parse_percent_case103(void)
 	);
 
 	test(
+		buf.i == 20,
+		"fp_parse_percent (%ls) : buf.i"
+	);
+
+	test(
 		ft_memcmp(buf.data, expected, 21) == 0,
 		"fp_parse_percent (%ls) : buf.data"
+	);
+}
+
+// case %.7ls
+void		test_parse_percent_case104(void)
+{
+	printf(KYEL "test_parse_percent_case104\n" KNRM);
+	const char			*format = "%.7ls";
+	t_fp_buffer			buf;
+	unsigned char		expected[21] = {
+		0xea, 0xb0, 0x80,
+		0xeb, 0x82, 0x98,
+		0x61,
+		0xeb, 0x8b, 0xa4,
+		0xf0, 0x9f, 0x92, 0xbb,
+		0xeb, 0x9d, 0xbc,
+		0x3b,
+		0x3b,
+		0x61,
+		0x6b
+	};
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, L"가나a다💻라;;ak") == ft_strlen(format),
+		"fp_parse_percent (%.7ls) : return value"
+	);
+
+	test(
+		buf.i == 6,
+		"fp_parse_percent (%ls) : buf.i"
+	);
+
+	test(
+		ft_memcmp(buf.data, expected, 7) == 0,
+		"fp_parse_percent (%.7ls) : buf.data"
+	);
+}
+
+// case %.9ls
+void		test_parse_percent_case105(void)
+{
+	printf(KYEL "test_parse_percent_case105\n" KNRM);
+	const char			*format = "%.9ls";
+	t_fp_buffer			buf;
+	unsigned char		expected[21] = {
+		0xea, 0xb0, 0x80,
+		0xeb, 0x82, 0x98,
+		0x61,
+		0xeb, 0x8b, 0xa4,
+		0xf0, 0x9f, 0x92, 0xbb,
+		0xeb, 0x9d, 0xbc,
+		0x3b,
+		0x3b,
+		0x61,
+		0x6b
+	};
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, L"가나a다💻라;;ak") == ft_strlen(format),
+		"fp_parse_percent (%.9ls) : return value"
+	);
+
+	test(
+		buf.i == 6,
+		"fp_parse_percent (%ls) : buf.i"
+	);
+
+	test(
+		ft_memcmp(buf.data, expected, 7) == 0,
+		"fp_parse_percent (%.9ls) : buf.data"
 	);
 }
