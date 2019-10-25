@@ -6,13 +6,13 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/24 16:15:27 by jebae             #+#    #+#             */
-/*   Updated: 2019/10/24 16:15:27 by jebae            ###   ########.fr       */
+/*   Updated: 2019/10/25 18:00:37 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	fp_parse_lf(va_list ap, t_fp_tags *tags, t_fp_arg *arg)
+static void		case_lf(va_list ap, t_fp_tags *tags, t_fp_arg *arg)
 {
 	arg->data.lf = va_arg(ap, long double);
 	arg->length = &fp_arg_lf_length;
@@ -24,10 +24,10 @@ static void	fp_parse_lf(va_list ap, t_fp_tags *tags, t_fp_arg *arg)
 		tags->mask &= ~FP_MASK_FLAG_ZERO;
 }
 
-void		fp_parse_f(va_list ap, t_fp_tags *tags, t_fp_arg *arg)
+void			fp_parse_f(va_list ap, t_fp_tags *tags, t_fp_arg *arg)
 {
 	if (tags->mask & FP_MASK_LENGTH_FL)
-		return (fp_parse_lf(ap, tags, arg));
+		return (case_lf(ap, tags, arg));
 	arg->data.f = va_arg(ap, double);
 	arg->length = &fp_arg_f_length;
 	arg->sign = &fp_arg_f_sign;

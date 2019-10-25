@@ -2090,3 +2090,24 @@ void		test_parse_percent_case102(void)
 		"fp_parse_percent (%) : buf.data"
 	);
 }
+
+// case %ls
+void		test_parse_percent_case103(void)
+{
+	printf(KYEL "test_parse_percent_case103\n" KNRM);
+	const char	*format = "%ls";
+	t_fp_buffer	buf;
+	char		*expected = { "가나a다💻라;;ak" };
+
+	fp_init_buffer(&buf);
+
+	test(
+		parse(format, &buf, L"가나a다💻라;;ak") == ft_strlen(format),
+		"fp_parse_percent (%ls) : return value"
+	);
+
+	test(
+		ft_memcmp(buf.data, expected, 21) == 0,
+		"fp_parse_percent (%ls) : buf.data"
+	);
+}

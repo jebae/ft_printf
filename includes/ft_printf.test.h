@@ -4,6 +4,7 @@
 # include <stdio.h>
 # include <math.h>
 # include <limits.h>
+# include <locale.h>
 # include "ft_printf.h"
 
 /*
@@ -170,6 +171,12 @@ void		test_arg_s_length_case4(void);
 void		test_arg_s_length_case5(void);
 void		test_arg_s_length_case6(void);
 void		test_arg_s_length_case7(void);
+
+void		test_arg_ls_length_case1(void);
+void		test_arg_ls_length_case2(void);
+void		test_arg_ls_length_case3(void);
+void		test_arg_ls_length_case4(void);
+void		test_arg_ls_length_case5(void);
 
 void		test_arg_c_length_case1(void);
 
@@ -366,6 +373,11 @@ void		test_arg_s_write_case6(void);
 void		test_arg_s_write_case7(void);
 void		test_arg_s_write_case8(void);
 
+void		test_arg_ls_write_case1(void);
+void		test_arg_ls_write_case2(void);
+void		test_arg_ls_write_case3(void);
+void		test_arg_ls_write_case4(void);
+
 void		test_arg_c_write_case1(void);
 
 /*
@@ -416,6 +428,7 @@ void		test_parse_f_case7(void);
 void		test_parse_f_case8(void);
 
 void		test_parse_s_case1(void);
+void		test_parse_s_case2(void);
 
 void		test_parse_c_case1(void);
 

@@ -140,6 +140,8 @@ LIBFT_OBJS = ft_bzero.o\
 	ft_min_int.o\
 	ft_max_int.o\
 	ft_isalpha.o\
+	ft_to_utf8.o\
+	ft_utf8_byte_len.o\
 
 LIBBIGINT_OBJS = bi_del.o\
 	bi_memalloc.o\

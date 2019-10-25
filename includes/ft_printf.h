@@ -6,7 +6,7 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/24 16:10:31 by jebae             #+#    #+#             */
-/*   Updated: 2019/10/24 16:12:15 by jebae            ###   ########.fr       */
+/*   Updated: 2019/10/25 17:48:20 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,6 +146,7 @@ size_t			fp_arg_lo_length(t_fp_arg_data *data, t_fp_tags *tags);
 size_t			fp_arg_llo_length(t_fp_arg_data *data, t_fp_tags *tags);
 
 size_t			fp_arg_s_length(t_fp_arg_data *data, t_fp_tags *tags);
+size_t			fp_arg_ls_length(t_fp_arg_data *data, t_fp_tags *tags);
 
 size_t			fp_arg_c_length(t_fp_arg_data *data, t_fp_tags *tags);
 
@@ -485,6 +486,13 @@ void			fp_arg_llo_write(
 );
 
 void			fp_arg_s_write(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	size_t length,
+	t_fp_buffer *buf
+);
+
+void			fp_arg_ls_write(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
 	size_t length,

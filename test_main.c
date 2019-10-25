@@ -2,6 +2,7 @@
 
 int		main(void)
 {
+	setlocale(LC_ALL, "");
 	// tags
 	test_init_tags_case1();
 
@@ -648,5 +649,18 @@ int		main(void)
 	test_parse_percent_case100();
 	test_parse_percent_case101();
 	test_parse_percent_case102();
+
+	test_arg_ls_length_case1();
+	test_arg_ls_length_case2();
+	test_arg_ls_length_case3();
+	test_arg_ls_length_case4();
+	test_arg_ls_length_case5();
+
+	test_arg_ls_write_case1();
+	test_arg_ls_write_case2();
+	test_arg_ls_write_case3();
+	test_arg_ls_write_case4();
+
+	test_parse_s_case2();
 	//while (1);
 }
