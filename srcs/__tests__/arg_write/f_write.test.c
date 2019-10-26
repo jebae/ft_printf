@@ -11,10 +11,17 @@ void		test_arg_f_write_case1(void)
 	fp_init_tags(&tags);
 	fp_init_buffer(&buf);
 	tags.precision = 6;
-	data.f = 3.14;
+	data.f.float64 = 3.14;
+	fxp_init(&data.f.int_part);
+	fxp_init(&data.f.fraction_part);
+	fp_set_double_parts(data.f.float64, tags.precision,
+		&data.f.int_part, &data.f.fraction_part);
 	fp_arg_f_write(&data, &tags, fp_arg_f_length(&data, &tags), &buf);
 	printf("result : %s\n", buf.data);
-	printf("expect : %f\n", data.f);
+	printf("expect : %f\n", data.f.float64);
+
+	fxp_del(&data.f.int_part);
+	fxp_del(&data.f.fraction_part);
 }
 
 // case negative
@@ -28,10 +35,17 @@ void		test_arg_f_write_case2(void)
 	fp_init_tags(&tags);
 	fp_init_buffer(&buf);
 	tags.precision = 6;
-	data.f = -3.14;
+	data.f.float64 = -3.14;
+	fxp_init(&data.f.int_part);
+	fxp_init(&data.f.fraction_part);
+	fp_set_double_parts(data.f.float64, tags.precision,
+		&data.f.int_part, &data.f.fraction_part);
 	fp_arg_f_write(&data, &tags, fp_arg_f_length(&data, &tags), &buf);
 	printf("result : %s (no need sign)\n", buf.data);
-	printf("expect : %f\n", data.f);
+	printf("expect : %f\n", data.f.float64);
+
+	fxp_del(&data.f.int_part);
+	fxp_del(&data.f.fraction_part);
 }
 
 // case precision = 50
@@ -45,10 +59,17 @@ void		test_arg_f_write_case3(void)
 	fp_init_tags(&tags);
 	fp_init_buffer(&buf);
 	tags.precision = 50;
-	data.f = 9.87654321;
+	data.f.float64 = 9.87654321;
+	fxp_init(&data.f.int_part);
+	fxp_init(&data.f.fraction_part);
+	fp_set_double_parts(data.f.float64, tags.precision,
+		&data.f.int_part, &data.f.fraction_part);
 	fp_arg_f_write(&data, &tags, fp_arg_f_length(&data, &tags), &buf);
 	printf("result : %s\n", buf.data);
-	printf("expect : %.50f\n", data.f);
+	printf("expect : %.50f\n", data.f.float64);
+
+	fxp_del(&data.f.int_part);
+	fxp_del(&data.f.fraction_part);
 }
 
 // case precision = 0
@@ -62,10 +83,17 @@ void		test_arg_f_write_case4(void)
 	fp_init_tags(&tags);
 	fp_init_buffer(&buf);
 	tags.precision = 0;
-	data.f = 9.87654321;
+	data.f.float64 = 9.87654321;
+	fxp_init(&data.f.int_part);
+	fxp_init(&data.f.fraction_part);
+	fp_set_double_parts(data.f.float64, tags.precision,
+		&data.f.int_part, &data.f.fraction_part);
 	fp_arg_f_write(&data, &tags, fp_arg_f_length(&data, &tags), &buf);
 	printf("result : %s\n", buf.data);
-	printf("expect : %.0f\n", data.f);
+	printf("expect : %.0f\n", data.f.float64);
+
+	fxp_del(&data.f.int_part);
+	fxp_del(&data.f.fraction_part);
 }
 
 // case 0
@@ -79,10 +107,17 @@ void		test_arg_f_write_case5(void)
 	fp_init_tags(&tags);
 	fp_init_buffer(&buf);
 	tags.precision = 50;
-	data.f = 0.0;
+	data.f.float64 = 0.0;
+	fxp_init(&data.f.int_part);
+	fxp_init(&data.f.fraction_part);
+	fp_set_double_parts(data.f.float64, tags.precision,
+		&data.f.int_part, &data.f.fraction_part);
 	fp_arg_f_write(&data, &tags, fp_arg_f_length(&data, &tags), &buf);
 	printf("result : %s\n", buf.data);
-	printf("expect : %.50f\n", data.f);
+	printf("expect : %.50f\n", data.f.float64);
+
+	fxp_del(&data.f.int_part);
+	fxp_del(&data.f.fraction_part);
 }
 
 // case inf
@@ -96,10 +131,10 @@ void		test_arg_f_write_case6(void)
 	fp_init_tags(&tags);
 	fp_init_buffer(&buf);
 	tags.precision = 50;
-	data.f = INFINITY;
+	data.f.float64 = INFINITY;
 	fp_arg_f_write(&data, &tags, fp_arg_f_length(&data, &tags), &buf);
 	printf("result : %s\n", buf.data);
-	printf("expect : %.50f\n", data.f);
+	printf("expect : %.50f\n", data.f.float64);
 }
 
 // case -inf
@@ -113,10 +148,10 @@ void		test_arg_f_write_case7(void)
 	fp_init_tags(&tags);
 	fp_init_buffer(&buf);
 	tags.precision = 50;
-	data.f = -INFINITY;
+	data.f.float64 = -INFINITY;
 	fp_arg_f_write(&data, &tags, fp_arg_f_length(&data, &tags), &buf);
 	printf("result : %s (no need sign)\n", buf.data);
-	printf("expect : %.50f\n", data.f);
+	printf("expect : %.50f\n", data.f.float64);
 }
 
 // case nan
@@ -130,10 +165,10 @@ void		test_arg_f_write_case8(void)
 	fp_init_tags(&tags);
 	fp_init_buffer(&buf);
 	tags.precision = 50;
-	data.f = NAN;
+	data.f.float64 = NAN;
 	fp_arg_f_write(&data, &tags, fp_arg_f_length(&data, &tags), &buf);
 	printf("result : %s\n", buf.data);
-	printf("expect : %.50f\n", data.f);
+	printf("expect : %.50f\n", data.f.float64);
 }
 
 // case #
@@ -148,10 +183,17 @@ void		test_arg_f_write_case9(void)
 	fp_init_buffer(&buf);
 	tags.precision = 0;
 	tags.mask |= FP_MASK_FLAG_SHARP;
-	data.f = 3.14;
+	data.f.float64 = 3.14;
+	fxp_init(&data.f.int_part);
+	fxp_init(&data.f.fraction_part);
+	fp_set_double_parts(data.f.float64, tags.precision,
+		&data.f.int_part, &data.f.fraction_part);
 	fp_arg_f_write(&data, &tags, fp_arg_f_length(&data, &tags), &buf);
 	printf("result : %s\n", buf.data);
-	printf("expect : %#.f\n", data.f);
+	printf("expect : %#.f\n", data.f.float64);
+
+	fxp_del(&data.f.int_part);
+	fxp_del(&data.f.fraction_part);
 }
 
 // case # (nan)
@@ -166,10 +208,10 @@ void		test_arg_f_write_case10(void)
 	fp_init_buffer(&buf);
 	tags.precision = 0;
 	tags.mask |= FP_MASK_FLAG_SHARP;
-	data.f = NAN;
+	data.f.float64 = NAN;
 	fp_arg_f_write(&data, &tags, fp_arg_f_length(&data, &tags), &buf);
 	printf("result : %s\n", buf.data);
-	printf("expect : %#.f\n", data.f);
+	printf("expect : %#.f\n", data.f.float64);
 }
 
 // case # (inf)
@@ -184,10 +226,34 @@ void		test_arg_f_write_case11(void)
 	fp_init_buffer(&buf);
 	tags.precision = 0;
 	tags.mask |= FP_MASK_FLAG_SHARP;
-	data.f = INFINITY;
+	data.f.float64 = INFINITY;
 	fp_arg_f_write(&data, &tags, fp_arg_f_length(&data, &tags), &buf);
 	printf("result : %s\n", buf.data);
-	printf("expect : %#.f\n", data.f);
+	printf("expect : %#.f\n", data.f.float64);
+}
+
+// case carry
+void		test_arg_f_write_case12(void)
+{
+	printf(KYEL "test_arg_f_write_case12\n" KNRM);
+	t_fp_arg_data	data;
+	t_fp_buffer		buf;
+	t_fp_tags		tags;
+
+	fp_init_tags(&tags);
+	fp_init_buffer(&buf);
+	tags.precision = 2;
+	data.f.float64 = 99.997;
+	fxp_init(&data.f.int_part);
+	fxp_init(&data.f.fraction_part);
+	fp_set_double_parts(data.f.float64, tags.precision,
+		&data.f.int_part, &data.f.fraction_part);
+	fp_arg_f_write(&data, &tags, fp_arg_f_length(&data, &tags), &buf);
+	printf("result : %s\n", buf.data);
+	printf("expect : %.2f\n", data.f.float64);
+
+	fxp_del(&data.f.int_part);
+	fxp_del(&data.f.fraction_part);
 }
 
 // case 3.14
@@ -200,10 +266,17 @@ void		test_arg_lf_write_case1(void)
 
 	fp_init_buffer(&buf);
 	tags.precision = 6;
-	data.lf = 3.14L;
+	data.f.float128 = 3.14L;
+	fxp_init(&data.f.int_part);
+	fxp_init(&data.f.fraction_part);
+	fp_set_ldouble_parts(data.f.float128, tags.precision,
+		&data.f.int_part, &data.f.fraction_part);
 	fp_arg_lf_write(&data, &tags, fp_arg_lf_length(&data, &tags), &buf);
 	printf("result : %s\n", buf.data);
-	printf("expect : %Lf\n", data.lf);
+	printf("expect : %Lf\n", data.f.float128);
+
+	fxp_del(&data.f.int_part);
+	fxp_del(&data.f.fraction_part);
 }
 
 // case negative
@@ -216,10 +289,17 @@ void		test_arg_lf_write_case2(void)
 
 	fp_init_buffer(&buf);
 	tags.precision = 6;
-	data.lf = -3.14L;
+	data.f.float128 = -3.14L;
+	fxp_init(&data.f.int_part);
+	fxp_init(&data.f.fraction_part);
+	fp_set_ldouble_parts(data.f.float128, tags.precision,
+		&data.f.int_part, &data.f.fraction_part);
 	fp_arg_lf_write(&data, &tags, fp_arg_lf_length(&data, &tags), &buf);
 	printf("result : %s (no need sign)\n", buf.data);
-	printf("expect : %Lf\n", data.lf);
+	printf("expect : %Lf\n", data.f.float128);
+
+	fxp_del(&data.f.int_part);
+	fxp_del(&data.f.fraction_part);
 }
 
 // case precision = 50
@@ -232,10 +312,17 @@ void		test_arg_lf_write_case3(void)
 
 	fp_init_buffer(&buf);
 	tags.precision = 50;
-	data.lf = 9.87654321L;
+	data.f.float128 = 9.87654321L;
+	fxp_init(&data.f.int_part);
+	fxp_init(&data.f.fraction_part);
+	fp_set_ldouble_parts(data.f.float128, tags.precision,
+		&data.f.int_part, &data.f.fraction_part);
 	fp_arg_lf_write(&data, &tags, fp_arg_lf_length(&data, &tags), &buf);
 	printf("result : %s\n", buf.data);
-	printf("expect : %.50Lf\n", data.lf);
+	printf("expect : %.50Lf\n", data.f.float128);
+
+	fxp_del(&data.f.int_part);
+	fxp_del(&data.f.fraction_part);
 }
 
 // case precision = 0
@@ -248,10 +335,17 @@ void		test_arg_lf_write_case4(void)
 
 	fp_init_buffer(&buf);
 	tags.precision = 0;
-	data.lf = 9.87654321L;
+	data.f.float128 = 9.87654321L;
+	fxp_init(&data.f.int_part);
+	fxp_init(&data.f.fraction_part);
+	fp_set_ldouble_parts(data.f.float128, tags.precision,
+		&data.f.int_part, &data.f.fraction_part);
 	fp_arg_lf_write(&data, &tags, fp_arg_lf_length(&data, &tags), &buf);
 	printf("result : %s\n", buf.data);
-	printf("expect : %.0Lf\n", data.lf);
+	printf("expect : %.0Lf\n", data.f.float128);
+
+	fxp_del(&data.f.int_part);
+	fxp_del(&data.f.fraction_part);
 }
 
 // case 0
@@ -264,10 +358,17 @@ void		test_arg_lf_write_case5(void)
 
 	fp_init_buffer(&buf);
 	tags.precision = 50;
-	data.lf = 0.0L;
+	data.f.float128 = 0.0L;
+	fxp_init(&data.f.int_part);
+	fxp_init(&data.f.fraction_part);
+	fp_set_ldouble_parts(data.f.float128, tags.precision,
+		&data.f.int_part, &data.f.fraction_part);
 	fp_arg_lf_write(&data, &tags, fp_arg_lf_length(&data, &tags), &buf);
 	printf("result : %s\n", buf.data);
-	printf("expect : %.50Lf\n", data.lf);
+	printf("expect : %.50Lf\n", data.f.float128);
+
+	fxp_del(&data.f.int_part);
+	fxp_del(&data.f.fraction_part);
 }
 
 // case inf
@@ -280,10 +381,10 @@ void		test_arg_lf_write_case6(void)
 
 	fp_init_buffer(&buf);
 	tags.precision = 50;
-	data.lf = HUGE_VALL;
+	data.f.float128 = HUGE_VALL;
 	fp_arg_lf_write(&data, &tags, fp_arg_lf_length(&data, &tags), &buf);
 	printf("result : %s\n", buf.data);
-	printf("expect : %.50Lf\n", data.lf);
+	printf("expect : %.50Lf\n", data.f.float128);
 }
 
 // case -inf
@@ -296,10 +397,10 @@ void		test_arg_lf_write_case7(void)
 
 	fp_init_buffer(&buf);
 	tags.precision = 50;
-	data.lf = -HUGE_VALL;
+	data.f.float128 = -HUGE_VALL;
 	fp_arg_lf_write(&data, &tags, fp_arg_lf_length(&data, &tags), &buf);
 	printf("result : %s (no need sign)\n", buf.data);
-	printf("expect : %.50Lf\n", data.lf);
+	printf("expect : %.50Lf\n", data.f.float128);
 }
 
 // case nan
@@ -312,10 +413,10 @@ void		test_arg_lf_write_case8(void)
 
 	fp_init_buffer(&buf);
 	tags.precision = 50;
-	data.lf = (long double)NAN;
+	data.f.float128 = (long double)NAN;
 	fp_arg_lf_write(&data, &tags, fp_arg_lf_length(&data, &tags), &buf);
 	printf("result : %s\n", buf.data);
-	printf("expect : %.50Lf\n", data.lf);
+	printf("expect : %.50Lf\n", data.f.float128);
 }
 
 // case #
@@ -330,10 +431,17 @@ void		test_arg_lf_write_case9(void)
 	fp_init_buffer(&buf);
 	tags.precision = 0;
 	tags.mask |= FP_MASK_FLAG_SHARP;
-	data.lf = 3.14;
+	data.f.float128 = 3.14;
+	fxp_init(&data.f.int_part);
+	fxp_init(&data.f.fraction_part);
+	fp_set_ldouble_parts(data.f.float128, tags.precision,
+		&data.f.int_part, &data.f.fraction_part);
 	fp_arg_lf_write(&data, &tags, fp_arg_lf_length(&data, &tags), &buf);
 	printf("result : %s\n", buf.data);
-	printf("expect : %#.Lf\n", data.lf);
+	printf("expect : %#.Lf\n", data.f.float128);
+
+	fxp_del(&data.f.int_part);
+	fxp_del(&data.f.fraction_part);
 }
 
 // case # (nan)
@@ -348,10 +456,10 @@ void		test_arg_lf_write_case10(void)
 	fp_init_buffer(&buf);
 	tags.precision = 0;
 	tags.mask |= FP_MASK_FLAG_SHARP;
-	data.lf = (long double)NAN;
+	data.f.float128 = (long double)NAN;
 	fp_arg_lf_write(&data, &tags, fp_arg_lf_length(&data, &tags), &buf);
 	printf("result : %s\n", buf.data);
-	printf("expect : %#.Lf\n", data.lf);
+	printf("expect : %#.Lf\n", data.f.float128);
 }
 
 // case # (inf)
@@ -366,8 +474,32 @@ void		test_arg_lf_write_case11(void)
 	fp_init_buffer(&buf);
 	tags.precision = 0;
 	tags.mask |= FP_MASK_FLAG_SHARP;
-	data.lf = HUGE_VALL;
+	data.f.float128 = HUGE_VALL;
 	fp_arg_lf_write(&data, &tags, fp_arg_lf_length(&data, &tags), &buf);
 	printf("result : %s\n", buf.data);
-	printf("expect : %#.Lf\n", data.lf);
+	printf("expect : %#.Lf\n", data.f.float128);
+}
+
+// case carry
+void		test_arg_lf_write_case12(void)
+{
+	printf(KYEL "test_arg_lf_write_case12\n" KNRM);
+	t_fp_arg_data	data;
+	t_fp_buffer		buf;
+	t_fp_tags		tags;
+
+	fp_init_tags(&tags);
+	fp_init_buffer(&buf);
+	tags.precision = 2;
+	data.f.float128 = 999.995;
+	fxp_init(&data.f.int_part);
+	fxp_init(&data.f.fraction_part);
+	fp_set_ldouble_parts(data.f.float128, tags.precision,
+		&data.f.int_part, &data.f.fraction_part);
+	fp_arg_lf_write(&data, &tags, fp_arg_lf_length(&data, &tags), &buf);
+	printf("result : %s\n", buf.data);
+	printf("expect : %.2Lf\n", data.f.float128);
+
+	fxp_del(&data.f.int_part);
+	fxp_del(&data.f.fraction_part);
 }

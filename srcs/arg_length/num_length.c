@@ -41,37 +41,3 @@ size_t			fp_uint_length(unsigned long long num, int base)
 	}
 	return (len);
 }
-
-size_t			fp_double_int_part_length(double num)
-{
-	size_t		len;
-
-	if (num < 1.0 && num > -1.0)
-		return (1);
-	len = 0;
-	while (!(num < 1.0 && num > -1.0))
-	{
-		num /= 10.0f;
-		len++;
-		if (ft_is_nan(num) || ft_is_inf(num))
-			return (len);
-	}
-	return (len);
-}
-
-size_t			fp_ldouble_int_part_length(long double num)
-{
-	size_t		len;
-
-	if (num < 1.0 && num > -1.0)
-		return (1);
-	len = 0;
-	while (!(num < 1.0 && num > -1.0))
-	{
-		num /= 10.0L;
-		len++;
-		if (ft_is_nan(num) || ft_is_inf(num))
-			return (len);
-	}
-	return (len);
-}

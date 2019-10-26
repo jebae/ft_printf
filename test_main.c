@@ -45,20 +45,6 @@ int		main(void)
 	test_uint_length_case7();
 	test_uint_length_case8();
 
-	test_double_int_part_length_case1();
-	test_double_int_part_length_case2();
-	test_double_int_part_length_case3();
-	test_double_int_part_length_case4();
-	test_double_int_part_length_case5();
-	test_double_int_part_length_case6();
-
-	test_ldouble_int_part_length_case1();
-	test_ldouble_int_part_length_case2();
-	test_ldouble_int_part_length_case3();
-	test_ldouble_int_part_length_case4();
-	test_ldouble_int_part_length_case5();
-	test_ldouble_int_part_length_case6();
-
 	test_arg_d_length_case1();
 	test_arg_d_length_case2();
 	test_arg_d_length_case3();
@@ -108,22 +94,6 @@ int		main(void)
 	test_arg_llu_length_case2();
 	test_arg_llu_length_case3();
 	test_arg_llu_length_case4();
-
-	test_arg_f_length_case1();
-	test_arg_f_length_case2();
-	test_arg_f_length_case3();
-	test_arg_f_length_case4();
-	test_arg_f_length_case5();
-	test_arg_f_length_case6();
-	test_arg_f_length_case7();
-
-	test_arg_lf_length_case1();
-	test_arg_lf_length_case2();
-	test_arg_lf_length_case3();
-	test_arg_lf_length_case4();
-	test_arg_lf_length_case5();
-	test_arg_lf_length_case6();
-	test_arg_lf_length_case7();
 
 	// arg_sign
 	test_num_sign_case1();
@@ -274,28 +244,6 @@ int		main(void)
 	test_double_write_fraction_part_case15();
 	test_double_write_fraction_part_case16();
 
-	test_double_write_case1();
-	test_double_write_case2();
-	test_double_write_case3();
-	test_double_write_case4();
-	test_double_write_case5();
-	test_double_write_case6();
-	test_double_write_case7();
-	test_double_write_case8();
-	test_double_write_case9();
-	test_double_write_case10();
-	test_double_write_case11();
-	test_double_write_case12();
-
-	test_arg_f_write_case1();
-	test_arg_f_write_case2();
-	test_arg_f_write_case3();
-	test_arg_f_write_case4();
-	test_arg_f_write_case5();
-	test_arg_f_write_case6();
-	test_arg_f_write_case7();
-	test_arg_f_write_case8();
-
 	// parse percent
 	test_parse_d_case1();
 	test_parse_d_case2();
@@ -310,15 +258,6 @@ int		main(void)
 	test_parse_u_case4();
 	test_parse_u_case5();
 	test_parse_u_case6();
-
-	test_parse_f_case1();
-	test_parse_f_case2();
-	test_parse_f_case3();
-	test_parse_f_case4();
-	test_parse_f_case5();
-	test_parse_f_case6();
-	test_parse_f_case7();
-	test_parse_f_case8();
 
 	test_parse_percent_case1();
 	test_parse_percent_case2();
@@ -440,32 +379,10 @@ int		main(void)
 	test_ldouble_get_fraction_part_case7();
 	test_ldouble_get_fraction_part_case8();
 
-	test_ldouble_write_case1();
-	test_ldouble_write_case2();
-	test_ldouble_write_case3();
-	test_ldouble_write_case4();
-	test_ldouble_write_case5();
-	test_ldouble_write_case6();
-	test_ldouble_write_case7();
-	test_ldouble_write_case8();
-	test_ldouble_write_case9();
-	test_ldouble_write_case10();
-	test_ldouble_write_case11();
-
 	test_arg_lf_sign_case9();
 	test_arg_lf_sign_case10();
 	test_arg_lf_sign_case11();
 	test_arg_lf_sign_case12();
-
-	test_arg_lf_write_case1();
-	test_arg_lf_write_case2();
-	test_arg_lf_write_case3();
-	test_arg_lf_write_case4();
-	test_arg_lf_write_case5();
-	test_arg_lf_write_case6();
-	test_arg_lf_write_case7();
-	test_arg_lf_write_case8();
-
 
 	test_parse_percent_case34();
 	test_parse_percent_case35();
@@ -584,16 +501,6 @@ int		main(void)
 	test_parse_percent_case79();
 	test_parse_percent_case80();
 
-	test_arg_f_length_case8();
-	test_arg_lf_length_case8();
-
-	test_arg_f_write_case9();
-	test_arg_f_write_case10();
-	test_arg_f_write_case11();
-
-	test_arg_lf_write_case9();
-	test_arg_lf_write_case10();
-	test_arg_lf_write_case11();
 
 	test_parse_percent_case81();
 	test_parse_percent_case82();
@@ -665,5 +572,64 @@ int		main(void)
 	test_parse_percent_case103();
 	test_parse_percent_case104();
 	test_parse_percent_case105();
+
+	test_parse_f_case1();
+	test_parse_f_case2();
+	test_parse_f_case3();
+	test_parse_f_case4();
+	test_parse_f_case5();
+	test_parse_f_case6();
+	test_parse_f_case7();
+	test_parse_f_case8();
+
+	test_arg_f_length_case1();
+	test_arg_f_length_case2();
+	test_arg_f_length_case3();
+	test_arg_f_length_case4();
+	test_arg_f_length_case5();
+	test_arg_f_length_case6();
+	test_arg_f_length_case7();
+	test_arg_f_length_case8();
+	test_arg_f_length_case9();
+
+	test_arg_lf_length_case1();
+	test_arg_lf_length_case2();
+	test_arg_lf_length_case3();
+	test_arg_lf_length_case4();
+	test_arg_lf_length_case5();
+	test_arg_lf_length_case6();
+	test_arg_lf_length_case7();
+	test_arg_lf_length_case8();
+	test_arg_lf_length_case9();
+
+	test_arg_f_write_case1();
+	test_arg_f_write_case2();
+	test_arg_f_write_case3();
+	test_arg_f_write_case4();
+	test_arg_f_write_case5();
+	test_arg_f_write_case6();
+	test_arg_f_write_case7();
+	test_arg_f_write_case8();
+	test_arg_f_write_case9();
+	test_arg_f_write_case10();
+	test_arg_f_write_case11();
+	test_arg_f_write_case12();
+
+	test_arg_lf_write_case1();
+	test_arg_lf_write_case2();
+	test_arg_lf_write_case3();
+	test_arg_lf_write_case4();
+	test_arg_lf_write_case5();
+	test_arg_lf_write_case6();
+	test_arg_lf_write_case7();
+	test_arg_lf_write_case8();
+	test_arg_lf_write_case9();
+	test_arg_lf_write_case10();
+	test_arg_lf_write_case11();
+	test_arg_lf_write_case12();
+
+	test_parse_percent_case106();
+	test_parse_percent_case107();
+	test_parse_percent_case108();
 	//while (1);
 }

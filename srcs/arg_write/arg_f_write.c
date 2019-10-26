@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   arg_f_write.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/24 16:14:38 by jebae             #+#    #+#             */
-/*   Updated: 2019/10/24 16:17:53 by jebae            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "ft_printf.h"
 
 static int		handle_inf_nan(
@@ -38,6 +26,24 @@ static int		handle_inf_nan(
 	return (1);
 }
 
+static void		f_write(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	t_fp_buffer *buf
+)
+{
+	fp_double_write_integer_part(&data->f.int_part, buf);
+	if (tags->precision == 0)
+	{
+		if (tags->mask & FP_MASK_FLAG_SHARP)
+			fp_write_buffer(buf, '.');
+		return ;
+	}
+	fp_write_buffer(buf, '.');
+	fp_double_write_fraction_part(
+		&data->f.fraction_part, tags->precision, buf);
+}
+
 void			fp_arg_f_write(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
@@ -46,11 +52,9 @@ void			fp_arg_f_write(
 )
 {
 	(void)(length);
-	if (handle_inf_nan(data->f, buf))
+	if (handle_inf_nan(data->f.float64, buf))
 		return ;
-	fp_double_write(data->f, tags->precision, buf);
-	if (tags->precision == 0 && (tags->mask & FP_MASK_FLAG_SHARP))
-		fp_write_buffer(buf, '.');
+	f_write(data, tags, buf);
 }
 
 void			fp_arg_lf_write(
@@ -61,9 +65,7 @@ void			fp_arg_lf_write(
 )
 {
 	(void)(length);
-	if (handle_inf_nan(data->lf, buf))
+	if (handle_inf_nan(data->f.float128, buf))
 		return ;
-	fp_ldouble_write(data->lf, tags->precision, buf);
-	if (tags->precision == 0 && (tags->mask & FP_MASK_FLAG_SHARP))
-		fp_write_buffer(buf, '.');
+	f_write(data, tags, buf);
 }

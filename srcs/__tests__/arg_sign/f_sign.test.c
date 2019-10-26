@@ -7,7 +7,7 @@ void		test_arg_f_sign_case1(void)
 	t_fp_tags		tags;
 
 	tags.mask = 0;
-	data.f = 3.14;
+	data.f.float64 = 3.14;
 
 	test(
 		fp_arg_f_sign(&data, &tags) == FP_NO_SIGN,
@@ -23,7 +23,7 @@ void		test_arg_f_sign_case2(void)
 
 	tags.mask = 0;
 	tags.mask |= FP_MASK_FLAG_SPACE;
-	data.f = 3.14;
+	data.f.float64 = 3.14;
 
 	test(
 		fp_arg_f_sign(&data, &tags) == ' ',
@@ -39,7 +39,7 @@ void		test_arg_f_sign_case3(void)
 
 	tags.mask = 0;
 	tags.mask |= FP_MASK_FLAG_PLUS;
-	data.f = 3.14;
+	data.f.float64 = 3.14;
 
 	test(
 		fp_arg_f_sign(&data, &tags) == '+',
@@ -54,7 +54,7 @@ void		test_arg_f_sign_case4(void)
 	t_fp_tags		tags;
 
 	tags.mask = 0;
-	data.f = -3.14;
+	data.f.float64 = -3.14;
 
 	test(
 		fp_arg_f_sign(&data, &tags) == '-',
@@ -70,7 +70,7 @@ void		test_arg_f_sign_case5(void)
 
 	tags.mask = 0;
 	tags.mask |= FP_MASK_FLAG_SPACE;
-	data.f = -3.14;
+	data.f.float64 = -3.14;
 
 	test(
 		fp_arg_f_sign(&data, &tags) == '-',
@@ -86,7 +86,7 @@ void		test_arg_f_sign_case6(void)
 
 	tags.mask = 0;
 	tags.mask |= FP_MASK_FLAG_PLUS;
-	data.f = -3.14;
+	data.f.float64 = -3.14;
 
 	test(
 		fp_arg_f_sign(&data, &tags) == '-',
@@ -103,7 +103,7 @@ void		test_arg_f_sign_case7(void)
 	tags.mask = 0;
 	tags.mask |= FP_MASK_FLAG_PLUS;
 	tags.mask |= FP_MASK_FLAG_SPACE;
-	data.f = 0.0;
+	data.f.float64 = 0.0;
 
 	test(
 		fp_arg_f_sign(&data, &tags) == '+',
@@ -120,7 +120,7 @@ void		test_arg_f_sign_case8(void)
 	tags.mask = 0;
 	tags.mask |= FP_MASK_FLAG_SPACE;
 	tags.mask |= FP_MASK_FLAG_PLUS;
-	data.f = 3.14;
+	data.f.float64 = 3.14;
 
 	test(
 		fp_arg_f_sign(&data, &tags) == '+',
@@ -138,7 +138,7 @@ void		test_arg_f_sign_case9(void)
 	tags.mask = 0;
 	tags.mask |= FP_MASK_FLAG_SPACE;
 	tags.mask |= FP_MASK_FLAG_PLUS;
-	data.f = NAN;
+	data.f.float64 = NAN;
 
 	test(
 		fp_arg_f_sign(&data, &tags) == FP_NO_SIGN,
@@ -156,7 +156,7 @@ void		test_arg_f_sign_case10(void)
 	tags.mask = 0;
 	tags.mask |= FP_MASK_FLAG_SPACE;
 	tags.mask |= FP_MASK_FLAG_PLUS;
-	data.f = INFINITY;
+	data.f.float64 = INFINITY;
 
 	test(
 		fp_arg_f_sign(&data, &tags) == '+',
@@ -174,7 +174,7 @@ void		test_arg_f_sign_case11(void)
 	tags.mask = 0;
 	tags.mask |= FP_MASK_FLAG_SPACE;
 	tags.mask |= FP_MASK_FLAG_PLUS;
-	data.f = -INFINITY;
+	data.f.float64 = -INFINITY;
 
 	test(
 		fp_arg_f_sign(&data, &tags) == '-',
@@ -192,7 +192,7 @@ void		test_arg_f_sign_case12(void)
 	tags.mask = 0;
 	tags.mask |= FP_MASK_FLAG_SPACE;
 	tags.mask |= FP_MASK_FLAG_PLUS;
-	data.f = -0.0;
+	data.f.float64 = -0.0;
 
 	test(
 		fp_arg_f_sign(&data, &tags) == '-',
@@ -207,7 +207,7 @@ void		test_arg_lf_sign_case1(void)
 	t_fp_tags		tags;
 
 	tags.mask = 0;
-	data.lf = 3.14L;
+	data.f.float128 = 3.14L;
 
 	test(
 		fp_arg_lf_sign(&data, &tags) == FP_NO_SIGN,
@@ -223,7 +223,7 @@ void		test_arg_lf_sign_case2(void)
 
 	tags.mask = 0;
 	tags.mask |= FP_MASK_FLAG_SPACE;
-	data.lf = 3.14L;
+	data.f.float128 = 3.14L;
 
 	test(
 		fp_arg_lf_sign(&data, &tags) == ' ',
@@ -239,7 +239,7 @@ void		test_arg_lf_sign_case3(void)
 
 	tags.mask = 0;
 	tags.mask |= FP_MASK_FLAG_PLUS;
-	data.lf = 3.14L;
+	data.f.float128 = 3.14L;
 
 	test(
 		fp_arg_lf_sign(&data, &tags) == '+',
@@ -254,7 +254,7 @@ void		test_arg_lf_sign_case4(void)
 	t_fp_tags		tags;
 
 	tags.mask = 0;
-	data.lf = -3.14L;
+	data.f.float128 = -3.14L;
 
 	test(
 		fp_arg_lf_sign(&data, &tags) == '-',
@@ -270,7 +270,7 @@ void		test_arg_lf_sign_case5(void)
 
 	tags.mask = 0;
 	tags.mask |= FP_MASK_FLAG_SPACE;
-	data.lf = -3.14L;
+	data.f.float128 = -3.14L;
 
 	test(
 		fp_arg_lf_sign(&data, &tags) == '-',
@@ -286,7 +286,7 @@ void		test_arg_lf_sign_case6(void)
 
 	tags.mask = 0;
 	tags.mask |= FP_MASK_FLAG_PLUS;
-	data.lf = -3.14L;
+	data.f.float128 = -3.14L;
 
 	test(
 		fp_arg_lf_sign(&data, &tags) == '-',
@@ -303,7 +303,7 @@ void		test_arg_lf_sign_case7(void)
 	tags.mask = 0;
 	tags.mask |= FP_MASK_FLAG_PLUS;
 	tags.mask |= FP_MASK_FLAG_SPACE;
-	data.lf = 0.0L;
+	data.f.float128 = 0.0L;
 
 	test(
 		fp_arg_lf_sign(&data, &tags) == '+',
@@ -320,7 +320,7 @@ void		test_arg_lf_sign_case8(void)
 	tags.mask = 0;
 	tags.mask |= FP_MASK_FLAG_SPACE;
 	tags.mask |= FP_MASK_FLAG_PLUS;
-	data.lf = 3.14L;
+	data.f.float128 = 3.14L;
 
 	test(
 		fp_arg_lf_sign(&data, &tags) == '+',
@@ -338,7 +338,7 @@ void		test_arg_lf_sign_case9(void)
 	tags.mask = 0;
 	tags.mask |= FP_MASK_FLAG_SPACE;
 	tags.mask |= FP_MASK_FLAG_PLUS;
-	data.lf = (long double)NAN;
+	data.f.float128 = (long double)NAN;
 
 	test(
 		fp_arg_lf_sign(&data, &tags) == FP_NO_SIGN,
@@ -356,7 +356,7 @@ void		test_arg_lf_sign_case10(void)
 	tags.mask = 0;
 	tags.mask |= FP_MASK_FLAG_SPACE;
 	tags.mask |= FP_MASK_FLAG_PLUS;
-	data.lf = HUGE_VALL;
+	data.f.float128 = HUGE_VALL;
 
 	test(
 		fp_arg_lf_sign(&data, &tags) == '+',
@@ -374,7 +374,7 @@ void		test_arg_lf_sign_case11(void)
 	tags.mask = 0;
 	tags.mask |= FP_MASK_FLAG_SPACE;
 	tags.mask |= FP_MASK_FLAG_PLUS;
-	data.lf = -HUGE_VALL;
+	data.f.float128 = -HUGE_VALL;
 
 	test(
 		fp_arg_lf_sign(&data, &tags) == '-',
@@ -392,7 +392,7 @@ void		test_arg_lf_sign_case12(void)
 	tags.mask = 0;
 	tags.mask |= FP_MASK_FLAG_SPACE;
 	tags.mask |= FP_MASK_FLAG_PLUS;
-	data.lf = -0.0L;
+	data.f.float128 = -0.0L;
 
 	test(
 		fp_arg_lf_sign(&data, &tags) == '-',

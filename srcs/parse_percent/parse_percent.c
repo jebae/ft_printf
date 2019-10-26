@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   parse_percent.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/24 16:15:34 by jebae             #+#    #+#             */
-/*   Updated: 2019/10/24 16:15:35 by jebae            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "ft_printf.h"
 
 static void		init_arg(t_fp_arg *arg)
@@ -17,7 +5,8 @@ static void		init_arg(t_fp_arg *arg)
 	arg->length = NULL;
 	arg->sign = NULL;
 	arg->write = NULL;
-	ft_memset(&arg->data, 0, sizeof(t_fp_arg_data));
+	fxp_init(&arg->data.f.int_part);
+	fxp_init(&arg->data.f.fraction_part);
 }
 
 size_t			fp_parse_percent(
@@ -46,8 +35,9 @@ size_t			fp_parse_percent(
 		j += fp_parse_length(format + i + j, &tags);
 		i += j;
 	}
-	j = fp_parse_specifier(format + i, ap, &tags, &arg);
-	if (j)
+	if ((j = fp_parse_specifier(format + i, ap, &tags, &arg)))
 		fp_write_percent_format(&arg, &tags, buf);
+	fxp_del(&arg.data.f.int_part);
+	fxp_del(&arg.data.f.fraction_part);
 	return (i + j);
 }

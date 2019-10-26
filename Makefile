@@ -84,7 +84,6 @@ SRC_ARG_WRITE = int_write.c\
 	double_get_integer_part.c\
 	double_write_integer_part.c\
 	double_write_fraction_part.c\
-	double_write.c\
 	ldouble_get_integer_part.c\
 	ldouble_get_fraction_part.c\
 	arg_d_write.c\
@@ -108,6 +107,7 @@ SRC_PARSE_PERCENT = write_percent_format.c\
 	parse_s.c\
 	parse_c.c\
 	parse_p.c\
+	set_double_parts.c\
 
 # objs
 OBJS = $(addprefix $(OBJDIR)/, $(SRC_FT_PRINTF:.c=.o))

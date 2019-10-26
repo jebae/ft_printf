@@ -21,11 +21,33 @@ void		test_parse_f_case1(void)
 	t_fp_tags	tags;
 
 	fp_init_tags(&tags);
+	fxp_init(&arg.data.f.int_part);
+	fxp_init(&arg.data.f.fraction_part);
 	parse(&tags, &arg, 3.14);
 
 	test(
-		arg.data.f == 3.14,
-		"fp_parse_f (f) : arg.data.f"
+		arg.data.f.float64 == 3.14,
+		"fp_parse_f (f) : arg.data.f.float64"
+	);
+
+	test(
+		arg.data.f.int_part.e == 0,
+		"fp_parse_f (f) : arg.data.f.int_part.e"
+	);
+
+	test(
+		arg.data.f.int_part.num.data[0] == 0x03,
+		"fp_parse_f (f) : arg.data.f.int_part.num.data"
+	);
+
+	test(
+		arg.data.f.fraction_part.e == -2,
+		"fp_parse_f (f) : arg.data.f.fraction_part.e"
+	);
+
+	test(
+		arg.data.f.fraction_part.num.data[0] == 0x14,
+		"fp_parse_f (f) : arg.data.f.fraction_part.num.data[0]"
 	);
 
 	test(
@@ -52,6 +74,9 @@ void		test_parse_f_case1(void)
 		arg.write == &fp_arg_f_write,
 		"fp_parse_f (f) : arg.write"
 	);
+
+	fxp_del(&arg.data.f.int_part);
+	fxp_del(&arg.data.f.fraction_part);
 }
 
 // case nan
@@ -66,8 +91,8 @@ void		test_parse_f_case2(void)
 	parse(&tags, &arg, NAN);
 
 	test(
-		ft_is_nan(arg.data.f),
-		"fp_parse_f (f) : arg.data.f"
+		ft_is_nan(arg.data.f.float64),
+		"fp_parse_f (f) : arg.data.f.float64"
 	);
 
 	test(
@@ -113,8 +138,8 @@ void		test_parse_f_case3(void)
 	parse(&tags, &arg, INFINITY);
 
 	test(
-		arg.data.f == INFINITY,
-		"fp_parse_f (f) : arg.data.f"
+		arg.data.f.float64 == INFINITY,
+		"fp_parse_f (f) : arg.data.f.float64"
 	);
 
 	test(
@@ -160,8 +185,8 @@ void		test_parse_f_case4(void)
 	parse(&tags, &arg, -INFINITY);
 
 	test(
-		arg.data.f == -INFINITY,
-		"fp_parse_f (f) : arg.data.f"
+		arg.data.f.float64 == -INFINITY,
+		"fp_parse_f (f) : arg.data.f.float64"
 	);
 
 	test(
@@ -207,8 +232,28 @@ void		test_parse_f_case5(void)
 	parse(&tags, &arg, 3.14L);
 
 	test(
-		arg.data.lf == 3.14L,
-		"fp_parse_f (lf) : arg.data.lf"
+		arg.data.f.float128 == 3.14L,
+		"fp_parse_f (lf) : arg.data.f.float128"
+	);
+
+	test(
+		arg.data.f.int_part.e == 0,
+		"fp_parse_f (lf) : arg.data.f.int_part.e"
+	);
+
+	test(
+		arg.data.f.int_part.num.data[0] == 0x03,
+		"fp_parse_f (lf) : arg.data.f.int_part.num.data"
+	);
+
+	test(
+		arg.data.f.fraction_part.e == -2,
+		"fp_parse_f (lf) : arg.data.f.fraction_part.e"
+	);
+
+	test(
+		arg.data.f.fraction_part.num.data[0] == 0x14,
+		"fp_parse_f (lf) : arg.data.f.fraction_part.num.data[0]"
 	);
 
 	test(
@@ -235,6 +280,9 @@ void		test_parse_f_case5(void)
 		arg.write == &fp_arg_lf_write,
 		"fp_parse_f (lf) : arg.write"
 	);
+
+	fxp_del(&arg.data.f.int_part);
+	fxp_del(&arg.data.f.fraction_part);
 }
 
 // lf case nan
@@ -250,8 +298,8 @@ void		test_parse_f_case6(void)
 	parse(&tags, &arg, (long double)NAN);
 
 	test(
-		ft_is_nan_l(arg.data.lf),
-		"fp_parse_f (lf) : arg.data.lf"
+		ft_is_nan_l(arg.data.f.float128),
+		"fp_parse_f (lf) : arg.data.f.float128"
 	);
 
 	test(
@@ -298,8 +346,8 @@ void		test_parse_f_case7(void)
 	parse(&tags, &arg, HUGE_VALL);
 
 	test(
-		arg.data.lf == HUGE_VALL,
-		"fp_parse_f (lf) : arg.data.lf"
+		arg.data.f.float128 == HUGE_VALL,
+		"fp_parse_f (lf) : arg.data.f.float128"
 	);
 
 	test(
@@ -346,8 +394,8 @@ void		test_parse_f_case8(void)
 	parse(&tags, &arg, -HUGE_VALL);
 
 	test(
-		arg.data.lf == -HUGE_VALL,
-		"fp_parse_f (lf) : arg.data.lf"
+		arg.data.f.float128 == -HUGE_VALL,
+		"fp_parse_f (lf) : arg.data.f.float128"
 	);
 
 	test(

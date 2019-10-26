@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/24 16:10:31 by jebae             #+#    #+#             */
-/*   Updated: 2019/10/25 17:48:20 by jebae            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
@@ -17,6 +5,7 @@
 # include "bigint.h"
 # include "fixedpoint.h"
 # include <stdarg.h>
+# include <stdio.h>
 
 /*
 ** bit_flags macros
@@ -65,12 +54,19 @@ typedef struct	s_fp_tags
 	size_t	precision;
 }				t_fp_tags;
 
+typedef struct	s_fp_double
+{
+	double				float64;
+	long double			float128;
+	t_fixedpoint		int_part;
+	t_fixedpoint		fraction_part;
+}				t_fp_double;
+
 typedef union	u_fp_arg_data
 {
 	long long		i;
-	double			f;
-	long double		lf;
 	void			*ptr;
+	t_fp_double		f;
 }				t_fp_arg_data;
 
 typedef struct	s_fp_arg
@@ -509,6 +505,20 @@ void			fp_arg_c_write(
 /*
 ** parse_percent
 */
+int				fp_set_double_parts(
+	double num,
+	size_t precision,
+	t_fixedpoint *int_part,
+	t_fixedpoint *fraction_part
+);
+
+int				fp_set_ldouble_parts(
+	long double num,
+	size_t precision,
+	t_fixedpoint *int_part,
+	t_fixedpoint *fraction_part
+);
+
 void			fp_write_percent_format(
 	t_fp_arg *arg,
 	t_fp_tags *tags,

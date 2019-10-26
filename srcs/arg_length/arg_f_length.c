@@ -1,37 +1,25 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   arg_f_length.c                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/24 16:12:53 by jebae             #+#    #+#             */
-/*   Updated: 2019/10/24 16:12:54 by jebae            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "ft_printf.h"
 
-size_t		fp_arg_f_length(t_fp_arg_data *data, t_fp_tags *tags)
+static size_t	f_length(t_fp_tags *tags, t_fixedpoint *int_part)
 {
-	size_t		len;
+	size_t	len;
 
-	if (ft_is_nan(data->f) || ft_is_inf(data->f))
-		return (3);
 	len = tags->precision;
 	if (tags->precision > 0 || (tags->mask & FP_MASK_FLAG_SHARP))
 		len++;
-	return (fp_double_int_part_length(data->f) + len);
+	return (bcd_len(&int_part->num) + len);
+}
+
+size_t		fp_arg_f_length(t_fp_arg_data *data, t_fp_tags *tags)
+{
+	if (ft_is_nan(data->f.float64) || ft_is_inf(data->f.float64))
+		return (3);
+	return (f_length(tags, &data->f.int_part));
 }
 
 size_t		fp_arg_lf_length(t_fp_arg_data *data, t_fp_tags *tags)
 {
-	size_t		len;
-
-	if (ft_is_nan_l(data->lf) || ft_is_inf_l(data->lf))
+	if (ft_is_nan_l(data->f.float128) || ft_is_inf_l(data->f.float128))
 		return (3);
-	len = tags->precision;
-	if (tags->precision > 0 || (tags->mask & FP_MASK_FLAG_SHARP))
-		len++;
-	return (fp_ldouble_int_part_length(data->lf) + len);
+	return (f_length(tags, &data->f.int_part));
 }
