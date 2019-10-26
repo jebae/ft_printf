@@ -108,6 +108,7 @@ SRC_PARSE_PERCENT = write_percent_format.c\
 	parse_c.c\
 	parse_p.c\
 	set_double_parts.c\
+	set_ldouble_parts.c\
 
 # objs
 OBJS = $(addprefix $(OBJDIR)/, $(SRC_FT_PRINTF:.c=.o))
@@ -221,7 +222,7 @@ $(OBJDIR)/%.o : $(SRCDIR)/arg_write/%.c $(HEADERS)
 $(OBJDIR)/%.o : $(SRCDIR)/arg_write/double_utils/%.c $(HEADERS)
 	@$(call compile_obj,$<,$@)
 
-$(OBJDIR)/%.o : $(SRCDIR)/arg_write/ldouble_utils/%.c $(HEADERS)
+$(OBJDIR)/%.o : $(SRCDIR)/parse_percent/double_utils/%.c $(HEADERS)
 	@$(call compile_obj,$<,$@)
 
 $(OBJDIR)/%.o : $(SRCDIR)/parse_percent/%.c $(HEADERS)

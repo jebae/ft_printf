@@ -631,5 +631,21 @@ int		main(void)
 	test_parse_percent_case106();
 	test_parse_percent_case107();
 	test_parse_percent_case108();
+
+	test_set_scientific_double_parts_case1();
+	test_set_scientific_double_parts_case2();
+	test_set_scientific_double_parts_case3();
+	test_set_scientific_double_parts_case4();
+	test_set_scientific_double_parts_case5();
+	test_set_scientific_double_parts_case6();
+	test_set_scientific_double_parts_case7();
+	test_set_scientific_double_parts_case8();
+	test_set_scientific_double_parts_case9();
+	test_set_scientific_double_parts_case10();
+	test_set_scientific_double_parts_case11();
+	test_set_scientific_double_parts_case12();
+	test_set_scientific_double_parts_case13();
+	test_set_scientific_double_parts_case14();
+	test_set_scientific_double_parts_case15();
 	//while (1);
 }

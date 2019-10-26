@@ -627,4 +627,23 @@ void		test_arg_o_leading_zero_case3(void);
 void		test_arg_o_leading_zero_case4(void);
 void		test_arg_o_leading_zero_case5(void);
 
+/*
+** set_scientific_double_parts test
+*/
+void		test_set_scientific_double_parts_case1(void);
+void		test_set_scientific_double_parts_case2(void);
+void		test_set_scientific_double_parts_case3(void);
+void		test_set_scientific_double_parts_case4(void);
+void		test_set_scientific_double_parts_case5(void);
+void		test_set_scientific_double_parts_case6(void);
+void		test_set_scientific_double_parts_case7(void);
+void		test_set_scientific_double_parts_case8(void);
+void		test_set_scientific_double_parts_case9(void);
+void		test_set_scientific_double_parts_case10(void);
+void		test_set_scientific_double_parts_case11(void);
+void		test_set_scientific_double_parts_case12(void);
+void		test_set_scientific_double_parts_case13(void);
+void		test_set_scientific_double_parts_case14(void);
+void		test_set_scientific_double_parts_case15(void);
+
 #endif

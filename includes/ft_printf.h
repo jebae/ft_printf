@@ -5,6 +5,7 @@
 # include "bigint.h"
 # include "fixedpoint.h"
 # include <stdarg.h>
+# include <stdio.h>
 
 /*
 ** bit_flags macros
@@ -320,7 +321,6 @@ int				fp_double_get_integer_part(
 int				fp_double_get_fraction_part(
 	short exponent,
 	unsigned long long mantissa,
-	size_t precision,
 	t_fixedpoint *fraction_part
 );
 
@@ -351,7 +351,6 @@ int				fp_ldouble_get_integer_part(
 int				fp_ldouble_get_fraction_part(
 	short exponent,
 	unsigned long long mantissa,
-	size_t precision,
 	t_fixedpoint *fraction_part
 );
 
@@ -505,6 +504,13 @@ void			fp_arg_c_write(
 ** parse_percent
 */
 int				fp_set_double_parts(
+	double num,
+	size_t precision,
+	t_fixedpoint *int_part,
+	t_fixedpoint *fraction_part
+);
+
+int				fp_set_scientific_double_parts(
 	double num,
 	size_t precision,
 	t_fixedpoint *int_part,
