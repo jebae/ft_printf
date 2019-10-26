@@ -5,7 +5,6 @@
 # include "bigint.h"
 # include "fixedpoint.h"
 # include <stdarg.h>
-# include <stdio.h>
 
 /*
 ** bit_flags macros

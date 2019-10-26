@@ -14,9 +14,7 @@ int		fp_set_double_parts(
 	if (ft_is_nan(num) || ft_is_inf(num))
 		return (FP_SUCCESS);
 	ft_extract_double(num, &exponent, &mantissa);
-	printf("exponent : %hx\n", exponent);
-	printf("mantissa : %llx\n", mantissa);
-	if (exponent == 0 || mantissa == 0)
+	if (exponent == 0 && mantissa == 0)
 		return (FP_SUCCESS);
 	mantissa |= 0x10000000000000;
 	exponent -= 0x3ff;
@@ -46,7 +44,7 @@ int		fp_set_ldouble_parts(
 	if (ft_is_nan_l(num) || ft_is_inf_l(num))
 		return (FP_SUCCESS);
 	ft_extract_ldouble(num, &exponent, &mantissa);
-	if (exponent == 0 || mantissa == 0)
+	if (exponent == 0 && mantissa == 0)
 		return (FP_SUCCESS);
 	exponent -= 0x3fff;
 	if (fp_ldouble_get_fraction_part(

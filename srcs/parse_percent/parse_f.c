@@ -35,8 +35,6 @@ void			fp_parse_f(va_list ap, t_fp_tags *tags, t_fp_arg *arg)
 		fxp_del(&f->int_part);
 		fxp_del(&f->fraction_part);
 	}
-	printf("fraction_part.e : %lld\n", f->fraction_part.e);
-	printf("fraction_part.num.occupied : %zu\n", f->fraction_part.num.occupied);
 	arg->length = &fp_arg_f_length;
 	arg->sign = &fp_arg_f_sign;
 	arg->leading_zero = &fp_arg_no_leading_zero;
