@@ -27,12 +27,13 @@ static int		handle_inf_nan(
 }
 
 static void		f_write(
-	t_fp_arg_data *data,
+	t_fixedpoint *int_part,
+	t_fixedpoint *fraction_part,
 	t_fp_tags *tags,
 	t_fp_buffer *buf
 )
 {
-	fp_double_write_int_part(&data->f.int_part, buf);
+	fp_double_write_int_part(int_part, buf);
 	if (tags->precision == 0)
 	{
 		if (tags->mask & FP_MASK_FLAG_SHARP)
@@ -40,8 +41,7 @@ static void		f_write(
 		return ;
 	}
 	fp_write_buffer(buf, '.');
-	fp_double_write_fraction_part(
-		&data->f.fraction_part, tags->precision, buf);
+	fp_double_write_fraction_part(fraction_part, tags->precision, buf);
 }
 
 void			fp_arg_f_write(
@@ -54,7 +54,7 @@ void			fp_arg_f_write(
 	(void)(length);
 	if (handle_inf_nan(data->f.float64, buf))
 		return ;
-	f_write(data, tags, buf);
+	f_write(&data->f.int_part, &data->f.fraction_part, tags, buf);
 }
 
 void			fp_arg_lf_write(
@@ -67,5 +67,5 @@ void			fp_arg_lf_write(
 	(void)(length);
 	if (handle_inf_nan(data->f.float128, buf))
 		return ;
-	f_write(data, tags, buf);
+	f_write(&data->f.int_part, &data->f.fraction_part, tags, buf);
 }

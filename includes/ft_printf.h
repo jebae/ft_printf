@@ -56,10 +56,10 @@ typedef struct	s_fp_tags
 
 typedef struct	s_fp_double
 {
-	double				float64;
-	long double			float128;
-	t_fixedpoint		int_part;
-	t_fixedpoint		fraction_part;
+	double			float64;
+	long double		float128;
+	t_fixedpoint	int_part;
+	t_fixedpoint	fraction_part;
 }				t_fp_double;
 
 typedef union	u_fp_arg_data
@@ -316,6 +316,13 @@ void			fp_double_write_fraction_part(
 	t_fp_buffer *buf
 );
 
+void			fp_double_write_scientific_parts(
+	t_fixedpoint *int_part,
+	t_fixedpoint *fraction_part,
+	t_fp_tags *tags,
+	t_fp_buffer *buf
+);
+
 void			fp_arg_f_write(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
@@ -450,6 +457,13 @@ void			fp_arg_ls_write(
 );
 
 void			fp_arg_c_write(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	size_t length,
+	t_fp_buffer *buf
+);
+
+void			fp_arg_e_write(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
 	size_t length,

@@ -6,7 +6,7 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/24 16:15:08 by jebae             #+#    #+#             */
-/*   Updated: 2019/10/24 16:15:09 by jebae            ###   ########.fr       */
+/*   Updated: 2019/10/27 23:12:58 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void			fp_int_write(
 		return ;
 	}
 	divider = ft_powd(10, length - 1);
-	while (divider != 0)
+	while (divider)
 	{
 		ch = num / divider % 10;
 		if (ch < 0)
@@ -70,7 +70,7 @@ void			fp_uint_write(
 		return ;
 	}
 	divider = ft_powud(base, length - 1);
-	while (divider != 0)
+	while (divider)
 	{
 		fp_write_buffer(buf, get_lower_digit(num / divider % base));
 		divider /= base;
@@ -94,7 +94,7 @@ void			fp_uint_upper_write(
 		return ;
 	}
 	divider = ft_powud(base, length - 1);
-	while (divider != 0)
+	while (divider)
 	{
 		fp_write_buffer(buf, get_upper_digit(num / divider % base));
 		divider /= base;

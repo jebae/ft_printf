@@ -647,5 +647,27 @@ void		test_arg_e_length_case11(void);
 void		test_arg_e_length_case12(void);
 void		test_arg_e_length_case13(void);
 void		test_arg_e_length_case14(void);
+void		test_arg_e_length_case15(void);
+void		test_arg_e_length_case16(void);
+
+/*
+** arg_e_write test
+*/
+void		test_arg_e_write_case1(void);
+void		test_arg_e_write_case2(void);
+void		test_arg_e_write_case3(void);
+void		test_arg_e_write_case4(void);
+void		test_arg_e_write_case5(void);
+void		test_arg_e_write_case6(void);
+void		test_arg_e_write_case7(void);
+void		test_arg_e_write_case8(void);
+void		test_arg_e_write_case9(void);
+void		test_arg_e_write_case10(void);
+void		test_arg_e_write_case11(void);
+void		test_arg_e_write_case12(void);
+void		test_arg_e_write_case13(void);
+void		test_arg_e_write_case14(void);
+void		test_arg_e_write_case15(void);
+void		test_arg_e_write_case16(void);
 
 #endif

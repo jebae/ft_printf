@@ -646,5 +646,24 @@ int		main(void)
 	test_arg_e_length_case12();
 	test_arg_e_length_case13();
 	test_arg_e_length_case14();
+	test_arg_e_length_case15();
+	test_arg_e_length_case16();
+
+	test_arg_e_write_case1();
+	test_arg_e_write_case2();
+	test_arg_e_write_case3();
+	test_arg_e_write_case4();
+	test_arg_e_write_case5();
+	test_arg_e_write_case6();
+	test_arg_e_write_case7();
+	test_arg_e_write_case8();
+	test_arg_e_write_case9();
+	test_arg_e_write_case10();
+	test_arg_e_write_case11();
+	test_arg_e_write_case12();
+	test_arg_e_write_case13();
+	test_arg_e_write_case14();
+	test_arg_e_write_case15();
+	test_arg_e_write_case16();
 	//while (1);
 }

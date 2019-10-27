@@ -83,6 +83,7 @@ SRC_BUFFER = buffer.c\
 SRC_ARG_WRITE = int_write.c\
 	double_write_int_part.c\
 	double_write_fraction_part.c\
+	double_write_scientific_parts.c\
 	arg_d_write.c\
 	arg_u_write.c\
 	arg_f_write.c\
@@ -91,6 +92,7 @@ SRC_ARG_WRITE = int_write.c\
 	arg_o_write.c\
 	arg_s_write.c\
 	arg_c_write.c\
+	arg_e_write.c\
 
 SRC_PARSE_PERCENT = write_percent_format.c\
 	parse_specifier.c\
