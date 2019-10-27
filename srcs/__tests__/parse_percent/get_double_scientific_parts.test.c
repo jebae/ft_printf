@@ -1,9 +1,9 @@
 #include "ft_printf.test.h"
 
 // case len(int part) - 1 > precision
-void		test_set_scientific_double_parts_case1(void)
+void		test_get_double_scientific_parts_case1(void)
 {
-	printf(KYEL "test_set_scientific_double_parts_case1\n" KNRM);
+	printf(KYEL "test_get_double_scientific_parts_case1\n" KNRM);
 	t_fixedpoint	int_part;
 	t_fixedpoint	fraction_part;
 	double			num = 12345.00678;
@@ -14,27 +14,27 @@ void		test_set_scientific_double_parts_case1(void)
 	fxp_init(&int_part);
 	fxp_init(&fraction_part);
 
-	res = fp_set_scientific_double_parts(num, precision, &int_part, &fraction_part);
+	res = fp_get_double_scientific_parts(num, precision, &int_part, &fraction_part);
 
 	test(
 		res == FP_SUCCESS,
-		"fp_set_scientific_double_parts : return value"
+		"fp_get_double_scientific_parts : return value"
 	);
 
 	test(
 		fraction_part.num.data == NULL,
-		"fp_set_scientific_double_parts : fraction_part.num.data"
+		"fp_get_double_scientific_parts : fraction_part.num.data"
 	);
 
 	test(
 		int_part.num.occupied == 3,
-		"fp_set_scientific_double_parts : int_part.num.occupied"
+		"fp_get_double_scientific_parts : int_part.num.occupied"
 	);
 
 	for (size_t i=0; i < int_part.num.occupied; i++)
 		test(
 			int_part.num.data[i] == int_expected[i],
-			"fp_set_scientific_double_parts : int_part.num.data[i]"
+			"fp_get_double_scientific_parts : int_part.num.data[i]"
 		);
 
 	fxp_del(&int_part);
@@ -42,9 +42,9 @@ void		test_set_scientific_double_parts_case1(void)
 }
 
 // case len(int part) - 1 > precision, round need
-void		test_set_scientific_double_parts_case2(void)
+void		test_get_double_scientific_parts_case2(void)
 {
-	printf(KYEL "test_set_scientific_double_parts_case2\n" KNRM);
+	printf(KYEL "test_get_double_scientific_parts_case2\n" KNRM);
 	t_fixedpoint	int_part;
 	t_fixedpoint	fraction_part;
 	double			num = 12345.00678;
@@ -55,27 +55,27 @@ void		test_set_scientific_double_parts_case2(void)
 	fxp_init(&int_part);
 	fxp_init(&fraction_part);
 
-	res = fp_set_scientific_double_parts(num, precision, &int_part, &fraction_part);
+	res = fp_get_double_scientific_parts(num, precision, &int_part, &fraction_part);
 
 	test(
 		res == FP_SUCCESS,
-		"fp_set_scientific_double_parts : return value"
+		"fp_get_double_scientific_parts : return value"
 	);
 
 	test(
 		fraction_part.num.data == NULL,
-		"fp_set_scientific_double_parts : fraction_part.num.data"
+		"fp_get_double_scientific_parts : fraction_part.num.data"
 	);
 
 	test(
 		int_part.num.occupied == 3,
-		"fp_set_scientific_double_parts : int_part.num.occupied"
+		"fp_get_double_scientific_parts : int_part.num.occupied"
 	);
 
 	for (size_t i=0; i < int_part.num.occupied; i++)
 		test(
 			int_part.num.data[i] == int_expected[i],
-			"fp_set_scientific_double_parts : int_part.num.data[i]"
+			"fp_get_double_scientific_parts : int_part.num.data[i]"
 		);
 
 	fxp_del(&int_part);
@@ -83,9 +83,9 @@ void		test_set_scientific_double_parts_case2(void)
 }
 
 // case len(int part) - 1 > precision, precision = 0
-void		test_set_scientific_double_parts_case3(void)
+void		test_get_double_scientific_parts_case3(void)
 {
-	printf(KYEL "test_set_scientific_double_parts_case3\n" KNRM);
+	printf(KYEL "test_get_double_scientific_parts_case3\n" KNRM);
 	t_fixedpoint	int_part;
 	t_fixedpoint	fraction_part;
 	double			num = 12345.00678;
@@ -96,27 +96,27 @@ void		test_set_scientific_double_parts_case3(void)
 	fxp_init(&int_part);
 	fxp_init(&fraction_part);
 
-	res = fp_set_scientific_double_parts(num, precision, &int_part, &fraction_part);
+	res = fp_get_double_scientific_parts(num, precision, &int_part, &fraction_part);
 
 	test(
 		res == FP_SUCCESS,
-		"fp_set_scientific_double_parts : return value"
+		"fp_get_double_scientific_parts : return value"
 	);
 
 	test(
 		fraction_part.num.data == NULL,
-		"fp_set_scientific_double_parts : fraction_part.num.data"
+		"fp_get_double_scientific_parts : fraction_part.num.data"
 	);
 
 	test(
 		int_part.num.occupied == 3,
-		"fp_set_scientific_double_parts : int_part.num.occupied"
+		"fp_get_double_scientific_parts : int_part.num.occupied"
 	);
 
 	for (size_t i=0; i < int_part.num.occupied; i++)
 		test(
 			int_part.num.data[i] == int_expected[i],
-			"fp_set_scientific_double_parts : int_part.num.data[i]"
+			"fp_get_double_scientific_parts : int_part.num.data[i]"
 		);
 
 	fxp_del(&int_part);
@@ -124,9 +124,9 @@ void		test_set_scientific_double_parts_case3(void)
 }
 
 // case len(int part) - 1 = precision
-void		test_set_scientific_double_parts_case4(void)
+void		test_get_double_scientific_parts_case4(void)
 {
-	printf(KYEL "test_set_scientific_double_parts_case4\n" KNRM);
+	printf(KYEL "test_get_double_scientific_parts_case4\n" KNRM);
 	t_fixedpoint	int_part;
 	t_fixedpoint	fraction_part;
 	double			num = 12345.00678;
@@ -137,27 +137,27 @@ void		test_set_scientific_double_parts_case4(void)
 	fxp_init(&int_part);
 	fxp_init(&fraction_part);
 
-	res = fp_set_scientific_double_parts(num, precision, &int_part, &fraction_part);
+	res = fp_get_double_scientific_parts(num, precision, &int_part, &fraction_part);
 
 	test(
 		res == FP_SUCCESS,
-		"fp_set_scientific_double_parts : return value"
+		"fp_get_double_scientific_parts : return value"
 	);
 
 	test(
 		int_part.num.occupied == 3,
-		"fp_set_scientific_double_parts : int_part.num.occupied"
+		"fp_get_double_scientific_parts : int_part.num.occupied"
 	);
 
 	for (size_t i=0; i < int_part.num.occupied; i++)
 		test(
 			int_part.num.data[i] == int_expected[i],
-			"fp_set_scientific_double_parts : int_part.num.data[i]"
+			"fp_get_double_scientific_parts : int_part.num.data[i]"
 		);
 
 	test(
 		fraction_part.num.occupied == 0,
-		"fp_set_scientific_double_parts : fraction_part.num.occupied"
+		"fp_get_double_scientific_parts : fraction_part.num.occupied"
 	);
 
 	fxp_del(&int_part);
@@ -165,9 +165,9 @@ void		test_set_scientific_double_parts_case4(void)
 }
 
 // case len(int part) - 1 < precision, round needed
-void		test_set_scientific_double_parts_case5(void)
+void		test_get_double_scientific_parts_case5(void)
 {
-	printf(KYEL "test_set_scientific_double_parts_case5\n" KNRM);
+	printf(KYEL "test_get_double_scientific_parts_case5\n" KNRM);
 	t_fixedpoint	int_part;
 	t_fixedpoint	fraction_part;
 	double			num = 12345.00678;
@@ -179,38 +179,38 @@ void		test_set_scientific_double_parts_case5(void)
 	fxp_init(&int_part);
 	fxp_init(&fraction_part);
 
-	res = fp_set_scientific_double_parts(num, precision, &int_part, &fraction_part);
+	res = fp_get_double_scientific_parts(num, precision, &int_part, &fraction_part);
 
 	test(
 		res == FP_SUCCESS,
-		"fp_set_scientific_double_parts : return value"
+		"fp_get_double_scientific_parts : return value"
 	);
 
 	test(
 		int_part.num.occupied == 3,
-		"fp_set_scientific_double_parts : int_part.num.occupied"
+		"fp_get_double_scientific_parts : int_part.num.occupied"
 	);
 
 	for (size_t i=0; i < int_part.num.occupied; i++)
 		test(
 			int_part.num.data[i] == int_expected[i],
-			"fp_set_scientific_double_parts : int_part.num.data[i]"
+			"fp_get_double_scientific_parts : int_part.num.data[i]"
 		);
 
 	test(
 		fraction_part.e == -3,
-		"fp_set_scientific_double_parts : fraction_part.e"
+		"fp_get_double_scientific_parts : fraction_part.e"
 	);
 
 	test(
 		fraction_part.num.occupied == 1,
-		"fp_set_scientific_double_parts : fraction_part.num.occupied"
+		"fp_get_double_scientific_parts : fraction_part.num.occupied"
 	);
 
 	for (size_t i=0; i < fraction_part.num.occupied; i++)
 		test(
 			fraction_part.num.data[i] == fraction_expected[i],
-			"fp_set_scientific_double_parts : fraction_part.num.data[i]"
+			"fp_get_double_scientific_parts : fraction_part.num.data[i]"
 		);
 
 	fxp_del(&int_part);
@@ -218,9 +218,9 @@ void		test_set_scientific_double_parts_case5(void)
 }
 
 // case len(int part) - 1 < precision
-void		test_set_scientific_double_parts_case6(void)
+void		test_get_double_scientific_parts_case6(void)
 {
-	printf(KYEL "test_set_scientific_double_parts_case6\n" KNRM);
+	printf(KYEL "test_get_double_scientific_parts_case6\n" KNRM);
 	t_fixedpoint	int_part;
 	t_fixedpoint	fraction_part;
 	double			num = 12345.00678;
@@ -232,38 +232,38 @@ void		test_set_scientific_double_parts_case6(void)
 	fxp_init(&int_part);
 	fxp_init(&fraction_part);
 
-	res = fp_set_scientific_double_parts(num, precision, &int_part, &fraction_part);
+	res = fp_get_double_scientific_parts(num, precision, &int_part, &fraction_part);
 
 	test(
 		res == FP_SUCCESS,
-		"fp_set_scientific_double_parts : return value"
+		"fp_get_double_scientific_parts : return value"
 	);
 
 	test(
 		int_part.num.occupied == 3,
-		"fp_set_scientific_double_parts : int_part.num.occupied"
+		"fp_get_double_scientific_parts : int_part.num.occupied"
 	);
 
 	for (size_t i=0; i < int_part.num.occupied; i++)
 		test(
 			int_part.num.data[i] == int_expected[i],
-			"fp_set_scientific_double_parts : int_part.num.data[i]"
+			"fp_get_double_scientific_parts : int_part.num.data[i]"
 		);
 
 	test(
 		fraction_part.e == -5,
-		"fp_set_scientific_double_parts : fraction_part.e"
+		"fp_get_double_scientific_parts : fraction_part.e"
 	);
 
 	test(
 		fraction_part.num.occupied == 2,
-		"fp_set_scientific_double_parts : fraction_part.num.occupied"
+		"fp_get_double_scientific_parts : fraction_part.num.occupied"
 	);
 
 	for (size_t i=0; i < fraction_part.num.occupied; i++)
 		test(
 			fraction_part.num.data[i] == fraction_expected[i],
-			"fp_set_scientific_double_parts : fraction_part.num.data[i]"
+			"fp_get_double_scientific_parts : fraction_part.num.data[i]"
 		);
 
 	fxp_del(&int_part);
@@ -271,9 +271,9 @@ void		test_set_scientific_double_parts_case6(void)
 }
 
 // case len(int part) - 1 < precision, precision bigger than fraction part len
-void		test_set_scientific_double_parts_case7(void)
+void		test_get_double_scientific_parts_case7(void)
 {
-	printf(KYEL "test_set_scientific_double_parts_case7\n" KNRM);
+	printf(KYEL "test_get_double_scientific_parts_case7\n" KNRM);
 	t_fixedpoint	int_part;
 	t_fixedpoint	fraction_part;
 	double			num = 12345.00678;
@@ -285,38 +285,38 @@ void		test_set_scientific_double_parts_case7(void)
 	fxp_init(&int_part);
 	fxp_init(&fraction_part);
 
-	res = fp_set_scientific_double_parts(num, precision, &int_part, &fraction_part);
+	res = fp_get_double_scientific_parts(num, precision, &int_part, &fraction_part);
 
 	test(
 		res == FP_SUCCESS,
-		"fp_set_scientific_double_parts : return value"
+		"fp_get_double_scientific_parts : return value"
 	);
 
 	test(
 		int_part.num.occupied == 3,
-		"fp_set_scientific_double_parts : int_part.num.occupied"
+		"fp_get_double_scientific_parts : int_part.num.occupied"
 	);
 
 	for (size_t i=0; i < int_part.num.occupied; i++)
 		test(
 			int_part.num.data[i] == int_expected[i],
-			"fp_set_scientific_double_parts : int_part.num.data[i]"
+			"fp_get_double_scientific_parts : int_part.num.data[i]"
 		);
 
 	test(
 		fraction_part.e == -5,
-		"fp_set_scientific_double_parts : fraction_part.e"
+		"fp_get_double_scientific_parts : fraction_part.e"
 	);
 
 	test(
 		fraction_part.num.occupied == 2,
-		"fp_set_scientific_double_parts : fraction_part.num.occupied"
+		"fp_get_double_scientific_parts : fraction_part.num.occupied"
 	);
 
 	for (size_t i=0; i < fraction_part.num.occupied; i++)
 		test(
 			fraction_part.num.data[i] == fraction_expected[i],
-			"fp_set_scientific_double_parts : fraction_part.num.data[i]"
+			"fp_get_double_scientific_parts : fraction_part.num.data[i]"
 		);
 
 	fxp_del(&int_part);
@@ -324,9 +324,9 @@ void		test_set_scientific_double_parts_case7(void)
 }
 
 // case int part is 0
-void		test_set_scientific_double_parts_case8(void)
+void		test_get_double_scientific_parts_case8(void)
 {
-	printf(KYEL "test_set_scientific_double_parts_case8\n" KNRM);
+	printf(KYEL "test_get_double_scientific_parts_case8\n" KNRM);
 	t_fixedpoint	int_part;
 	t_fixedpoint	fraction_part;
 	double			num = 0.0000987654;
@@ -337,32 +337,32 @@ void		test_set_scientific_double_parts_case8(void)
 	fxp_init(&int_part);
 	fxp_init(&fraction_part);
 
-	res = fp_set_scientific_double_parts(num, precision, &int_part, &fraction_part);
+	res = fp_get_double_scientific_parts(num, precision, &int_part, &fraction_part);
 
 	test(
 		res == FP_SUCCESS,
-		"fp_set_scientific_double_parts : return value"
+		"fp_get_double_scientific_parts : return value"
 	);
 
 	test(
 		int_part.num.occupied == 0,
-		"fp_set_scientific_double_parts : int_part.num.occupied"
+		"fp_get_double_scientific_parts : int_part.num.occupied"
 	);
 
 	test(
 		fraction_part.e == -9,
-		"fp_set_scientific_double_parts : fraction_part.e"
+		"fp_get_double_scientific_parts : fraction_part.e"
 	);
 
 	test(
 		fraction_part.num.occupied == 3,
-		"fp_set_scientific_double_parts : fraction_part.num.occupied"
+		"fp_get_double_scientific_parts : fraction_part.num.occupied"
 	);
 
 	for (size_t i=0; i < fraction_part.num.occupied; i++)
 		test(
 			fraction_part.num.data[i] == fraction_expected[i],
-			"fp_set_scientific_double_parts : fraction_part.num.data[i]"
+			"fp_get_double_scientific_parts : fraction_part.num.data[i]"
 		);
 
 	fxp_del(&int_part);
@@ -370,9 +370,9 @@ void		test_set_scientific_double_parts_case8(void)
 }
 
 // case int part is 0, need round
-void		test_set_scientific_double_parts_case9(void)
+void		test_get_double_scientific_parts_case9(void)
 {
-	printf(KYEL "test_set_scientific_double_parts_case9\n" KNRM);
+	printf(KYEL "test_get_double_scientific_parts_case9\n" KNRM);
 	t_fixedpoint	int_part;
 	t_fixedpoint	fraction_part;
 	double			num = 0.0000987654;
@@ -383,32 +383,32 @@ void		test_set_scientific_double_parts_case9(void)
 	fxp_init(&int_part);
 	fxp_init(&fraction_part);
 
-	res = fp_set_scientific_double_parts(num, precision, &int_part, &fraction_part);
+	res = fp_get_double_scientific_parts(num, precision, &int_part, &fraction_part);
 
 	test(
 		res == FP_SUCCESS,
-		"fp_set_scientific_double_parts : return value"
+		"fp_get_double_scientific_parts : return value"
 	);
 
 	test(
 		int_part.num.occupied == 0,
-		"fp_set_scientific_double_parts : int_part.num.occupied"
+		"fp_get_double_scientific_parts : int_part.num.occupied"
 	);
 
 	test(
 		fraction_part.e == -7,
-		"fp_set_scientific_double_parts : fraction_part.e"
+		"fp_get_double_scientific_parts : fraction_part.e"
 	);
 
 	test(
 		fraction_part.num.occupied == 2,
-		"fp_set_scientific_double_parts : fraction_part.num.occupied"
+		"fp_get_double_scientific_parts : fraction_part.num.occupied"
 	);
 
 	for (size_t i=0; i < fraction_part.num.occupied; i++)
 		test(
 			fraction_part.num.data[i] == fraction_expected[i],
-			"fp_set_scientific_double_parts : fraction_part.num.data[i]"
+			"fp_get_double_scientific_parts : fraction_part.num.data[i]"
 		);
 
 	fxp_del(&int_part);
@@ -416,9 +416,9 @@ void		test_set_scientific_double_parts_case9(void)
 }
 
 // case int part is 0, precision = fraction part num length - 1
-void		test_set_scientific_double_parts_case10(void)
+void		test_get_double_scientific_parts_case10(void)
 {
-	printf(KYEL "test_set_scientific_double_parts_case10\n" KNRM);
+	printf(KYEL "test_get_double_scientific_parts_case10\n" KNRM);
 	t_fixedpoint	int_part;
 	t_fixedpoint	fraction_part;
 	double			num = 0.0000987654;
@@ -429,32 +429,32 @@ void		test_set_scientific_double_parts_case10(void)
 	fxp_init(&int_part);
 	fxp_init(&fraction_part);
 
-	res = fp_set_scientific_double_parts(num, precision, &int_part, &fraction_part);
+	res = fp_get_double_scientific_parts(num, precision, &int_part, &fraction_part);
 
 	test(
 		res == FP_SUCCESS,
-		"fp_set_scientific_double_parts : return value"
+		"fp_get_double_scientific_parts : return value"
 	);
 
 	test(
 		int_part.num.occupied == 0,
-		"fp_set_scientific_double_parts : int_part.num.occupied"
+		"fp_get_double_scientific_parts : int_part.num.occupied"
 	);
 
 	test(
 		fraction_part.e == -10,
-		"fp_set_scientific_double_parts : fraction_part.e"
+		"fp_get_double_scientific_parts : fraction_part.e"
 	);
 
 	test(
 		fraction_part.num.occupied == 3,
-		"fp_set_scientific_double_parts : fraction_part.num.occupied"
+		"fp_get_double_scientific_parts : fraction_part.num.occupied"
 	);
 
 	for (size_t i=0; i < fraction_part.num.occupied; i++)
 		test(
 			fraction_part.num.data[i] == fraction_expected[i],
-			"fp_set_scientific_double_parts : fraction_part.num.data[i]"
+			"fp_get_double_scientific_parts : fraction_part.num.data[i]"
 		);
 
 	fxp_del(&int_part);
@@ -462,9 +462,9 @@ void		test_set_scientific_double_parts_case10(void)
 }
 
 // case int part is 0, precision > fraction part num length - 1
-void		test_set_scientific_double_parts_case11(void)
+void		test_get_double_scientific_parts_case11(void)
 {
-	printf(KYEL "test_set_scientific_double_parts_case11\n" KNRM);
+	printf(KYEL "test_get_double_scientific_parts_case11\n" KNRM);
 	t_fixedpoint	int_part;
 	t_fixedpoint	fraction_part;
 	double			num = 0.0000987654;
@@ -475,32 +475,32 @@ void		test_set_scientific_double_parts_case11(void)
 	fxp_init(&int_part);
 	fxp_init(&fraction_part);
 
-	res = fp_set_scientific_double_parts(num, precision, &int_part, &fraction_part);
+	res = fp_get_double_scientific_parts(num, precision, &int_part, &fraction_part);
 
 	test(
 		res == FP_SUCCESS,
-		"fp_set_scientific_double_parts : return value"
+		"fp_get_double_scientific_parts : return value"
 	);
 
 	test(
 		int_part.num.occupied == 0,
-		"fp_set_scientific_double_parts : int_part.num.occupied"
+		"fp_get_double_scientific_parts : int_part.num.occupied"
 	);
 
 	test(
 		fraction_part.e == -10,
-		"fp_set_scientific_double_parts : fraction_part.e"
+		"fp_get_double_scientific_parts : fraction_part.e"
 	);
 
 	test(
 		fraction_part.num.occupied == 3,
-		"fp_set_scientific_double_parts : fraction_part.num.occupied"
+		"fp_get_double_scientific_parts : fraction_part.num.occupied"
 	);
 
 	for (size_t i=0; i < fraction_part.num.occupied; i++)
 		test(
 			fraction_part.num.data[i] == fraction_expected[i],
-			"fp_set_scientific_double_parts : fraction_part.num.data[i]"
+			"fp_get_double_scientific_parts : fraction_part.num.data[i]"
 		);
 
 	fxp_del(&int_part);
@@ -508,9 +508,9 @@ void		test_set_scientific_double_parts_case11(void)
 }
 
 // case carry from fraction
-void		test_set_scientific_double_parts_case12(void)
+void		test_get_double_scientific_parts_case12(void)
 {
-	printf(KYEL "test_set_scientific_double_parts_case12\n" KNRM);
+	printf(KYEL "test_get_double_scientific_parts_case12\n" KNRM);
 	t_fixedpoint	int_part;
 	t_fixedpoint	fraction_part;
 	double			num = 99999.9999;
@@ -521,27 +521,27 @@ void		test_set_scientific_double_parts_case12(void)
 	fxp_init(&int_part);
 	fxp_init(&fraction_part);
 
-	res = fp_set_scientific_double_parts(num, precision, &int_part, &fraction_part);
+	res = fp_get_double_scientific_parts(num, precision, &int_part, &fraction_part);
 
 	test(
 		res == FP_SUCCESS,
-		"fp_set_scientific_double_parts : return value"
+		"fp_get_double_scientific_parts : return value"
 	);
 
 	test(
 		fraction_part.num.occupied == 0,
-		"fp_set_scientific_double_parts : fraction_part.num.occupied"
+		"fp_get_double_scientific_parts : fraction_part.num.occupied"
 	);
 
 	test(
 		int_part.num.occupied == 3,
-		"fp_set_scientific_double_parts : int_part.num.occupied"
+		"fp_get_double_scientific_parts : int_part.num.occupied"
 	);
 
 	for (size_t i=0; i < int_part.num.occupied; i++)
 		test(
 			int_part.num.data[i] == int_expected[i],
-			"fp_set_scientific_double_parts : int_part.num.data[i]"
+			"fp_get_double_scientific_parts : int_part.num.data[i]"
 		);
 
 	fxp_del(&int_part);
@@ -549,9 +549,9 @@ void		test_set_scientific_double_parts_case12(void)
 }
 
 // case round in int
-void		test_set_scientific_double_parts_case13(void)
+void		test_get_double_scientific_parts_case13(void)
 {
-	printf(KYEL "test_set_scientific_double_parts_case13\n" KNRM);
+	printf(KYEL "test_get_double_scientific_parts_case13\n" KNRM);
 	t_fixedpoint	int_part;
 	t_fixedpoint	fraction_part;
 	double			num = 99999.9999;
@@ -562,27 +562,27 @@ void		test_set_scientific_double_parts_case13(void)
 	fxp_init(&int_part);
 	fxp_init(&fraction_part);
 
-	res = fp_set_scientific_double_parts(num, precision, &int_part, &fraction_part);
+	res = fp_get_double_scientific_parts(num, precision, &int_part, &fraction_part);
 
 	test(
 		res == FP_SUCCESS,
-		"fp_set_scientific_double_parts : return value"
+		"fp_get_double_scientific_parts : return value"
 	);
 
 	test(
 		fraction_part.num.data == NULL,
-		"fp_set_scientific_double_parts : fraction_part.num.data"
+		"fp_get_double_scientific_parts : fraction_part.num.data"
 	);
 
 	test(
 		int_part.num.occupied == 3,
-		"fp_set_scientific_double_parts : int_part.num.occupied"
+		"fp_get_double_scientific_parts : int_part.num.occupied"
 	);
 
 	for (size_t i=0; i < int_part.num.occupied; i++)
 		test(
 			int_part.num.data[i] == int_expected[i],
-			"fp_set_scientific_double_parts : int_part.num.data[i]"
+			"fp_get_double_scientific_parts : int_part.num.data[i]"
 		);
 
 	fxp_del(&int_part);
@@ -590,9 +590,9 @@ void		test_set_scientific_double_parts_case13(void)
 }
 
 // case carry from fraction
-void		test_set_scientific_double_parts_case14(void)
+void		test_get_double_scientific_parts_case14(void)
 {
-	printf(KYEL "test_set_scientific_double_parts_case14\n" KNRM);
+	printf(KYEL "test_get_double_scientific_parts_case14\n" KNRM);
 	t_fixedpoint	int_part;
 	t_fixedpoint	fraction_part;
 	double			num = 0.9999;
@@ -603,27 +603,27 @@ void		test_set_scientific_double_parts_case14(void)
 	fxp_init(&int_part);
 	fxp_init(&fraction_part);
 
-	res = fp_set_scientific_double_parts(num, precision, &int_part, &fraction_part);
+	res = fp_get_double_scientific_parts(num, precision, &int_part, &fraction_part);
 
 	test(
 		res == FP_SUCCESS,
-		"fp_set_scientific_double_parts : return value"
+		"fp_get_double_scientific_parts : return value"
 	);
 
 	test(
 		fraction_part.num.occupied == 0,
-		"fp_set_scientific_double_parts : fraction_part.num.occupied"
+		"fp_get_double_scientific_parts : fraction_part.num.occupied"
 	);
 
 	test(
 		int_part.num.occupied == 1,
-		"fp_set_scientific_double_parts : int_part.num.occupied"
+		"fp_get_double_scientific_parts : int_part.num.occupied"
 	);
 
 	for (size_t i=0; i < int_part.num.occupied; i++)
 		test(
 			int_part.num.data[i] == int_expected[i],
-			"fp_set_scientific_double_parts : int_part.num.data[i]"
+			"fp_get_double_scientific_parts : int_part.num.data[i]"
 		);
 
 	fxp_del(&int_part);
@@ -631,9 +631,9 @@ void		test_set_scientific_double_parts_case14(void)
 }
 
 // case no carry from fraction
-void		test_set_scientific_double_parts_case15(void)
+void		test_get_double_scientific_parts_case15(void)
 {
-	printf(KYEL "test_set_scientific_double_parts_case15\n" KNRM);
+	printf(KYEL "test_get_double_scientific_parts_case15\n" KNRM);
 	t_fixedpoint	int_part;
 	t_fixedpoint	fraction_part;
 	double			num = 0.9999;
@@ -644,27 +644,27 @@ void		test_set_scientific_double_parts_case15(void)
 	fxp_init(&int_part);
 	fxp_init(&fraction_part);
 
-	res = fp_set_scientific_double_parts(num, precision, &int_part, &fraction_part);
+	res = fp_get_double_scientific_parts(num, precision, &int_part, &fraction_part);
 
 	test(
 		res == FP_SUCCESS,
-		"fp_set_scientific_double_parts : return value"
+		"fp_get_double_scientific_parts : return value"
 	);
 
 	test(
 		int_part.num.occupied == 0,
-		"fp_set_scientific_double_parts : int_part.num.occupied"
+		"fp_get_double_scientific_parts : int_part.num.occupied"
 	);
 
 	test(
 		fraction_part.num.occupied == 2,
-		"fp_set_scientific_double_parts : fraction_part.num.occupied"
+		"fp_get_double_scientific_parts : fraction_part.num.occupied"
 	);
 
 	for (size_t i=0; i < fraction_part.num.occupied; i++)
 		test(
 			fraction_part.num.data[i] == fraction_expected[i],
-			"fp_set_scientific_double_parts : fraction_part.num.data[i]"
+			"fp_get_double_scientific_parts : fraction_part.num.data[i]"
 		);
 
 	fxp_del(&int_part);

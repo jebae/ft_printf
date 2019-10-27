@@ -1,9 +1,9 @@
 #include "ft_printf.test.h"
 
 // case 3.14
-void		test_double_get_fraction_part_case1(void)
+void		test_double_get_bcd_fraction_part_case1(void)
 {
-	printf(KYEL "test_double_get_fraction_part_case1\n" KNRM);
+	printf(KYEL "test_double_get_bcd_fraction_part_case1\n" KNRM);
 	short				exponent;
 	unsigned long long	mantissa;
 	t_fixedpoint		fraction_part;
@@ -12,7 +12,8 @@ void		test_double_get_fraction_part_case1(void)
 	exponent = 1;
 	mantissa = 0x191eb851eb851f;
 
-	fp_double_get_fraction_part(exponent, mantissa, &fraction_part);
+	fp_double_get_bcd_fraction_part(
+		exponent, mantissa, &fxp_double_get_fraction_part, &fraction_part);
 
 	printf("fraction_part.e : %lld\n", fraction_part.e);
 
@@ -29,9 +30,9 @@ void		test_double_get_fraction_part_case1(void)
 }
 
 // case 12345.6789
-void		test_double_get_fraction_part_case2(void)
+void		test_double_get_bcd_fraction_part_case2(void)
 {
-	printf(KYEL "test_double_get_fraction_part_case2\n" KNRM);
+	printf(KYEL "test_double_get_bcd_fraction_part_case2\n" KNRM);
 	short				exponent;
 	unsigned long long	mantissa;
 	t_fixedpoint		fraction_part;
@@ -39,7 +40,8 @@ void		test_double_get_fraction_part_case2(void)
 	fxp_init(&fraction_part);
 	exponent = 13;	mantissa = 0x181cd6e631f8a1;
 
-	fp_double_get_fraction_part(exponent, mantissa, &fraction_part);
+	fp_double_get_bcd_fraction_part(
+		exponent, mantissa, &fxp_double_get_fraction_part, &fraction_part);
 
 	printf("fraction_part.e : %lld\n", fraction_part.e);
 
@@ -57,9 +59,9 @@ void		test_double_get_fraction_part_case2(void)
 }
 
 // case 123000.6789
-void		test_double_get_fraction_part_case3(void)
+void		test_double_get_bcd_fraction_part_case3(void)
 {
-	printf(KYEL "test_double_get_fraction_part_case3\n" KNRM);
+	printf(KYEL "test_double_get_bcd_fraction_part_case3\n" KNRM);
 	short				exponent;	unsigned long long	mantissa;
 	t_fixedpoint		fraction_part;
 
@@ -68,7 +70,8 @@ void		test_double_get_fraction_part_case3(void)
 	exponent = 16;
 	mantissa = 0x1e078adcc63f14;
 
-	fp_double_get_fraction_part(exponent, mantissa, &fraction_part);
+	fp_double_get_bcd_fraction_part(
+		exponent, mantissa, &fxp_double_get_fraction_part, &fraction_part);
 
 	printf("fraction_part.e : %lld\n", fraction_part.e);
 
@@ -85,9 +88,9 @@ void		test_double_get_fraction_part_case3(void)
 }
 
 // case 12345.0
-void		test_double_get_fraction_part_case4(void)
+void		test_double_get_bcd_fraction_part_case4(void)
 {
-	printf(KYEL "test_double_get_fraction_part_case4\n" KNRM);
+	printf(KYEL "test_double_get_bcd_fraction_part_case4\n" KNRM);
 	short				exponent;	unsigned long long	mantissa;
 	t_fixedpoint		fraction_part;
 
@@ -96,7 +99,8 @@ void		test_double_get_fraction_part_case4(void)
 	exponent = 13;
 	mantissa = 0x181c8000000000;
 
-	fp_double_get_fraction_part(exponent, mantissa, &fraction_part);
+	fp_double_get_bcd_fraction_part(
+		exponent, mantissa, &fxp_double_get_fraction_part, &fraction_part);
 
 	printf("fraction_part.num.occupied : %zu\n", fraction_part.num.occupied);
 	printf("fraction_part.e : %lld\n", fraction_part.e);
@@ -114,9 +118,9 @@ void		test_double_get_fraction_part_case4(void)
 }
 
 // case 0.123451234512345123451234512345
-void		test_double_get_fraction_part_case5(void)
+void		test_double_get_bcd_fraction_part_case5(void)
 {
-	printf(KYEL "test_double_get_fraction_part_case5\n" KNRM);
+	printf(KYEL "test_double_get_bcd_fraction_part_case5\n" KNRM);
 	short				exponent;
 	unsigned long long	mantissa;
 	t_fixedpoint		fraction_part;
@@ -125,7 +129,8 @@ void		test_double_get_fraction_part_case5(void)
 	exponent = -4;
 	mantissa = 0x1f9a8006e1a013;
 
-	fp_double_get_fraction_part(exponent, mantissa, &fraction_part);
+	fp_double_get_bcd_fraction_part(
+		exponent, mantissa, &fxp_double_get_fraction_part, &fraction_part);
 
 	printf("fraction_part.e : %lld\n", fraction_part.e);
 
@@ -142,9 +147,9 @@ void		test_double_get_fraction_part_case5(void)
 }
 
 // case 0.00000000000000000000000000000012345
-void		test_double_get_fraction_part_case6(void)
+void		test_double_get_bcd_fraction_part_case6(void)
 {
-	printf(KYEL "test_double_get_fraction_part_case6\n" KNRM);
+	printf(KYEL "test_double_get_bcd_fraction_part_case6\n" KNRM);
 	short				exponent;
 	unsigned long long	mantissa;
 	t_fixedpoint		fraction_part;
@@ -153,7 +158,8 @@ void		test_double_get_fraction_part_case6(void)
 	exponent = -103;
 	mantissa = 0x1407e9919234d8;
 
-	fp_double_get_fraction_part(exponent, mantissa, &fraction_part);
+	fp_double_get_bcd_fraction_part(
+		exponent, mantissa, &fxp_double_get_fraction_part, &fraction_part);
 
 	printf("fraction_part.e : %lld\n", fraction_part.e);
 
@@ -170,9 +176,9 @@ void		test_double_get_fraction_part_case6(void)
 }
 
 // case 0.123451234512345123451234512345, precision 4
-void		test_double_get_fraction_part_case7(void)
+void		test_double_get_bcd_fraction_part_case7(void)
 {
-	printf(KYEL "test_double_get_fraction_part_case7\n" KNRM);
+	printf(KYEL "test_double_get_bcd_fraction_part_case7\n" KNRM);
 	short				exponent;
 	unsigned long long	mantissa;
 	t_fixedpoint		fraction_part;
@@ -181,7 +187,8 @@ void		test_double_get_fraction_part_case7(void)
 	exponent = -4;
 	mantissa = 0x1f9a8006e1a013;
 
-	fp_double_get_fraction_part(exponent, mantissa, &fraction_part);
+	fp_double_get_bcd_fraction_part(
+		exponent, mantissa, &fxp_double_get_fraction_part, &fraction_part);
 
 	printf("fraction_part.e : %lld\n", fraction_part.e);
 
@@ -198,9 +205,9 @@ void		test_double_get_fraction_part_case7(void)
 }
 
 // case 0.00000000000000000000000000000012345, precision 34
-void		test_double_get_fraction_part_case8(void)
+void		test_double_get_bcd_fraction_part_case8(void)
 {
-	printf(KYEL "test_double_get_fraction_part_case8\n" KNRM);
+	printf(KYEL "test_double_get_bcd_fraction_part_case8\n" KNRM);
 	short				exponent;
 	unsigned long long	mantissa;
 	t_fixedpoint		fraction_part;
@@ -209,7 +216,8 @@ void		test_double_get_fraction_part_case8(void)
 	exponent = -103;
 	mantissa = 0x1407e9919234d8;
 
-	fp_double_get_fraction_part(exponent, mantissa, &fraction_part);
+	fp_double_get_bcd_fraction_part(
+		exponent, mantissa, &fxp_double_get_fraction_part, &fraction_part);
 
 	printf("fraction_part.e : %lld\n", fraction_part.e);
 
@@ -226,9 +234,9 @@ void		test_double_get_fraction_part_case8(void)
 }
 
 // case 3.9999999999
-void		test_double_get_fraction_part_case9(void)
+void		test_double_get_bcd_fraction_part_case9(void)
 {
-	printf(KYEL "test_double_get_fraction_part_case9\n" KNRM);
+	printf(KYEL "test_double_get_bcd_fraction_part_case9\n" KNRM);
 	short				exponent;
 	unsigned long long	mantissa;
 	t_fixedpoint		fraction_part;
@@ -237,7 +245,8 @@ void		test_double_get_fraction_part_case9(void)
 	exponent = 1;
 	mantissa = 0x1ffffffffc9064;
 
-	fp_double_get_fraction_part(exponent, mantissa, &fraction_part);
+	fp_double_get_bcd_fraction_part(
+		exponent, mantissa, &fxp_double_get_fraction_part, &fraction_part);
 
 	printf("fraction_part.e : %lld\n", fraction_part.e);
 

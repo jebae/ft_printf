@@ -14,7 +14,7 @@ void		test_arg_f_write_case1(void)
 	data.f.float64 = 3.14;
 	fxp_init(&data.f.int_part);
 	fxp_init(&data.f.fraction_part);
-	fp_set_double_parts(data.f.float64, tags.precision,
+	fp_get_double_parts(data.f.float64, tags.precision,
 		&data.f.int_part, &data.f.fraction_part);
 	fp_arg_f_write(&data, &tags, fp_arg_f_length(&data, &tags), &buf);
 	printf("result : %s\n", buf.data);
@@ -38,7 +38,7 @@ void		test_arg_f_write_case2(void)
 	data.f.float64 = -3.14;
 	fxp_init(&data.f.int_part);
 	fxp_init(&data.f.fraction_part);
-	fp_set_double_parts(data.f.float64, tags.precision,
+	fp_get_double_parts(data.f.float64, tags.precision,
 		&data.f.int_part, &data.f.fraction_part);
 	fp_arg_f_write(&data, &tags, fp_arg_f_length(&data, &tags), &buf);
 	printf("result : %s (no need sign)\n", buf.data);
@@ -62,7 +62,7 @@ void		test_arg_f_write_case3(void)
 	data.f.float64 = 9.87654321;
 	fxp_init(&data.f.int_part);
 	fxp_init(&data.f.fraction_part);
-	fp_set_double_parts(data.f.float64, tags.precision,
+	fp_get_double_parts(data.f.float64, tags.precision,
 		&data.f.int_part, &data.f.fraction_part);
 	fp_arg_f_write(&data, &tags, fp_arg_f_length(&data, &tags), &buf);
 	printf("result : %s\n", buf.data);
@@ -86,7 +86,7 @@ void		test_arg_f_write_case4(void)
 	data.f.float64 = 9.87654321;
 	fxp_init(&data.f.int_part);
 	fxp_init(&data.f.fraction_part);
-	fp_set_double_parts(data.f.float64, tags.precision,
+	fp_get_double_parts(data.f.float64, tags.precision,
 		&data.f.int_part, &data.f.fraction_part);
 	fp_arg_f_write(&data, &tags, fp_arg_f_length(&data, &tags), &buf);
 	printf("result : %s\n", buf.data);
@@ -110,7 +110,7 @@ void		test_arg_f_write_case5(void)
 	data.f.float64 = 0.0;
 	fxp_init(&data.f.int_part);
 	fxp_init(&data.f.fraction_part);
-	fp_set_double_parts(data.f.float64, tags.precision,
+	fp_get_double_parts(data.f.float64, tags.precision,
 		&data.f.int_part, &data.f.fraction_part);
 	fp_arg_f_write(&data, &tags, fp_arg_f_length(&data, &tags), &buf);
 	printf("result : %s\n", buf.data);
@@ -186,7 +186,7 @@ void		test_arg_f_write_case9(void)
 	data.f.float64 = 3.14;
 	fxp_init(&data.f.int_part);
 	fxp_init(&data.f.fraction_part);
-	fp_set_double_parts(data.f.float64, tags.precision,
+	fp_get_double_parts(data.f.float64, tags.precision,
 		&data.f.int_part, &data.f.fraction_part);
 	fp_arg_f_write(&data, &tags, fp_arg_f_length(&data, &tags), &buf);
 	printf("result : %s\n", buf.data);
@@ -246,7 +246,7 @@ void		test_arg_f_write_case12(void)
 	data.f.float64 = 99.997;
 	fxp_init(&data.f.int_part);
 	fxp_init(&data.f.fraction_part);
-	fp_set_double_parts(data.f.float64, tags.precision,
+	fp_get_double_parts(data.f.float64, tags.precision,
 		&data.f.int_part, &data.f.fraction_part);
 	fp_arg_f_write(&data, &tags, fp_arg_f_length(&data, &tags), &buf);
 	printf("result : %s\n", buf.data);
@@ -269,7 +269,7 @@ void		test_arg_lf_write_case1(void)
 	data.f.float128 = 3.14L;
 	fxp_init(&data.f.int_part);
 	fxp_init(&data.f.fraction_part);
-	fp_set_ldouble_parts(data.f.float128, tags.precision,
+	fp_get_ldouble_parts(data.f.float128, tags.precision,
 		&data.f.int_part, &data.f.fraction_part);
 	fp_arg_lf_write(&data, &tags, fp_arg_lf_length(&data, &tags), &buf);
 	printf("result : %s\n", buf.data);
@@ -292,7 +292,7 @@ void		test_arg_lf_write_case2(void)
 	data.f.float128 = -3.14L;
 	fxp_init(&data.f.int_part);
 	fxp_init(&data.f.fraction_part);
-	fp_set_ldouble_parts(data.f.float128, tags.precision,
+	fp_get_ldouble_parts(data.f.float128, tags.precision,
 		&data.f.int_part, &data.f.fraction_part);
 	fp_arg_lf_write(&data, &tags, fp_arg_lf_length(&data, &tags), &buf);
 	printf("result : %s (no need sign)\n", buf.data);
@@ -315,7 +315,7 @@ void		test_arg_lf_write_case3(void)
 	data.f.float128 = 9.87654321L;
 	fxp_init(&data.f.int_part);
 	fxp_init(&data.f.fraction_part);
-	fp_set_ldouble_parts(data.f.float128, tags.precision,
+	fp_get_ldouble_parts(data.f.float128, tags.precision,
 		&data.f.int_part, &data.f.fraction_part);
 	fp_arg_lf_write(&data, &tags, fp_arg_lf_length(&data, &tags), &buf);
 	printf("result : %s\n", buf.data);
@@ -338,7 +338,7 @@ void		test_arg_lf_write_case4(void)
 	data.f.float128 = 9.87654321L;
 	fxp_init(&data.f.int_part);
 	fxp_init(&data.f.fraction_part);
-	fp_set_ldouble_parts(data.f.float128, tags.precision,
+	fp_get_ldouble_parts(data.f.float128, tags.precision,
 		&data.f.int_part, &data.f.fraction_part);
 	fp_arg_lf_write(&data, &tags, fp_arg_lf_length(&data, &tags), &buf);
 	printf("result : %s\n", buf.data);
@@ -361,7 +361,7 @@ void		test_arg_lf_write_case5(void)
 	data.f.float128 = 0.0L;
 	fxp_init(&data.f.int_part);
 	fxp_init(&data.f.fraction_part);
-	fp_set_ldouble_parts(data.f.float128, tags.precision,
+	fp_get_ldouble_parts(data.f.float128, tags.precision,
 		&data.f.int_part, &data.f.fraction_part);
 	fp_arg_lf_write(&data, &tags, fp_arg_lf_length(&data, &tags), &buf);
 	printf("result : %s\n", buf.data);
@@ -434,7 +434,7 @@ void		test_arg_lf_write_case9(void)
 	data.f.float128 = 3.14;
 	fxp_init(&data.f.int_part);
 	fxp_init(&data.f.fraction_part);
-	fp_set_ldouble_parts(data.f.float128, tags.precision,
+	fp_get_ldouble_parts(data.f.float128, tags.precision,
 		&data.f.int_part, &data.f.fraction_part);
 	fp_arg_lf_write(&data, &tags, fp_arg_lf_length(&data, &tags), &buf);
 	printf("result : %s\n", buf.data);
@@ -494,7 +494,7 @@ void		test_arg_lf_write_case12(void)
 	data.f.float128 = 999.995;
 	fxp_init(&data.f.int_part);
 	fxp_init(&data.f.fraction_part);
-	fp_set_ldouble_parts(data.f.float128, tags.precision,
+	fp_get_ldouble_parts(data.f.float128, tags.precision,
 		&data.f.int_part, &data.f.fraction_part);
 	fp_arg_lf_write(&data, &tags, fp_arg_lf_length(&data, &tags), &buf);
 	printf("result : %s\n", buf.data);

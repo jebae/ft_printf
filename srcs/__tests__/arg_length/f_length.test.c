@@ -11,7 +11,7 @@ void		test_arg_f_length_case1(void)
 	tags.precision = 3;
 	fxp_init(&data.f.int_part);
 	fxp_init(&data.f.fraction_part);
-	fp_set_double_parts(data.f.float64, tags.precision,
+	fp_get_double_parts(data.f.float64, tags.precision,
 		&data.f.int_part, &data.f.fraction_part);
 
 	test(
@@ -34,7 +34,7 @@ void		test_arg_f_length_case2(void)
 	tags.precision = 3;
 	fxp_init(&data.f.int_part);
 	fxp_init(&data.f.fraction_part);
-	fp_set_double_parts(data.f.float64, tags.precision,
+	fp_get_double_parts(data.f.float64, tags.precision,
 		&data.f.int_part, &data.f.fraction_part);
 
 	test(
@@ -57,7 +57,7 @@ void		test_arg_f_length_case3(void)
 	tags.precision = 3;
 	fxp_init(&data.f.int_part);
 	fxp_init(&data.f.fraction_part);
-	fp_set_double_parts(data.f.float64, tags.precision,
+	fp_get_double_parts(data.f.float64, tags.precision,
 		&data.f.int_part, &data.f.fraction_part);
 
 	test(
@@ -80,7 +80,7 @@ void		test_arg_f_length_case4(void)
 	tags.precision = 0;
 	fxp_init(&data.f.int_part);
 	fxp_init(&data.f.fraction_part);
-	fp_set_double_parts(data.f.float64, tags.precision,
+	fp_get_double_parts(data.f.float64, tags.precision,
 		&data.f.int_part, &data.f.fraction_part);
 
 	test(
@@ -103,7 +103,7 @@ void		test_arg_f_length_case5(void)
 	tags.precision = 4;
 	fxp_init(&data.f.int_part);
 	fxp_init(&data.f.fraction_part);
-	fp_set_double_parts(data.f.float64, tags.precision,
+	fp_get_double_parts(data.f.float64, tags.precision,
 		&data.f.int_part, &data.f.fraction_part);
 
 	test(
@@ -127,7 +127,7 @@ void		test_arg_f_length_case6(void)
 	tags.precision = 4;
 	fxp_init(&data.f.int_part);
 	fxp_init(&data.f.fraction_part);
-	fp_set_double_parts(data.f.float64, tags.precision,
+	fp_get_double_parts(data.f.float64, tags.precision,
 		&data.f.int_part, &data.f.fraction_part);
 
 	test(
@@ -152,7 +152,7 @@ void		test_arg_f_length_case7(void)
 	tags.precision = 4;
 	fxp_init(&data.f.int_part);
 	fxp_init(&data.f.fraction_part);
-	fp_set_double_parts(data.f.float64, tags.precision,
+	fp_get_double_parts(data.f.float64, tags.precision,
 		&data.f.int_part, &data.f.fraction_part);
 
 	test(
@@ -177,7 +177,7 @@ void		test_arg_f_length_case8(void)
 	tags.mask |= FP_MASK_FLAG_SHARP;
 	fxp_init(&data.f.int_part);
 	fxp_init(&data.f.fraction_part);
-	fp_set_double_parts(data.f.float64, tags.precision,
+	fp_get_double_parts(data.f.float64, tags.precision,
 		&data.f.int_part, &data.f.fraction_part);
 
 	test(
@@ -201,7 +201,7 @@ void		test_arg_f_length_case9(void)
 	tags.precision = 2;
 	fxp_init(&data.f.int_part);
 	fxp_init(&data.f.fraction_part);
-	fp_set_double_parts(data.f.float64, tags.precision,
+	fp_get_double_parts(data.f.float64, tags.precision,
 		&data.f.int_part, &data.f.fraction_part);
 
 	test(
@@ -224,7 +224,7 @@ void		test_arg_lf_length_case1(void)
 	tags.precision = 3;
 	fxp_init(&data.f.int_part);
 	fxp_init(&data.f.fraction_part);
-	fp_set_ldouble_parts(data.f.float128, tags.precision,
+	fp_get_ldouble_parts(data.f.float128, tags.precision,
 		&data.f.int_part, &data.f.fraction_part);
 
 	test(
@@ -247,7 +247,7 @@ void		test_arg_lf_length_case2(void)
 	tags.precision = 3;
 	fxp_init(&data.f.int_part);
 	fxp_init(&data.f.fraction_part);
-	fp_set_ldouble_parts(data.f.float128, tags.precision,
+	fp_get_ldouble_parts(data.f.float128, tags.precision,
 		&data.f.int_part, &data.f.fraction_part);
 
 	test(
@@ -270,7 +270,7 @@ void		test_arg_lf_length_case3(void)
 	tags.precision = 3;
 	fxp_init(&data.f.int_part);
 	fxp_init(&data.f.fraction_part);
-	fp_set_ldouble_parts(data.f.float128, tags.precision,
+	fp_get_ldouble_parts(data.f.float128, tags.precision,
 		&data.f.int_part, &data.f.fraction_part);
 
 	test(
@@ -293,7 +293,7 @@ void		test_arg_lf_length_case4(void)
 	tags.precision = 0;
 	fxp_init(&data.f.int_part);
 	fxp_init(&data.f.fraction_part);
-	fp_set_ldouble_parts(data.f.float128, tags.precision,
+	fp_get_ldouble_parts(data.f.float128, tags.precision,
 		&data.f.int_part, &data.f.fraction_part);
 
 	test(
@@ -316,7 +316,7 @@ void		test_arg_lf_length_case5(void)
 	tags.precision = 4;
 	fxp_init(&data.f.int_part);
 	fxp_init(&data.f.fraction_part);
-	fp_set_ldouble_parts(data.f.float128, tags.precision,
+	fp_get_ldouble_parts(data.f.float128, tags.precision,
 		&data.f.int_part, &data.f.fraction_part);
 
 	test(
@@ -340,7 +340,7 @@ void		test_arg_lf_length_case6(void)
 	tags.precision = 4;
 	fxp_init(&data.f.int_part);
 	fxp_init(&data.f.fraction_part);
-	fp_set_ldouble_parts(data.f.float128, tags.precision,
+	fp_get_ldouble_parts(data.f.float128, tags.precision,
 		&data.f.int_part, &data.f.fraction_part);
 
 	test(
@@ -364,7 +364,7 @@ void		test_arg_lf_length_case7(void)
 	tags.precision = 4;
 	fxp_init(&data.f.int_part);
 	fxp_init(&data.f.fraction_part);
-	fp_set_ldouble_parts(data.f.float128, tags.precision,
+	fp_get_ldouble_parts(data.f.float128, tags.precision,
 		&data.f.int_part, &data.f.fraction_part);
 
 	test(
@@ -390,7 +390,7 @@ void		test_arg_lf_length_case8(void)
 	tags.precision = 0;
 	fxp_init(&data.f.int_part);
 	fxp_init(&data.f.fraction_part);
-	fp_set_ldouble_parts(data.f.float128, tags.precision,
+	fp_get_ldouble_parts(data.f.float128, tags.precision,
 		&data.f.int_part, &data.f.fraction_part);
 
 	test(
@@ -414,7 +414,7 @@ void		test_arg_lf_length_case9(void)
 	tags.precision = 0;
 	fxp_init(&data.f.int_part);
 	fxp_init(&data.f.fraction_part);
-	fp_set_ldouble_parts(data.f.float128, tags.precision,
+	fp_get_ldouble_parts(data.f.float128, tags.precision,
 		&data.f.int_part, &data.f.fraction_part);
 
 	test(

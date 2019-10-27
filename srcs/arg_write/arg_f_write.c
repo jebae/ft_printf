@@ -32,7 +32,7 @@ static void		f_write(
 	t_fp_buffer *buf
 )
 {
-	fp_double_write_integer_part(&data->f.int_part, buf);
+	fp_double_write_int_part(&data->f.int_part, buf);
 	if (tags->precision == 0)
 	{
 		if (tags->mask & FP_MASK_FLAG_SHARP)

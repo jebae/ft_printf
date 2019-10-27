@@ -62,6 +62,7 @@ SRC_ARG_LENGTH = num_length.c\
 	arg_o_length.c\
 	arg_s_length.c\
 	arg_c_length.c\
+	arg_e_length.c\
 
 SRC_ARG_SIGN = num_sign.c\
 	arg_d_sign.c\
@@ -80,12 +81,8 @@ SRC_ARG_LEADING_ZERO = arg_leading_zero.c\
 SRC_BUFFER = buffer.c\
 
 SRC_ARG_WRITE = int_write.c\
-	double_get_fraction_part.c\
-	double_get_integer_part.c\
-	double_write_integer_part.c\
+	double_write_int_part.c\
 	double_write_fraction_part.c\
-	ldouble_get_integer_part.c\
-	ldouble_get_fraction_part.c\
 	arg_d_write.c\
 	arg_u_write.c\
 	arg_f_write.c\
@@ -107,8 +104,12 @@ SRC_PARSE_PERCENT = write_percent_format.c\
 	parse_s.c\
 	parse_c.c\
 	parse_p.c\
-	set_double_parts.c\
-	set_ldouble_parts.c\
+	float_utils.c\
+	get_double_parts.c\
+	get_double_scientific_parts.c\
+	get_ldouble_parts.c\
+	double_get_bcd_fraction_part.c\
+	double_get_bcd_int_part.c\
 
 # objs
 OBJS = $(addprefix $(OBJDIR)/, $(SRC_FT_PRINTF:.c=.o))
@@ -176,6 +177,7 @@ LIBBIGINT_OBJS = bi_del.o\
 	bcd_rm_trailing_zero.o\
 	bcd_iter.o\
 	bcd_round.o\
+	bcd_add_digit.o\
 
 LIBFIXEDPOINT_OBJS = fxp_init.o\
 	fxp_del.o\
@@ -183,6 +185,10 @@ LIBFIXEDPOINT_OBJS = fxp_init.o\
 	fxp_mul_fxp.o\
 	fxp_strassen_mul_fxp.o\
 	fxp_round.o\
+	fxp_double_get_int_part.o\
+	fxp_double_get_fraction_part.o\
+	fxp_ldouble_get_int_part.o\
+	fxp_ldouble_get_fraction_part.o\
 
 OBJS += $(addprefix $(LIBFT_PATH)/objs/, $(LIBFT_OBJS))
 OBJS += $(addprefix $(LIBBIGINT_PATH)/objs/, $(LIBBIGINT_OBJS))
@@ -219,10 +225,10 @@ $(OBJDIR)/%.o : $(SRCDIR)/buffer/%.c $(HEADERS)
 $(OBJDIR)/%.o : $(SRCDIR)/arg_write/%.c $(HEADERS)
 	@$(call compile_obj,$<,$@)
 
-$(OBJDIR)/%.o : $(SRCDIR)/arg_write/double_utils/%.c $(HEADERS)
+$(OBJDIR)/%.o : $(SRCDIR)/arg_write/float/%.c $(HEADERS)
 	@$(call compile_obj,$<,$@)
 
-$(OBJDIR)/%.o : $(SRCDIR)/parse_percent/double_utils/%.c $(HEADERS)
+$(OBJDIR)/%.o : $(SRCDIR)/parse_percent/float/%.c $(HEADERS)
 	@$(call compile_obj,$<,$@)
 
 $(OBJDIR)/%.o : $(SRCDIR)/parse_percent/%.c $(HEADERS)

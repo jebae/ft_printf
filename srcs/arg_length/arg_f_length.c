@@ -10,14 +10,14 @@ static size_t	f_length(t_fp_tags *tags, t_fixedpoint *int_part)
 	return (bcd_len(&int_part->num) + len);
 }
 
-size_t		fp_arg_f_length(t_fp_arg_data *data, t_fp_tags *tags)
+size_t			fp_arg_f_length(t_fp_arg_data *data, t_fp_tags *tags)
 {
 	if (ft_is_nan(data->f.float64) || ft_is_inf(data->f.float64))
 		return (3);
 	return (f_length(tags, &data->f.int_part));
 }
 
-size_t		fp_arg_lf_length(t_fp_arg_data *data, t_fp_tags *tags)
+size_t			fp_arg_lf_length(t_fp_arg_data *data, t_fp_tags *tags)
 {
 	if (ft_is_nan_l(data->f.float128) || ft_is_inf_l(data->f.float128))
 		return (3);

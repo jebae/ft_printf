@@ -6,7 +6,7 @@ static void		case_lf(va_list ap, t_fp_tags *tags, t_fp_arg *arg)
 
 	f = &arg->data.f;
 	f->float128 = va_arg(ap, long double);
-	if (fp_set_ldouble_parts(f->float128, tags->precision,
+	if (fp_get_ldouble_parts(f->float128, tags->precision,
 		&f->int_part, &f->fraction_part) == FP_FAIL)
 	{
 		fxp_del(&f->int_part);
@@ -29,7 +29,7 @@ void			fp_parse_f(va_list ap, t_fp_tags *tags, t_fp_arg *arg)
 		return (case_lf(ap, tags, arg));
 	f = &arg->data.f;
 	f->float64 = va_arg(ap, double);
-	if (fp_set_double_parts(f->float64, tags->precision,
+	if (fp_get_double_parts(f->float64, tags->precision,
 		&f->int_part, &f->fraction_part) == FP_FAIL)
 	{
 		fxp_del(&f->int_part);
