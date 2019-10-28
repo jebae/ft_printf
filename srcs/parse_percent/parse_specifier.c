@@ -49,6 +49,8 @@ size_t			fp_parse_specifier(
 		fp_parse_c(ap, tags, arg);
 	else if (*format == 'p')
 		fp_parse_p(ap, tags, arg);
+	else if (*format == 'e')
+		fp_parse_e(ap, tags, arg);
 	else
 		parse_non_specifier(arg, *format);
 	return (1);

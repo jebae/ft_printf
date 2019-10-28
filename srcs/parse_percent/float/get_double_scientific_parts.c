@@ -14,6 +14,24 @@ static int		case_int_part_only(
 	return (FP_SUCCESS);
 }
 
+static int		handle_round_carry(
+	t_fixedpoint *int_part,
+	t_fixedpoint *fraction_part,
+	size_t precision,
+	size_t int_len
+)
+{
+	if (int_part->num.occupied == 0)
+		precision -= bcd_len(&fraction_part->num) - 1 + fraction_part->e;
+	else
+		precision -= int_len - 1;
+	if (fp_round_bcd_fraction_part(fraction_part, precision) == FP_FAIL)
+		return (FP_FAIL);
+	if (fraction_part->e >= 0 && fraction_part->num.occupied != 0)
+		return (fp_double_handle_carry(int_part, fraction_part));
+	return (FP_SUCCESS);
+}
+
 int				fp_get_double_scientific_parts(
 	double num,
 	size_t precision,
@@ -38,12 +56,5 @@ int				fp_get_double_scientific_parts(
 	if (fp_double_get_bcd_fraction_part(exponent, mantissa,
 		&fxp_double_get_fraction_part, fraction_part) == FP_FAIL)
 		return (FP_FAIL);
-	precision = (int_part->num.occupied == 0)
-		? precision - (bcd_len(&fraction_part->num) - 1 + fraction_part->e)
-		: precision - (int_len - 1);
-	if (fp_round_bcd_fraction_part(fraction_part, precision) == FP_FAIL)
-		return (FP_FAIL);
-	if (fraction_part->e >= 0 && fraction_part->num.occupied != 0)
-		return (fp_double_handle_carry(int_part, fraction_part));
-	return (FP_SUCCESS);
+	return (handle_round_carry(int_part, fraction_part, precision, int_len));
 }

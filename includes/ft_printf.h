@@ -552,6 +552,7 @@ void			fp_parse_o(va_list ap, t_fp_tags *tags, t_fp_arg *arg);
 void			fp_parse_s(va_list ap, t_fp_tags *tags, t_fp_arg *arg);
 void			fp_parse_c(va_list ap, t_fp_tags *tags, t_fp_arg *arg);
 void			fp_parse_p(va_list ap, t_fp_tags *tags, t_fp_arg *arg);
+void			fp_parse_e(va_list ap, t_fp_tags *tags, t_fp_arg *arg);
 
 size_t			fp_parse_specifier(
 	const char *format,

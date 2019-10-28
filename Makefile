@@ -106,10 +106,10 @@ SRC_PARSE_PERCENT = write_percent_format.c\
 	parse_s.c\
 	parse_c.c\
 	parse_p.c\
+	parse_e.c\
 	float_utils.c\
 	get_double_parts.c\
 	get_double_scientific_parts.c\
-	get_ldouble_parts.c\
 	double_get_bcd_fraction_part.c\
 	double_get_bcd_int_part.c\
 
