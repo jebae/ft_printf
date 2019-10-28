@@ -239,7 +239,7 @@ $(OBJDIR)/%.o : $(SRCDIR)/parse_percent/%.c $(HEADERS)
 # build
 all : $(NAME)
 
-$(NAME) : deps pre_build $(OBJDIR) $(OBJS) post_build
+$(NAME) : deps pre_build $(OBJDIR) $(OBJS)
 	@ar rc $(NAME) $(OBJS)
 	@ranlib $(NAME)
 
@@ -249,14 +249,10 @@ deps :
 	@$(MAKE) -C $(LIBFIXEDPOINT_PATH) all
 
 pre_build :
-	@printf "$(KGRN)[ft_printf] $(KYEL)build $(NAME)\n$(KNRM)"
 	@cd ./$(INCDIR)
 	@ln -f $(LIBFT_PATH)/includes/libft.h ./$(INCDIR)/
 	@ln -f $(LIBBIGINT_PATH)/includes/bigint.h ./$(INCDIR)/
 	@ln -f $(LIBFIXEDPOINT_PATH)/includes/fixedpoint.h ./$(INCDIR)/
-
-post_build :
-	@printf "$(KGRN)[ft_printf] $(KYEL)$(COUNTER) files compiled\n$(KNRM)"
 
 $(OBJDIR) :
 	@mkdir -p $(OBJDIR)
@@ -269,7 +265,8 @@ clean :
 	@$(MAKE) -C $(LIBFT_PATH) clean
 	@$(MAKE) -C $(LIBBIGINT_PATH) clean
 	@$(MAKE) -C $(LIBFIXEDPOINT_PATH) clean
-	@rm -f $(OBJDIR)/$(OBJS)
+	@rm -f $(OBJS)
+	@rm -rf $(OBJDIR)
 
 fclean : clean
 	@$(MAKE) -C $(LIBFT_PATH) fclean
@@ -279,4 +276,4 @@ fclean : clean
 
 re : fclean all
 
-.PHONY : pre_build post_build deps all clean fclean re test
+.PHONY : pre_build deps all clean fclean re test
