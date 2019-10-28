@@ -269,7 +269,8 @@ clean :
 	@$(MAKE) -C $(LIBFT_PATH) clean
 	@$(MAKE) -C $(LIBBIGINT_PATH) clean
 	@$(MAKE) -C $(LIBFIXEDPOINT_PATH) clean
-	@rm -f $(OBJDIR)/$(OBJS)
+	@rm -f $(OBJS)
+	@rm -rf $(OBJDIR)
 
 fclean : clean
 	@$(MAKE) -C $(LIBFT_PATH) fclean
