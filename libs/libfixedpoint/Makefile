@@ -1,0 +1,81 @@
+# utils
+KRED=\033[0;31m
+KGRN=\033[0;32m
+KYEL=\033[0;33m
+KNRM=\033[0m
+COUNTER = 0
+
+define compile_obj
+	printf "$(KGRN)[fixedpoint]$(KNRM) compile $(1)\n"
+	$(CC) $(CFLAGS) $(INCLUDES) -c $(1) -o $(2)
+	$(eval COUNTER=$(shell echo $$(($(COUNTER) + 1))))
+endef
+
+# compiler
+CC = gcc
+
+# lib name
+NAME = libfixedpoint.a
+
+# path
+SRCDIR = srcs
+
+OBJDIR = objs
+
+INCDIR = includes
+
+LIBFT_PATH = ../libft
+
+BIGINT_PATH = ../libbigint
+
+# compiler options
+CFLAGS = -Wall -Wextra -Werror
+
+INCLUDES = -I ./$(INCDIR)\
+	-I $(LIBFT_PATH)/includes\
+	-I $(BIGINT_PATH)/includes\
+
+# srcs
+SRCS = fxp_init.c\
+	fxp_del.c\
+	fxp_compact.c\
+	fxp_mul_fxp.c\
+	fxp_strassen_mul_fxp.c\
+	fxp_round.c\
+	fxp_double_get_int_part.c\
+	fxp_double_get_fraction_part.c\
+	fxp_ldouble_get_int_part.c\
+	fxp_ldouble_get_fraction_part.c\
+
+# objs
+OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.c=.o))
+
+# compile objs
+HEADERS = $(INCDIR)/fixedpoint.h\
+	$(LIBFT_PATH)/includes/libft.h\
+	$(BIGINT_PATH)/includes/bigint.h\
+
+$(OBJDIR)/%.o : $(SRCDIR)/%.c $(HEADERS)
+	@$(call compile_obj,$<,$@)
+
+# build
+all : $(NAME)
+
+$(NAME) : $(OBJDIR) $(OBJS)
+	@ar rc $(NAME) $(OBJS)
+	@ranlib $(NAME)
+
+$(OBJDIR) :
+	@mkdir -p $(OBJDIR)
+
+# commands
+clean :
+	@rm -rf $(OBJS)
+	@rm -rf $(OBJDIR)
+
+fclean : clean
+	@rm -rf $(NAME)
+
+re : fclean all
+
+.PHONY : all clean fclean re
