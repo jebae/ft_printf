@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   arg_e_write.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/28 14:29:00 by jebae             #+#    #+#             */
+/*   Updated: 2019/10/28 14:29:01 by jebae            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static int		handle_inf_nan(
@@ -35,6 +47,20 @@ void			fp_arg_e_write(
 {
 	(void)length;
 	if (handle_inf_nan(data->f.float64, buf))
+		return ;
+	fp_double_write_scientific_parts(
+		&data->f.int_part, &data->f.fraction_part, tags, buf);
+}
+
+void			fp_arg_le_write(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	size_t length,
+	t_fp_buffer *buf
+)
+{
+	(void)length;
+	if (handle_inf_nan(data->f.float128, buf))
 		return ;
 	fp_double_write_scientific_parts(
 		&data->f.int_part, &data->f.fraction_part, tags, buf);

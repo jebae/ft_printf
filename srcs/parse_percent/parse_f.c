@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_f.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/28 14:29:49 by jebae             #+#    #+#             */
+/*   Updated: 2019/10/28 14:29:50 by jebae            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static void		case_lf(va_list ap, t_fp_tags *tags, t_fp_arg *arg)
@@ -6,7 +18,7 @@ static void		case_lf(va_list ap, t_fp_tags *tags, t_fp_arg *arg)
 
 	f = &arg->data.f;
 	f->float128 = va_arg(ap, long double);
-	if (fp_get_ldouble_parts(f->float128, tags->precision,
+	if (fp_ldouble_get_parts(f->float128, tags->precision,
 		&f->int_part, &f->fraction_part) == FP_FAIL)
 	{
 		fxp_del(&f->int_part);
@@ -29,7 +41,7 @@ void			fp_parse_f(va_list ap, t_fp_tags *tags, t_fp_arg *arg)
 		return (case_lf(ap, tags, arg));
 	f = &arg->data.f;
 	f->float64 = va_arg(ap, double);
-	if (fp_get_double_parts(f->float64, tags->precision,
+	if (fp_double_get_parts(f->float64, tags->precision,
 		&f->int_part, &f->fraction_part) == FP_FAIL)
 	{
 		fxp_del(&f->int_part);

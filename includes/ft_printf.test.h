@@ -549,6 +549,21 @@ void		test_parse_percent_case120(void);
 void		test_parse_percent_case121(void);
 void		test_parse_percent_case122(void);
 void		test_parse_percent_case123(void);
+void		test_parse_percent_case124(void);
+void		test_parse_percent_case125(void);
+void		test_parse_percent_case126(void);
+void		test_parse_percent_case127(void);
+void		test_parse_percent_case128(void);
+void		test_parse_percent_case129(void);
+void		test_parse_percent_case130(void);
+void		test_parse_percent_case131(void);
+void		test_parse_percent_case132(void);
+void		test_parse_percent_case133(void);
+void		test_parse_percent_case134(void);
+void		test_parse_percent_case135(void);
+void		test_parse_percent_case136(void);
+void		test_parse_percent_case137(void);
+void		test_parse_percent_case138(void);
 
 /*
 ** double write test
@@ -627,23 +642,42 @@ void		test_arg_o_leading_zero_case4(void);
 void		test_arg_o_leading_zero_case5(void);
 
 /*
-** get_double_scientific_parts test
+** double_get_scientific_parts test
 */
-void		test_get_double_scientific_parts_case1(void);
-void		test_get_double_scientific_parts_case2(void);
-void		test_get_double_scientific_parts_case3(void);
-void		test_get_double_scientific_parts_case4(void);
-void		test_get_double_scientific_parts_case5(void);
-void		test_get_double_scientific_parts_case6(void);
-void		test_get_double_scientific_parts_case7(void);
-void		test_get_double_scientific_parts_case8(void);
-void		test_get_double_scientific_parts_case9(void);
-void		test_get_double_scientific_parts_case10(void);
-void		test_get_double_scientific_parts_case11(void);
-void		test_get_double_scientific_parts_case12(void);
-void		test_get_double_scientific_parts_case13(void);
-void		test_get_double_scientific_parts_case14(void);
-void		test_get_double_scientific_parts_case15(void);
+void		test_double_get_scientific_parts_case1(void);
+void		test_double_get_scientific_parts_case2(void);
+void		test_double_get_scientific_parts_case3(void);
+void		test_double_get_scientific_parts_case4(void);
+void		test_double_get_scientific_parts_case5(void);
+void		test_double_get_scientific_parts_case6(void);
+void		test_double_get_scientific_parts_case7(void);
+void		test_double_get_scientific_parts_case8(void);
+void		test_double_get_scientific_parts_case9(void);
+void		test_double_get_scientific_parts_case10(void);
+void		test_double_get_scientific_parts_case11(void);
+void		test_double_get_scientific_parts_case12(void);
+void		test_double_get_scientific_parts_case13(void);
+void		test_double_get_scientific_parts_case14(void);
+void		test_double_get_scientific_parts_case15(void);
+
+/*
+** ldouble_get_scientific_parts test
+*/
+void		test_ldouble_get_scientific_parts_case1(void);
+void		test_ldouble_get_scientific_parts_case2(void);
+void		test_ldouble_get_scientific_parts_case3(void);
+void		test_ldouble_get_scientific_parts_case4(void);
+void		test_ldouble_get_scientific_parts_case5(void);
+void		test_ldouble_get_scientific_parts_case6(void);
+void		test_ldouble_get_scientific_parts_case7(void);
+void		test_ldouble_get_scientific_parts_case8(void);
+void		test_ldouble_get_scientific_parts_case9(void);
+void		test_ldouble_get_scientific_parts_case10(void);
+void		test_ldouble_get_scientific_parts_case11(void);
+void		test_ldouble_get_scientific_parts_case12(void);
+void		test_ldouble_get_scientific_parts_case13(void);
+void		test_ldouble_get_scientific_parts_case14(void);
+void		test_ldouble_get_scientific_parts_case15(void);
 
 /*
 ** arg_e_length test
@@ -666,6 +700,26 @@ void		test_arg_e_length_case15(void);
 void		test_arg_e_length_case16(void);
 
 /*
+** arg_le_length test
+*/
+void		test_arg_le_length_case1(void);
+void		test_arg_le_length_case2(void);
+void		test_arg_le_length_case3(void);
+void		test_arg_le_length_case4(void);
+void		test_arg_le_length_case5(void);
+void		test_arg_le_length_case6(void);
+void		test_arg_le_length_case7(void);
+void		test_arg_le_length_case8(void);
+void		test_arg_le_length_case9(void);
+void		test_arg_le_length_case10(void);
+void		test_arg_le_length_case11(void);
+void		test_arg_le_length_case12(void);
+void		test_arg_le_length_case13(void);
+void		test_arg_le_length_case14(void);
+void		test_arg_le_length_case15(void);
+void		test_arg_le_length_case16(void);
+
+/*
 ** arg_e_write test
 */
 void		test_arg_e_write_case1(void);
@@ -686,11 +740,35 @@ void		test_arg_e_write_case15(void);
 void		test_arg_e_write_case16(void);
 
 /*
+** arg_le_write test
+*/
+void		test_arg_le_write_case1(void);
+void		test_arg_le_write_case2(void);
+void		test_arg_le_write_case3(void);
+void		test_arg_le_write_case4(void);
+void		test_arg_le_write_case5(void);
+void		test_arg_le_write_case6(void);
+void		test_arg_le_write_case7(void);
+void		test_arg_le_write_case8(void);
+void		test_arg_le_write_case9(void);
+void		test_arg_le_write_case10(void);
+void		test_arg_le_write_case11(void);
+void		test_arg_le_write_case12(void);
+void		test_arg_le_write_case13(void);
+void		test_arg_le_write_case14(void);
+void		test_arg_le_write_case15(void);
+void		test_arg_le_write_case16(void);
+
+/*
 ** parse_e test
 */
 void		test_parse_e_case1(void);
 void		test_parse_e_case2(void);
 void		test_parse_e_case3(void);
 void		test_parse_e_case4(void);
+void		test_parse_e_case5(void);
+void		test_parse_e_case6(void);
+void		test_parse_e_case7(void);
+void		test_parse_e_case8(void);
 
 #endif

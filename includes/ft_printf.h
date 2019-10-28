@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/28 14:30:11 by jebae             #+#    #+#             */
+/*   Updated: 2019/10/28 14:48:35 by jebae            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
@@ -5,7 +17,6 @@
 # include "bigint.h"
 # include "fixedpoint.h"
 # include <stdarg.h>
-# include <stdio.h>
 
 /*
 ** bit_flags macros
@@ -111,8 +122,6 @@ size_t			fp_parse_length(const char *format, t_fp_tags *tags);
 */
 size_t			fp_int_length(long long num, int base);
 size_t			fp_uint_length(unsigned long long num, int base);
-size_t			fp_double_int_part_length(double num);
-size_t			fp_ldouble_int_part_length(long double num);
 
 size_t			fp_arg_d_length(t_fp_arg_data *data, t_fp_tags *tags);
 size_t			fp_arg_hd_length(t_fp_arg_data *data, t_fp_tags *tags);
@@ -128,6 +137,8 @@ size_t			fp_arg_llu_length(t_fp_arg_data *data, t_fp_tags *tags);
 
 size_t			fp_arg_f_length(t_fp_arg_data *data, t_fp_tags *tags);
 size_t			fp_arg_lf_length(t_fp_arg_data *data, t_fp_tags *tags);
+size_t			fp_arg_e_length(t_fp_arg_data *data, t_fp_tags *tags);
+size_t			fp_arg_le_length(t_fp_arg_data *data, t_fp_tags *tags);
 
 size_t			fp_arg_x_length(t_fp_arg_data *data, t_fp_tags *tags);
 size_t			fp_arg_hx_length(t_fp_arg_data *data, t_fp_tags *tags);
@@ -145,8 +156,6 @@ size_t			fp_arg_s_length(t_fp_arg_data *data, t_fp_tags *tags);
 size_t			fp_arg_ls_length(t_fp_arg_data *data, t_fp_tags *tags);
 
 size_t			fp_arg_c_length(t_fp_arg_data *data, t_fp_tags *tags);
-
-size_t			fp_arg_e_length(t_fp_arg_data *data, t_fp_tags *tags);
 
 /*
 ** arg_sign
@@ -304,7 +313,6 @@ void			fp_arg_llu_write(
 	t_fp_buffer *buf
 );
 
-
 void			fp_double_write_int_part(
 	t_fixedpoint *int_part,
 	t_fp_buffer *buf
@@ -331,6 +339,20 @@ void			fp_arg_f_write(
 );
 
 void			fp_arg_lf_write(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	size_t length,
+	t_fp_buffer *buf
+);
+
+void			fp_arg_e_write(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	size_t length,
+	t_fp_buffer *buf
+);
+
+void			fp_arg_le_write(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
 	size_t length,
@@ -463,13 +485,6 @@ void			fp_arg_c_write(
 	t_fp_buffer *buf
 );
 
-void			fp_arg_e_write(
-	t_fp_arg_data *data,
-	t_fp_tags *tags,
-	size_t length,
-	t_fp_buffer *buf
-);
-
 /*
 ** parse_percent
 */
@@ -516,21 +531,28 @@ int				fp_double_get_bcd_fraction_part(
 	t_fixedpoint *fraction_part
 );
 
-int				fp_get_double_parts(
+int				fp_double_get_parts(
 	double num,
 	size_t precision,
 	t_fixedpoint *int_part,
 	t_fixedpoint *fraction_part
 );
 
-int				fp_get_double_scientific_parts(
+int				fp_ldouble_get_parts(
+	long double num,
+	size_t precision,
+	t_fixedpoint *int_part,
+	t_fixedpoint *fraction_part
+);
+
+int				fp_double_get_scientific_parts(
 	double num,
 	size_t precision,
 	t_fixedpoint *int_part,
 	t_fixedpoint *fraction_part
 );
 
-int				fp_get_ldouble_parts(
+int				fp_ldouble_get_scientific_parts(
 	long double num,
 	size_t precision,
 	t_fixedpoint *int_part,

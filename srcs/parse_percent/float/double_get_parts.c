@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   double_get_parts.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/28 14:29:35 by jebae             #+#    #+#             */
+/*   Updated: 2019/10/28 14:33:31 by jebae            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-int				fp_get_double_parts(
+int				fp_double_get_parts(
 	double num,
 	size_t precision,
 	t_fixedpoint *int_part,
@@ -27,7 +39,7 @@ int				fp_get_double_parts(
 	return (FP_SUCCESS);
 }
 
-int		fp_get_ldouble_parts(
+int				fp_ldouble_get_parts(
 	long double num,
 	size_t precision,
 	t_fixedpoint *int_part,

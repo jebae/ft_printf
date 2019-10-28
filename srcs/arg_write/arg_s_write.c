@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   arg_s_write.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/28 14:34:19 by jebae             #+#    #+#             */
+/*   Updated: 2019/10/28 14:34:36 by jebae            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static void		handle_null(size_t precision, t_fp_buffer *buf)
@@ -87,7 +99,7 @@ void			fp_arg_ls_write(
 	if (str == NULL)
 		return (handle_null(tags->precision, buf));
 	if (tags->mask & FP_MASK_PRECISION)
-		return ls_write_case_precision(str, tags->precision, utf8, buf);
+		return (ls_write_case_precision(str, tags->precision, utf8, buf));
 	while (*str != 0)
 	{
 		ft_to_utf8(*str, utf8);

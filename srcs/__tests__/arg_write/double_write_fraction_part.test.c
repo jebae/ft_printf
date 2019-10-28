@@ -13,7 +13,7 @@ void		test_double_write_fraction_part_case1(void)
 	fxp_init(&fraction_part);
 	fxp_init(&int_part);
 	fp_init_buffer(&buf);
-	fp_get_double_parts(num, precision, &int_part, &fraction_part);
+	fp_double_get_parts(num, precision, &int_part, &fraction_part);
 
 	fp_double_write_fraction_part(&fraction_part, precision, &buf);
 	printf("result : %s\n", buf.data);
@@ -36,7 +36,7 @@ void		test_double_write_fraction_part_case2(void)
 	fxp_init(&fraction_part);
 	fxp_init(&int_part);
 	fp_init_buffer(&buf);
-	fp_get_double_parts(num, precision, &int_part, &fraction_part);
+	fp_double_get_parts(num, precision, &int_part, &fraction_part);
 
 	fp_double_write_fraction_part(&fraction_part, precision, &buf);
 	printf("result : %s\n", buf.data);
@@ -59,7 +59,7 @@ void		test_double_write_fraction_part_case3(void)
 	fxp_init(&fraction_part);
 	fxp_init(&int_part);
 	fp_init_buffer(&buf);
-	fp_get_double_parts(num, precision, &int_part, &fraction_part);
+	fp_double_get_parts(num, precision, &int_part, &fraction_part);
 
 	fp_double_write_fraction_part(&fraction_part, precision, &buf);
 	printf("result : %s\n", buf.data);
@@ -82,7 +82,7 @@ void		test_double_write_fraction_part_case4(void)
 	fxp_init(&fraction_part);
 	fxp_init(&int_part);
 	fp_init_buffer(&buf);
-	fp_get_double_parts(num, precision, &int_part, &fraction_part);
+	fp_double_get_parts(num, precision, &int_part, &fraction_part);
 
 	fp_double_write_fraction_part(&fraction_part, precision, &buf);
 	printf("result : %s\n", buf.data);
@@ -105,7 +105,7 @@ void		test_double_write_fraction_part_case5(void)
 	fxp_init(&fraction_part);
 	fxp_init(&int_part);
 	fp_init_buffer(&buf);
-	fp_get_double_parts(num, precision, &int_part, &fraction_part);
+	fp_double_get_parts(num, precision, &int_part, &fraction_part);
 
 	fp_double_write_fraction_part(&fraction_part, precision, &buf);
 	printf("result : %s\n", buf.data);
@@ -128,7 +128,7 @@ void		test_double_write_fraction_part_case6(void)
 	fxp_init(&fraction_part);
 	fxp_init(&int_part);
 	fp_init_buffer(&buf);
-	fp_get_double_parts(num, precision, &int_part, &fraction_part);
+	fp_double_get_parts(num, precision, &int_part, &fraction_part);
 
 	fp_double_write_fraction_part(&fraction_part, precision, &buf);
 	printf("result : %s\n", buf.data);
@@ -151,7 +151,7 @@ void		test_double_write_fraction_part_case7(void)
 	fxp_init(&fraction_part);
 	fxp_init(&int_part);
 	fp_init_buffer(&buf);
-	fp_get_double_parts(num, precision, &int_part, &fraction_part);
+	fp_double_get_parts(num, precision, &int_part, &fraction_part);
 
 	fp_double_write_fraction_part(&fraction_part, precision, &buf);
 	printf("result : %s\n", buf.data);
@@ -174,7 +174,7 @@ void		test_double_write_fraction_part_case8(void)
 	fxp_init(&fraction_part);
 	fxp_init(&int_part);
 	fp_init_buffer(&buf);
-	fp_get_double_parts(num, precision, &int_part, &fraction_part);
+	fp_double_get_parts(num, precision, &int_part, &fraction_part);
 
 	fp_double_write_fraction_part(&fraction_part, precision, &buf);
 	printf("result : %s\n", buf.data);
@@ -197,7 +197,7 @@ void		test_double_write_fraction_part_case9(void)
 	fxp_init(&fraction_part);
 	fxp_init(&int_part);
 	fp_init_buffer(&buf);
-	fp_get_double_parts(num, precision, &int_part, &fraction_part);
+	fp_double_get_parts(num, precision, &int_part, &fraction_part);
 
 	fp_double_write_fraction_part(&fraction_part, precision, &buf);
 	printf("result : %s\n", buf.data);
@@ -220,7 +220,7 @@ void		test_double_write_fraction_part_case10(void)
 	fxp_init(&fraction_part);
 	fxp_init(&int_part);
 	fp_init_buffer(&buf);
-	fp_get_double_parts(num, precision, &int_part, &fraction_part);
+	fp_double_get_parts(num, precision, &int_part, &fraction_part);
 
 	fp_double_write_fraction_part(&fraction_part, precision, &buf);
 	printf("result : %s\n", buf.data);
@@ -243,7 +243,7 @@ void		test_double_write_fraction_part_case11(void)
 	fxp_init(&fraction_part);
 	fxp_init(&int_part);
 	fp_init_buffer(&buf);
-	fp_get_double_parts(num, precision, &int_part, &fraction_part);
+	fp_double_get_parts(num, precision, &int_part, &fraction_part);
 
 	fp_double_write_fraction_part(&fraction_part, precision, &buf);
 	printf("result : %s\n", buf.data);
@@ -266,7 +266,7 @@ void		test_double_write_fraction_part_case12(void)
 	fxp_init(&fraction_part);
 	fxp_init(&int_part);
 	fp_init_buffer(&buf);
-	fp_get_double_parts(num, precision, &int_part, &fraction_part);
+	fp_double_get_parts(num, precision, &int_part, &fraction_part);
 
 	fp_double_write_fraction_part(&fraction_part, precision, &buf);
 	printf("result : %s\n", buf.data);
@@ -289,7 +289,7 @@ void		test_double_write_fraction_part_case13(void)
 	fxp_init(&fraction_part);
 	fxp_init(&int_part);
 	fp_init_buffer(&buf);
-	fp_get_double_parts(num, precision, &int_part, &fraction_part);
+	fp_double_get_parts(num, precision, &int_part, &fraction_part);
 
 	fp_double_write_fraction_part(&fraction_part, precision, &buf);
 	printf("result : %s\n", buf.data);
@@ -312,7 +312,7 @@ void		test_double_write_fraction_part_case14(void)
 	fxp_init(&fraction_part);
 	fxp_init(&int_part);
 	fp_init_buffer(&buf);
-	fp_get_double_parts(num, precision, &int_part, &fraction_part);
+	fp_double_get_parts(num, precision, &int_part, &fraction_part);
 
 	fp_double_write_fraction_part(&fraction_part, precision, &buf);
 	printf("result : %s\n", buf.data);
@@ -335,7 +335,7 @@ void		test_double_write_fraction_part_case15(void)
 	fxp_init(&fraction_part);
 	fxp_init(&int_part);
 	fp_init_buffer(&buf);
-	fp_get_double_parts(num, precision, &int_part, &fraction_part);
+	fp_double_get_parts(num, precision, &int_part, &fraction_part);
 
 	fp_double_write_fraction_part(&fraction_part, precision, &buf);
 	printf("result : %s\n", buf.data);
@@ -358,7 +358,7 @@ void		test_double_write_fraction_part_case16(void)
 	fxp_init(&fraction_part);
 	fxp_init(&int_part);
 	fp_init_buffer(&buf);
-	fp_get_double_parts(num, precision, &int_part, &fraction_part);
+	fp_double_get_parts(num, precision, &int_part, &fraction_part);
 
 	fp_double_write_fraction_part(&fraction_part, precision, &buf);
 	printf("result : %s\n", buf.data);
