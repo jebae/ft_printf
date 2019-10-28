@@ -7,6 +7,6 @@ dumbmain.c
 *.out
 *.dSYM
 test
-./includes/bigint.h
-./includes/fixedpoint.h
-./includes/libft.h
+includes/bigint.h
+includes/fixedpoint.h
+includes/libft.h
