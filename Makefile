@@ -239,7 +239,7 @@ $(OBJDIR)/%.o : $(SRCDIR)/parse_percent/%.c $(HEADERS)
 # build
 all : $(NAME)
 
-$(NAME) : deps pre_build $(OBJDIR) $(OBJS)
+$(NAME) : deps $(OBJDIR) $(OBJS)
 	@ar rc $(NAME) $(OBJS)
 	@ranlib $(NAME)
 
@@ -248,19 +248,10 @@ deps :
 	@$(MAKE) -C $(LIBBIGINT_PATH) all
 	@$(MAKE) -C $(LIBFIXEDPOINT_PATH) all
 
-pre_build :
-	@cd ./$(INCDIR)
-	@ln -f $(LIBFT_PATH)/includes/libft.h ./$(INCDIR)/
-	@ln -f $(LIBBIGINT_PATH)/includes/bigint.h ./$(INCDIR)/
-	@ln -f $(LIBFIXEDPOINT_PATH)/includes/fixedpoint.h ./$(INCDIR)/
-
 $(OBJDIR) :
 	@mkdir -p $(OBJDIR)
 
 # commands
-test : all
-	@$(CC) $(CFLAGS) $(INCLUDES) $(LIBS) $(SRCDIR)/__tests__/*.c $(SRCDIR)/__tests__/*/*.c test_main.c -o test
-
 clean :
 	@$(MAKE) -C $(LIBFT_PATH) clean
 	@$(MAKE) -C $(LIBBIGINT_PATH) clean
@@ -276,4 +267,4 @@ fclean : clean
 
 re : fclean all
 
-.PHONY : pre_build deps all clean fclean re test
+.PHONY : deps all clean fclean re test
