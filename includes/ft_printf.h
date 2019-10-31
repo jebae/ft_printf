@@ -6,7 +6,7 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/28 14:30:11 by jebae             #+#    #+#             */
-/*   Updated: 2019/10/28 14:48:35 by jebae            ###   ########.fr       */
+/*   Updated: 2019/10/31 16:19:12 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,9 @@
 */
 # define FP_SUCCESS					0
 # define FP_FAIL					1
+# define FP_ERROR					-1
 # define FP_ULLONG_MAX				0xffffffffffffffff
+# define FP_INT_MAX					0x7fffffff
 
 typedef struct	s_fp_buffer
 {
@@ -586,7 +588,8 @@ size_t			fp_parse_specifier(
 size_t			fp_parse_percent(
 	const char *format,
 	va_list ap,
-	t_fp_buffer *buf
+	t_fp_buffer *buf,
+	int *error
 );
 
 #endif
