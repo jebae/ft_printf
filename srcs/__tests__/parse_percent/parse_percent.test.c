@@ -8,10 +8,17 @@ static size_t	parse(
 {
 	va_list		ap;
 	size_t		res;
+	int			error;
 
+	error = 0;
 	va_start(ap, buf);
-	res = fp_parse_percent(format, ap, buf);
+	res = fp_parse_percent(format, ap, buf, &error);
 	va_end(ap);
+
+	test(
+		error == 0,
+		"fp_parse_percent : error"
+	);
 	return (res);
 }
 

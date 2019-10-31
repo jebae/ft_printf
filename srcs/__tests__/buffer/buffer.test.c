@@ -14,7 +14,7 @@ void		test_init_buffer_case1(void)
 
 	test(
 		buf.written == 0,
-		"flush_buffer : buf.written"
+		"init_buffer : buf.written"
 	);
 
 	test(
@@ -51,6 +51,11 @@ void		test_write_buffer_case1(void)
 		buf.data[buf.i] == 'b',
 		"write_buffer (a) : buf.data"
 	);
+
+	test(
+		buf.written == 2,
+		"init_buffer : buf.written"
+	);
 }
 
 void		test_write_buffer_case2(void)
@@ -71,6 +76,11 @@ void		test_write_buffer_case2(void)
 		buf.data[buf.i] == 'a',
 		"write_buffer (full) : buf.data"
 	);
+
+	test(
+		buf.written == 1,
+		"init_buffer : buf.written"
+	);
 }
 
 void		test_flush_buffer_case1(void)
@@ -89,11 +99,6 @@ void		test_flush_buffer_case1(void)
 			buf.data[i] == 0,
 			"flush_buffer : buf.data"
 		);
-
-	test(
-		buf.written == FP_BUFFER_SIZE,
-		"flush_buffer : buf.written"
-	);
 
 	test(
 		buf.i == -1,
@@ -120,11 +125,6 @@ void		test_flush_buffer_case2(void)
 			buf.data[i] == 0,
 			"flush_buffer : buf.data"
 		);
-
-	test(
-		buf.written == FP_BUFFER_SIZE + FP_BUFFER_SIZE / 2,
-		"flush_buffer : buf.written"
-	);
 
 	test(
 		buf.i == -1,
