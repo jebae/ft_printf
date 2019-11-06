@@ -117,11 +117,11 @@ void		test_parse_flag_case6(void)
 void		test_parse_flag_case7(void)
 {
 	printf(KYEL "test_parse_flag_case7\n" KNRM);
-	const char	*format = ",'*:;_";
+	const char	*format = ",':;_";
 	t_fp_tags	tags;
 
 	tags.mask = 0;
-	for (int i=0; i < 6; i++)
+	for (int i=0; i < 5; i++)
 	{
 		test(
 			fp_parse_flag(format + i, &tags) == 1,

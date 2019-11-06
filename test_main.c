@@ -14,10 +14,12 @@ int		main(void)
 
 	test_parse_width_case1();
 	test_parse_width_case2();
+	test_parse_width_case3();
 
 	test_parse_precision_case1();
 	test_parse_precision_case2();
 	test_parse_precision_case3();
+	test_parse_precision_case4();
 
 	test_parse_length_case1();
 	test_parse_length_case2();
@@ -757,5 +759,8 @@ int		main(void)
 	test_parse_percent_case136();
 	test_parse_percent_case137();
 	test_parse_percent_case138();
+	test_parse_percent_case139();
+	test_parse_percent_case140();
+	test_parse_percent_case141();
 	//while (1);
 }
