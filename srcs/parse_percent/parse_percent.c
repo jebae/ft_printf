@@ -6,7 +6,7 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/28 14:32:54 by jebae             #+#    #+#             */
-/*   Updated: 2019/10/31 16:07:33 by jebae            ###   ########.fr       */
+/*   Updated: 2019/11/06 16:25:53 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ static void		init_tags_and_arg(t_fp_tags *tags, t_fp_arg *arg)
 	arg->length = NULL;
 	arg->sign = NULL;
 	arg->write = NULL;
+	arg->prefix = NULL;
+	arg->leading_zero = NULL;
 	fxp_init(&arg->data.f.int_part);
 	fxp_init(&arg->data.f.fraction_part);
 }
@@ -56,8 +58,8 @@ size_t			fp_parse_percent(
 	{
 		j = 0;
 		j += fp_parse_flag(format + i, &tags);
-		j += fp_parse_width(format + i + j, &tags);
-		j += fp_parse_precision(format + i + j, &tags);
+		j += fp_parse_width(format + i + j, ap, &tags);
+		j += fp_parse_precision(format + i + j, ap, &tags);
 		j += fp_parse_length(format + i + j, &tags);
 		i += j;
 	}

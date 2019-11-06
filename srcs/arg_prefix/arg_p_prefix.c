@@ -15,10 +15,12 @@
 void			fp_arg_p_prefix(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
+	size_t length,
 	char *prefix
 )
 {
 	(void)data;
 	(void)tags;
+	(void)length;
 	ft_strcpy(prefix, "0x");
 }

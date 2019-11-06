@@ -67,7 +67,6 @@ SRC_ARG_PREFIX = arg_o_prefix.c\
 	arg_no_prefix.c\
 
 SRC_ARG_LEADING_ZERO = arg_leading_zero.c\
-	arg_o_leading_zero.c\
 	arg_no_leading_zero.c\
 
 SRC_BUFFER = buffer.c\
