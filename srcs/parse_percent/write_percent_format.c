@@ -20,8 +20,8 @@ static void		set_percent_format_vars(
 {
 	ft_bzero(v->prefix, 2);
 	v->sign = arg->sign(&arg->data, tags);
-	arg->prefix(&arg->data, tags, v->prefix);
 	v->content_len = arg->length(&arg->data, tags);
+	arg->prefix(&arg->data, tags, v->content_len, v->prefix);
 	v->leading_zero = arg->leading_zero(tags, v->content_len);
 	v->total_len = v->content_len +
 		((v->sign == FP_NO_SIGN) ? 0 : 1) +

@@ -33,17 +33,21 @@ static void		write_prefix(
 void			fp_arg_x_prefix(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
+	size_t length,
 	char *prefix
 )
 {
+	(void)length;
 	write_prefix(data, tags, 0, prefix);
 }
 
 void			fp_arg_upper_x_prefix(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
+	size_t length,
 	char *prefix
 )
 {
+	(void)length;
 	write_prefix(data, tags, 1, prefix);
 }

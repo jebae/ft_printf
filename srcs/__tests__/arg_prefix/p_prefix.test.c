@@ -11,7 +11,7 @@ void		test_arg_p_prefix_case1(void)
 	tags.mask = 0;
 	data.i = 0x123456;
 
-	fp_arg_p_prefix(&data, &tags, prefix);
+	fp_arg_p_prefix(&data, &tags, 0, prefix);
 
 	test(
 		ft_strcmp(prefix, "0x") == 0,
@@ -31,7 +31,7 @@ void		test_arg_p_prefix_case2(void)
 	tags.mask = 0;
 	data.i = 0x0;
 
-	fp_arg_p_prefix(&data, &tags, prefix);
+	fp_arg_p_prefix(&data, &tags, 0, prefix);
 
 	test(
 		ft_strcmp(prefix, "0x") == 0,

@@ -640,12 +640,6 @@ void		test_arg_leading_zero_case1(void);
 void		test_arg_leading_zero_case2(void);
 void		test_arg_leading_zero_case3(void);
 
-void		test_arg_o_leading_zero_case1(void);
-void		test_arg_o_leading_zero_case2(void);
-void		test_arg_o_leading_zero_case3(void);
-void		test_arg_o_leading_zero_case4(void);
-void		test_arg_o_leading_zero_case5(void);
-
 /*
 ** double_get_scientific_parts test
 */

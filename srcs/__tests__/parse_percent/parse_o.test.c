@@ -44,7 +44,7 @@ void		test_parse_o_case1(void)
 	);
 
 	test(
-		arg.leading_zero == &fp_arg_o_leading_zero,
+		arg.leading_zero == &fp_arg_leading_zero,
 		"fp_parse_o : arg.leading_zero"
 	);
 
@@ -87,7 +87,7 @@ void		test_parse_o_case2(void)
 	);
 
 	test(
-		arg.leading_zero == &fp_arg_o_leading_zero,
+		arg.leading_zero == &fp_arg_leading_zero,
 		"fp_parse_o : arg.leading_zero"
 	);
 
@@ -129,7 +129,7 @@ void		test_parse_o_case3(void)
 	);
 
 	test(
-		arg.leading_zero == &fp_arg_o_leading_zero,
+		arg.leading_zero == &fp_arg_leading_zero,
 		"fp_parse_o : arg.leading_zero"
 	);
 
@@ -173,7 +173,7 @@ void		test_parse_o_case4(void)
 	);
 
 	test(
-		arg.leading_zero == &fp_arg_o_leading_zero,
+		arg.leading_zero == &fp_arg_leading_zero,
 		"fp_parse_o : arg.leading_zero"
 	);
 
@@ -218,7 +218,7 @@ void		test_parse_o_case5(void)
 	);
 
 	test(
-		arg.leading_zero == &fp_arg_o_leading_zero,
+		arg.leading_zero == &fp_arg_leading_zero,
 		"fp_parse_o : arg.leading_zero"
 	);
 
@@ -261,7 +261,7 @@ void		test_parse_o_case6(void)
 	);
 
 	test(
-		arg.leading_zero == &fp_arg_o_leading_zero,
+		arg.leading_zero == &fp_arg_leading_zero,
 		"fp_parse_o : arg.leading_zero"
 	);
 

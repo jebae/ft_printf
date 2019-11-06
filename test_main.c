@@ -525,11 +525,6 @@ int		main(void)
 	test_parse_percent_case97();
 	test_parse_percent_case98();
 
-	test_arg_o_leading_zero_case1();
-	test_arg_o_leading_zero_case2();
-	test_arg_o_leading_zero_case3();
-	test_arg_o_leading_zero_case4();
-
 	test_arg_s_length_case6();
 	test_arg_s_length_case7();
 
@@ -538,7 +533,6 @@ int		main(void)
 
 	test_parse_percent_case99();
 	test_arg_o_prefix_case3();
-	test_arg_o_leading_zero_case5();
 	test_parse_percent_case100();
 	test_parse_percent_case101();
 	test_parse_percent_case102();

@@ -12,7 +12,7 @@ void		test_arg_x_prefix_case1(void)
 	tags.mask = 0;
 	data.i = 123;
 
-	fp_arg_x_prefix(&data, &tags, prefix);
+	fp_arg_x_prefix(&data, &tags, 0, prefix);
 
 	test(
 		ft_strcmp(prefix, "") == 0,
@@ -33,7 +33,7 @@ void		test_arg_x_prefix_case2(void)
 	data.i = 123;
 	tags.mask |= FP_MASK_FLAG_SHARP;
 
-	fp_arg_x_prefix(&data, &tags, prefix);
+	fp_arg_x_prefix(&data, &tags, 0, prefix);
 
 	test(
 		ft_strcmp(prefix, "0x") == 0,
@@ -54,7 +54,7 @@ void		test_arg_x_prefix_case3(void)
 	data.i = 0;
 	tags.mask |= FP_MASK_FLAG_SHARP;
 
-	fp_arg_x_prefix(&data, &tags, prefix);
+	fp_arg_x_prefix(&data, &tags, 0, prefix);
 
 	test(
 		ft_strcmp(prefix, "") == 0,
@@ -74,7 +74,7 @@ void		test_arg_upper_x_prefix_case1(void)
 	tags.mask = 0;
 	data.i = 123;
 
-	fp_arg_upper_x_prefix(&data, &tags, prefix);
+	fp_arg_upper_x_prefix(&data, &tags, 0, prefix);
 
 	test(
 		ft_strcmp(prefix, "") == 0,
@@ -95,7 +95,7 @@ void		test_arg_upper_x_prefix_case2(void)
 	data.i = 123;
 	tags.mask |= FP_MASK_FLAG_SHARP;
 
-	fp_arg_upper_x_prefix(&data, &tags, prefix);
+	fp_arg_upper_x_prefix(&data, &tags, 0, prefix);
 
 	test(
 		ft_strcmp(prefix, "0X") == 0,
@@ -116,7 +116,7 @@ void		test_arg_upper_x_prefix_case3(void)
 	data.i = 0;
 	tags.mask |= FP_MASK_FLAG_SHARP;
 
-	fp_arg_upper_x_prefix(&data, &tags, prefix);
+	fp_arg_upper_x_prefix(&data, &tags, 0, prefix);
 
 	test(
 		ft_strcmp(prefix, "") == 0,

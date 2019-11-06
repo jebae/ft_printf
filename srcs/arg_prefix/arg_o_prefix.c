@@ -12,10 +12,20 @@
 
 #include "ft_printf.h"
 
-void	fp_arg_o_prefix(t_fp_arg_data *data, t_fp_tags *tags, char *prefix)
+void	fp_arg_o_prefix(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	size_t length,
+	char *prefix
+)
 {
-	if (data->i == 0)
+	if (data->i == 0 && length == 1)
 		return ;
 	if (tags->mask & FP_MASK_FLAG_SHARP)
+	{
+		if ((tags->mask & FP_MASK_PRECISION) &&
+			tags->precision > length)
+			return ;
 		ft_strcpy(prefix, "0");
+	}
 }

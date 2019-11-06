@@ -18,6 +18,8 @@ static void		init_tags_and_arg(t_fp_tags *tags, t_fp_arg *arg)
 	arg->length = NULL;
 	arg->sign = NULL;
 	arg->write = NULL;
+	arg->prefix = NULL;
+	arg->leading_zero = NULL;
 	fxp_init(&arg->data.f.int_part);
 	fxp_init(&arg->data.f.fraction_part);
 }

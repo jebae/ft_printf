@@ -91,6 +91,7 @@ typedef struct	s_fp_arg
 	void			(*prefix)(
 		t_fp_arg_data *data,
 		t_fp_tags *tags,
+		size_t length,
 		char *prefix);
 	void			(*write)(
 		t_fp_arg_data *data,
@@ -185,30 +186,35 @@ char			fp_arg_no_sign(t_fp_arg_data *data, t_fp_tags *tags);
 void			fp_arg_o_prefix(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
+	size_t length,
 	char *prefix
 );
 
 void			fp_arg_x_prefix(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
+	size_t length,
 	char *prefix
 );
 
 void			fp_arg_upper_x_prefix(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
+	size_t length,
 	char *prefix
 );
 
 void			fp_arg_p_prefix(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
+	size_t length,
 	char *prefix
 );
 
 void			fp_arg_no_prefix(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
+	size_t length,
 	char *prefix
 );
 
