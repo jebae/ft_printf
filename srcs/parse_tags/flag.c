@@ -6,7 +6,7 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/24 16:16:01 by jebae             #+#    #+#             */
-/*   Updated: 2019/10/24 17:03:39 by jebae            ###   ########.fr       */
+/*   Updated: 2019/11/06 15:04:25 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 static int		case_extra(char ch)
 {
-	static char		*extras = ",'*:;_";
+	static char		*extras = ",':;_";
 	int				i;
 
 	i = 0;
-	while (i < 6)
+	while (i < 5)
 	{
 		if (ch == extras[i])
 			return (1);

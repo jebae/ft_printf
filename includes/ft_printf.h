@@ -6,7 +6,7 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/28 14:30:11 by jebae             #+#    #+#             */
-/*   Updated: 2019/10/31 16:19:12 by jebae            ###   ########.fr       */
+/*   Updated: 2019/11/06 15:15:54 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,8 +115,12 @@ int				ft_printf(const char *format, ...);
 */
 void			fp_init_tags(t_fp_tags *tags);
 size_t			fp_parse_flag(const char *format, t_fp_tags *tags);
-size_t			fp_parse_width(const char *format, t_fp_tags *tags);
-size_t			fp_parse_precision(const char *format, t_fp_tags *tags);
+size_t			fp_parse_width(const char *format, va_list ap, t_fp_tags *tags);
+size_t			fp_parse_precision(
+	const char *format,
+	va_list ap,
+	t_fp_tags *tags
+);
 size_t			fp_parse_length(const char *format, t_fp_tags *tags);
 
 /*
