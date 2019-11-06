@@ -6,12 +6,11 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/28 14:32:54 by jebae             #+#    #+#             */
-/*   Updated: 2019/11/06 15:20:31 by jebae            ###   ########.fr       */
+/*   Updated: 2019/11/06 16:25:53 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 static void		init_tags_and_arg(t_fp_tags *tags, t_fp_arg *arg)
 {
