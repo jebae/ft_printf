@@ -6,7 +6,7 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/28 14:30:11 by jebae             #+#    #+#             */
-/*   Updated: 2019/11/06 15:15:54 by jebae            ###   ########.fr       */
+/*   Updated: 2019/11/07 15:43:39 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@
 /*
 ** buffer macros
 */
-# define FP_BUFFER_SIZE				64
+# define FP_BUFFER_SIZE				128
 # define FP_OUTPUT					1
 
 /*
@@ -183,7 +183,49 @@ char			fp_arg_no_sign(t_fp_arg_data *data, t_fp_tags *tags);
 /*
 ** arg_prefix
 */
+void			write_hex_prefix(
+	unsigned long long num,
+	t_fp_tags *tags,
+	int is_upper,
+	char *prefix
+);
+
+void			write_octal_prefix(
+	unsigned long long num,
+	t_fp_tags *tags,
+	size_t length,
+	char *prefix
+);
+
 void			fp_arg_o_prefix(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	size_t length,
+	char *prefix
+);
+
+void			fp_arg_ho_prefix(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	size_t length,
+	char *prefix
+);
+
+void			fp_arg_hho_prefix(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	size_t length,
+	char *prefix
+);
+
+void			fp_arg_lo_prefix(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	size_t length,
+	char *prefix
+);
+
+void			fp_arg_llo_prefix(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
 	size_t length,
@@ -197,7 +239,63 @@ void			fp_arg_x_prefix(
 	char *prefix
 );
 
+void			fp_arg_hx_prefix(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	size_t length,
+	char *prefix
+);
+
+void			fp_arg_hhx_prefix(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	size_t length,
+	char *prefix
+);
+
+void			fp_arg_lx_prefix(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	size_t length,
+	char *prefix
+);
+
+void			fp_arg_llx_prefix(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	size_t length,
+	char *prefix
+);
+
 void			fp_arg_upper_x_prefix(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	size_t length,
+	char *prefix
+);
+
+void			fp_arg_upper_hx_prefix(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	size_t length,
+	char *prefix
+);
+
+void			fp_arg_upper_hhx_prefix(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	size_t length,
+	char *prefix
+);
+
+void			fp_arg_upper_lx_prefix(
+	t_fp_arg_data *data,
+	t_fp_tags *tags,
+	size_t length,
+	char *prefix
+);
+
+void			fp_arg_upper_llx_prefix(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
 	size_t length,
@@ -413,28 +511,28 @@ void			fp_arg_upper_x_write(
 	t_fp_buffer *buf
 );
 
-void			fp_arg_h_upper_x_write(
+void			fp_arg_upper_hx_write(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
 	size_t length,
 	t_fp_buffer *buf
 );
 
-void			fp_arg_hh_upper_x_write(
+void			fp_arg_upper_hhx_write(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
 	size_t length,
 	t_fp_buffer *buf
 );
 
-void			fp_arg_l_upper_x_write(
+void			fp_arg_upper_lx_write(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
 	size_t length,
 	t_fp_buffer *buf
 );
 
-void			fp_arg_ll_upper_x_write(
+void			fp_arg_upper_llx_write(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
 	size_t length,

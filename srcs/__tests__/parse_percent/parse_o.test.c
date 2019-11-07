@@ -82,7 +82,7 @@ void		test_parse_o_case2(void)
 	);
 
 	test(
-		arg.prefix == &fp_arg_o_prefix,
+		arg.prefix == &fp_arg_ho_prefix,
 		"fp_parse_o : arg.prefix"
 	);
 
@@ -124,7 +124,7 @@ void		test_parse_o_case3(void)
 	);
 
 	test(
-		arg.prefix == &fp_arg_o_prefix,
+		arg.prefix == &fp_arg_hho_prefix,
 		"fp_parse_o : arg.prefix"
 	);
 
@@ -168,7 +168,7 @@ void		test_parse_o_case4(void)
 	);
 
 	test(
-		arg.prefix == &fp_arg_o_prefix,
+		arg.prefix == &fp_arg_lo_prefix,
 		"fp_parse_o : arg.prefix"
 	);
 
@@ -213,7 +213,7 @@ void		test_parse_o_case5(void)
 	);
 
 	test(
-		arg.prefix == &fp_arg_o_prefix,
+		arg.prefix == &fp_arg_llo_prefix,
 		"fp_parse_o : arg.prefix"
 	);
 

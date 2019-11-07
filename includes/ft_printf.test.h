@@ -336,14 +336,14 @@ void		test_arg_llx_write_case1(void);
 void		test_arg_upper_x_write_case1(void);
 void		test_arg_upper_x_write_case2(void);
 
-void		test_arg_h_upper_x_write_case1(void);
-void		test_arg_h_upper_x_write_case2(void);
+void		test_arg_upper_hx_write_case1(void);
+void		test_arg_upper_hx_write_case2(void);
 
-void		test_arg_hh_upper_x_write_case1(void);
-void		test_arg_hh_upper_x_write_case2(void);
+void		test_arg_upper_hhx_write_case1(void);
+void		test_arg_upper_hhx_write_case2(void);
 
-void		test_arg_l_upper_x_write_case1(void);
-void		test_arg_ll_upper_x_write_case1(void);
+void		test_arg_upper_lx_write_case1(void);
+void		test_arg_upper_llx_write_case1(void);
 
 void		test_arg_o_write_case1(void);
 void		test_arg_o_write_case2(void);

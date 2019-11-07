@@ -6,7 +6,7 @@
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/24 16:15:29 by jebae             #+#    #+#             */
-/*   Updated: 2019/10/24 16:15:30 by jebae            ###   ########.fr       */
+/*   Updated: 2019/11/07 16:03:43 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,28 @@ static void		case_ho(t_fp_arg *arg)
 {
 	arg->length = &fp_arg_ho_length;
 	arg->write = &fp_arg_ho_write;
+	arg->prefix = &fp_arg_ho_prefix;
 }
 
 static void		case_hho(t_fp_arg *arg)
 {
 	arg->length = &fp_arg_hho_length;
 	arg->write = &fp_arg_hho_write;
+	arg->prefix = &fp_arg_hho_prefix;
 }
 
 static void		case_lo(t_fp_arg *arg)
 {
 	arg->length = &fp_arg_lo_length;
 	arg->write = &fp_arg_lo_write;
+	arg->prefix = &fp_arg_lo_prefix;
 }
 
 static void		case_llo(t_fp_arg *arg)
 {
 	arg->length = &fp_arg_llo_length;
 	arg->write = &fp_arg_llo_write;
+	arg->prefix = &fp_arg_llo_prefix;
 }
 
 void			fp_parse_o(va_list ap, t_fp_tags *tags, t_fp_arg *arg)
@@ -51,10 +55,10 @@ void			fp_parse_o(va_list ap, t_fp_tags *tags, t_fp_arg *arg)
 	{
 		arg->length = &fp_arg_o_length;
 		arg->write = &fp_arg_o_write;
+		arg->prefix = &fp_arg_o_prefix;
 	}
 	arg->sign = &fp_arg_no_sign;
 	arg->leading_zero = &fp_arg_leading_zero;
-	arg->prefix = &fp_arg_o_prefix;
 	if (tags->mask & FP_MASK_PRECISION)
 		tags->mask &= ~FP_MASK_FLAG_ZERO;
 }

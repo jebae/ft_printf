@@ -82,7 +82,7 @@ void		test_parse_x_case2(void)
 	);
 
 	test(
-		arg.prefix == &fp_arg_x_prefix,
+		arg.prefix == &fp_arg_hx_prefix,
 		"fp_parse_x : arg.prefix"
 	);
 
@@ -124,7 +124,7 @@ void		test_parse_x_case3(void)
 	);
 
 	test(
-		arg.prefix == &fp_arg_x_prefix,
+		arg.prefix == &fp_arg_hhx_prefix,
 		"fp_parse_x : arg.prefix"
 	);
 
@@ -168,7 +168,7 @@ void		test_parse_x_case4(void)
 	);
 
 	test(
-		arg.prefix == &fp_arg_x_prefix,
+		arg.prefix == &fp_arg_lx_prefix,
 		"fp_parse_x : arg.prefix"
 	);
 
@@ -213,7 +213,7 @@ void		test_parse_x_case5(void)
 	);
 
 	test(
-		arg.prefix == &fp_arg_x_prefix,
+		arg.prefix == &fp_arg_llx_prefix,
 		"fp_parse_x : arg.prefix"
 	);
 

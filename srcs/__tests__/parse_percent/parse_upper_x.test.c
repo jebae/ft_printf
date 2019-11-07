@@ -82,7 +82,7 @@ void		test_parse_upper_x_case2(void)
 	);
 
 	test(
-		arg.prefix == &fp_arg_upper_x_prefix,
+		arg.prefix == &fp_arg_upper_hx_prefix,
 		"fp_parse_x : arg.prefix"
 	);
 
@@ -92,7 +92,7 @@ void		test_parse_upper_x_case2(void)
 	);
 
 	test(
-		arg.write == &fp_arg_h_upper_x_write,
+		arg.write == &fp_arg_upper_hx_write,
 		"fp_parse_upper_x : arg.write"
 	);
 }
@@ -124,7 +124,7 @@ void		test_parse_upper_x_case3(void)
 	);
 
 	test(
-		arg.prefix == &fp_arg_upper_x_prefix,
+		arg.prefix == &fp_arg_upper_hhx_prefix,
 		"fp_parse_x : arg.prefix"
 	);
 
@@ -134,7 +134,7 @@ void		test_parse_upper_x_case3(void)
 	);
 
 	test(
-		arg.write == &fp_arg_hh_upper_x_write,
+		arg.write == &fp_arg_upper_hhx_write,
 		"fp_parse_upper_x : arg.write"
 	);
 }
@@ -168,7 +168,7 @@ void		test_parse_upper_x_case4(void)
 	);
 
 	test(
-		arg.prefix == &fp_arg_upper_x_prefix,
+		arg.prefix == &fp_arg_upper_lx_prefix,
 		"fp_parse_x : arg.prefix"
 	);
 
@@ -178,7 +178,7 @@ void		test_parse_upper_x_case4(void)
 	);
 
 	test(
-		arg.write == &fp_arg_l_upper_x_write,
+		arg.write == &fp_arg_upper_lx_write,
 		"fp_parse_upper_x : arg.write"
 	);
 }
@@ -213,7 +213,7 @@ void		test_parse_upper_x_case5(void)
 	);
 
 	test(
-		arg.prefix == &fp_arg_upper_x_prefix,
+		arg.prefix == &fp_arg_upper_llx_prefix,
 		"fp_parse_x : arg.prefix"
 	);
 
@@ -223,7 +223,7 @@ void		test_parse_upper_x_case5(void)
 	);
 
 	test(
-		arg.write == &fp_arg_ll_upper_x_write,
+		arg.write == &fp_arg_upper_llx_write,
 		"fp_parse_upper_x : arg.write"
 	);
 }
