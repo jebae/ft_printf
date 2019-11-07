@@ -63,11 +63,12 @@ SRC_ARG_SIGN = num_sign.c\
 
 SRC_ARG_PREFIX = arg_o_prefix.c\
 	arg_x_prefix.c\
+	arg_upper_x_prefix.c\
 	arg_p_prefix.c\
 	arg_no_prefix.c\
+	write_prefix.c\
 
 SRC_ARG_LEADING_ZERO = arg_leading_zero.c\
-	arg_o_leading_zero.c\
 	arg_no_leading_zero.c\
 
 SRC_BUFFER = buffer.c\

@@ -15,10 +15,12 @@
 void			fp_arg_no_prefix(
 	t_fp_arg_data *data,
 	t_fp_tags *tags,
+	size_t length,
 	char *prefix
 )
 {
 	(void)data;
 	(void)tags;
+	(void)length;
 	(void)prefix;
 }
