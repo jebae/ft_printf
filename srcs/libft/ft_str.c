@@ -1,27 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arg_leading_zero.c                                 :+:      :+:    :+:   */
+/*   ft_str.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jebae <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/24 16:12:39 by jebae             #+#    #+#             */
-/*   Updated: 2019/11/09 13:57:16 by jebae            ###   ########.fr       */
+/*   Created: 2019/11/09 14:26:18 by jebae             #+#    #+#             */
+/*   Updated: 2019/11/09 14:26:19 by jebae            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-size_t			fp_arg_leading_zero(t_fp_tags *tags, size_t length)
+int		ft_isdigit(int c)
 {
-	if ((tags->mask & FP_MASK_PRECISION) && tags->precision > length)
-		return (tags->precision - length);
-	return (0);
+	return (c >= '0' && c <= '9');
 }
 
-size_t			fp_arg_no_leading_zero(t_fp_tags *tags, size_t length)
+char	*ft_strcpy(char *dst, const char *src)
 {
-	(void)tags;
-	(void)length;
-	return (0);
+	char	*p_dst;
+
+	if (dst == NULL || src == NULL)
+		return (dst);
+	p_dst = dst;
+	while (*src != '\0')
+		*(p_dst++) = *(src++);
+	*p_dst = *src;
+	return (dst);
+}
+
+size_t	ft_strlen(const char *str)
+{
+	int		len;
+
+	len = 0;
+	while (*(str++) != '\0')
+		len++;
+	return (len);
 }
