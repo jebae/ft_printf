@@ -32,6 +32,5 @@ void		fp_flush_buffer(t_fp_buffer *buf)
 	if (buf->i < 0)
 		return ;
 	write(FP_OUTPUT, buf->data, buf->i + 1);
-	ft_bzero(buf->data, buf->i + 1);
 	buf->i = -1;
 }

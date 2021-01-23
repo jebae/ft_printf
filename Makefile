@@ -9,12 +9,16 @@ SRCDIR = srcs
 
 INCDIR = includes
 
+LIBDIR = libs
+
 OBJDIR = objs
 
 # compiler options
 CFLAGS = -Wall -Werror -Wextra
 
-INCLUDES = -I ./$(INCDIR)
+INCLUDES = -I ./$(INCDIR) -I ./$(LIBDIR)/libft/includes
+
+LIBS = -L ./$(LIBDIR)/libft -lft
 
 # srcs
 SRC_FT_PRINTF = ft_printf.c\
@@ -80,14 +84,6 @@ SRC_PARSE_PERCENT = write_percent_format.c\
 	double_get_bcd_fraction_part.c\
 	double_get_bcd_int_part.c\
 
-SRC_LIBFT = ft_extract_double.c\
-	ft_mem.c\
-	ft_bzero.c\
-	ft_str.c\
-	ft_utf8.c\
-	ft_is_nan_inf.c\
-	ft_math.c\
-
 SRC_BIGINT = bi_mem.c\
 	bi_mem2.c\
 	bi_abs_compare.c\
@@ -121,7 +117,6 @@ OBJS += $(addprefix $(OBJDIR)/, $(SRC_ARG_LEADING_ZERO:.c=.o))
 OBJS += $(addprefix $(OBJDIR)/, $(SRC_BUFFER:.c=.o))
 OBJS += $(addprefix $(OBJDIR)/, $(SRC_ARG_WRITE:.c=.o))
 OBJS += $(addprefix $(OBJDIR)/, $(SRC_PARSE_PERCENT:.c=.o))
-OBJS += $(addprefix $(OBJDIR)/, $(SRC_LIBFT:.c=.o))
 OBJS += $(addprefix $(OBJDIR)/, $(SRC_BIGINT:.c=.o))
 OBJS += $(addprefix $(OBJDIR)/, $(SRC_FIXEDPOINT:.c=.o))
 
@@ -161,9 +156,6 @@ $(OBJDIR)/%.o : $(SRCDIR)/parse_percent/float/%.c $(HEADERS)
 $(OBJDIR)/%.o : $(SRCDIR)/parse_percent/%.c $(HEADERS)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-$(OBJDIR)/%.o : $(SRCDIR)/libft/%.c $(HEADERS)
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-
 $(OBJDIR)/%.o : $(SRCDIR)/bigint/%.c $(HEADERS)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
@@ -173,7 +165,10 @@ $(OBJDIR)/%.o : $(SRCDIR)/fixedpoint/%.c $(HEADERS)
 # build
 all : $(NAME)
 
-$(NAME) : $(OBJDIR) $(OBJS)
+deps:
+	make -C ../libft all
+
+$(NAME) : deps $(OBJDIR) $(OBJS)
 	@ar rc $(NAME) $(OBJS)
 	@ranlib $(NAME)
 
